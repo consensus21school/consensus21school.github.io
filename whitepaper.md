@@ -80,4 +80,70 @@ Consensus21 represents a bold step forward in the evolution of education. By dec
 By leveraging Bitcoin, the Lightning Network, and a community-driven governance model, Consensus21 is building the educational framework of the future—one that is scalable, open-source, and designed to empower both learners and mentors alike.
 
 ## References
-- Lightning Network. "The Lightning Network: Scalable Off-Chain Instant Payments
+## References
+
+- Nakamoto, Satoshi. *Bitcoin: A Peer-to-Peer Electronic Cash System*. 2008.  
+  [Link to whitepaper](https://bitcoin.org/bitcoin.pdf)
+
+- Poon, Joseph, and Dryja, Thaddeus. *The Lightning Network: Scalable Off-Chain Instant Payments*. 2016.  
+  [Link to whitepaper](https://lightning.network/lightning-network-paper.pdf)
+
+- *Fedimint: Federated Mint Protocol*. 2022.  
+  [Link to whitepaper](https://fedimint.org/wp-content/uploads/2022/11/fedimint-paper.pdf)
+
+- Bollier, David. *The Self-Organizing Revolution: Commoning as a Path to Liberation*. 2014.  
+  [Link to book](https://www.amazon.com/Self-Organizing-Revolution-Commoning-Liberation-Collective/dp/1608464771)
+
+- Lomax, Eric. *Radical Education: A Reinterpretation*. 1971.  
+  [Link to book](https://www.amazon.com/Radical-Education-Reinterpretation-Eric-Lomax/dp/0713910595)
+
+- Papert, Seymour. *Mindstorms: Children, Computers, and Powerful Ideas*. 1980.  
+  [Link to book](https://www.amazon.com/Mindstorms-Children-Computers-Powerful-Ideas/dp/0465046746)
+
+- Freire, Paulo. *Pedagogy of the Oppressed*. 1970.  
+  [Link to book](https://www.amazon.com/Pedagogy-Oppressed-30th-Anniversary/dp/0826412769)
+
+- Fadel, Charles. *The Elements of a 21st Century Education*. 2015.  
+  [Link to book](https://www.amazon.com/Elements-21st-Century-Education-Fadel/dp/1137521090)
+
+- Larmer, John, and Mergendoller, John. *The Power of Project-Based Learning: Helping Students Develop Important Skills*. 2015.  
+  [Link to book](https://www.amazon.com/Power-Project-Based-Learning-Students-Important/dp/1416620092)
+
+- Wenger, Etienne. *Communities of Practice: Learning, Meaning, and Identity*. 1998.  
+  [Link to book](https://www.amazon.com/Communities-Practice-Learning-Meaning-Participation/dp/0521663636)
+
+- National Research Council. *How People Learn: Brain, Mind, Experience, and School*. 2000.  
+  [Link to book](https://www.amazon.com/How-People-Learn-Experience-School/dp/0309070368)
+
+- Carey, Kevin. *The End of College: Creating the Future of Learning and the University of Everywhere*. 2015.  
+  [Link to book](https://www.amazon.com/End-College-Creating-University-Everywhere/dp/0544705205)
+
+- Jackson, G. M., & Scott, L. T. *Innovative Higher Education: Developing the World's Next Generation of Problem-Solvers*. 2016.  
+  [Link to book](https://www.amazon.com/Innovative-Higher-Education-Developing-Problem-Solvers/dp/1137493751)
+
+- Surowiecki, James. *The Wisdom of Crowds*. 2004.  
+  [Link to book](https://www.amazon.com/Wisdom-Crowds-James-Surowiecki/dp/0385721706)
+
+- Senge, Peter M. *The Fifth Discipline: The Art & Practice of The Learning Organization*. 1990.  
+  [Link to book](https://www.amazon.com/Fifth-Discipline-Practice-Learning-Organization/dp/0385517254)
+
+- Schwab, Klaus. *The Fourth Industrial Revolution*. 2016.  
+  [Link to book](https://www.amazon.com/Fourth-Industrial-Revolution-Klaus-Schwab/dp/0393356042)
+
+- Brynjolfsson, Erik, and McAfee, Andrew. *The Second Machine Age: Work, Progress, and Prosperity in a Time of Brilliant Technologies*. 2014.  
+  [Link to book](https://www.amazon.com/Second-Machine-Age-Prosperity-Technologies/dp/039335064X)
+
+- Zhao, Yong. *World Class Learners: Educating Creative and Entrepreneurial Students*. 2012.  
+  [Link to book](https://www.amazon.com/World-Class-Learners-Educating-Entrepreneurial/dp/1452236471)
+
+- Zhao, Yong. *Catching Up or Leading the Way: American Education in the Age of Globalization*. 2009.  
+  [Link to book](https://www.amazon.com/Catching-Up-Leading-Way-Education/dp/1412968834)
+
+- Zhao, Yong. *What Works May Hurt: Side Effects in Education*. 2012.  
+  [Link to book](https://www.amazon.com/What-Works-May-Hurt-Education/dp/1412993226)
+
+- Zhao, Yong. *Never Send a Human to Do a Machine's Job: Correcting the Top 5 EdTech Mistakes*. 2019.  
+  [Link to book](https://www.amazon.com/Never-Send-Human-Machines-Correcting/dp/1943876367)
+
+- Zhao, Yong. *The Tao of Education: A Path to Lifelong Learning*. 2021.  
+  [Link to book](https://www.amazon.com/Tao-Education-Path-Lifelong-Learning/dp/1952196012)
