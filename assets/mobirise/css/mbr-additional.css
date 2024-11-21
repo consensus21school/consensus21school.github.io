@@ -1002,7 +1002,7 @@ a {
 }
 @media (min-width: 992px) {
   .cid-uuqXdjpNA6 .navbar.collapsed.opened:not(.navbar-short) .navbar-collapse {
-    max-height: calc(98.5vh - 4.4rem);
+    max-height: calc(98.5vh - 5rem);
   }
 }
 .cid-uuqXdjpNA6 .navbar.collapsed .dropdown-menu .dropdown-submenu {
@@ -1346,18 +1346,6 @@ a {
     padding: 1rem;
   }
 }
-#custom-html-o {
-  /* Type valid CSS here */
-}
-#custom-html-o div {
-  padding: 80px 0;
-  color: #777;
-  text-align: center;
-}
-#custom-html-o p {
-  font-size: 60px;
-  color: #777;
-}
 .cid-uuIrrDUwzo {
   background-color: #ff3a00;
 }
@@ -1373,7 +1361,7 @@ a {
   padding: 0 60px;
 }
 .cid-uuIrrDUwzo .mbr-section-subtitle {
-  color: #000000;
+  color: #ffffff;
   position: absolute;
   text-align: left;
   left: 50%;
