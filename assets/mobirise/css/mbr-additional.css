@@ -938,8 +938,7 @@ a {
   border-radius: 1.5rem;
   transition: 0.3s all !important;
   min-width: auto;
-  background: #000000;
-  background: rgba(0, 0, 0, 0) !important;
+  background: #ffffff;
 }
 .cid-uuqXdjpNA6 .nav-item:focus,
 .cid-uuqXdjpNA6 .nav-link:focus {
@@ -1101,7 +1100,7 @@ a {
   padding: 0.667em 1.667em;
 }
 .cid-uuqXdjpNA6 .navbar.navbar-expand-lg .dropdown .dropdown-menu {
-  background: #000000;
+  background: #ffffff;
 }
 .cid-uuqXdjpNA6 .navbar.navbar-expand-lg .dropdown .dropdown-menu .dropdown-submenu {
   margin: 0;
@@ -1181,10 +1180,10 @@ a {
 }
 .cid-uuqXdjpNA6 .navbar-dropdown {
   padding: 0;
-  background: rgba(0, 0, 0, 0) !important;
+  background-color: #ffffff !important;
 }
 .cid-uuqXdjpNA6 .opacityScroll {
-  background: #000000 !important;
+  background: #ffffff !important;
 }
 .cid-uuqXdjpNA6 a.nav-link {
   display: flex;
@@ -1269,10 +1268,7 @@ a {
     width: 100%;
     padding: 1rem;
     border-radius: 1.5rem;
-    background: #000000;
-    opacity: 1;
-    border-color: rgba(0, 0, 0, 0) !important;
-    background: rgba(0, 0, 0, 0) !important;
+    background: #ffffff;
     backdrop-filter: blur(8px);
   }
   .cid-uuqXdjpNA6 .navbar-nav .nav-item .nav-link::after {
@@ -1350,15 +1346,15 @@ a {
     padding: 1rem;
   }
 }
-#custom-html-6 {
+#custom-html-o {
   /* Type valid CSS here */
 }
-#custom-html-6 div {
+#custom-html-o div {
   padding: 80px 0;
   color: #777;
   text-align: center;
 }
-#custom-html-6 p {
+#custom-html-o p {
   font-size: 60px;
   color: #777;
 }
