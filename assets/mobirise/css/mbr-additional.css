@@ -1139,13 +1139,23 @@ a {
     left: -1rem;
   }
 }
-.cid-uvdQsEqE17 {
-  background-color: #ff3a00;
+.cid-uvn3NpGq0R {
+  overflow: hidden;
+  background-color: #efebed;
 }
-.cid-uvdQsEqE17 .mbr-fallback-image.disabled {
+.cid-uvn3NpGq0R .circle-wrap {
+  position: absolute;
+  top: -22%;
+  right: -10%;
+  width: 1500px;
+  height: 1500px;
+  border-radius: 100%;
+  border: 210px solid #ff3a00;
+}
+.cid-uvn3NpGq0R .mbr-fallback-image.disabled {
   display: none;
 }
-.cid-uvdQsEqE17 .mbr-fallback-image {
+.cid-uvn3NpGq0R .mbr-fallback-image {
   display: block;
   background-size: cover;
   background-position: center center;
@@ -1154,46 +1164,131 @@ a {
   position: absolute;
   top: 0;
 }
-.cid-uvdQsEqE17 .image-wrap img {
-  width: 100%;
-}
-@media (min-width: 992px) {
-  .cid-uvdQsEqE17 .image-wrap img {
-    display: block;
-    margin: auto;
+@media (max-width: 992px) {
+  .cid-uvn3NpGq0R .container {
+    padding: 0 15px;
   }
 }
-.cid-uvdQsEqE17 .row-links {
+.cid-uvn3NpGq0R .row {
+  position: relative;
+  z-index: 1;
+}
+.cid-uvn3NpGq0R .row .card {
+  justify-content: center;
+}
+@media (max-width: 992px) {
+  .cid-uvn3NpGq0R .content-wrapper {
+    margin-bottom: 40px;
+  }
+}
+.cid-uvn3NpGq0R .content-wrapper .mbr-section-title {
+  margin-bottom: 30px;
+}
+.cid-uvn3NpGq0R .content-wrapper .mbr-text {
+  margin-bottom: 30px;
+}
+.cid-uvn3NpGq0R .image-wrapper {
+  padding-left: 40px;
+}
+@media (max-width: 992px) {
+  .cid-uvn3NpGq0R .image-wrapper {
+    padding: 0;
+  }
+}
+.cid-uvn3NpGq0R .image-wrapper img {
+  height: 408px;
+  width: 65%;
+  object-fit: cover;
+  transform: skewX(-10deg);
+}
+@media (max-width: 992px) {
+  .cid-uvn3NpGq0R .image-wrapper img {
+    width: 100%;
+    transform: none;
+  }
+}
+.cid-uvn3NpGq0R .image-wrapper img:nth-child(2) {
+  margin: 48px 0 0 35%;
+}
+@media (max-width: 992px) {
+  .cid-uvn3NpGq0R .image-wrapper img:nth-child(2) {
+    margin: 48px 0 0 0;
+  }
+}
+.cid-uvn3NpGq0R .mbr-section-title {
+  color: #30262b;
+}
+.cid-uvn3NpGq0R .mbr-text {
+  color: #30262b;
+}
+.cid-uvn7k6CiH2 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-color: #efebed;
+}
+.cid-uvn7k6CiH2 .mbr-fallback-image.disabled {
+  display: none;
+}
+.cid-uvn7k6CiH2 .mbr-fallback-image {
+  display: block;
+  background-size: cover;
+  background-position: center center;
   width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+.cid-uvn7k6CiH2 .container-fluid {
+  padding: 0 45px;
+}
+@media (max-width: 992px) {
+  .cid-uvn7k6CiH2 .container-fluid {
+    padding: 0 25px;
+  }
+}
+@media (max-width: 992px) {
+  .cid-uvn7k6CiH2 .container {
+    padding: 0 25px;
+  }
+}
+.cid-uvn7k6CiH2 .row {
   justify-content: center;
 }
-.cid-uvdQsEqE17 .header-menu {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 0;
-  margin-bottom: 0;
+@media (max-width: 992px) {
+  .cid-uvn7k6CiH2 .row {
+    padding-top: 45px;
+  }
 }
-.cid-uvdQsEqE17 .header-menu li {
-  padding: 0 1rem 1rem 1rem;
+.cid-uvn7k6CiH2 .item:hover .item-wrapper .item-img img,
+.cid-uvn7k6CiH2 .item:focus .item-wrapper .item-img img {
+  transform: scale(1.05) translateX(2%);
 }
-.cid-uvdQsEqE17 .header-menu li p {
-  margin: 0;
+.cid-uvn7k6CiH2 .item .item-wrapper {
+  padding: 45px 0;
+  border-radius: 0 !important;
 }
-.cid-uvdQsEqE17 .mbr-section-title {
-  color: #000000;
+@media (max-width: 992px) {
+  .cid-uvn7k6CiH2 .item .item-wrapper {
+    padding: 0 0 32px 0;
+  }
 }
-.cid-uvdQsEqE17 .header-menu-item {
-  color: #ffffff;
+.cid-uvn7k6CiH2 .item .item-wrapper .item-img {
+  overflow: hidden;
 }
-.cid-uvdQsEqE17 .mbr-text,
-.cid-uvdQsEqE17 .mbr-section-btn {
-  color: #ffffff;
-  text-align: center;
+.cid-uvn7k6CiH2 .item .item-wrapper .item-img img {
+  height: 200px;
+  object-fit: cover;
+  transform: scale(1.05) translateX(0);
+  transition: all 0.3s ease-in-out;
 }
-.cid-uvdQsEqE17 .content-head {
-  max-width: 800px;
+.cid-uvn7k6CiH2 .border-wrap {
+  height: 2px;
+  background-color: #ff3a00;
+}
+@media (max-width: 992px) {
+  .cid-uvn7k6CiH2 .border-wrap {
+    margin-top: 45px;
+  }
 }
 .cid-uuIsz51oo3 {
   padding-top: 3rem;
