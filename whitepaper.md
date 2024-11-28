@@ -110,6 +110,8 @@ Consensus21 offers an alternative to the traditional, rigid structures of educat
 
 Through Consensus21, we are paving the way for a more autonomous, flexible, and sustainable future for education—one that empowers learners to succeed on their own terms.
 
+![diagram-export-11-28-2024-4_14_36-PM](https://github.com/user-attachments/assets/47fc09cb-bb0c-497d-98b5-0070e8cdf857)
+
 
 ## References
 ## References
