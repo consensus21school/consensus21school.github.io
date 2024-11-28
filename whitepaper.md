@@ -94,6 +94,9 @@ By leveraging Bitcoin, the Lightning Network, and a community-driven governance 
 -  De Soto, Hernando. *The Sovereign Individual: Mastering the Transition to the Information Age*. 1997.  
   [Link to book](https://www.amazon.com/Sovereign-Individual-Mastering-Transition-Information/dp/0679777472)
 
+- Trotter, Ray. *The Wooranna Way*. 2019.  
+  [Link to book](https://www.woorannaway.com)
+
 - Bollier, David. *The Self-Organizing Revolution: Commoning as a Path to Liberation*. 2014.  
   [Link to book](https://www.amazon.com/Self-Organizing-Revolution-Commoning-Liberation-Collective/dp/1608464771)
 
