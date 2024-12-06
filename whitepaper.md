@@ -125,80 +125,54 @@ Through Consensus21, we are paving the way for a more autonomous, flexible, and 
   [Link to whitepaper](https://fedimint.org/wp-content/uploads/2022/11/fedimint-paper.pdf)
 
 -  De Soto, Hernando. *The Sovereign Individual: Mastering the Transition to the Information Age*. 1997.  
-  [Link to book](https://www.amazon.com/Sovereign-Individual-Mastering-Transition-Information/dp/0679777472)
 
 - Trotter, Ray. *The Wooranna Way*. 2019.  
-  [Link to book](https://www.woorannaway.com)
+  [Link to documents](https://docs.woorannaway.com)
 
 - Bollier, David. *The Self-Organizing Revolution: Commoning as a Path to Liberation*. 2014.  
-  [Link to book](https://www.amazon.com/Self-Organizing-Revolution-Commoning-Liberation-Collective/dp/1608464771)
 
 - Lomax, Eric. *Radical Education: A Reinterpretation*. 1971.  
-  [Link to book](https://www.amazon.com/Radical-Education-Reinterpretation-Eric-Lomax/dp/0713910595)
 
 - Papert, Seymour. *Mindstorms: Children, Computers, and Powerful Ideas*. 1980.  
-  [Link to book](https://www.amazon.com/Mindstorms-Children-Computers-Powerful-Ideas/dp/0465046746)
 
 - Freire, Paulo. *Pedagogy of the Oppressed*. 1970.  
-  [Link to book](https://www.amazon.com/Pedagogy-Oppressed-30th-Anniversary/dp/0826412769)
 
 - Fadel, Charles. *The Elements of a 21st Century Education*. 2015.  
-  [Link to book](https://www.amazon.com/Elements-21st-Century-Education-Fadel/dp/1137521090)
 
 - Larmer, John, and Mergendoller, John. *The Power of Project-Based Learning: Helping Students Develop Important Skills*. 2015.  
-  [Link to book](https://www.amazon.com/Power-Project-Based-Learning-Students-Important/dp/1416620092)
 
 - Wenger, Etienne. *Communities of Practice: Learning, Meaning, and Identity*. 1998.  
-  [Link to book](https://www.amazon.com/Communities-Practice-Learning-Meaning-Participation/dp/0521663636)
 
 - National Research Council. *How People Learn: Brain, Mind, Experience, and School*. 2000.  
-  [Link to book](https://www.amazon.com/How-People-Learn-Experience-School/dp/0309070368)
 
 - Carey, Kevin. *The End of College: Creating the Future of Learning and the University of Everywhere*. 2015.  
-  [Link to book](https://www.amazon.com/End-College-Creating-University-Everywhere/dp/0544705205)
 
 - Jackson, G. M., & Scott, L. T. *Innovative Higher Education: Developing the World's Next Generation of Problem-Solvers*. 2016.  
-  [Link to book](https://www.amazon.com/Innovative-Higher-Education-Developing-Problem-Solvers/dp/1137493751)
 
 - Surowiecki, James. *The Wisdom of Crowds*. 2004.  
-  [Link to book](https://www.amazon.com/Wisdom-Crowds-James-Surowiecki/dp/0385721706)
 
 - Senge, Peter M. *The Fifth Discipline: The Art & Practice of The Learning Organization*. 1990.  
-  [Link to book](https://www.amazon.com/Fifth-Discipline-Practice-Learning-Organization/dp/0385517254)
 
 - Brynjolfsson, Erik, and McAfee, Andrew. *The Second Machine Age: Work, Progress, and Prosperity in a Time of Brilliant Technologies*. 2014.  
-  [Link to book](https://www.amazon.com/Second-Machine-Age-Prosperity-Technologies/dp/039335064X)
 
 - Zhao, Yong. *World Class Learners: Educating Creative and Entrepreneurial Students*. 2012.  
-  [Link to book](https://www.amazon.com/World-Class-Learners-Educating-Entrepreneurial/dp/1452236471)
 
 - Zhao, Yong. *Catching Up or Leading the Way: American Education in the Age of Globalization*. 2009.  
-  [Link to book](https://www.amazon.com/Catching-Up-Leading-Way-Education/dp/1412968834)
 
 - Zhao, Yong. *What Works May Hurt: Side Effects in Education*. 2012.  
-  [Link to book](https://www.amazon.com/What-Works-May-Hurt-Education/dp/1412993226)
 
 - Zhao, Yong. *Never Send a Human to Do a Machine's Job: Correcting the Top 5 EdTech Mistakes*. 2019.  
-  [Link to book](https://www.amazon.com/Never-Send-Human-Machines-Correcting/dp/1943876367)
 
 - Zhao, Yong. *The Tao of Education: A Path to Lifelong Learning*. 2021.  
-  [Link to book](https://www.amazon.com/Tao-Education-Path-Lifelong-Learning/dp/1952196012)
   
 - Robinson, Sir Ken. *The Element: How Finding Your Passion Changes Everything*. 2009.  
-  [Link to book](https://www.amazon.com/Element-Finding-Passion-Changes-Everything/dp/0143116738)
 
 - Robinson, Sir Ken. *Creative Schools: The Grassroots Revolution That's Transforming Education*. 2015.  
-  [Link to book](https://www.amazon.com/Creative-Schools-Grassroots-Transforming-Education/dp/0143108066)
 
 - Robinson, Sir Ken. *Out of Our Minds: Learning to Be Creative*. 2001.  
-  [Link to book](https://www.amazon.com/Out-Our-Minds-Learning-Creative/dp/0471291923)
 
 - Robinson, Sir Ken. *You, Your Child, and School: Navigate Your Way to the Best Education*. 2018.  
-  [Link to book](https://www.amazon.com/You-Your-Child-School-Education/dp/0143111727)
 
 - Robinson, Sir Ken. *The Element: How Finding Your Passion Changes Everything (Revised Edition)*. 2022.  
-  [Link to book](https://www.amazon.com/Element-Finding-Passion-Changes-Everything/dp/0143134062)
 
 - Robinson, Sir Ken. *Find Your Element: How to Discover Your Talents and Passions and Transform Your Life*. 2013.  
-  [Link to book](https://www.amazon.com/Find-Your-Element-Discover-Passions/dp/0142180951)
-  
