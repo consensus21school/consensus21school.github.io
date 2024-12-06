@@ -166,9 +166,6 @@ Through Consensus21, we are paving the way for a more autonomous, flexible, and 
 - Senge, Peter M. *The Fifth Discipline: The Art & Practice of The Learning Organization*. 1990.  
   [Link to book](https://www.amazon.com/Fifth-Discipline-Practice-Learning-Organization/dp/0385517254)
 
-- Schwab, Klaus. *The Fourth Industrial Revolution*. 2016.  
-  [Link to book](https://www.amazon.com/Fourth-Industrial-Revolution-Klaus-Schwab/dp/0393356042)
-
 - Brynjolfsson, Erik, and McAfee, Andrew. *The Second Machine Age: Work, Progress, and Prosperity in a Time of Brilliant Technologies*. 2014.  
   [Link to book](https://www.amazon.com/Second-Machine-Age-Prosperity-Technologies/dp/039335064X)
 
@@ -186,3 +183,22 @@ Through Consensus21, we are paving the way for a more autonomous, flexible, and 
 
 - Zhao, Yong. *The Tao of Education: A Path to Lifelong Learning*. 2021.  
   [Link to book](https://www.amazon.com/Tao-Education-Path-Lifelong-Learning/dp/1952196012)
+  
+- Robinson, Sir Ken. *The Element: How Finding Your Passion Changes Everything*. 2009.  
+  [Link to book](https://www.amazon.com/Element-Finding-Passion-Changes-Everything/dp/0143116738)
+
+- Robinson, Sir Ken. *Creative Schools: The Grassroots Revolution That's Transforming Education*. 2015.  
+  [Link to book](https://www.amazon.com/Creative-Schools-Grassroots-Transforming-Education/dp/0143108066)
+
+- Robinson, Sir Ken. *Out of Our Minds: Learning to Be Creative*. 2001.  
+  [Link to book](https://www.amazon.com/Out-Our-Minds-Learning-Creative/dp/0471291923)
+
+- Robinson, Sir Ken. *You, Your Child, and School: Navigate Your Way to the Best Education*. 2018.  
+  [Link to book](https://www.amazon.com/You-Your-Child-School-Education/dp/0143111727)
+
+- Robinson, Sir Ken. *The Element: How Finding Your Passion Changes Everything (Revised Edition)*. 2022.  
+  [Link to book](https://www.amazon.com/Element-Finding-Passion-Changes-Everything/dp/0143134062)
+
+- Robinson, Sir Ken. *Find Your Element: How to Discover Your Talents and Passions and Transform Your Life*. 2013.  
+  [Link to book](https://www.amazon.com/Find-Your-Element-Discover-Passions/dp/0142180951)
+  
