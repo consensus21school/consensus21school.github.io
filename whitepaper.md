@@ -112,6 +112,15 @@ Rather than relying on traditional grades or static records, learners maintain *
 
 By making digital portfolios an integral part of the Consensus21 model, learners are not only preparing for formal assessments but are also building a tangible, continuously evolving record of their learning. This portfolio becomes a powerful tool for self-reflection, community engagement, and professional development, showcasing the learner’s journey and growth.
 
+### 5.3 Compliance
+
+In the Consensus21 model, parents assume ownership of their child's learning, similar to homeschooling, ensuring that education meets local or national standards. Parents are responsible for documenting progress and providing evidence to regulatory bodies.
+
+Learners maintain a digital portfolio using a Git repository, where all projects, milestones, and reflections are recorded. This provides transparent, verifiable evidence of learning, which parents can use to compile reports for authorities. These reports demonstrate progress and ensure compliance with educational requirements, such as instructional hours and learning outcomes, while maintaining flexibility in the learner’s path.
+
+By involving parents in the documentation process, Consensus21 ensures compliance with educational regulations while supporting the flexibility and autonomy of the learning journey.
+
+
 ## 6. Conclusion
 Consensus21 offers an alternative to the traditional, rigid structures of education. By integrating decentralised governance, project-based learning, financial sustainability, time management, and digital portfolios, it provides a comprehensive model for learners to take ownership of their educational journey. This innovative approach aligns with the demands of the modern world and prepares learners to thrive in an ever-evolving economy.
 
