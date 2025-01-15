@@ -9,7 +9,7 @@ Consensus21 is an open-source, decentralised education protocol designed to revo
 This white paper outlines the foundational principles, architecture, and governance of Consensus21, highlighting its focus on community-driven education, financial independence, and self-directed learning.
 
 ## 1. Introduction
-The legacy education system is increasingly failing to address the needs of modern learners. Over £80 billion in HELP (Higher Education Loan Programme) debt in Australia, rising tuition fees, a lack of financial literacy education, and the inadequacy of traditional learning methods to prepare students for a rapidly changing job market all point to the urgent need for a new paradigm.
+The legacy education system is increasingly failing to address the needs of modern learners. Over $80 billion in HELP (Higher Education Loan Programme) debt in Australia, rising tuition fees, a lack of financial literacy education, and the inadequacy of traditional learning methods to prepare students for a rapidly changing job market all point to the urgent need for a new paradigm.
 
 Consensus21 offers a radical departure from conventional schooling by building a decentralised, mentor-driven learning ecosystem. Through a peer-to-peer monetary system and decentralised governance, Consensus21 replaces outdated hierarchical structures with community-driven decision-making processes. The protocol provides a model for continuous learning from the age of 5 to 21, removing standardised testing and allowing learners to pursue entrepreneurial, technological, and intellectual endeavours without the burden of unnecessary debt or restrictive curricula.
 
@@ -20,6 +20,10 @@ At its core, Consensus21 is a flexible, open-source protocol that allows any lea
 Consensus21 is governed by a Council of Educators, which is a multi-signature body elected by members of the learning community. This council is tasked with overseeing the implementation of School Improvement Proposals (SIPs)—similar to Bitcoin’s BIPs (Bitcoin Improvement Proposals)—that ensure continuous innovation and adaptation within the learning environment.
 
 The council does not have the power to impose decisions on the community. Instead, it facilitates consensus-building, ensuring that all changes to the protocol or the community are voted on and agreed upon by a majority. Members of the council are elected through community voting and serve a fixed term, after which new elections are held.
+
+
+![consensus21 sip](https://github.com/user-attachments/assets/576333e9-294d-4d15-ac88-9c8c4b0fe4b4)
+
 
 ### 2.2. Decentralised Learning System
 In Consensus21, there are no teachers or students in the traditional sense. The roles are fluid: every participant in the community is both a learner and a mentor at different stages of their educational journey. This Value-for-Value model allows mentors to be compensated for their contributions via Bitcoin payments, processed through the Lightning Network.
@@ -112,7 +116,6 @@ Through Consensus21, we are paving the way for a more autonomous, flexible, and 
 
 
 
-## References
 ## References
 
 - Nakamoto, Satoshi. *Bitcoin: A Peer-to-Peer Electronic Cash System*. 2008.  
