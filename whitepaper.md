@@ -152,7 +152,7 @@ Through Consensus21, we are paving the way for a more autonomous, flexible, and 
   [Link to documents](https://docs.woorannaway.com)
 
 - Gray, Peter. Free to Learn: Why Unleashing the Instinct to Play Will Make Our Children Happier, More Self-Reliant, and Better Students for Life. 2013.
-- 
+
 - Bollier, David. *The Self-Organizing Revolution: Commoning as a Path to Liberation*. 2014.  
 
 - Lomax, Eric. *Radical Education: A Reinterpretation*. 1971.  
