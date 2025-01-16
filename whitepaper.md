@@ -64,7 +64,12 @@ Consensus21 is built on the premise that education should be financially sustain
 
 
 ### 3.1. Value-for-Value Model
-Mentors are compensated for their time and expertise via Bitcoin payments processed through the Lightning Network. This Value-for-Value system incentivises high-quality mentorship and allows for dynamic pricing based on demand and skill level. Learners can choose their mentors based on reputation, speciality, and availability, ensuring that the community’s economic system is driven by supply and demand, rather than arbitrary fees or tuition hikes.
+Mentors and students are empowered to create educational content that is incorporated into a shared Git repository, accessible to the entire learning community. This content can range from lessons and projects to resources and tools, all collaboratively developed. Both mentors and students are compensated for their contributions through Bitcoin payments processed via the Lightning Network in a Value-for-Value (v4v) model. This system ensures that creators are rewarded fairly for their time, expertise, and input, with payments flowing directly for the value they provide.
+
+As content is added to the repository, it becomes available for others to learn from, share, and build upon. Mentors are compensated based on the quality and demand for the content they create, while learners can earn payments for their contributions as well, promoting active engagement. Learners also have the ability to choose mentors based on reputation, specialty, and availability, ensuring that the community’s economic ecosystem is driven by a meritocratic system, where value is exchanged freely, rather than by fixed tuition fees or arbitrary pricing.
+
+![v4v drawio](https://github.com/user-attachments/assets/3794a4d6-3d11-4cd4-afa9-f384809f0ae4)
+
 
 ### 3.2. School Improvement Proposals (SIPs)
 Consensus21 embraces a proposal-driven approach for school-wide improvements, known as SIPs. Similar to Bitcoin’s BIPs (Bitcoin Improvement Proposals), SIPs allow any member of the community to submit suggestions for enhancing the school’s infrastructure, curriculum, or governance structure. These proposals are reviewed by the Council of Educators and implemented through a democratic voting process, ensuring that all stakeholders have a voice in shaping the future of their education system.
