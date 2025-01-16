@@ -72,7 +72,7 @@ Consensus21 embraces a proposal-driven approach for school-wide improvements, kn
 ## 4. Addressing Key Problems in Legacy Education
 
 ### 4.1. Educational Debt
-The growing student debt crisis, exemplified by the £80 billion HELP debt in Australia, is a direct consequence of a tuition-driven education system. Consensus21 addresses this by removing tuition fees tied to debt and providing a financially sustainable model where students can pay tuition via Bitcoin. This eliminates the need for loans and financial burden, ensuring that learners can focus on education and personal growth rather than repaying decades of debt.
+The growing student debt crisis, exemplified by the $80 billion HELP debt in Australia, is a direct consequence of a tuition-driven education system. Consensus21 addresses this by removing tuition fees tied to debt and providing a financially sustainable model where students can pay tuition via Bitcoin. This eliminates the need for loans and financial burden, ensuring that learners can focus on education and personal growth rather than repaying decades of debt.
 
 ### 4.2. Lack of Financial Literacy
 Traditional education systems often fail to equip students with the financial literacy needed to navigate the modern world. In contrast, Consensus21 embraces a financial ecosystem based on Bitcoin, ensuring that learners are not only exposed to cutting-edge technologies but are also developing the financial acumen required for the future.
