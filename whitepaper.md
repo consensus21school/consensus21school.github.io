@@ -3,6 +3,8 @@
 ## Kieran Nolan & Joshua Blount  
 ### Consensus21.School
 
+[Non-technical Whitepaper](https://github.com/consensus21school/consensus21school.github.io/blob/main/non-technical%20whitepapaer.md)
+
 ## Abstract
 Consensus21 is an open-source, decentralised education protocol designed to revolutionise the way learning communities function and engage with students, mentors, and the broader economy. By creating a system with no central authority, no standardised tests, and no singular point of failure, Consensus21 seeks to empower learners and mentors alike. With an innovative governance model, a modular infrastructure, and a robust financial ecosystem, Consensus21 offers an alternative to traditional schooling systems, addressing pressing issues such as educational debt, engagement, and the changing job market.
 
