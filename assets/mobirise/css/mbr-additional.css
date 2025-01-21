@@ -1734,53 +1734,40 @@ a {
     left: -1rem;
   }
 }
-.cid-uAt8JtPpG6 {
-  display: flex;
-  padding-top: 225px;
-  padding-bottom: 225px;
-  background: linear-gradient(to bottom, #ff3a00, #ffffff);
+.cid-uAyoFvodi1 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-image: url("../../../assets/images/brains-trust-923x522.png");
 }
-@media (min-width: 768px) {
-  .cid-uAt8JtPpG6 {
-    align-items: flex-start;
-  }
-  .cid-uAt8JtPpG6 .row {
-    justify-content: flex-start;
-  }
+.cid-uAyoFvodi1 .mbr-section-title {
+  color: #000000;
 }
-.cid-uAt8JtPpG6 .mbr-section-title {
-  text-align: left;
-  color: #232323;
+.cid-uAyoFvodi1 .mbr-text,
+.cid-uAyoFvodi1 .mbr-section-btn {
+  color: #ffffff;
 }
-.cid-uAt8JtPpG6 .mbr-text,
-.cid-uAt8JtPpG6 .mbr-section-btn {
-  text-align: left;
-  color: #232323;
+.cid-uAyoFvodi1 .mbr-section-subtitle {
+  color: #ffffff;
 }
-.cid-uAt8JtPpG6 .mbr-section-title,
-.cid-uAt8JtPpG6 .line {
-  color: #232323;
+.cid-uAyoFvodi1 .mbr-text2 {
+  border-top: 2px solid #000000;
+  padding-top: 4rem;
 }
-.cid-uAt8JtPpG6 h2 {
-  position: relative;
-  width: fit-content;
-  padding-left: 35px;
-  display: inline-block;
+.cid-uAyoFvodi1 .mbr-text2,
+.cid-uAyoFvodi1 .mbr-section-btn {
+  color: #ffffff;
 }
-.cid-uAt8JtPpG6 h2:before {
-  content: '';
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: currentColor;
+.cid-uAyoFvodi1 .mbr-fallback-image.disabled {
+  display: none;
+}
+.cid-uAyoFvodi1 .mbr-fallback-image {
+  display: block;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
   position: absolute;
-  left: 10px;
-  top: calc(50% - 6px);
-}
-.cid-uAt8JtPpG6 .mbr-section-subtitle,
-.cid-uAt8JtPpG6 .align {
-  text-align: left;
-  color: #232323;
+  top: 0;
 }
 .cid-uA5rfOqbUB {
   padding-top: 0px;
