@@ -3,13 +3,15 @@
 ## Kieran Nolan & Joshua Blount  
 ### Consensus21.School
 
+[Non-technical Whitepaper](https://github.com/consensus21school/consensus21school.github.io/blob/main/non-technical%20whitepapaer.md)
+
 ## Abstract
 Consensus21 is an open-source, decentralised education protocol designed to revolutionise the way learning communities function and engage with students, mentors, and the broader economy. By creating a system with no central authority, no standardised tests, and no singular point of failure, Consensus21 seeks to empower learners and mentors alike. With an innovative governance model, a modular infrastructure, and a robust financial ecosystem, Consensus21 offers an alternative to traditional schooling systems, addressing pressing issues such as educational debt, engagement, and the changing job market.
 
 This white paper outlines the foundational principles, architecture, and governance of Consensus21, highlighting its focus on community-driven education, financial independence, and self-directed learning.
 
 ## 1. Introduction
-The legacy education system is increasingly failing to address the needs of modern learners. Over $80 billion in HELP (Higher Education Loan Programme) debt in Australia, rising tuition fees, a lack of financial literacy education, and the inadequacy of traditional learning methods to prepare students for a rapidly changing job market all point to the urgent need for a new paradigm.
+The legacy education system is increasingly failing to address the needs of modern learners. With the global student loan market projected to reach $3,800 billion by 2029, rising tuition fees, a lack of financial literacy education, and the inadequacy of traditional learning methods to prepare students for a rapidly changing job market, there is an urgent need for a new paradigm.
 
 Consensus21 offers a radical departure from conventional schooling by building a decentralised, mentor-driven learning ecosystem. Through a peer-to-peer monetary system and decentralised governance, Consensus21 replaces outdated hierarchical structures with community-driven decision-making processes. The protocol provides a model for continuous learning from the age of 5 to 21, removing standardised testing and allowing learners to pursue entrepreneurial, technological, and intellectual endeavours without the burden of unnecessary debt or restrictive curricula.
 
@@ -20,6 +22,10 @@ At its core, Consensus21 is a flexible, open-source protocol that allows any lea
 Consensus21 is governed by a Council of Educators, which is a multi-signature body elected by members of the learning community. This council is tasked with overseeing the implementation of School Improvement Proposals (SIPs)—similar to Bitcoin’s BIPs (Bitcoin Improvement Proposals)—that ensure continuous innovation and adaptation within the learning environment.
 
 The council does not have the power to impose decisions on the community. Instead, it facilitates consensus-building, ensuring that all changes to the protocol or the community are voted on and agreed upon by a majority. Members of the council are elected through community voting and serve a fixed term, after which new elections are held.
+
+
+![consensus21 sip](https://github.com/user-attachments/assets/576333e9-294d-4d15-ac88-9c8c4b0fe4b4)
+
 
 ### 2.2. Decentralised Learning System
 In Consensus21, there are no teachers or students in the traditional sense. The roles are fluid: every participant in the community is both a learner and a mentor at different stages of their educational journey. This Value-for-Value model allows mentors to be compensated for their contributions via Bitcoin payments, processed through the Lightning Network.
@@ -52,10 +58,18 @@ Learners engage in PBL throughout their entire educational journey, meaning that
 In addition to learning within the Consensus21 community, learners are encouraged to engage with external mentors and experts outside of their immediate learning environment. This may involve collaborating with industry professionals, business owners, or specialists in various fields who can provide insights, guidance, and resources that complement the project-based learning approach. Learners often participate in global networks, contributing to and learning from a diverse range of perspectives.
 
 ## 3. Financial Ecosystem
-Consensus21 is built on the premise that education should be financially sustainable, transparent, and aligned with the broader principles of decentralised systems. The school’s tuition fees are exclusively paid in Bitcoin, which flows into a community-controlled multisig wallet managed by the Council of Educators. This financial model ensures that resources are allocated efficiently and transparently, without the burden of centralised administration or debt accumulation.
+Consensus21 is built on the premise that education should be financially sustainable, transparent, and aligned with the broader principles of decentralised systems. The school’s tuition fees are exclusively paid in Bitcoin, which flows into a community-controlled multisig wallet managed by the Council of Educators. This financial model ensures that resources are allocated efficiently and transparently, without the burden of centralised administration or debt accumulation. Parents pay annual fees, the amount of which is set by the council, directly via the Bitcoin blockchain into a multisig wallet. 10% of these fees are placed into a time-locked account, which is only unlocked on the learner's 18th birthday. Once the funds are unlocked, the learner has three years to develop a business based on their problem-based learning journey, with support from the community.
+
+![fees drawio](https://github.com/user-attachments/assets/60f1dbf8-5fc7-4877-bf27-7dea454568e2)
+
 
 ### 3.1. Value-for-Value Model
-Mentors are compensated for their time and expertise via Bitcoin payments processed through the Lightning Network. This Value-for-Value system incentivises high-quality mentorship and allows for dynamic pricing based on demand and skill level. Learners can choose their mentors based on reputation, speciality, and availability, ensuring that the community’s economic system is driven by supply and demand, rather than arbitrary fees or tuition hikes.
+Mentors and students are empowered to create educational content that is incorporated into a shared Git repository, accessible to the entire learning community. This content can range from lessons and projects to resources and tools, all collaboratively developed. Both mentors and students are compensated for their contributions through Bitcoin payments processed via the Lightning Network in a Value-for-Value (v4v) model. This system ensures that creators are rewarded fairly for their time, expertise, and input, with payments flowing directly for the value they provide.
+
+As content is added to the repository, it becomes available for others to learn from, share, and build upon. Mentors are compensated based on the quality and demand for the content they create, while learners can earn payments for their contributions as well, promoting active engagement. Learners also have the ability to choose mentors based on reputation, specialty, and availability, ensuring that the community’s economic ecosystem is driven by a meritocratic system, where value is exchanged freely, rather than by fixed tuition fees or arbitrary pricing.
+
+![v4v drawio](https://github.com/user-attachments/assets/3794a4d6-3d11-4cd4-afa9-f384809f0ae4)
+
 
 ### 3.2. School Improvement Proposals (SIPs)
 Consensus21 embraces a proposal-driven approach for school-wide improvements, known as SIPs. Similar to Bitcoin’s BIPs (Bitcoin Improvement Proposals), SIPs allow any member of the community to submit suggestions for enhancing the school’s infrastructure, curriculum, or governance structure. These proposals are reviewed by the Council of Educators and implemented through a democratic voting process, ensuring that all stakeholders have a voice in shaping the future of their education system.
@@ -63,7 +77,7 @@ Consensus21 embraces a proposal-driven approach for school-wide improvements, kn
 ## 4. Addressing Key Problems in Legacy Education
 
 ### 4.1. Educational Debt
-The growing student debt crisis, exemplified by the $80 billion HELP debt in Australia, is a direct consequence of a tuition-driven education system. Consensus21 addresses this by removing tuition fees tied to debt and providing a financially sustainable model where students can pay tuition via Bitcoin. This eliminates the need for loans and financial burden, ensuring that learners can focus on education and personal growth rather than repaying decades of debt.
+The growing student debt crisis, exemplified by the global student loan market projected to reach $3,800 billion by 2029, is a direct consequence of a tuition-driven education system. Consensus21 addresses this by removing tuition fees tied to debt and providing a financially sustainable model where students can pay tuition via Bitcoin. This eliminates the need for loans and financial burden, ensuring that learners can focus on education and personal growth rather than repaying decades of debt.
 
 ### 4.2. Lack of Financial Literacy
 Traditional education systems often fail to equip students with the financial literacy needed to navigate the modern world. In contrast, Consensus21 embraces a financial ecosystem based on Bitcoin, ensuring that learners are not only exposed to cutting-edge technologies but are also developing the financial acumen required for the future.
@@ -74,12 +88,99 @@ With the rapid advancement of automation, AI, and digital technologies, the job 
 ### 4.4. Learner Engagement
 Many students in the traditional education system suffer from disengagement due to rigid curricula and lack of meaningful learning experiences. Consensus21 addresses this by offering personalised learning pathways, autonomy, and hands-on projects that are directly relevant to the learners’ interests, ensuring deep engagement and real-world impact.
 
-## 5. Conclusion
-Consensus21 represents a bold step forward in the evolution of education. By decentralising power, embracing a value-for-value model, and removing the barriers created by standardised testing and financial debt, Consensus21 offers a blueprint for a new kind of learning ecosystem—one that is flexible, adaptive, and deeply aligned with the needs of learners in the 21st century.
+## 5. Time Management and Digital Portfolios
 
-By leveraging Bitcoin, the Lightning Network, and a community-driven governance model, Consensus21 is building the educational framework of the future—one that is scalable, open-source, and designed to empower both learners and mentors alike.
+### 5.1. Learners Managing Their Own Schedule/Calendar
+One of the core tenets of the Consensus21 protocol is the empowerment of learners to take ownership of their educational journey. Central to this is the development of time management skills—a key aspect often neglected in traditional education systems, where rigid schedules and externally imposed deadlines predominate. In Consensus21, learners are responsible for managing their own schedules, learning how to prioritise tasks, set achievable goals, and allocate time effectively.
 
-## References
+Time is one of the most valuable resources a learner has, and it is vital that they learn to manage it efficiently. Consensus21 encourages learners to adopt practices of self-regulation and time-blocking to structure their days in a way that maximises productivity while allowing for flexibility. By learning how to allocate time for deep work, collaborative tasks, and personal development, learners gain a critical skill that will serve them in their personal, academic, and professional lives.
+
+The ability to manage one's own schedule provides the freedom to:
+- **Set Personal Goals**: Learners can define their own objectives, break them down into actionable steps, and determine the time needed to complete them. Whether it's a long-term project or daily learning, this empowers them to stay focused and productive.
+- **Prioritise Tasks**: With no fixed curriculum, learners are free to prioritise projects that are of personal or professional importance. This teaches the valuable skill of discerning what is most urgent or impactful, fostering self-discipline.
+- **Balance Learning and Personal Life**: By being in control of their own calendar, learners can strike a balance between academic, social, and personal responsibilities, cultivating a holistic approach to well-being.
+
+To assist learners in managing their time, the Consensus21 protocol will integrate digital tools such as scheduling apps, task management platforms, and personalised calendars. These tools will be accessible through the platform, helping learners track deadlines, set reminders, and visualise their progress on learning goals.
+
+### 5.2. Digital Portfolios and Continuous Reflection via Git Repository
+In a traditional education system, assessment is often confined to periodic exams or assignments. In contrast, Consensus21 encourages a model of continuous learning and reflection. One of the key tools for this is the use of **digital portfolios**, which allow learners to document their educational journey in a dynamic and evolving way.
+
+Rather than relying on traditional grades or static records, learners maintain **daily updates** through a **git repository**, where they log their progress, document their projects, and reflect on their learning experiences. This provides several advantages:
+
+- **Ongoing Documentation**: A git repository allows learners to track their progress over time, building a chronological record of their learning achievements. Each commit can represent a milestone or a completed task, offering a detailed view of their growth and development.
+  
+- **Reflection and Self-Assessment**: Learners are encouraged to regularly update their portfolios with reflections on their learning experiences, challenges, and breakthroughs. This not only reinforces the material but also cultivates critical thinking and self-awareness.
+
+- **Transparent and Verifiable Records**: The use of a public or private git repository ensures that learners’ work is verifiable, transparent, and accessible. Whether they are applying for jobs, seeking mentorship, or collaborating with others, their portfolio serves as a credible and up-to-date representation of their skills and knowledge.
+
+- **Collaboration and Open Source Contributions**: Since the git repository operates in an open-source environment, learners can also contribute to projects outside of their immediate learning environment, engage in community-driven initiatives, or even collaborate with industry experts. This builds a portfolio that showcases their ability to work in diverse, collaborative settings, a crucial skill in the modern economy.
+
+- **Integration with Technology**: As learners work with open-source tools, their digital portfolios can include code, designs, research, and documentation, integrated with their broader technological ecosystem. This approach prepares learners for future roles in technology, entrepreneurship, and creative industries, where digital literacy and technical fluency are vital.
+
+By making digital portfolios an integral part of the Consensus21 model, learners are not only preparing for formal assessments but are also building a tangible, continuously evolving record of their learning. This portfolio becomes a powerful tool for self-reflection, community engagement, and professional development, showcasing the learner’s journey and growth.
+
+### 5.3 Compliance
+
+In the Consensus21 model, parents assume ownership of their child's learning, similar to homeschooling, ensuring that education meets local or national standards. Parents are responsible for documenting progress and providing evidence to regulatory bodies.
+
+Learners maintain a digital portfolio using a Git repository, where all projects, milestones, and reflections are recorded. This provides transparent, verifiable evidence of learning, which parents can use to compile reports for authorities. These reports demonstrate progress and ensure compliance with educational requirements, such as instructional hours and learning outcomes, while maintaining flexibility in the learner’s path.
+
+By involving parents in the documentation process, Consensus21 ensures compliance with educational regulations while supporting the flexibility and autonomy of the learning journey.
+
+## 6. ID - Identity, Communication, and Transparent Learning Tracking
+![id drawio](https://github.com/user-attachments/assets/6c5a90c6-43f2-4217-8ea5-aeb5d1bfe3f4)
+
+### 6.1. Asymmetric Encryption and Secure Communication with Nostr
+In the Consensus21 ecosystem, learners, mentors, and parents communicate and collaborate securely using **asymmetric encryption** facilitated by the Nostr protocol. Each participant in the system has a **public/private keypair**, which serves as their unique identity for encrypted communication.
+
+- **Public and Private Key Pair**: Learners, mentors, and parents generate a keypair through Nostr, where the public key is shared with the community, while the private key remains securely stored on the user’s device. This keypair is used to encrypt and decrypt messages, ensuring privacy and security in all communications.
+- **Secure and Transparent Communication**: By leveraging Nostr's decentralised nature, all communication within the Consensus21 system is encrypted end-to-end. This not only ensures the privacy of conversations but also makes communication fully transparent and traceable on the blockchain, empowering participants with full visibility into the learning journey.
+- **Direct Communication Channels**: Learners can directly communicate with mentors and parents via encrypted messaging, with all messages tied to their decentralised identity, ensuring trust, security, and accountability in the learning process.
+
+This system offers several advantages:
+- **Privacy**: Only the intended recipient can decrypt messages using their private key, ensuring that conversations remain private.
+- **Transparency**: Communication and interactions are logged transparently on the blockchain, allowing learners to track progress and reflect on past interactions.
+- **Authentication**: The decentralised identity ensures that all communication is verified and tied to an authenticated learner, mentor, or parent, fostering trust within the community.
+
+### 6.2. Transparent Calendar for Learners’ Schedules (Self-Managed)
+At the heart of the Consensus21 model is empowering learners to manage their own schedules and learning goals. In this decentralised system, learners are responsible for creating and maintaining their **personal calendars**, which are linked to their decentralised identities and visible within the community.
+
+- **Self-Managed Schedules**: Each learner takes ownership of their learning time, from setting goals and deadlines to managing their daily and weekly tasks. This self-management is a core skill we teach within the system, helping learners develop time management, planning, and prioritisation skills for both academic and personal growth.
+- **Calendar Creation and Time Blocking**: Learners are guided on how to effectively create their schedules, using strategies like time-blocking, goal-setting, and reflection. They learn how to allocate time for different activities—whether working on projects, collaborating with mentors, or engaging in personal development—by designing their days and weeks in a way that suits their goals.
+- **Public and Transparent Schedules**: Learners' calendars are visible within the community, allowing mentors and parents to track progress, provide feedback, and offer guidance where necessary. However, learners retain full control over what aspects of their calendar are shared, ensuring flexibility while maintaining transparency.
+
+Benefits of the Self-Managed Calendar:
+- **Autonomy and Responsibility**: Learners develop critical life skills by managing their own time, making decisions about how and when they engage with various learning activities.
+- **Personalisation and Flexibility**: Learners can adapt their calendars based on personal interests, career goals, and project timelines, creating a learning experience that is tailored to their needs.
+- **Accountability**: With full visibility into their calendars, learners can track progress and ensure they stay on target to meet their goals. Mentors and parents can also support learners by monitoring and offering feedback on how effectively they are managing their time.
+
+### 6.3. Digital Portfolio via Git Repository
+The **digital portfolio** is a central tool for documenting and tracking learners' educational progress. Hosted on a **Git repository**, it serves as a transparent, evolving record of each learner’s work, projects, and milestones.
+
+- **Git Repository Integration**: Each learner has access to a personal Git repository, where they can commit their work, document project milestones, and track their progress over time. This provides an open, verifiable record of their learning journey, linked directly to their decentralised identity via Nostr.
+- **Continuous Learning Documentation**: Rather than relying on traditional exams or grades, learners use the Git repository to log their activities, milestones, and reflections. Each Git commit represents a task completed or a learning milestone achieved, creating a detailed, transparent, and tamper-proof record of their education.
+- **Collaborative and Open Source Contributions**: The Git repository encourages collaboration with peers and mentors, allowing learners to contribute to shared open-source projects or initiatives. This builds a sense of community and encourages learners to engage in real-world problem-solving and creative endeavours.
+- **Portfolio Customisation**: Learners can curate their portfolios to showcase specific skills or interests, such as coding projects, design work, or entrepreneurial ventures. The portfolio evolves dynamically as learners continue their educational journey, reflecting their growth and development.
+
+Key Features of the Digital Portfolio:
+- **Transparency and Verifiability**: Every contribution and achievement is logged in the Git repository, providing a publicly visible (or private) record of the learner’s growth and accomplishments.
+- **Reflective Learning**: Learners are encouraged to log their reflections on each milestone, helping them process and critically assess their learning experience.
+- **Showcase for Mentors, Parents, and Employers**: Learners’ digital portfolios serve as powerful tools for mentors, parents, and potential employers to review and assess their achievements and skill development.
+
+### 6.4. Integration of Calendar and Digital Portfolio
+The **calendar** and **digital portfolio** are seamlessly integrated in the Consensus21 model, allowing learners to synchronise their schedules with the work they log in their Git repository. This integration provides a holistic view of each learner’s progress and development.
+
+- **Tracking Progress**: Learners can see how their time management correlates with their project milestones. As they log activities in their Git repository, they can also update their calendar, ensuring that their goals align with their available time and resources.
+- **Mentor and Parent Oversight**: With both tools publicly accessible, mentors and parents can track progress in real-time, providing feedback on how learners are managing their time and projects. This transparency allows for constructive guidance while empowering learners to take ownership of their educational journey.
+- **Comprehensive Learning Records**: By combining a transparent calendar and a detailed Git repository, learners build a comprehensive record of their educational experience. This enables them to track both the "when" and "what" of their learning process, giving them greater control and insight into their growth over time.
+
+## 7. Conclusion
+Consensus21 offers an alternative to the traditional, rigid structures of education. By integrating decentralised governance, project-based learning, financial sustainability, time management, and digital portfolios, it provides a comprehensive model for learners to take ownership of their educational journey. This innovative approach aligns with the demands of the modern world and prepares learners to thrive in an ever-evolving economy.
+
+Through Consensus21, we are paving the way for a more autonomous, flexible, and sustainable future for education—one that empowers learners to succeed on their own terms.
+
+
+
 ## References
 
 - Nakamoto, Satoshi. *Bitcoin: A Peer-to-Peer Electronic Cash System*. 2008.  
@@ -92,61 +193,56 @@ By leveraging Bitcoin, the Lightning Network, and a community-driven governance 
   [Link to whitepaper](https://fedimint.org/wp-content/uploads/2022/11/fedimint-paper.pdf)
 
 -  De Soto, Hernando. *The Sovereign Individual: Mastering the Transition to the Information Age*. 1997.  
-  [Link to book](https://www.amazon.com/Sovereign-Individual-Mastering-Transition-Information/dp/0679777472)
+
+- Trotter, Ray. *The Wooranna Way*. 2019.  
+  [Link to documents](https://docs.woorannaway.com)
+
+- Gray, Peter. Free to Learn: Why Unleashing the Instinct to Play Will Make Our Children Happier, More Self-Reliant, and Better Students for Life. 2013.
 
 - Bollier, David. *The Self-Organizing Revolution: Commoning as a Path to Liberation*. 2014.  
-  [Link to book](https://www.amazon.com/Self-Organizing-Revolution-Commoning-Liberation-Collective/dp/1608464771)
 
 - Lomax, Eric. *Radical Education: A Reinterpretation*. 1971.  
-  [Link to book](https://www.amazon.com/Radical-Education-Reinterpretation-Eric-Lomax/dp/0713910595)
 
 - Papert, Seymour. *Mindstorms: Children, Computers, and Powerful Ideas*. 1980.  
-  [Link to book](https://www.amazon.com/Mindstorms-Children-Computers-Powerful-Ideas/dp/0465046746)
 
 - Freire, Paulo. *Pedagogy of the Oppressed*. 1970.  
-  [Link to book](https://www.amazon.com/Pedagogy-Oppressed-30th-Anniversary/dp/0826412769)
 
 - Fadel, Charles. *The Elements of a 21st Century Education*. 2015.  
-  [Link to book](https://www.amazon.com/Elements-21st-Century-Education-Fadel/dp/1137521090)
 
 - Larmer, John, and Mergendoller, John. *The Power of Project-Based Learning: Helping Students Develop Important Skills*. 2015.  
-  [Link to book](https://www.amazon.com/Power-Project-Based-Learning-Students-Important/dp/1416620092)
 
 - Wenger, Etienne. *Communities of Practice: Learning, Meaning, and Identity*. 1998.  
-  [Link to book](https://www.amazon.com/Communities-Practice-Learning-Meaning-Participation/dp/0521663636)
 
 - National Research Council. *How People Learn: Brain, Mind, Experience, and School*. 2000.  
-  [Link to book](https://www.amazon.com/How-People-Learn-Experience-School/dp/0309070368)
 
 - Carey, Kevin. *The End of College: Creating the Future of Learning and the University of Everywhere*. 2015.  
-  [Link to book](https://www.amazon.com/End-College-Creating-University-Everywhere/dp/0544705205)
 
 - Jackson, G. M., & Scott, L. T. *Innovative Higher Education: Developing the World's Next Generation of Problem-Solvers*. 2016.  
-  [Link to book](https://www.amazon.com/Innovative-Higher-Education-Developing-Problem-Solvers/dp/1137493751)
 
 - Surowiecki, James. *The Wisdom of Crowds*. 2004.  
-  [Link to book](https://www.amazon.com/Wisdom-Crowds-James-Surowiecki/dp/0385721706)
 
 - Senge, Peter M. *The Fifth Discipline: The Art & Practice of The Learning Organization*. 1990.  
-  [Link to book](https://www.amazon.com/Fifth-Discipline-Practice-Learning-Organization/dp/0385517254)
-
-- Schwab, Klaus. *The Fourth Industrial Revolution*. 2016.  
-  [Link to book](https://www.amazon.com/Fourth-Industrial-Revolution-Klaus-Schwab/dp/0393356042)
 
 - Brynjolfsson, Erik, and McAfee, Andrew. *The Second Machine Age: Work, Progress, and Prosperity in a Time of Brilliant Technologies*. 2014.  
-  [Link to book](https://www.amazon.com/Second-Machine-Age-Prosperity-Technologies/dp/039335064X)
 
 - Zhao, Yong. *World Class Learners: Educating Creative and Entrepreneurial Students*. 2012.  
-  [Link to book](https://www.amazon.com/World-Class-Learners-Educating-Entrepreneurial/dp/1452236471)
 
 - Zhao, Yong. *Catching Up or Leading the Way: American Education in the Age of Globalization*. 2009.  
-  [Link to book](https://www.amazon.com/Catching-Up-Leading-Way-Education/dp/1412968834)
 
 - Zhao, Yong. *What Works May Hurt: Side Effects in Education*. 2012.  
-  [Link to book](https://www.amazon.com/What-Works-May-Hurt-Education/dp/1412993226)
 
 - Zhao, Yong. *Never Send a Human to Do a Machine's Job: Correcting the Top 5 EdTech Mistakes*. 2019.  
-  [Link to book](https://www.amazon.com/Never-Send-Human-Machines-Correcting/dp/1943876367)
 
 - Zhao, Yong. *The Tao of Education: A Path to Lifelong Learning*. 2021.  
-  [Link to book](https://www.amazon.com/Tao-Education-Path-Lifelong-Learning/dp/1952196012)
+  
+- Robinson, Sir Ken. *The Element: How Finding Your Passion Changes Everything*. 2009.  
+
+- Robinson, Sir Ken. *Creative Schools: The Grassroots Revolution That's Transforming Education*. 2015.  
+
+- Robinson, Sir Ken. *Out of Our Minds: Learning to Be Creative*. 2001.  
+
+- Robinson, Sir Ken. *You, Your Child, and School: Navigate Your Way to the Best Education*. 2018.  
+
+- Robinson, Sir Ken. *The Element: How Finding Your Passion Changes Everything (Revised Edition)*. 2022.  
+
+- Robinson, Sir Ken. *Find Your Element: How to Discover Your Talents and Passions and Transform Your Life*. 2013.  
