@@ -11,7 +11,7 @@ Consensus21 is an open-source, decentralised education protocol designed to revo
 This white paper outlines the foundational principles, architecture, and governance of Consensus21, highlighting its focus on community-driven education, financial independence, and self-directed learning.
 
 ## 1. Introduction
-The legacy education system is increasingly failing to address the needs of modern learners. With the global student loan market projected to reach $$3.8 trillion. by 2029, rising tuition fees, a lack of financial literacy education, and the inadequacy of traditional learning methods to prepare students for a rapidly changing job market, there is an urgent need for a new paradigm.
+The legacy education system is increasingly failing to address the needs of modern learners. With the global student loan market projected to reach $3.8 trillion by 2029, rising tuition fees, a lack of financial literacy education, and the inadequacy of traditional learning methods to prepare students for a rapidly changing job market, there is an urgent need for a new paradigm.
 
 Consensus21 offers a radical departure from conventional schooling by building a decentralised, mentor-driven learning ecosystem. Through a peer-to-peer monetary system and decentralised governance, Consensus21 replaces outdated hierarchical structures with community-driven decision-making processes. The protocol provides a model for continuous learning from the age of 5 to 21, removing standardised testing and allowing learners to pursue entrepreneurial, technological, and intellectual endeavours without the burden of unnecessary debt or restrictive curricula.
 
