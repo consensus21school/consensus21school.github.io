@@ -1,7 +1,7 @@
 {
   "settings": {
     "name": "Consensus21",
-    "currentPage": "index.html",
+    "currentPage": "contact.html",
     "theme": {
       "name": "startm5",
       "title": "StartM5",
@@ -731,7 +731,7 @@
     },
     "peninsula.html": {
       "settings": {
-        "title": "Peninsula",
+        "title": "C21Peninsula",
         "order": "1"
       },
       "components": [
@@ -1378,7 +1378,7 @@
     },
     "contact.html": {
       "settings": {
-        "title": "Contact",
+        "title": "C21Contact",
         "order": "2"
       },
       "components": [
