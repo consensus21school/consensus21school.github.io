@@ -28,19 +28,41 @@ In Consensus21, there are no teachers or students in the traditional sense. The 
 Mentorship is not restricted to any particular demographic. Anyone in the community can offer guidance, regardless of age, experience, or formal qualification. Learners contribute to the community by taking on mentoring roles themselves as they progress in their learning path, fostering a culture of continuous growth and shared responsibility.
 
 ### 2.3. Learning Pathways
-The Consensus21 protocol promotes self-directed, project-based learning over rigid curricula. Learners progress at their own pace, guided by mentors and driven by personal interests. This decentralised learning approach offers an unprecedented level of flexibility, where education is aligned with the needs of the learner rather than the constraints of a standardised system.
-
-Key features of Consensus21’s learning pathways include:
-
-- **Modular Infrastructure**: Physical spaces are designed around modular units such as repurposed shipping containers, each serving as a classroom or learning space. These units are designed and customised by learners and mentors, promoting autonomy, creativity, and hands-on problem-solving.
-  
-- **Technology-Enabled Learning**: Each classroom is equipped with a dedicated internet connection, provided by Starlink and managed by mentors. OpenDNS filtering ensures a safe and productive environment. Each student has access to an AI host, a Bitcoin node, and a Nostr relay for decentralised communication and collaboration.
-
-- **Linux and Open Source**: All systems operate on Linux, with students constructing their own computers, selecting their preferred Linux distributions, and engaging in open-source software development. Learners are encouraged to explore unlimited screen time for command-line interface (CLI) applications, fostering technical fluency and digital literacy.
+The Consensus21 protocol promotes self-directed, problem-based learning. Learners progress at their own pace, guided by mentors and driven by personal interests. This decentralised learning approach offers an unprecedented level of flexibility, where education is aligned with the needs of the learner rather than the constraints of a standardised system.
 
 - **No Standardised Testing**: There are no standardised tests in the Consensus21 system. Instead of traditional exams, learners’ progress is tracked through the completion of projects and tasks within their communities. The only standardised test is for parents during enrolment to ensure that the family is aligned with the values and structure of the protocol.
 
-### 2.4. Problem-Based Learning (PBL)
+# 2.4. Core Didactic Learning Programs  
+
+While Consensus21 is built on the principles of self-directed learning, certain foundational skills are considered essential for all learners. These programs equip students with critical life skills that enhance their ability to engage effectively in both learning and real-world applications.  
+
+## A. Time Management & Calendar Coordination  
+
+To support self-directed education, learners must develop strong time management skills and practise transparent scheduling with their mentors and parents.  
+
+- **Calendar Training** – Learners are introduced to digital calendars (e.g., Nextcloud, Google Calendar, or decentralised alternatives).  
+- **Task Prioritisation** – Training on distinguishing between urgent and important tasks.  
+- **Time Audits** – Learners log and review how they allocate time to different activities.  
+- **Mentor & Parent Transparency** – Schedules are shared with mentors and optionally with parents to support accountability.  
+
+## B. Financial Literacy & Bitcoin Fundamentals  
+
+All learners engage in a structured financial literacy program to understand both traditional and decentralised financial systems.  
+
+- **Understanding Money** – A historical and functional overview of what money is, from barter systems to modern currencies and Bitcoin.  
+- **Setting Up a Signing Device** – Hands-on experience with hardware wallets or software wallets.  
+- **Public/Private Keys & UTXOs** – Learning about cryptographic keys, Bitcoin’s UTXO model, and how transactions work.  
+- **Blockchain Analysis** – Exploring block explorers to understand on-chain transactions and privacy considerations.  
+
+## C. Reflection & Digital Portfolio Management via Git  
+
+To track and showcase learning progress, students maintain a digital portfolio using Git and Markdown, ensuring a structured and transparent learning record.  
+
+- **Version Control Basics** – Understanding Git as a tool for tracking changes in personal and collaborative projects.  
+- **Markdown for Documentation** – Writing and formatting project reflections and learning documentation.  
+- **Portfolio Hosting** – Storing learning progress in a personal Git repository that can be used for self-assessment and external evaluation.  
+
+### 2.5. Problem-Based Learning (PBL)
 At the heart of the Consensus21 model is Problem-Based Learning (PBL), where learners tackle real-world problems through self-directed, project-driven initiatives. This approach encourages learners to identify challenges they are passionate about, often working on projects that are of personal or societal importance.
 
 Learners engage in PBL throughout their entire educational journey, meaning that there are no fixed curricula or assessments. Instead, learners focus on the development of skills, critical thinking, and innovation through hands-on problem-solving. This approach:
@@ -53,20 +75,11 @@ Learners engage in PBL throughout their entire educational journey, meaning that
 In addition to learning within the Consensus21 community, learners are encouraged to engage with external mentors and experts outside of their immediate learning environment. This may involve collaborating with industry professionals, business owners, or specialists in various fields who can provide insights, guidance, and resources that complement the project-based learning approach. Learners often participate in global networks, contributing to and learning from a diverse range of perspectives.
 
 ## 3. Financial Ecosystem
-Consensus21 is built on the premise that education should be financially sustainable, transparent, and aligned with the broader principles of decentralised systems. The school’s tuition fees are exclusively paid in Bitcoin, which flows into a community-controlled multisig wallet managed by the Council of Educators. This financial model ensures that resources are allocated efficiently and transparently, without the burden of centralised administration or debt accumulation. Parents pay annual fees, the amount of which is set by the council, directly via the Bitcoin blockchain into a multisig wallet. 10% of these fees are placed into a time-locked account, which is only unlocked on the learner's 18th birthday. Once the funds are unlocked, the learner has three years to develop a business based on their problem-based learning journey, with support from the community.
+Consensus21 is built on the premise that education should be financially sustainable, transparent, and aligned with the broader principles of decentralised systems. The school’s tuition fees are exclusively paid in Bitcoin, which flows into a community-controlled multisig wallet managed by the Council of mentors. This financial model ensures that resources are allocated efficiently and transparently, without the burden of centralised administration or debt accumulation. Parents pay annual fees, the amount of which is set by the council, directly via the Bitcoin blockchain into a multisig wallet. 10% of these fees are placed into a time-locked account, which is only unlocked on the learner's 18th birthday. Once the funds are unlocked, the learner has three years to develop a business based on their problem-based learning journey, with support from the community.
 
 ![fees drawio](https://github.com/user-attachments/assets/60f1dbf8-5fc7-4877-bf27-7dea454568e2)
 
-
-### 3.1. Value-for-Value Model
-Mentors and students are empowered to create educational content that is incorporated into a shared Git repository, accessible to the entire learning community. This content can range from lessons and projects to resources and tools, all collaboratively developed. Both mentors and students are compensated for their contributions through Bitcoin payments processed via the Lightning Network in a Value-for-Value (v4v) model. This system ensures that creators are rewarded fairly for their time, expertise, and input, with payments flowing directly for the value they provide.
-
-As content is added to the repository, it becomes available for others to learn from, share, and build upon. Mentors are compensated based on the quality and demand for the content they create, while learners can earn payments for their contributions as well, promoting active engagement. Learners also have the ability to choose mentors based on reputation, specialty, and availability, ensuring that the community’s economic ecosystem is driven by a meritocratic system, where value is exchanged freely, rather than by fixed tuition fees or arbitrary pricing.
-
-![v4v drawio](https://github.com/user-attachments/assets/3794a4d6-3d11-4cd4-afa9-f384809f0ae4)
-
-
-### 3.2. School Improvement Proposals (SIPs)
+### 3.1. School Improvement Proposals (SIPs)
 Consensus21 embraces a proposal-driven approach for school-wide improvements, known as SIPs. Similar to Bitcoin’s BIPs (Bitcoin Improvement Proposals), SIPs allow any member of the community to submit suggestions for enhancing the school’s infrastructure, curriculum, or governance structure. These proposals are reviewed by the Council of Educators and implemented through a democratic voting process, ensuring that all stakeholders have a voice in shaping the future of their education system.
 
 ## 4. Addressing Key Problems in Legacy Education
