@@ -28,7 +28,7 @@ Many students experience **low engagement and motivation** due to rigid curricul
 
 ## 2. The Consensus21 Solution: A Decentralised Learning Protocol
 
-Consensus21 offers a radical departure from conventional schooling by building a **decentralised, mentor-driven learning ecosystem**. Through a **peer-to-peer monetary system and decentralised governance**, Consensus21 replaces outdated hierarchical structures with community-driven decision-making processes. The protocol provides a model for continuous learning from the age of 5 to 21, eliminating standardised testing and allowing learners to pursue entrepreneurial, technological, and intellectual endeavours without the burden of unnecessary debt or restrictive curricula.
+Consensus21 offers a radical departure from conventional schooling by building a **decentralised, mentor-driven learning ecosystem**. Through a **peer-to-peer monetary system and decentralised governance**, Consensus21 replaces outdated hierarchical structures with community-driven decision-making processes. The protocol provides a model for continuous learning from the age of 7 to 21, eliminating standardised testing and allowing learners to pursue entrepreneurial, technological, and intellectual endeavours without the burden of unnecessary debt or restrictive curricula.
 
 ### 2.1. Governance Structure
 
@@ -38,7 +38,7 @@ Consensus21 offers a radical departure from conventional schooling by building a
 
 
 
-Consensus21 is governed by a **Council of Educators**, a multi-signature body elected by members of the learning community. This council oversees the implementation of **School Improvement Proposals (SIPs)**—similar to Bitcoin’s BIPs (Bitcoin Improvement Proposals)—ensuring continuous innovation within the learning environment.
+Consensus21 is governed by a **Council of mentors**, a multi-signature body elected by members of the learning community. This council oversees the implementation of **School Improvement Proposals (SIPs)**—similar to Bitcoin’s BIPs (Bitcoin Improvement Proposals)—ensuring continuous innovation within the learning environment.
 
 The council facilitates **consensus-building**, ensuring that all changes to the protocol or the community are voted on and agreed upon democratically. A **3-of-6 multi-signature scheme** allows decisions to be made with agreement from half of the signatories plus one, balancing security, efficiency, and an optimal decision-making process. Members of the council are elected through community voting and serve fixed terms.
 
@@ -60,7 +60,7 @@ The Consensus21 protocol promotes **self-directed, problem-based learning (PBL)*
 
 
 
-Consensus21 is built on the principle that education should be **financially sustainable and transparent**. Tuition fees are paid exclusively in **Bitcoin**, flowing into a **community-controlled multisig wallet** managed by the Council of Educators.
+Consensus21 is built on the principle that education should be **financially sustainable and transparent**. Tuition fees are paid exclusively in **Bitcoin**, flowing into a **community-controlled multisig wallet** managed by the Council of mentors.
 
 - **No Debt-Based Tuition**: Parents pay directly in Bitcoin, avoiding the need for student loans.
 - **Future-Oriented Funding**: 10% of all tuition fees are placed into a **time-locked account**, which is only unlocked when the learner turns **18**. These funds can be used to launch a business based on their learning experience, with community support.
@@ -85,10 +85,10 @@ While Consensus21 is built on the principles of self-directed learning, certain 
 
 To support self-directed education, learners must develop strong time management skills and practice transparent scheduling with their mentors and parents.
 
-- **Calendar Training** – Learners are introduced to digital calendars (e.g., Nextcloud, Google Calendar, or decentralized alternatives).
+- **Calendar Training** – Learners are introduced to digital calendars.
 - **Task Prioritization** – Training on distinguishing between urgent and important tasks.
 - **Time Audits** – Learners log and review how they allocate time to different activities.
-- **Mentor & Parent Transparency** – Schedules are shared with mentors and optionally with parents to support accountability.
+- **Mentor & Parent Transparency** – Schedules are shared with mentors with parents to support accountability.
 
 ### 3.2. Financial Literacy & Bitcoin Fundamentals
 
