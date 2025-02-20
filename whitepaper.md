@@ -44,7 +44,7 @@ The council facilitates **consensus-building**, ensuring that all changes to the
 
 ### 2.2. Decentralised Learning System
 
-In Consensus21, there are no traditional teachers or students—roles are fluid, and everyone is both a **learner and a mentor** at different stages of their journey. This **Value-for-Value** model allows mentors to be compensated for their contributions via Bitcoin payments, processed through the **Lightning Network**.
+In Consensus21, there are no traditional teachers or students—roles are fluid, and everyone is both a **learner and a mentor** at different stages of their journey. 
 
 ### 2.3. Learning Pathways & Problem-Based Learning (PBL)
 
