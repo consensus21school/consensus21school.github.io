@@ -61,10 +61,7 @@
     "gdpr": false,
     "uniqCompNum": 61,
     "versionPublish": "5.9.18",
-    "screenshot": "screenshot.png",
-    "publishType": "local",
-    "mbrsite": "mbrsite://%7B%22id%22%3A1243922%2C%22domain%22%3A%22ajnp1grs7m.mobirisesite.com%22%7D",
-    "publishPath": "@PROJECT_PATH@"
+    "screenshot": "screenshot.png"
   },
   "pages": {
     "index.html": {
