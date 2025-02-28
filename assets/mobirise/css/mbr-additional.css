@@ -2574,17 +2574,54 @@ a {
     left: -1rem;
   }
 }
-#custom-html-1o {
-  /* Type valid CSS here */
+.cid-uE3zVrpmoo {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  background-color: #ffffff;
 }
-#custom-html-1o div {
-  padding: 80px 0;
-  color: #777;
+.cid-uE3zVrpmoo .item-subtitle {
+  line-height: 1.2;
+  color: #000000;
+}
+.cid-uE3zVrpmoo img,
+.cid-uE3zVrpmoo .item-img {
+  width: 100%;
+  height: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+.cid-uE3zVrpmoo .item:focus,
+.cid-uE3zVrpmoo span:focus {
+  outline: none;
+}
+.cid-uE3zVrpmoo .item {
+  margin-bottom: 2rem;
+}
+@media (max-width: 767px) {
+  .cid-uE3zVrpmoo .item {
+    margin-bottom: 1rem;
+  }
+}
+.cid-uE3zVrpmoo .item-wrapper {
+  position: relative;
+  border-radius: 4px;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+.cid-uE3zVrpmoo .mbr-section-title {
+  color: #232323;
   text-align: center;
 }
-#custom-html-1o p {
-  font-size: 60px;
-  color: #777;
+.cid-uE3zVrpmoo .mbr-text,
+.cid-uE3zVrpmoo .mbr-section-btn {
+  color: #232323;
+}
+.cid-uE3zVrpmoo .item-title {
+  color: #232323;
+}
+.cid-uE3zVrpmoo .content-head {
+  max-width: 800px;
 }
 .cid-uDYaWMEaJP {
   padding-top: 6rem;
