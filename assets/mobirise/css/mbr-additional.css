@@ -2574,54 +2574,64 @@ a {
     left: -1rem;
   }
 }
-.cid-uE3zVrpmoo {
+.cid-uE2TyuiIvo {
   padding-top: 6rem;
   padding-bottom: 6rem;
-  background-color: #ffffff;
+  background-color: #edefeb;
 }
-.cid-uE3zVrpmoo .item-subtitle {
-  line-height: 1.2;
-  color: #000000;
+.cid-uE2TyuiIvo .mbr-fallback-image.disabled {
+  display: none;
 }
-.cid-uE3zVrpmoo img,
-.cid-uE3zVrpmoo .item-img {
+.cid-uE2TyuiIvo .mbr-fallback-image {
+  display: block;
+  background-size: cover;
+  background-position: center center;
   width: 100%;
   height: 100%;
-  height: 400px;
-  object-fit: cover;
+  position: absolute;
+  top: 0;
 }
-.cid-uE3zVrpmoo .item:focus,
-.cid-uE3zVrpmoo span:focus {
-  outline: none;
+.cid-uE2TyuiIvo .mbr-description {
+  text-align: left;
 }
-.cid-uE3zVrpmoo .item {
+.cid-uE2TyuiIvo .item-wrapper {
+  background: #ffffff;
   margin-bottom: 2rem;
+  padding: 2.25rem;
 }
 @media (max-width: 767px) {
-  .cid-uE3zVrpmoo .item {
+  .cid-uE2TyuiIvo .item-wrapper {
+    padding: 2rem 1.5rem;
     margin-bottom: 1rem;
   }
 }
-.cid-uE3zVrpmoo .item-wrapper {
-  position: relative;
-  border-radius: 4px;
-  height: 100%;
-  display: flex;
-  flex-flow: column nowrap;
+@media (min-width: 992px) and (max-width: 1200px) {
+  .cid-uE2TyuiIvo .item-wrapper {
+    padding: 2rem 1.5rem;
+    margin-bottom: 2rem;
+  }
 }
-.cid-uE3zVrpmoo .mbr-section-title {
-  color: #232323;
+.cid-uE2TyuiIvo .card-title,
+.cid-uE2TyuiIvo .iconfont-wrapper {
+  color: #000000;
+}
+.cid-uE2TyuiIvo .card-text {
+  color: #000000;
+}
+.cid-uE2TyuiIvo .mbr-section-title {
+  color: #000000;
   text-align: center;
 }
-.cid-uE3zVrpmoo .mbr-text,
-.cid-uE3zVrpmoo .mbr-section-btn {
-  color: #232323;
+.cid-uE2TyuiIvo .mbr-number {
+  color: #9fe870;
 }
-.cid-uE3zVrpmoo .item-title {
-  color: #232323;
+.cid-uE2TyuiIvo .mbr-text,
+.cid-uE2TyuiIvo .mbr-section-btn {
+  text-align: center;
 }
-.cid-uE3zVrpmoo .content-head {
-  max-width: 800px;
+.cid-uE2TyuiIvo .card-text,
+.cid-uE2TyuiIvo .item .mbr-section-btn {
+  text-align: left;
 }
 .cid-uDYaWMEaJP {
   padding-top: 6rem;
