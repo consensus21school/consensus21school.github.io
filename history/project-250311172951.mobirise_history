@@ -1,7 +1,7 @@
 {
   "settings": {
     "name": "Consensus21",
-    "currentPage": "peninsula.html",
+    "currentPage": "index.html",
     "theme": {
       "name": "startm5",
       "title": "StartM5",
@@ -59,9 +59,11 @@
     "siteUrl": false,
     "cookiesAlert": false,
     "gdpr": false,
-    "uniqCompNum": 70,
+    "uniqCompNum": 68,
     "versionPublish": "5.9.18",
-    "screenshot": "screenshot.png"
+    "screenshot": "screenshot.png",
+    "publishType": "local",
+    "publishPath": "@PROJECT_PATH@"
   },
   "pages": {
     "index.html": {
@@ -565,13 +567,28 @@
           },
           "_name": "header04",
           "_sourceTheme": "designerm4",
-          "_customHTML": "<section data-bs-version=\"5.1\" class=\"header4\" group=\"Headers\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\">\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\" checked>\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"10\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"2\" condition=\"fullScreen == false\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Subtitle\" name=\"showSubitle\">\n        <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked>\n        <input type=\"checkbox\" title=\"Buttons\" name=\"showButtons\">\n        <input type=\"range\" inline title=\"Icons\" name=\"iconsCount\" min=\"1\" max=\"5\" step=\"1\" value=\"5\">\n        <header>Color</header>\n        <input type=\"color\" name=\"iconsColor\" title=\"Icons\" value=\"#ffffff\" selected>\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"@PROJECT_PATH@/assets/images/df912135-b195-4ddc-8f45-0ba09c36edb8.webp\" parallax selected>\n            <input type=\"color\" title=\"Color\" value=\"#131419\">\n            <input type=\"video\" title=\"Video\" value=\"https://vimeo.com/428046504\">\n        </fieldset>\n        <header condition=\"bg.type === 'video'\">Fallback Image</header>\n        <input type=\"image\" title=\"Fallback Image\" value=\"@ADDONS_PATH@/designerm4/components/_images/background1.jpg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#000000\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n    <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n    <div class=\"align-center\" mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row justify-content-center\">\n            <div class=\"col-12 col-md-12 col-lg-10\">\n                <h2 class=\"mbr-section-subtitle align-left mbr-fonts-style mb-3\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-5\" mbr-if=\"showSubitle\">ABOUT US\n                </h2>\n                <h1 class=\"mbr-section-title align-left mbr-fonts-style mb-5\" data-app-selector=\".mbr-section-title\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\"><b>CONSENSUS 21&nbsp;</b></h1>\n                <div class=\"content-wrapper\">\n                    <p class=\"mbr-text align-left mbr-fonts-style pb-5\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">Consensus21 is an open-source educational protocol that decentralises learning, removing hierarchies, standardised tests, and tuition debt. It fosters self-directed, project-based learning with mentor support, empowering learners with critical thinking, entrepreneurship, and problem-solving skills.<br><br><br><br><br><br><br><br><br><br><br><br><br></p>\n                    <div mbr-buttons mbr-theme-style=\"display-4\" class=\"align-left mbr-section-btn\" mbr-if=\"showButtons\"><a class=\"btn btn-lg btn-white-outline\" href=\"https://mobiri.se\" data-app-placeholder=\"Type Text\">View Work</a></div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"icons-wrapper\">\n        <div class=\"icon-wrapper\" mbr-if=\"iconsCount > 0\">\n            <a href=\"https://coinos.io/CONSENSUS21\" target=\"_blank\"><span mbr-icon class=\"mbr-iconfont fa-bitcoin fa\"></span></a>\n        </div>\n        <div class=\"icon-wrapper\" mbr-if=\"iconsCount > 1\">\n            <a href=\"https://github.com/consensus21school/consensus21school.github.io/blob/main/whitepaper.md\" target=\"_blank\"><span mbr-icon class=\"mbr-iconfont socicon-github socicon\"></span></a>\n        </div>\n        <div class=\"icon-wrapper\" mbr-if=\"iconsCount > 2\">\n            <a href=\"https://nosta.me/bb1c863a2c15c131b4494e7a081c9cc556eabd6e24cb4868dae378bc2953c3fb\" target=\"_blank\"><span mbr-icon class=\"mbr-iconfont mdi-communication-vpn-key\"></span></a>\n        </div>\n        <div class=\"icon-wrapper\" mbr-if=\"iconsCount > 3\">\n            <a href=\"https://x.com/Consensus21\" target=\"_blank\"><span mbr-icon class=\"mbr-iconfont socicon-twitter socicon\"></span></a>\n        </div>\n        <div class=\"icon-wrapper\" mbr-if=\"iconsCount > 4\">\n            <a href=\"mailto:consensus.sulfur695@aleeas.com\"><span mbr-icon class=\"mbr-iconfont socicon-mail socicon\"></span></a>\n        </div>\n    </div>\n</section>",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"header4\" group=\"Headers\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\">\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\" checked>\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"10\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"2\" condition=\"fullScreen == false\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Subtitle\" name=\"showSubitle\">\n        <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked>\n        <input type=\"checkbox\" title=\"Buttons\" name=\"showButtons\">\n        <input type=\"range\" inline title=\"Icons\" name=\"iconsCount\" min=\"1\" max=\"5\" step=\"1\" value=\"5\">\n        <header>Color</header>\n        <input type=\"color\" name=\"iconsColor\" title=\"Icons\" value=\"#ffffff\" selected>\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"@PROJECT_PATH@/assets/images/df912135-b195-4ddc-8f45-0ba09c36edb8.webp\" parallax selected>\n            <input type=\"color\" title=\"Color\" value=\"#131419\">\n            <input type=\"video\" title=\"Video\" value=\"https://vimeo.com/428046504\">\n        </fieldset>\n        <header condition=\"bg.type === 'video'\">Fallback Image</header>\n        <input type=\"image\" title=\"Fallback Image\" value=\"@ADDONS_PATH@/designerm4/components/_images/background1.jpg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#000000\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.7\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n    <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n    <div class=\"align-center\" mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row justify-content-center\">\n            <div class=\"col-12 col-md-12 col-lg-10\">\n                <h2 class=\"mbr-section-subtitle align-left mbr-fonts-style mb-3\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-5\" mbr-if=\"showSubitle\">ABOUT US\n                </h2>\n                <h1 class=\"mbr-section-title align-left mbr-fonts-style mb-5\" data-app-selector=\".mbr-section-title\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\"><b>CONSENSUS 21&nbsp;</b></h1>\n                <div class=\"content-wrapper\">\n                    <p class=\"mbr-text align-left mbr-fonts-style pb-5\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">Consensus21 is an open-source educational protocol that decentralises learning, removing hierarchies, standardised tests, and tuition debt. It fosters self-directed, project-based learning with mentor support, empowering learners with critical thinking, entrepreneurship, and problem-solving skills.<br><br><br><br><br><br><br><br><br><br><br><br><br></p>\n                    <div mbr-buttons mbr-theme-style=\"display-4\" class=\"align-left mbr-section-btn\" mbr-if=\"showButtons\"><a class=\"btn btn-lg btn-white-outline\" href=\"https://mobiri.se\" data-app-placeholder=\"Type Text\">View Work</a></div>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"icons-wrapper\">\n        <div class=\"icon-wrapper\" mbr-if=\"iconsCount > 0\">\n            <a href=\"https://coinos.io/CONSENSUS21\" target=\"_blank\"><span mbr-icon class=\"mbr-iconfont fa-bitcoin fa\"></span></a>\n        </div>\n        <div class=\"icon-wrapper\" mbr-if=\"iconsCount > 1\">\n            <a href=\"https://github.com/consensus21school/consensus21school.github.io/blob/main/whitepaper.md\" target=\"_blank\"><span mbr-icon class=\"mbr-iconfont socicon-github socicon\"></span></a>\n        </div>\n        <div class=\"icon-wrapper\" mbr-if=\"iconsCount > 2\">\n            <a href=\"https://nosta.me/bb1c863a2c15c131b4494e7a081c9cc556eabd6e24cb4868dae378bc2953c3fb\" target=\"_blank\"><span mbr-icon class=\"mbr-iconfont mdi-communication-vpn-key\"></span></a>\n        </div>\n        <div class=\"icon-wrapper\" mbr-if=\"iconsCount > 3\">\n            <a href=\"https://x.com/Consensus21\" target=\"_blank\"><span mbr-icon class=\"mbr-iconfont socicon-twitter socicon\"></span></a>\n        </div>\n        <div class=\"icon-wrapper\" mbr-if=\"iconsCount > 4\">\n            <a href=\"mailto:consensus.sulfur695@aleeas.com\"><span mbr-icon class=\"mbr-iconfont socicon-mail socicon\"></span></a>\n        </div>\n    </div>\n</section>",
           "_cid": "uF01kABoqe",
           "_anchor": "header04-1u",
           "_protectedParams": [],
           "_global": false,
           "_once": false,
           "_params": {}
+        },
+        {
+          "_customTemplate": true,
+          "_afterNavbarItem": false,
+          "_customHTML": "<div style=\"width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; overflow: hidden;\">\n    <iframe src=\"https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;ctz=Australia%2FMelbourne&amp;showPrint=0&amp;showDate=0&amp;showNav=0&amp;mode=AGENDA&amp;showCalendars=0&amp;showTabs=0&amp;showTz=0&amp;src=Y29uc2Vuc3VzMjFzY2hvb2xAZ21haWwuY29t&amp;color=%23EF6C00\" style=\"width: 90%; height: 90vh; border: none; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);\" frameborder=\"0\" scrolling=\"no\">\n    </iframe>\n</div>\n",
+          "_customCSS": "/* Type valid CSS here */\n\ndiv {\n  padding: 80px 0;\n  color: #777;\n  text-align: center;\n}\np {\n  font-size: 60px;\n  color: #777;\n}",
+          "alias": "code-editor",
+          "_tags": [
+            "Extension"
+          ],
+          "_name": "pro.custom-html",
+          "_sourceTheme": "startm5",
+          "_anchor": "custom-html-1s",
+          "_PHPplaceholders": [],
+          "_JSplaceholders": []
         },
         {
           "_name": "footer1",
@@ -1078,7 +1095,7 @@
           },
           "_name": "article02",
           "_sourceTheme": "startm5",
-          "_customHTML": "<section data-bs-version=\"5.1\" class=\"start article2\" group=\"Article\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\">\n\t<mbr-parameters>\n\t\t<header>Size</header>\n\t\t<input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n\t\t<input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n\t\t<input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"8\" condition=\"fullScreen == false\">\n\t\t<input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"8\" condition=\"fullScreen == false\">\n\t\t<input type=\"range\" inline name=\"imageWidth\" title=\"Image\" min=\"4\" max=\"8\" step=\"1\" value=\"6\">\n\t\t<input type=\"checkbox\" title=\"Reverse\" name=\"reverseContent\">\n\t\t<header>Show/Hide</header>\n\t\t<input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n\t\t<input type=\"checkbox\" title=\"Text\" name=\"showText\" checked>\n\t\t<input type=\"checkbox\" title=\"Buttons\" name=\"showButtons\" checked>\n\t\t<header>Background</header>\n\t\t<fieldset type=\"background\" name=\"bg\" parallax>\n\t\t\t<input type=\"image\" title=\"Image\" value=\"../_images/background1.jpg\">\n\t\t\t<input type=\"color\" title=\"Color\" value=\"#ffffff\" selected>\n\t\t\t<input type=\"video\" title=\"Video\" value=\"https://vimeo.com/428046504\">\n\t\t</fieldset>\n\t\t<header condition=\"bg.type === 'video'\">Fallback Image</header>\n\t\t<input type=\"image\" title=\"Fallback Image\" value=\"../_images/background1.jpg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n\t\t<input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n\t\t<input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n\t\t<input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.8\" condition=\"overlay && bg.type !== 'color'\">\n\t</mbr-parameters>\n\n\t<div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n\t<div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n\t<div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n\t\t<div class=\"row justify-content-center\">\n\t\t\t<div class=\"col-12 col-md-12 col-lg-{{imageWidth}} image-wrapper\">\n\t\t\t\t<img class=\"w-100\" src=\"@PROJECT_PATH@/assets/images/1b617652-9299-4d17-8bcf-c107daf44557.webp\" alt>\n\t\t\t</div>\n\t\t\t<div class=\"col-12 col-md-12 col-lg\">\n\t\t\t\t<div class=\"text-wrapper align-left\">\n\t\t\t\t\t<h1 class=\"mbr-section-title mbr-fonts-style mb-4\" data-app-selector=\".mbr-section-title\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\"><b>Consensus 21 Peninsula</b></h1>\n\t\t\t\t\t<p class=\"mbr-text align-left mbr-fonts-style mb-4\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">\n\t\t\t\t\tThe Consensus21.School Peninsula Pilot Program is the first in a global network of schools operating on the Consensus21 protocol. This pioneering initiative sets the foundation for a decentralised, community-driven approach to education, where governance, funding, and curriculum development align with the principles of transparency and collective decision-making. By leveraging the Consensus21 protocol, the network aims to create a scalable and autonomous model for future schools, empowering students and educators alike. The Peninsula Pilot serves as the blueprint for this vision, demonstrating how decentralised education can thrive in the real world.\n\t\t\t\t\t</p>\n\t\t\t\t\t<div mbr-buttons mbr-theme-style=\"display-7\" class=\"mbr-section-btn align-left mt-3\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\"><a class=\"btn btn-primary\" href=\"https://docs.google.com/spreadsheets/d/e/2PACX-1vTb94NQi2fHI5DzsaaALDhSarQ1xhQbfRvAllbIan1KvOHzzZqkS5y9_pxUV_-or0kHeDJxWUH1y6AI/pubhtml\" data-app-placeholder=\"Type Text\" target=\"_blank\">Budget</a> <a class=\"btn btn-primary\" href=\"contribute.html\" data-app-placeholder=\"Type Text\">Contribute</a></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"start article2\" group=\"Article\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\">\n\t<mbr-parameters>\n\t\t<header>Size</header>\n\t\t<input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n\t\t<input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n\t\t<input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"8\" condition=\"fullScreen == false\">\n\t\t<input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"8\" condition=\"fullScreen == false\">\n\t\t<input type=\"range\" inline name=\"imageWidth\" title=\"Image\" min=\"4\" max=\"8\" step=\"1\" value=\"6\">\n\t\t<input type=\"checkbox\" title=\"Reverse\" name=\"reverseContent\">\n\t\t<header>Show/Hide</header>\n\t\t<input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n\t\t<input type=\"checkbox\" title=\"Text\" name=\"showText\" checked>\n\t\t<input type=\"checkbox\" title=\"Buttons\" name=\"showButtons\" checked>\n\t\t<header>Background</header>\n\t\t<fieldset type=\"background\" name=\"bg\" parallax>\n\t\t\t<input type=\"image\" title=\"Image\" value=\"../_images/background1.jpg\">\n\t\t\t<input type=\"color\" title=\"Color\" value=\"#ffffff\" selected>\n\t\t\t<input type=\"video\" title=\"Video\" value=\"https://vimeo.com/428046504\">\n\t\t</fieldset>\n\t\t<header condition=\"bg.type === 'video'\">Fallback Image</header>\n\t\t<input type=\"image\" title=\"Fallback Image\" value=\"../_images/background1.jpg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n\t\t<input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n\t\t<input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n\t\t<input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.8\" condition=\"overlay && bg.type !== 'color'\">\n\t</mbr-parameters>\n\n\t<div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n\t<div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n\t<div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n\t\t<div class=\"row justify-content-center\">\n\t\t\t<div class=\"col-12 col-md-12 col-lg-{{imageWidth}} image-wrapper\">\n\t\t\t\t<img class=\"w-100\" src=\"@PROJECT_PATH@/assets/images/e3228624-a4b4-46eb-9f66-e1a0bac96afd.webp\" alt>\n\t\t\t</div>\n\t\t\t<div class=\"col-12 col-md-12 col-lg\">\n\t\t\t\t<div class=\"text-wrapper align-left\">\n\t\t\t\t\t<h1 class=\"mbr-section-title mbr-fonts-style mb-4\" data-app-selector=\".mbr-section-title\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\"><b>Consensus 21 Peninsula</b></h1>\n\t\t\t\t\t<p class=\"mbr-text align-left mbr-fonts-style mb-4\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">\n\t\t\t\t\tThe Consensus21.School Peninsula Pilot Program is the first in a global network of schools operating on the Consensus21 protocol. This pioneering initiative sets the foundation for a decentralised, community-driven approach to education, where governance, funding, and curriculum development align with the principles of transparency and collective decision-making. By leveraging the Consensus21 protocol, the network aims to create a scalable and autonomous model for future schools, empowering students and educators alike. The Peninsula Pilot serves as the blueprint for this vision, demonstrating how decentralised education can thrive in the real world.\n\t\t\t\t\t</p>\n\t\t\t\t\t<div mbr-buttons mbr-theme-style=\"display-7\" class=\"mbr-section-btn align-left mt-3\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\"><a class=\"btn btn-primary\" href=\"https://docs.google.com/spreadsheets/d/e/2PACX-1vTb94NQi2fHI5DzsaaALDhSarQ1xhQbfRvAllbIan1KvOHzzZqkS5y9_pxUV_-or0kHeDJxWUH1y6AI/pubhtml\" data-app-placeholder=\"Type Text\" target=\"_blank\">Budget</a> <a class=\"btn btn-primary\" href=\"contribute.html\" data-app-placeholder=\"Type Text\">Contribute</a></div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>",
           "_cid": "uCJMw6OE1A",
           "_anchor": "article02-1i",
           "_protectedParams": [],
@@ -1087,20 +1104,70 @@
           "_params": {}
         },
         {
-          "_customTemplate": true,
-          "_afterNavbarItem": false,
-          "_customHTML": "<div style=\"width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; overflow: hidden;\">\n    <iframe src=\"https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;ctz=Australia%2FMelbourne&amp;showPrint=0&amp;showDate=0&amp;showNav=0&amp;mode=AGENDA&amp;showCalendars=0&amp;showTabs=0&amp;showTz=0&amp;src=Y29uc2Vuc3VzMjFzY2hvb2xAZ21haWwuY29t&amp;color=%23EF6C00\" style=\"width: 90%; height: 90vh; border: none; border-radius: 10px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);\" frameborder=\"0\" scrolling=\"no\">\n    </iframe>\n</div>\n",
-          "_customCSS": "/* Type valid CSS here */\n\ndiv {\n  padding: 80px 0;\n  color: #777;\n  text-align: center;\n}\np {\n  font-size: 60px;\n  color: #777;\n}",
-          "alias": "code-editor",
-          "_tags": [
-            "Extension"
-          ],
-          "_name": "pro.custom-html",
-          "_sourceTheme": "startm5",
-          "_JSplaceholders": [],
-          "_PHPplaceholders": [],
-          "_params": {},
-          "_anchor": "custom-html-1x"
+          "alias": false,
+          "_styles": {
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 1rem)",
+              "padding-bottom": "(@paddingBottom * 1rem)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            ".mbr-fallback-image.disabled": {
+              "display": "none"
+            },
+            ".mbr-fallback-image": {
+              "display": "block",
+              "background-size": "cover",
+              "background-position": "center center",
+              "width": "100%",
+              "height": "100%",
+              "position": "absolute",
+              "top": "0",
+              "& when (@bg-type = 'video')": {
+                "background-image": "url(@fallBackImage)"
+              }
+            },
+            "& when (@fullWidth)": {
+              ".container-fluid": {
+                "padding": "0"
+              }
+            },
+            ".container": {
+              "@media (max-width: 992px)": {
+                "padding": "0"
+              }
+            },
+            ".row": {
+              "margin": "0",
+              ".card": {
+                "padding": "0",
+                "border-radius": "16px !important"
+              }
+            },
+            ".google-map": {
+              "iframe": {
+                "height": "800px",
+                "border-radius": "0 !important",
+                "filter": "grayscale(100%)",
+                "@media (max-width: 992px)": {
+                  "height": "350px"
+                }
+              }
+            }
+          },
+          "_name": "map01",
+          "_sourceTheme": "energym5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"map01 energym5\" group=\"Contacts\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\">\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\" checked>\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"12\" step=\"1\" value=\"5\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"12\" step=\"1\" value=\"5\" condition=\"fullScreen == false\">\n        <header>Map</header>\n        <input type=\"map\" title=\"Map\" name=\"googleMap\" place-id=\"<iframe src=&quot;https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243340.64720932595!2d144.95654169999997!3d-38.33085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad5cf60a5b65071%3A0x2f2f7d28b50bbc82!2sMornington%20Peninsula%20Shire%2C%20VIC!5e1!3m2!1sen!2sau!4v1739495438968!5m2!1sen!2sau&quot; width=&quot;600&quot; height=&quot;450&quot; style=&quot;border:0;&quot; allowfullscreen=&quot;&quot; loading=&quot;lazy&quot; referrerpolicy=&quot;no-referrer-when-downgrade&quot;></iframe>\" value=\"<iframe src=&quot;https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243340.64720932595!2d144.95654169999997!3d-38.33085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad5cf60a5b65071%3A0x2f2f7d28b50bbc82!2sMornington%20Peninsula%20Shire%2C%20VIC!5e1!3m2!1sen!2sau!4v1739495438968!5m2!1sen!2sau&quot; width=&quot;600&quot; height=&quot;450&quot; style=&quot;border:0;&quot; allowfullscreen=&quot;&quot; loading=&quot;lazy&quot; referrerpolicy=&quot;no-referrer-when-downgrade&quot;></iframe>\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/energym5/components/_images/background1.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#ffffff\" selected>\n        </fieldset>\n        <header condition=\"bg.type === 'video'\">Fallback Image</header>\n        <input type=\"image\" title=\"Fallback Image\" value=\"@ADDONS_PATH@/energym5/components/_images/background1.jpg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.3\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n\n    <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"col-12 card\">\n                <div class=\"google-map\" mbr-map=\"googleMap\"></div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "uCJN0I8c05",
+          "_anchor": "map01-1j",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
         },
         {
           "_name": "footer1",
