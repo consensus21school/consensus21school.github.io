@@ -2520,6 +2520,103 @@ a {
     left: -1rem;
   }
 }
+.cid-uIlN1sTPSL {
+  padding-top: 5rem;
+  padding-bottom: 0rem;
+  background-color: #ffffff;
+}
+.cid-uIlN1sTPSL .mbr-fallback-image.disabled {
+  display: none;
+}
+.cid-uIlN1sTPSL .mbr-fallback-image {
+  display: block;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+@media (max-width: 768px) {
+  .cid-uIlN1sTPSL .container {
+    padding: 0 20px;
+  }
+}
+.cid-uIlN1sTPSL .title-wrapper .mbr-section-title {
+  margin-bottom: 34px;
+}
+.cid-uIlN1sTPSL .title-wrapper .mbr-text {
+  margin-bottom: 34px;
+}
+.cid-uIlN1sTPSL .mbr-section-title {
+  color: #1d1d1d;
+}
+.cid-uIlN1sTPSL .mbr-text {
+  color: #706f6d;
+}
+.cid-uIlN1sTPSL .mbr-section-title,
+.cid-uIlN1sTPSL .mbr-section-btn {
+  text-align: left;
+  color: #ff3a00;
+}
+.cid-uIlMtrNk6e {
+  padding-top: 6rem;
+  padding-bottom: 0rem;
+  background-color: #edefeb;
+}
+.cid-uIlMtrNk6e .mbr-fallback-image.disabled {
+  display: none;
+}
+.cid-uIlMtrNk6e .mbr-fallback-image {
+  display: block;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+@media (max-width: 992px) {
+  .cid-uIlMtrNk6e .mbr-figure {
+    margin-top: 1.5rem;
+  }
+}
+.cid-uIlMtrNk6e .row {
+  align-items: center;
+}
+@media (min-width: 992px) {
+  .cid-uIlMtrNk6e .text-wrapper {
+    padding: 0 2rem;
+  }
+}
+.cid-uIlMtrNk6e .media-content,
+.cid-uIlMtrNk6e .mbr-figure {
+  align-self: center;
+}
+.cid-uIlMtrNk6e .mbr-figure iframe {
+  width: 100%;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+.cid-uIlMtrNk6e .mbr-figure {
+  border-radius: 0rem;
+  overflow: hidden;
+}
+@media (min-width: 767px) {
+  .cid-uIlMtrNk6e .mbr-figure {
+    border-radius: 2rem;
+  }
+}
+.cid-uIlMtrNk6e .mbr-section-maintitle {
+  text-align: center;
+}
+.cid-uIlMtrNk6e .mbr-section-title {
+  text-align: left;
+}
+.cid-uIlMtrNk6e .mbr-text,
+.cid-uIlMtrNk6e .mbr-section-btn {
+  text-align: left;
+}
 .cid-uIidBcXEMx {
   padding-top: 6rem;
   padding-bottom: 6rem;
