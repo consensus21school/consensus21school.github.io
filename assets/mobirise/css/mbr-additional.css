@@ -184,9 +184,9 @@ body {
 }
 .btn-secondary,
 .btn-secondary:active {
-  background-color: #ffd7ef !important;
-  border-color: #ffd7ef !important;
-  color: #d70081 !important;
+  background-color: #9f0bea !important;
+  border-color: #9f0bea !important;
+  color: #ffffff !important;
   box-shadow: none;
 }
 .btn-secondary:hover,
@@ -194,15 +194,15 @@ body {
 .btn-secondary.focus,
 .btn-secondary.active {
   color: inherit;
-  background-color: #ffffff !important;
-  border-color: #ffffff !important;
+  background-color: #b433f5 !important;
+  border-color: #b433f5 !important;
   box-shadow: none;
 }
 .btn-secondary.disabled,
 .btn-secondary:disabled {
-  color: #d70081 !important;
-  background-color: #ffffff !important;
-  border-color: #ffffff !important;
+  color: #ffffff !important;
+  background-color: #b433f5 !important;
+  border-color: #b433f5 !important;
 }
 .btn-info,
 .btn-info:active {
@@ -360,23 +360,23 @@ body {
 .btn-secondary-outline,
 .btn-secondary-outline:active {
   background-color: transparent !important;
-  border-color: #ffd7ef;
-  color: #ffd7ef;
+  border-color: #9f0bea;
+  color: #9f0bea;
 }
 .btn-secondary-outline:hover,
 .btn-secondary-outline:focus,
 .btn-secondary-outline.focus,
 .btn-secondary-outline.active {
-  color: #ff80cc !important;
+  color: #670797 !important;
   background-color: transparent !important;
-  border-color: #ff80cc !important;
+  border-color: #670797 !important;
   box-shadow: none !important;
 }
 .btn-secondary-outline.disabled,
 .btn-secondary-outline:disabled {
-  color: #d70081 !important;
-  background-color: #ffd7ef !important;
-  border-color: #ffd7ef !important;
+  color: #ffffff !important;
+  background-color: #9f0bea !important;
+  border-color: #9f0bea !important;
 }
 .btn-info-outline,
 .btn-info-outline:active {
@@ -508,7 +508,7 @@ body {
   color: #ff3a00 !important;
 }
 .text-secondary {
-  color: #ffd7ef !important;
+  color: #9f0bea !important;
 }
 .text-success {
   color: #3a341c !important;
@@ -536,7 +536,7 @@ a.text-primary.active {
 a.text-secondary:hover,
 a.text-secondary:focus,
 a.text-secondary.active {
-  color: #ff71c6 !important;
+  color: #5d0689 !important;
 }
 a.text-success:hover,
 a.text-success:focus,
@@ -718,8 +718,8 @@ blockquote {
 }
 .xdsoft_datetimepicker .xdsoft_calendar td:hover,
 .xdsoft_datetimepicker .xdsoft_timepicker .xdsoft_time_box > div > div:hover {
-  color: #000000 !important;
-  background: #ffd7ef !important;
+  color: #ffffff !important;
+  background: #9f0bea !important;
   box-shadow: none !important;
 }
 .lazy-bg {
@@ -1279,7 +1279,7 @@ a {
   overflow: hidden;
 }
 .cid-uuIlvadWJ6 .media-container-row .mbr-text {
-  color: #000000;
+  color: #9f0bea;
 }
 .cid-uuZNcFa6VN {
   z-index: 1000;
@@ -1704,7 +1704,7 @@ a {
   overflow: hidden;
 }
 .cid-uuIlvadWJ6 .media-container-row .mbr-text {
-  color: #000000;
+  color: #9f0bea;
 }
 .cid-uuZNcFa6VN {
   z-index: 1000;
@@ -2157,7 +2157,7 @@ a {
   overflow: hidden;
 }
 .cid-uuIlvadWJ6 .media-container-row .mbr-text {
-  color: #000000;
+  color: #9f0bea;
 }
 .cid-uuZNcFa6VN {
   z-index: 1000;
