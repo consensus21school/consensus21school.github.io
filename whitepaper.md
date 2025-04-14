@@ -31,8 +31,8 @@ Many students experience **low engagement and motivation** due to rigid curricul
 Consensus21 offers a radical departure from conventional schooling by building a **decentralised, mentor-driven learning ecosystem**. Through a **peer-to-peer monetary system and decentralised governance**, Consensus21 replaces outdated hierarchical structures with community-driven decision-making processes. The protocol provides a model for continuous learning from the age of 7 to 21, eliminating standardised testing and allowing learners to pursue entrepreneurial, technological, and intellectual endeavours without the burden of unnecessary debt or restrictive curricula.
 
 ### 2.1. Governance Structure
+![consensus21 sip](https://github.com/user-attachments/assets/d63f387f-fcfe-46a1-bcba-600a311194d6)
 
-![consensus21 sip](https://github.com/user-attachments/assets/576333e9-294d-4d15-ac88-9c8c4b0fe4b4)
 
 
 
@@ -56,7 +56,8 @@ The Consensus21 protocol promotes **self-directed, problem-based learning (PBL)*
 
 ### 2.4. Financial Ecosystem
 
-![fees drawio](https://github.com/user-attachments/assets/60f1dbf8-5fc7-4877-bf27-7dea454568e2)
+![governance](https://github.com/user-attachments/assets/9bbf9dac-3195-4bea-85b3-1dc9a3a6caf2)
+
 
 
 
@@ -68,8 +69,8 @@ Consensus21 is built on the principle that education should be **financially sus
 
 ### 2.5. Digital Identity, Communication & Learning Records
 
-![id drawio](https://github.com/user-attachments/assets/6c5a90c6-43f2-4217-8ea5-aeb5d1bfe3f4)
 
+![ID](https://github.com/user-attachments/assets/310379dc-3e71-4a66-9994-15877647cdbe)
 
 
 Learners, mentors, and parents communicate securely using **asymmetric encryption** through the **Nostr protocol**. Each participant has a **public/private keypair** for secure and transparent communication.
