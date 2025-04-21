@@ -1,7 +1,7 @@
 {
   "settings": {
     "name": "Consensus21",
-    "currentPage": "news.html",
+    "currentPage": "index.html",
     "theme": {
       "name": "startm5",
       "title": "StartM5",
@@ -60,9 +60,12 @@
     "siteUrl": false,
     "cookiesAlert": false,
     "gdpr": false,
-    "uniqCompNum": 107,
+    "uniqCompNum": 106,
     "versionPublish": "6.0.1",
     "screenshot": "screenshot.png",
+    "publishType": "local",
+    "mbrsite": "mbrsite://%7B%22id%22%3A1406708%2C%22domain%22%3A%22jrtyevkppv.mobirisesite.com%22%7D",
+    "publishPath": "@PROJECT_PATH@",
     "publishEditFolder": true
   },
   "pages": {
@@ -2198,18 +2201,18 @@
           "_params": {}
         },
         {
-          "_name": "aheader3",
-          "_sourceTheme": "systemm5",
-          "_customHTML": "<section data-bs-version=\"5.1\" class=\"header3\" group=\"Headers\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" plugins=\"VimeoPlayer\" mbr-class=\"{'mbr-fullscreen': fullScreen,'mbr-parallax-background' :bg.parallax}\">\n\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Title 2\" name=\"showTitle2\" checked>\n        <input type=\"checkbox\" title=\"Subtitle\" name=\"showSubTitle\" checked>\n        <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked>\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/systemm5/components/_images/background1.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#edefeb\" selected>\n            <input type=\"video\" title=\"Video\" value=\"https://www.youtube.com/watch?v=36YgDDJ7XSc\">\n        </fieldset>\n        <header condition=\"bg.type === 'video'\">Fallback Image</header>\n        <input type=\"image\" title=\"Fallback Image\" value=\"@ADDONS_PATH@/systemm5/components/_images/background1.jpg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#fbfbfb\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\" condition=\"overlay && bg.type !== 'color'\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\">\n    </div>\n\n    <div class=\"container\">\n        <div class=\"media-container\">\n            <div class=\"col-md-12\">\n                <div class=\"row\">\n                    <div class=\"text-container col-12\">\n                        <h1 class=\"mbr-section-title mbr-white mbr-bold align-left mbr-fonts-style mb-0\" mbr-theme-style=\"display-1\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">C21&nbsp;</h1>\n                        <h1 class=\"mbr-section-title-2 mbr-white mbr-bold align-left mbr-fonts-style mb-0\" mbr-theme-style=\"display-1\" mbr-if=\"showTitle2\" data-app-selector=\".mbr-section-title-2\">\n                            NEWS\n                        </h1>\n                    </div>\n                    <div class=\"content-container\" mbr-if=\"showSubTitle || showText\">\n                        <p class=\"mbr-section-subtitle mbr-white align-left mbr-fonts-style mb-0\" mbr-theme-style=\"display-4\" mbr-if=\"showSubTitle\" data-app-selector=\".mbr-section-subtitle\">\n                            <a href=\"https://nosta.me/bb1c863a2c15c131b4494e7a081c9cc556eabd6e24cb4868dae378bc2953c3fb\" class=\"text-secondary text-primary\" target=\"_blank\"><b>Nostr</b></a><br>\n                            <a href=\"https://stacker.news/consensus21/all\" class=\"text-primary\" target=\"_blank\"><b>Stacker News</b></a></p>\n                        <p class=\"mbr-text mbr-white align-left mbr-fonts-style mb-0\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text\">The Consensus21 News section is now live on Nostr and Stacker News, sharing updates on our campus build, Bitcoin-native education model, and School Improvement Proposals (SIPs). Follow us for transparent, decentralised news and join the conversation shaping the future of Consensus21.School.<br><br></p>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_name": "header1",
+          "_sourceTheme": "advisorym5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"header1 advisorym5\" group=\"Header\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{'mbr-fullscreen': fullScreen,\n                    'mbr-parallax-background': bg.parallax}\">\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"0\" condition=\"fullScreen == false\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Text\" name=\"showText\">\n        <input type=\"checkbox\" title=\"Buttons\" name=\"showButtons\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/advisorym5/components/_images/background1.jpg\" parallax>\n            <input type=\"color\" title=\"Color\" value=\"#ffffff\" selected>\n            <input type=\"video\" title=\"Video\" value=\"https://vimeo.com/428046504\">\n        </fieldset>\n        <header condition=\"bg.type === 'video'\">Fallback Image</header>\n        <input type=\"image\" title=\"Fallback Image\" value=\"@ADDONS_PATH@/advisorym5/components/_images/background1.jpg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.7\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n\n    <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\">\n    </div>\n\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"col-12\">\n                <div class=\"title-wrapper\">\n                    <h1 class=\"mbr-section-title mbr-fonts-style\" data-app-selector=\".mbr-section-title, .mbr-section-btn\" mbr-theme-style=\"display-1\" mbr-if=\"showTitle\"><b>\n                        C21 NEWS</b></h1>\n                    <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-5\" mbr-if=\"showText\" data-app-selector=\".mbr-text\">\n                        Repellendus Similique | Sunt Voluptatum | Adipisci Asperiores\n                    </p>\n                    <div mbr-buttons mbr-theme-style=\"display-4\" class=\"mbr-section-btn\" mbr-if=\"showButtons\">\n                        <a class=\"btn btn-primary\" href=\"https://mobiri.se\" data-app-placeholder=\"Type Text\">\n                            <span class=\"mobi-mbri mobi-mbri-arrow-next mbr-iconfont mbr-iconfont-btn\"></span>\n                            Learn more\n                        </a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
           "_styles": {
             "& when not (@fullScreen)": {
-              "padding-top": "(@paddingTop * 15px)",
-              "padding-bottom": "(@paddingBottom * 15px)"
+              "padding-top": "(@paddingTop * 1rem)",
+              "padding-bottom": "(@paddingBottom * 1rem)"
             },
-            "& when (@bg-type = \"color\")": {
+            "& when (@bg-type = 'color')": {
               "background-color": "@bg-value"
             },
-            "& when (@bg-type = \"image\")": {
+            "& when (@bg-type = 'image')": {
               "background-image": "url(@bg-value)"
             },
             ".mbr-fallback-image.disabled": {
@@ -2227,66 +2230,47 @@
                 "background-image": "url(@fallBackImage)"
               }
             },
-            ".row": {
-              "display": "flex",
-              "flex-wrap": "wrap",
-              "justify-content": "flex-start",
-              "align-items": "center"
+            "& when (@fullWidth)": {
+              ".container-fluid": {
+                "padding": "0 64px",
+                "@media (max-width: 768px)": {
+                  "padding": "0 20px"
+                },
+                ".row": {
+                  "padding": "0"
+                }
+              }
             },
-            ".text-container": {
-              "width": "100% !important"
+            ".container": {
+              "@media (max-width: 768px)": {
+                "padding": "0 20px"
+              }
+            },
+            ".title-wrapper": {
+              ".mbr-section-title": {
+                "margin-bottom": "34px"
+              },
+              ".mbr-text": {
+                "margin-bottom": "34px"
+              }
             },
             ".mbr-section-title": {
-              "color": "#000000"
-            },
-            ".mbr-section-title-2": {
-              "color": "#ff3a00"
-            },
-            ".content-container": {
-              "display": "flex",
-              "align-items": "flex-start",
-              "justify-content": "space-between",
-              "margin-top": "8rem",
-              "width": "100%",
-              "padding": "0",
-              "@media (max-width: 767px)": {
-                "margin-top": "4rem",
-                "flex-wrap": "wrap"
-              }
-            },
-            ".mbr-section-subtitle": {
-              "width": "30%",
-              "color": "#727272",
-              "& when not (@showText)": {
-                "width": "100%"
-              },
-              "@media (max-width: 767px)": {
-                "width": "100%",
-                "padding": "12px 0"
-              }
+              "color": "#1d1d1d"
             },
             ".mbr-text": {
-              "width": "40%",
-              "color": "#000000",
-              "@media (max-width: 991px)": {
-                "width": "60%"
-              },
-              "& when not (@showSubTitle)": {
-                "width": "100% !important"
-              },
-              "@media (max-width: 767px)": {
-                "width": "100%",
-                "margin-top": "18px !important"
-              },
-              "text-align": "left"
+              "color": "#706f6d"
+            },
+            ".mbr-section-title, .mbr-section-btn": {
+              "text-align": "left",
+              "color": "#ff3a00"
             }
           },
-          "_cid": "uIZbJmsWuT",
+          "_cid": "uIlN1sTPSL",
+          "_anchor": "header1-2q",
           "_protectedParams": [],
           "_global": false,
           "_once": false,
-          "_params": {},
-          "_anchor": "aheader3-2y"
+          "_params": {}
         },
         {
           "_name": "header1",
@@ -2373,12 +2357,10 @@
               }
             }
           },
-          "_customHTML": "<section data-bs-version=\"5.1\" class=\"header1\" group=\"Headers\" mbr-class=\"{'mbr-fullscreen': fullScreen}\">\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n        <input type=\"checkbox\" name=\"fullWidth\" title=\"Full Width\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\" condition=\"fullScreen == false\">\n        <input type=\"checkbox\" title=\"Reverse\" name=\"reverseContent\">\n        <header>Items</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked>\n        <input type=\"checkbox\" title=\"Button\" name=\"showButton\" checked>\n        <input type=\"color\" title=\"Accent\" name=\"accentColor\" value=\"#ff3a00\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"color\" title=\"Color\" value=\"#ffffff\" selected>\n            <input type=\"image\" title=\"Image\" value=\"@PROJECT_PATH@/assets/images/background1-1.jpg\">\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#000000\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.8\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\">\n    </div>\n\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"col-12 col-md-6\">\n                <div class=\"right-side\">\n                    <h5 class=\"mbr-section-title mbr-fonts-style\" mbr-theme-style=\"display-1\" data-app-selector=\".mbr-section-title\" mbr-if=\"showTitle\"><a href=\"https://habla.news/a/naddr1qvzqqqr4gupzq2rrtfkjvtsmdq0murgcygk2ed06een0u3fahc8v4tka6lhx7wnnqqxnzde5xsergdpn8qcrqd3kgmddad\" class=\"text-primary\" target=\"_blank\"><b>TSOBTC → Consensus21</b></a></h5>\n                    <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".mbr-text, .button-align\" mbr-if=\"showText\">TSOBTC → Consensus21.School\n<br>We have consolidated all our programs, resources, and community under one banner. This transition strengthens our commitment to decentralised, <a href=\"https://v4v.consensus21.school/\" class=\"text-primary\" target=\"_blank\">value-for-value education</a>. Key initiatives like the DAES, <a href=\"https://planb.network/\" class=\"text-primary\" target=\"_blank\">Plan B Network</a>, and <a href=\"https://stacker.news/~Education\" class=\"text-primary\" target=\"_blank\">~Education Territory on Stacker News</a> will continue, now fully integrated into Consensus21.School.</p>\n                    <div class=\"button-align\">\n                        <div class=\"mbr-section-btn\" mbr-if=\"showButton\" mbr-buttons mbr-theme-style=\"display-4\"><a class=\"btn btn-primary\" href=\"https://v4v.consensus21.school/\" data-app-placeholder=\"Type Text\" target=\"_blank\">V4V Lessons</a><a class=\"btn btn-danger\" href=\"https://stacker.news/~Education\" data-app-placeholder=\"Type Text\" target=\"_blank\">~Education</a></div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-12 col-md-5\">\n                <div class=\"gray\">\n                    <img src=\"@PROJECT_PATH@/assets/images/fo7200aefec47-1-1036x732.png\" alt class=\"align\">\n                    <p class=\"mbr-fonts-style\" style=\"text-align: center; font-style: italic; margin-top: 10px;\">Block Height 893,178</p>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"header1\" group=\"Headers\" mbr-class=\"{'mbr-fullscreen': fullScreen}\">\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n        <input type=\"checkbox\" name=\"fullWidth\" title=\"Full Width\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\" condition=\"fullScreen == false\">\n        <input type=\"checkbox\" title=\"Reverse\" name=\"reverseContent\">\n        <header>Items</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked>\n        <input type=\"checkbox\" title=\"Button\" name=\"showButton\" checked>\n        <input type=\"color\" title=\"Accent\" name=\"accentColor\" value=\"#ff3a00\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"color\" title=\"Color\" value=\"#ffffff\" selected>\n            <input type=\"image\" title=\"Image\" value=\"@PROJECT_PATH@/assets/images/background1-1.jpg\">\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#000000\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.8\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\">\n    </div>\n\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"col-12 col-md-6\">\n                <div class=\"right-side\">\n                    <h5 class=\"mbr-section-title mbr-fonts-style\" mbr-theme-style=\"display-1\" data-app-selector=\".mbr-section-title\" mbr-if=\"showTitle\"><a href=\"https://habla.news/a/naddr1qvzqqqr4gupzq2rrtfkjvtsmdq0murgcygk2ed06een0u3fahc8v4tka6lhx7wnnqqxnzde5xsergdpn8qcrqd3kgmddad\" class=\"text-primary\" target=\"_blank\"><b>TSOBTC → Consensus21</b></a></h5>\n                    <p class=\"mbr-text mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".mbr-text, .button-align\" mbr-if=\"showText\">TSOBTC → Consensus21.School\n<br>We have consolidated all our programs, resources, and community under one banner. This transition strengthens our commitment to decentralised, <a href=\"https://v4v.consensus21.school/\" class=\"text-primary\" target=\"_blank\">value-for-value education</a>. Key initiatives like the DAES, <a href=\"https://planb.network/\" class=\"text-primary\" target=\"_blank\">Plan B Network</a>, and <a href=\"https://stacker.news/~Education\" class=\"text-primary\" target=\"_blank\">~Education Territory on Stacker News</a> will continue, now fully integrated into Consensus21.School.</p>\n                    <div class=\"button-align\">\n                        <div class=\"mbr-section-btn\" mbr-if=\"showButton\" mbr-buttons mbr-theme-style=\"display-4\"><a class=\"btn btn-primary\" href=\"https://v4v.consensus21.school/\" data-app-placeholder=\"Type Text\" target=\"_blank\">V4V Lessons</a><a class=\"btn btn-danger\" href=\"https://stacker.news/~Education\" data-app-placeholder=\"Type Text\" target=\"_blank\">~Education</a></div>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-12 col-md-5\">\n                <div class=\"gray\">\n                    <img src=\"@PROJECT_PATH@/assets/images/fo7200aefec47-1-1036x732.png\" alt class=\"align\">\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
           "_anchor": "header1-2u",
           "_isUserblock": true,
           "_cid": "uIYYFcOax2",
-          "_PHPplaceholders": [],
-          "_JSplaceholders": [],
           "_protectedParams": [],
           "_global": false,
           "_once": false,
