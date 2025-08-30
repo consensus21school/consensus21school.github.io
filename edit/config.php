@@ -1,7 +1,7 @@
 <?php
 
 define('SITE_DIR', '../');
-define('SITE_OWNER_ID', 3221887);
+define('SITE_OWNER_ID', 518345);
 define('ALLOWED_ORIGINS', 'https://c.ybnz.com, http://c.ybnz.com');
 define('UPLOAD_MAX_FILESIZE', '10M');
 define('ALLOWED_FILE_TYPES', 'js, json, mobirise, doc, pdf, xls, eot, ppt, odp, odt, pptx, xlsx, docx, xml, otf, ttf, woff, woff2, gif, jpeg, jpg, png, webp, svg, ico, css, html, less, map, txt');
