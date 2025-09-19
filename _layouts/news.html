@@ -1,0 +1,41 @@
+---
+layout: default
+---
+
+<section class="header16">
+  <div class="container">
+    <h1 class="display-1"><strong>C21 News</strong></h1>
+    <p class="display-7">
+      The Consensus21 News section is now live on Nostr and Stacker News, sharing updates on our campus build, Bitcoin-native education model, and School Improvement Proposals (SIPs).
+    </p>
+  </div>
+</section>
+
+<section class="news-posts container">
+  {% for post in site.posts %}
+  <div class="news-item" style="margin-bottom: 3rem; border-bottom: 1px solid #eee; padding-bottom: 2rem;">
+    <h2 class="display-5">
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    </h2>
+
+    {% if post.image %}
+      <img src="{{ post.image }}" alt="{{ post.title }}" style="max-width: 100%; border-radius: 10px; margin: 1rem 0;">
+    {% endif %}
+
+    <p class="display-7">{{ post.excerpt | strip_html | truncatewords: 50 }}</p>
+
+    {% if post.blockheight %}
+      <p><em>Block Height {{ post.blockheight }}</em></p>
+    {% endif %}
+
+    <div class="buttons">
+      {% if post.nostr %}
+      <a class="btn btn-secondary" href="{{ post.nostr }}" target="_blank">Nostr</a>
+      {% endif %}
+      {% if post.stacker %}
+      <a class="btn btn-danger" href="{{ post.stacker }}" target="_blank">Stacker News</a>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</section>
