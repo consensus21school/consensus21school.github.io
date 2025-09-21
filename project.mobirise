@@ -64,6 +64,9 @@
     "uniqCompNum": 120,
     "versionPublish": "6.0.1",
     "screenshot": "screenshot.png",
+    "publishType": "local",
+    "mbrsite": "mbrsite://%7B%22id%22%3A1406708%2C%22domain%22%3A%22jrtyevkppv.mobirisesite.com%22%7D",
+    "publishPath": "@PROJECT_PATH@",
     "publishEditFolder": true
   },
   "pages": {
