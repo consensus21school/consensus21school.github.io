@@ -149,7 +149,7 @@ body {
   background-color: #ff3a00 !important;
 }
 .bg-success {
-  background-color: #3a341c !important;
+  background-color: #e60000 !important;
 }
 .bg-info {
   background-color: #ff9900 !important;
@@ -228,8 +228,8 @@ body {
 }
 .btn-success,
 .btn-success:active {
-  background-color: #3a341c !important;
-  border-color: #3a341c !important;
+  background-color: #e60000 !important;
+  border-color: #e60000 !important;
   color: #ffffff !important;
   box-shadow: none;
 }
@@ -238,15 +238,15 @@ body {
 .btn-success.focus,
 .btn-success.active {
   color: inherit;
-  background-color: #5c532d !important;
-  border-color: #5c532d !important;
+  background-color: #ff1a1a !important;
+  border-color: #ff1a1a !important;
   box-shadow: none;
 }
 .btn-success.disabled,
 .btn-success:disabled {
   color: #ffffff !important;
-  background-color: #5c532d !important;
-  border-color: #5c532d !important;
+  background-color: #ff1a1a !important;
+  border-color: #ff1a1a !important;
 }
 .btn-warning,
 .btn-warning:active {
@@ -402,23 +402,23 @@ body {
 .btn-success-outline,
 .btn-success-outline:active {
   background-color: transparent !important;
-  border-color: #3a341c;
-  color: #3a341c;
+  border-color: #e60000;
+  color: #e60000;
 }
 .btn-success-outline:hover,
 .btn-success-outline:focus,
 .btn-success-outline.focus,
 .btn-success-outline.active {
-  color: #000000 !important;
+  color: #8f0000 !important;
   background-color: transparent !important;
-  border-color: #000000 !important;
+  border-color: #8f0000 !important;
   box-shadow: none !important;
 }
 .btn-success-outline.disabled,
 .btn-success-outline:disabled {
   color: #ffffff !important;
-  background-color: #3a341c !important;
-  border-color: #3a341c !important;
+  background-color: #e60000 !important;
+  border-color: #e60000 !important;
 }
 .btn-warning-outline,
 .btn-warning-outline:active {
@@ -511,7 +511,7 @@ body {
   color: #9f0bea !important;
 }
 .text-success {
-  color: #3a341c !important;
+  color: #e60000 !important;
 }
 .text-info {
   color: #ff9900 !important;
@@ -541,7 +541,7 @@ a.text-secondary.active {
 a.text-success:hover,
 a.text-success:focus,
 a.text-success.active {
-  color: #000000 !important;
+  color: #800000 !important;
 }
 a.text-info:hover,
 a.text-info:focus,
@@ -621,7 +621,7 @@ a:hover {
 }
 .mbr-plan-header.bg-success .mbr-plan-subtitle,
 .mbr-plan-header.bg-success .mbr-plan-price-desc {
-  color: #c0b27c;
+  color: #ffb3b3;
 }
 .mbr-plan-header.bg-info .mbr-plan-subtitle,
 .mbr-plan-header.bg-info .mbr-plan-price-desc {
