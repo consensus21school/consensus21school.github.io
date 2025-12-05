@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consensus21 Digital Portfolio</title>
+    <link rel="icon" type="image/png" href="https://consensus21.school/assets/images/c21logo.png-198x97.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f9fafb;
+            color: #1f2937;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Login Page */
+        .login-wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            position: relative;
+        }
+
+        .bg-pattern {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://raw.githubusercontent.com/consensus21school/consensus21school.github.io/main/assets/images/background-2000x975.png');
+            background-size: cover;
+            background-position: center;
+            background-color: #1a1a1a;
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .login-card {
+            position: relative;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            width: 100%;
+            max-width: 28rem;
+            backdrop-filter: blur(8px);
+        }
+
+        .logo {
+            height: 4rem;
+            margin: 0 auto 1.5rem;
+            display: block;
+        }
+
+        h1 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+
+        /* Buttons */
+        .btn {
+            width: 100%;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: #f97316;
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary:hover {
+            background-color: #ea580c;
+        }
+
+        .btn-secondary {
+            background-color: #374151;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #1f2937;
+        }
+
+        .btn-ghost {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-ghost:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-edit {
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            background: transparent;
+            border: none;
+            color: #6b7280;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-edit:hover {
+            background-color: #f3f4f6;
+        }
+
+        .btn-delete {
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            background: transparent;
+            border: none;
+            color: #dc2626;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-delete:hover {
+            background-color: #fef2f2;
+        }
+
+        .btn-cancel {
+            background-color: #e5e7eb;
+            color: #374151;
+        }
+
+        .btn-cancel:hover {
+            background-color: #d1d5db;
+        }
+
+        /* Inputs */
+        input, textarea, select {
+            width: 100%;
+            padding: 0.5rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #f97316;
+            box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        /* Header */
+        .header {
+            position: relative;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .header-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://raw.githubusercontent.com/consensus21school/consensus21school.github.io/main/assets/images/background-2000x975.png');
+            background-size: cover;
+            background-position: center;
+            background-color: #1a1a1a;
+        }
+
+        .header-overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .header-content {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem 1rem;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .header-logo {
+            height: 3rem;
+        }
+
+        .header-title {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .header-pubkey {
+            color: #e5e7eb;
+            font-size: 0.875rem;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        /* Portfolio Item */
+        .portfolio-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .portfolio-content {
+            flex: 1;
+        }
+
+        .portfolio-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background-color: #ffedd5;
+            color: #c2410c;
+        }
+
+        .portfolio-description {
+            color: #6b7280;
+            margin-bottom: 0.75rem;
+            white-space: pre-wrap;
+        }
+
+        .portfolio-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: #9ca3af;
+        }
+
+        .portfolio-link {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: #f97316;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .portfolio-link:hover {
+            color: #ea580c;
+        }
+
+        .portfolio-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        /* Form */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        /* Relay Status */
+        .relay-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .relay-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+
+        .status-dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 9999px;
+        }
+
+        .status-connected {
+            background-color: #22c55e;
+        }
+
+        .status-disconnected {
+            background-color: #d1d5db;
+        }
+
+        /* Divider */
+        .divider {
+            position: relative;
+            margin: 1.5rem 0;
+        }
+
+        .divider-line {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .divider-line::before {
+            content: '';
+            flex: 1;
+            border-top: 1px solid #d1d5db;
+        }
+
+        .divider-text {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            font-size: 0.875rem;
+            color: #6b7280;
+            background: white;
+            padding: 0 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+            font-size: 0.875rem;
+            color: #9ca3af;
+        }
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+
+        .footer-link {
+            color: #f97316;
+            text-decoration: none;
+        }
+
+        .footer-link:hover {
+            color: #ea580c;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #9ca3af;
+        }
+
+        /* Utilities */
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mt-12 { margin-top: 3rem; }
+        .py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+        .text-xs { font-size: 0.75rem; }
+        .hidden { display: none; }
+
+        @media (max-width: 640px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .portfolio-item {
+                flex-direction: column;
+            }
+            
+            .portfolio-actions {
+                justify-content: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        const RELAYS = [
+            'wss://relay.damus.io',
+            'wss://relay.nostr.band',
+            'wss://nos.lol',
+            'wss://relay.snort.social'
+        ];
+
+        class PortfolioApp {
+            constructor() {
+                this.user = null;
+                this.pubkey = '';
+                this.privkey = '';
+                this.portfolio = [];
+                this.showAddItem = false;
+                this.editingId = null;
+                this.relayStatus = {};
+                this.formData = {
+                    title: '',
+                    description: '',
+                    category: 'project',
+                    link: '',
+                    date: new Date().toISOString().split('T')[0]
+                };
+                this.init();
+            }
+
+            init() {
+                const stored = localStorage.getItem('nostr_portfolio');
+                if (stored) {
+                    const data = JSON.parse(stored);
+                    this.portfolio = data.portfolio || [];
+                    if (data.pubkey) {
+                        this.pubkey = data.pubkey;
+                        this.user = { pubkey: data.pubkey };
+                    }
+                }
+                this.render();
+            }
+
+            async connectRelays(pk) {
+                for (const relay of RELAYS) {
+                    try {
+                        const ws = new WebSocket(relay);
+                        ws.onopen = () => {
+                            this.relayStatus[relay] = 'connected';
+                            this.render();
+                        };
+                        ws.onerror = () => {
+                            this.relayStatus[relay] = 'error';
+                            this.render();
+                        };
+                    } catch (e) {
+                        this.relayStatus[relay] = 'error';
+                    }
+                }
+            }
+
+            async handleLogin() {
+                console.log('Login clicked');
+                console.log('Window.nostr available:', !!window.nostr);
+                
+                if (window.nostr) {
+                    try {
+                        console.log('Trying to get public key from extension...');
+                        const pk = await window.nostr.getPublicKey();
+                        console.log('Got public key:', pk);
+                        this.pubkey = pk;
+                        this.user = { pubkey: pk, method: 'extension' };
+                        await this.connectRelays(pk);
+                        localStorage.setItem('nostr_portfolio', JSON.stringify({
+                            pubkey: pk,
+                            portfolio: this.portfolio
+                        }));
+                        this.render();
+                    } catch (e) {
+                        console.error('Extension error:', e);
+                        alert('Failed to connect with Nostr extension: ' + e.message);
+                    }
+                } else if (this.privkey || this.pubkey) {
+                    console.log('Using manual keys');
+                    const pk = this.pubkey || 'npub' + this.privkey.slice(0, 10);
+                    this.pubkey = pk;
+                    this.user = { pubkey: pk, method: 'manual' };
+                    await this.connectRelays(pk);
+                    localStorage.setItem('nostr_portfolio', JSON.stringify({
+                        pubkey: pk,
+                        portfolio: this.portfolio
+                    }));
+                    this.render();
+                } else {
+                    alert('Please install a Nostr extension (like Alby or nos2x) or enter your keys');
+                }
+            }
+
+            handleLogout() {
+                this.user = null;
+                this.pubkey = '';
+                this.privkey = '';
+                this.relayStatus = {};
+                this.render();
+            }
+
+            savePortfolio(newPortfolio) {
+                this.portfolio = newPortfolio;
+                localStorage.setItem('nostr_portfolio', JSON.stringify({
+                    pubkey: this.pubkey,
+                    portfolio: newPortfolio
+                }));
+                this.render();
+            }
+
+            handleAddItem() {
+                if (!this.formData.title) return;
+                
+                const newItem = {
+                    id: Date.now().toString(),
+                    ...this.formData,
+                    createdAt: new Date().toISOString()
+                };
+                
+                this.savePortfolio([...this.portfolio, newItem]);
+                this.resetForm();
+            }
+
+            handleUpdateItem() {
+                if (!this.formData.title) return;
+                
+                const updated = this.portfolio.map(item => 
+                    item.id === this.editingId ? { ...item, ...this.formData } : item
+                );
+                
+                this.savePortfolio(updated);
+                this.resetForm();
+            }
+
+            handleDeleteItem(id) {
+                if (confirm('Delete this item?')) {
+                    this.savePortfolio(this.portfolio.filter(item => item.id !== id));
+                }
+            }
+
+            startEdit(item) {
+                this.editingId = item.id;
+                this.formData = {
+                    title: item.title,
+                    description: item.description,
+                    category: item.category,
+                    link: item.link,
+                    date: item.date
+                };
+                this.showAddItem = true;
+                this.render();
+            }
+
+            resetForm() {
+                this.editingId = null;
+                this.formData = {
+                    title: '',
+                    description: '',
+                    category: 'project',
+                    link: '',
+                    date: new Date().toISOString().split('T')[0]
+                };
+                this.showAddItem = false;
+            }
+
+            toggleAddItem() {
+                this.showAddItem = !this.showAddItem;
+                this.editingId = null;
+                this.formData = {
+                    title: '',
+                    description: '',
+                    category: 'project',
+                    link: '',
+                    date: new Date().toISOString().split('T')[0]
+                };
+                this.render();
+            }
+
+            cancelForm() {
+                this.showAddItem = false;
+                this.editingId = null;
+                this.render();
+            }
+
+            renderLoginPage() {
+                return `
+                    <div class="login-wrapper">
+                        <div class="bg-pattern"></div>
+                        <div class="overlay"></div>
+                        
+                        <div class="login-card">
+                            <img 
+                                src="https://consensus21.school/assets/images/c21logo.png-198x97.png" 
+                                alt="Consensus21"
+                                class="logo"
+                            />
+                            <h1>Digital Portfolio</h1>
+                            <p class="subtitle">Sign in with Nostr to showcase your learning journey</p>
+
+            <button onclick="app.handleLogin()" class="btn btn-primary mb-6" style="width: 100%;">
+                                ⚡ Sign in with Nostr Extension
+                            </button>
+
+                            <div class="divider">
+                                <div class="divider-line"></div>
+                                <div class="divider-text">Or use keys manually</div>
+                            </div>
+
+                            <div class="form-group">
+                                <input
+                                    type="text"
+                                    placeholder="Public Key (npub...)"
+                                    id="pubkey-input"
+                                    oninput="app.pubkey = this.value"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <input
+                                    type="password"
+                                    placeholder="Private Key (nsec... optional)"
+                                    id="privkey-input"
+                                    oninput="app.privkey = this.value"
+                                />
+                            </div>
+            <button onclick="app.handleLogin()" class="btn btn-secondary mb-6" style="width: 100%;">
+                                Sign in with Keys
+                            </button>
+
+                            <p class="text-xs" style="text-align: center; color: #9ca3af;">
+                                Auto-connects to ${RELAYS.length} Nostr relays
+                            </p>
+                        </div>
+                    </div>
+                `;
+            }
+
+            renderMainPage() {
+                return `
+                    <!-- Header -->
+                    <div class="header">
+                        <div class="header-bg"></div>
+                        <div class="header-overlay"></div>
+                        <div class="container">
+                            <div class="header-content">
+                                <div class="header-left">
+                                    <img 
+                                        src="https://consensus21.school/assets/images/c21logo.png-198x97.png" 
+                                        alt="Consensus21"
+                                        class="header-logo"
+                                    />
+                                    <div>
+                                        <h1 class="header-title">Digital Portfolio</h1>
+                                        <p class="header-pubkey">${this.pubkey.slice(0, 20)}...</p>
+                                    </div>
+                                </div>
+                                <button onclick="app.handleLogout()" class="btn btn-ghost">
+                                    ← Logout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container py-8">
+                        <!-- Relay Status -->
+                        <div class="card">
+                            <h3 style="font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem;">
+                                ⚡ Nostr Relay Status
+                            </h3>
+                            <div class="relay-list">
+                                ${RELAYS.map(relay => `
+                                    <div class="relay-item">
+                                        <div class="status-dot ${
+                                            this.relayStatus[relay] === 'connected' ? 'status-connected' : 'status-disconnected'
+                                        }"></div>
+                                        <span>${relay.replace('wss://', '')}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <!-- Add Item Button -->
+                        <button
+                            onclick="app.toggleAddItem()"
+                            class="btn btn-primary mb-6"
+                            style="width: auto;"
+                        >
+                            + Add Portfolio Item
+                        </button>
+
+                        <!-- Add/Edit Form -->
+                        ${this.showAddItem ? `
+                            <div class="card">
+                                <h3 class="card-title">
+                                    ${this.editingId ? 'Edit Item' : 'Add New Item'}
+                                </h3>
+                                <div class="form-group">
+                                    <input
+                                        type="text"
+                                        placeholder="Title"
+                                        value="${this.formData.title}"
+                                        oninput="app.formData.title = this.value"
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <textarea
+                                        placeholder="Description"
+                                        rows="4"
+                                        oninput="app.formData.description = this.value"
+                                    >${this.formData.description}</textarea>
+                                </div>
+                                <div class="form-row form-group">
+                                    <select onchange="app.formData.category = this.value">
+                                        ${['project', 'assignment', 'research', 'achievement'].map(cat => `
+                                            <option value="${cat}" ${this.formData.category === cat ? 'selected' : ''}>
+                                                ${cat.charAt(0).toUpperCase() + cat.slice(1)}
+                                            </option>
+                                        `).join('')}
+                                    </select>
+                                    <input
+                                        type="date"
+                                        value="${this.formData.date}"
+                                        onchange="app.formData.date = this.value"
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <input
+                                        type="url"
+                                        placeholder="Link (optional)"
+                                        value="${this.formData.link}"
+                                        oninput="app.formData.link = this.value"
+                                    />
+                                </div>
+                                <div class="form-actions">
+                                    <button
+                                        onclick="app.${this.editingId ? 'handleUpdateItem' : 'handleAddItem'}()"
+                                        class="btn btn-primary"
+                                        style="width: auto;"
+                                    >
+                                        ${this.editingId ? 'Update' : 'Add'}
+                                    </button>
+                                    <button
+                                        onclick="app.cancelForm()"
+                                        class="btn btn-cancel"
+                                        style="width: auto;"
+                                    >
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
+                        ` : ''}
+
+                        <!-- Portfolio Items -->
+                        ${this.portfolio.length === 0 ? `
+                            <div class="card empty-state">
+                                <p>No portfolio items yet. Add your first one to showcase your learning journey!</p>
+                            </div>
+                        ` : this.portfolio.map(item => `
+                            <div class="card">
+                                <div class="portfolio-item">
+                                    <div class="portfolio-content">
+                                        <div class="portfolio-header">
+                                            <h3 class="portfolio-title">${item.title}</h3>
+                                            <span class="badge">
+                                                ${item.category.charAt(0).toUpperCase() + item.category.slice(1)}
+                                            </span>
+                                        </div>
+                                        <p class="portfolio-description">${item.description}</p>
+                                        <div class="portfolio-meta">
+                                            <span>${new Date(item.date).toLocaleDateString()}</span>
+                                            ${item.link ? `
+                                                <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="portfolio-link">
+                                                    🔗 View Link
+                                                </a>
+                                            ` : ''}
+                                        </div>
+                                    </div>
+                                    <div class="portfolio-actions">
+                                        <button
+                                            onclick='app.startEdit(${JSON.stringify(item).replace(/'/g, "\\'")})'
+                                            class="btn-edit"
+                                            title="Edit"
+                                        >
+                                            ✏️
+                                        </button>
+                                        <button
+                                            onclick="app.handleDeleteItem('${item.id}')"
+                                            class="btn-delete"
+                                            title="Delete"
+                                        >
+                                            🗑️
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+
+                        <!-- Footer -->
+                        <div class="footer">
+                            <p>Powered by Consensus21 - Open Source Educational Protocol</p>
+                            <div class="footer-links">
+                                <a href="https://consensus21.school/" target="_blank" rel="noopener noreferrer" class="footer-link">
+                                    Visit Consensus21.school
+                                </a>
+                                <span>•</span>
+                                <a href="https://github.com/consensus21school" target="_blank" rel="noopener noreferrer" class="footer-link">
+                                    GitHub
+                                </a>
+                                <span>•</span>
+                                <a href="https://stacker.news/~education" target="_blank" rel="noopener noreferrer" class="footer-link">
+                                    ~Education
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            render() {
+                const html = this.user ? this.renderMainPage() : this.renderLoginPage();
+                document.getElementById('app').innerHTML = html;
+            }
+        }
+
+        const app = new PortfolioApp();
+    </script>
+</body>
+</html>
