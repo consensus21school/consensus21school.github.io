@@ -219,6 +219,129 @@
             margin-bottom: 1rem;
         }
 
+        .calendar-container {
+            max-width: 100%;
+            margin: 3rem auto;
+            background: rgba(247, 147, 26, 0.05);
+            padding: 0;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #f7931a;
+            position: relative;
+        }
+
+        .calendar-container::before {
+            content: "📅 Full Week Schedule";
+            display: block;
+            background: linear-gradient(135deg, #f7931a 0%, #e8850f 100%);
+            color: white;
+            padding: 1.2rem;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .calendar-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .calendar-container a:hover img {
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(247, 147, 26, 0.3);
+        }
+
+        .schedule-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .schedule-modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .schedule-modal img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .schedule-modal-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: #f7931a;
+            font-size: 3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            background: rgba(0, 0, 0, 0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+
+        .schedule-modal-close:hover {
+            transform: scale(1.1);
+            color: #ffffff;
+        }
+
+        .schedule-overview {
+            max-width: 700px;
+            margin: 3rem auto 0;
+            background: rgba(247, 147, 26, 0.05);
+            border-radius: 10px;
+            padding: 2rem;
+            border: 2px solid #f7931a;
+        }
+
+        .schedule-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: #ffffff;
+            border-radius: 5px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .schedule-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 2px 10px rgba(247, 147, 26, 0.2);
+        }
+
+        .schedule-time {
+            font-weight: bold;
+            color: #f7931a;
+            font-size: 1.1rem;
+            min-width: 100px;
+        }
+
+        .schedule-desc {
+            color: #1a1a1a;
+            font-size: 1.1rem;
+        }
+
         footer {
             background: #1a1a1a;
             color: #999;
@@ -320,65 +443,80 @@
             .contact-form-container {
                 padding: 2rem 1.5rem;
             }
+
+            .calendar-container {
+                padding: 0;
+            }
+
+            .calendar-container::before {
+                font-size: 1.1rem;
+                padding: 1rem;
+            }
+
+            .calendar-container img {
+                width: 100%;
+                height: auto;
+            }
+
+            .schedule-item {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1rem;
+            }
+
+            .schedule-time {
+                margin-bottom: 0.5rem;
+                min-width: auto;
+            }
         }
     </style>
     <script>
-        function submitForm() {
-            const parentName = document.getElementById('parentName').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const childAge = document.getElementById('childAge').value;
-            const experience = document.getElementById('experience').value;
-            const message = document.getElementById('message').value;
-            
-            const formMessage = document.getElementById('formMessage');
-            const contactForm = document.getElementById('contactForm');
-            
-            // Basic validation
-            if (!parentName || !email || !childAge) {
-                formMessage.className = 'form-message error';
-                formMessage.textContent = 'Please fill in all required fields.';
-                return;
-            }
-            
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                formMessage.className = 'form-message error';
-                formMessage.textContent = 'Please enter a valid email address.';
-                return;
-            }
-            
-            // Prepare form data
-            const formData = {
-                parentName,
-                email,
-                phone,
-                childAge,
-                experience,
-                message,
-                timestamp: new Date().toISOString()
-            };
-            
-            // Create mailto link with form data
-            const subject = encodeURIComponent('Hackathon Registration Interest');
-            const body = encodeURIComponent(
-                `Parent/Guardian Name: ${parentName}\n` +
-                `Email: ${email}\n` +
-                `Phone: ${phone || 'Not provided'}\n` +
-                `Child's Age: ${childAge}\n` +
-                `Previous Experience: ${experience || 'None provided'}\n` +
-                `Message: ${message || 'None provided'}\n\n` +
-                `Submitted: ${new Date().toLocaleString()}`
-            );
-            
-            // Open email client
-            window.location.href = `mailto:consensus21school@gmail.com?subject=${subject}&body=${body}`;
-            
-            // Show success message
-            contactForm.style.display = 'none';
-            formMessage.className = 'form-message success';
-            formMessage.textContent = 'Thank you for your interest! Your email client should open with a pre-filled message. Please send it to complete your registration.';
+        function openScheduleModal() {
+            document.getElementById('scheduleModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeScheduleModal() {
+            document.getElementById('scheduleModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Handle form submission
+        const form = document.getElementById('contactForm');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(form);
+                const formMessage = document.getElementById('formMessage');
+                
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        formMessage.className = 'form-message success';
+                        formMessage.textContent = 'Thank you for registering! We will contact you soon with more details.';
+                        form.reset();
+                    } else {
+                        response.json().then(data => {
+                            if (Object.hasOwn(data, 'errors')) {
+                                formMessage.className = 'form-message error';
+                                formMessage.textContent = data.errors.map(error => error.message).join(', ');
+                            } else {
+                                formMessage.className = 'form-message error';
+                                formMessage.textContent = 'Oops! There was a problem submitting your form.';
+                            }
+                        });
+                    }
+                }).catch(error => {
+                    formMessage.className = 'form-message error';
+                    formMessage.textContent = 'Oops! There was a problem submitting your form.';
+                });
+            });
         }
     </script>
 </head>
@@ -396,7 +534,7 @@
     <section class="section section-light">
         <div class="section-content">
             <h2>What If School Holidays Built Real Skills for the Future?</h2>
-            <p style="font-size: 1.2rem; text-align: center;">Instead of another holiday camp where kids consume apps, play games, or follow instructions… What if your child learned how to build with artificial intelligence, understand Bitcoin as real-world money, own their digital identity, publish their work to the open web, and create a real project or business idea — with you?</p>
+            <p style="font-size: 1.2rem; text-align: center;">Instead of another holiday camp where kids consume apps, play games, or follow instructions… What if your child learned how to build with artificial intelligence, understand Bitcoin as real-world money, own their digital identity, publish their work to the open web, and create a real project or business idea – with you?</p>
             
             <div class="highlight" style="margin-top: 3rem;">
                 <p style="font-size: 1.3rem; margin: 0;"><strong>This is not a coding camp.</strong> This is a family-based hackathon where parents and children learn and build together. No prior experience required. No exams. No grades. No pressure.</p>
@@ -418,7 +556,7 @@
                 <p>Value & incentives</p>
             </div>
             <div class="tech-item">
-                <div class="tech-icon">🔐</div>
+                <div class="tech-icon">🔑</div>
                 <h3>Nostr</h3>
                 <p>Identity, publishing, portfolios</p>
             </div>
@@ -448,32 +586,47 @@
         <h2>The Week at a Glance</h2>
         
         <div class="day">
-            <h4>Day 1 — Identity & Ideas</h4>
+            <h4>Day 1 – Identity & Ideas</h4>
             <p>What AI, Bitcoin, and Nostr really are. Create a project identity. Choose a problem to solve.</p>
         </div>
 
         <div class="day">
-            <h4>Day 2 — AI Build Day</h4>
+            <h4>Day 2 – AI Build Day</h4>
             <p>Learn how to work with AI tools. Start building a real prototype. Publish progress publicly.</p>
         </div>
 
         <div class="day">
-            <h4>Day 3 — Bitcoin & Value</h4>
+            <h4>Day 3 – Bitcoin & Value</h4>
             <p>How money works. How small payments enable new ideas. Design a simple business model.</p>
         </div>
 
         <div class="day">
-            <h4>Day 4 — Safety, Governance & Story</h4>
+            <h4>Day 4 – Safety, Governance & Story</h4>
             <p>Online safety and privacy. How decisions are made. Prepare the demo and story.</p>
         </div>
 
         <div class="day">
-            <h4>Day 5 — Demo Day</h4>
+            <h4>Day 5 – Demo Day</h4>
             <p>Final build. Live presentations. Public portfolio published.</p>
         </div>
     </section>
 
     <section class="section section-light">
+        <div class="section-content">
+            <h2>Daily Schedule</h2>
+            
+            <div class="calendar-container">
+                <img src="https://github.com/consensus21school/consensus21school.github.io/blob/main/assets/images/zapathon.png?raw=true" alt="Hackathon Week Schedule" style="width: 100%; height: auto; display: block; cursor: pointer;" onclick="openScheduleModal()">
+            </div>
+        </div>
+    </section>
+
+    <div id="scheduleModal" class="schedule-modal" onclick="closeScheduleModal()">
+        <span class="schedule-modal-close" onclick="closeScheduleModal()">&times;</span>
+        <img src="https://github.com/consensus21school/consensus21school.github.io/blob/main/assets/images/zapathon.png?raw=true" alt="Hackathon Week Schedule">
+    </div>
+
+    <section class="section section-dark">
         <h2>Why Parents Love This Program</h2>
         <div class="grid">
             <div class="card">
@@ -481,21 +634,17 @@
                 <p>Your child learns AI literacy, financial literacy, digital identity, online safety, and ethical technology use.</p>
             </div>
             <div class="card">
-                <h3>You Learn Too</h3>
+                <h3>You Learn Together</h3>
                 <p>Parents build alongside their child and finally understand AI beyond headlines, Bitcoin beyond speculation, and how kids can use technology safely.</p>
             </div>
             <div class="card">
-                <h3>Safe & Guided</h3>
-                <p>No real funds required. Strong focus on digital safety. Parent-guided identity setup. Privacy and consent built in.</p>
-            </div>
-            <div class="card">
-                <h3>Evidence, Not Busywork</h3>
-                <p>Your child leaves with a public portfolio, real artefacts, and confidence explaining what they built and why.</p>
+                <h3>Real Evidence & Outcomes</h3>
+                <p>No real funds required. Strong focus on digital safety. Your child leaves with a public portfolio, real artefacts, and confidence explaining what they built and why.</p>
             </div>
         </div>
     </section>
 
-    <section class="section section-dark">
+    <section class="section section-light">
         <div class="section-content">
             <h2>Why We Use Nostr</h2>
             <p style="font-size: 1.1rem; margin-bottom: 2rem; text-align: center;">Most platforms own your child's data, control what is seen, and decide what gets removed.</p>
@@ -506,7 +655,7 @@
         </div>
     </section>
 
-    <section class="section section-light">
+    <section class="section section-dark">
         <div class="section-content">
             <h2>Who This Is For</h2>
             <ul class="outcomes-list">
@@ -518,7 +667,7 @@
         </div>
     </section>
 
-    <section class="section section-dark">
+    <section class="section section-light">
         <div class="section-content">
             <h2>What Families Take Home</h2>
             <div class="grid">
@@ -527,7 +676,7 @@
                     <p>A real AI-powered prototype built together</p>
                 </div>
                 <div class="card">
-                    <h3>📁 Digital Portfolio</h3>
+                    <h3>📝 Digital Portfolio</h3>
                     <p>Public proof of learning and skills</p>
                 </div>
                 <div class="card">
@@ -543,56 +692,54 @@
         </div>
     </section>
 
-    <section class="section section-light" id="register">
+    <section class="section section-dark" id="register">
         <div class="section-content">
             <h2>Limited Places Available</h2>
             <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem;">This program is intentionally small and high-touch to ensure safety, quality mentoring, and real outcomes.</p>
             
             <div class="contact-form-container">
                 <div id="formMessage" class="form-message"></div>
-                <div id="contactForm">
+                <form id="contactForm" action="https://formspree.io/f/xjgkqbgd" method="POST">
                     <div class="form-group">
                         <label for="parentName">Parent/Guardian Name *</label>
-                        <input type="text" id="parentName" required>
+                        <input type="text" id="parentName" name="parentName" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="email">Email Address *</label>
-                        <input type="email" id="email" required>
+                        <input type="email" id="email" name="email" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone">
+                        <input type="tel" id="phone" name="phone">
                     </div>
                     
                     <div class="form-group">
                         <label for="childAge">Child's Age *</label>
-                        <input type="number" id="childAge" min="5" max="18" required>
+                        <input type="number" id="childAge" name="childAge" min="5" max="18" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="experience">Previous Experience (optional)</label>
-                        <textarea id="experience" rows="3" placeholder="Has your child worked with AI, Bitcoin, or programming before?"></textarea>
+                        <textarea id="experience" name="experience" rows="3" placeholder="Has your child worked with AI, Bitcoin, or programming before?"></textarea>
                     </div>
                     
                     <div class="form-group">
                         <label for="message">Questions or Comments</label>
-                        <textarea id="message" rows="4" placeholder="Tell us why you're interested in this program..."></textarea>
+                        <textarea id="message" name="message" rows="4" placeholder="Tell us why you're interested in this program..."></textarea>
                     </div>
                     
-                    <button type="button" onclick="submitForm()" class="cta-button" style="width: 100%; margin-top: 1rem;">Register Your Interest</button>
-                </div>
+                    <button type="submit" class="cta-button" style="width: 100%; margin-top: 1rem;">Register Your Interest</button>
+                </form>
             </div>
-            
-            <p style="text-align: center; margin-top: 2rem; color: #666;">Or email us directly at <a href="mailto:consensus21school@gmail.com" style="color: #f7931a;">consensus21school@gmail.com</a></p>
         </div>
     </section>
 
-    <section class="section section-dark">
+    <section class="section section-light">
         <div class="section-content">
             <h2>About Consensus21</h2>
-            <p style="text-align: center; font-size: 1.1rem;">Consensus21 is building new models of education based on problem-based learning, digital sovereignty, Bitcoin-standard thinking, and real-world skills over exams. This hackathon is a living example of how learning can work differently — and better.</p>
+            <p style="text-align: center; font-size: 1.1rem;">Consensus21 is building new models of education based on problem-based learning, digital sovereignty, Bitcoin-standard thinking, and real-world skills over exams. This hackathon is a living example of how learning can work differently – and better.</p>
             <div style="text-align: center; margin-top: 3rem;">
                 <a href="https://consensus21.school" class="cta-button" style="background: transparent; border: 2px solid #f7931a; color: #f7931a;">Learn More About Consensus21</a>
             </div>
