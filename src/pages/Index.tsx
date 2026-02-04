@@ -1,10 +1,23 @@
 import { useSeoMeta } from '@unhead/react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Bitcoin, Github, ExternalLink, FileText, Newspaper, GraduationCap, Briefcase, Heart, ArrowDown, Rss, Zap } from 'lucide-react';
+import { Menu, X, Bitcoin, Github, ExternalLink, FileText, Newspaper, GraduationCap, Briefcase, Heart, ArrowDown, ArrowUp, Rss, Zap } from 'lucide-react';
 
 const Index = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 400);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   useSeoMeta({
     title: 'Consensus21',
@@ -174,6 +187,34 @@ const Index = () => {
               self-directed, problem-based learning with guided support, empowering learners with critical thinking,
               entrepreneurship, and problem-solving skills.
             </p>
+            <div className="flex flex-wrap gap-4 mt-4">
+              <a
+                href="https://consensus21.school/digitalportfolio"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#F7931A] hover:text-[#F7931A]/80 underline font-medium transition-colors"
+              >
+                Digital Portfolio
+              </a>
+              <span className="text-gray-500">|</span>
+              <a
+                href="https://consensus21.school/hackathon"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#F7931A] hover:text-[#F7931A]/80 underline font-medium transition-colors"
+              >
+                Hackathon
+              </a>
+              <span className="text-gray-500">|</span>
+              <a
+                href="https://consensus21.school/donations"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#F7931A] hover:text-[#F7931A]/80 underline font-medium transition-colors"
+              >
+                Donations
+              </a>
+            </div>
           </div>
 
           {/* Social Links - Bottom Right */}
@@ -756,6 +797,17 @@ const Index = () => {
           </p>
         </div>
       </footer>
+
+      {/* Back to Top Button */}
+      {showBackToTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 z-40 flex items-center justify-center w-12 h-12 bg-[#F7931A] hover:bg-[#F7931A]/80 text-white rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+          aria-label="Back to top"
+        >
+          <ArrowUp className="w-6 h-6" />
+        </button>
+      )}
     </div>
   );
 };
