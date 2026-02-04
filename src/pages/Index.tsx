@@ -4,16 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Menu, X, Bitcoin, Github, ExternalLink, FileText, Newspaper, GraduationCap, Briefcase, Heart, ArrowDown, Rss, Zap } from 'lucide-react';
 
 const Index = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   useSeoMeta({
     title: 'Consensus21',
@@ -44,13 +35,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Navigation */}
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-md'
-            : 'bg-transparent'
-        }`}
-      >
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             {/* Logo and Brand - Left Side */}
@@ -222,9 +207,11 @@ const Index = () => {
               className="group relative"
               aria-label="Nostr"
             >
-              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-purple-600/20 hover:bg-purple-600/40 transition-all duration-300 group-hover:scale-110">
-                <span className="text-purple-400 font-bold text-sm">npub</span>
-              </div>
+              <img
+                src="/nostr.png"
+                alt="Nostr"
+                className="w-12 h-12 transition-all duration-300 group-hover:scale-110"
+              />
             </a>
             <a
               href="https://x.com/Consensus21"
@@ -235,6 +222,17 @@ const Index = () => {
             >
               <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-700/50 hover:bg-gray-700 transition-all duration-300 group-hover:scale-110">
                 <XIcon className="w-5 h-5 text-white" />
+              </div>
+            </a>
+            <a
+              href="https://stacker.news/consensus21/all"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative"
+              aria-label="Stacker News"
+            >
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-yellow-500/20 hover:bg-yellow-500/40 transition-all duration-300 group-hover:scale-110">
+                <Zap className="w-5 h-5 text-yellow-500" />
               </div>
             </a>
           </div>
@@ -316,8 +314,13 @@ const Index = () => {
                     href="https://primal.net/p/nprofile1qqstk8yx8gkptsf3k3y5u7sgrjwv24h2h4hzfj6gdrdwx79u99fu87ccjdc2x"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="flex items-center gap-2"
                   >
-                    <span className="text-sm font-bold">npub</span>
+                    <img
+                      src="/nostr.png"
+                      alt="Nostr"
+                      className="w-6 h-6"
+                    />
                     Nostr
                   </a>
                 </Button>
@@ -751,11 +754,6 @@ const Index = () => {
               npub1hvwgvw3vzhqnrdzffeaqs8yuc4tw40twyn95s6x6udutc22nc0asprqh2a
             </a>
           </p>
-          <div className="mt-8 pt-8 border-t border-gray-800">
-            <p className="text-sm text-gray-500">
-              Vibed with <a href="https://shakespeare.diy" target="_blank" rel="noopener noreferrer" className="text-[#F7931A] hover:text-[#F7931A]/80 transition-colors">Shakespeare</a>
-            </p>
-          </div>
         </div>
       </footer>
     </div>
