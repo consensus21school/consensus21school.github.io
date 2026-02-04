@@ -1,4 +1,4 @@
-import { useSeoMeta } from '@unhead/react';
+import { useSeoMeta, useHead } from '@unhead/react';
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Bitcoin, Github, ExternalLink, FileText, Newspaper, GraduationCap, Briefcase, Heart, ArrowDown, ArrowUp, Rss, Zap } from 'lucide-react';
@@ -18,6 +18,16 @@ const Index = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  useHead({
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/png',
+        href: '/c21logo.png',
+      },
+    ],
+  });
 
   useSeoMeta({
     title: 'Consensus21',
