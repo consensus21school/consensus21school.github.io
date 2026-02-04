@@ -1,7 +1,7 @@
 import { useSeoMeta } from '@unhead/react';
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Bitcoin, Github, Twitter, FileText, Newspaper, GraduationCap, Briefcase, Heart, ExternalLink } from 'lucide-react';
+import { Menu, X, Bitcoin, Github, ExternalLink, FileText, Newspaper, GraduationCap, Briefcase, Heart, ArrowDown, Rss, Zap } from 'lucide-react';
 
 const Index = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,6 +30,17 @@ const Index = () => {
     }
   };
 
+  const XIcon = ({ className }: { className?: string }) => (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+    </svg>
+  );
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Navigation */}
@@ -42,61 +53,58 @@ const Index = () => {
       >
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
-            {/* Logo */}
+            {/* Logo and Brand - Left Side */}
             <div className="flex items-center space-x-3">
               <button
                 onClick={() => scrollToSection('hero')}
                 className="flex items-center space-x-2 group"
               >
-                <div className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-[#F7931A] transition-colors">
-                  C21
-                </div>
-                <span className="text-gray-900 dark:text-white font-medium hidden sm:block">
-                  Consensus21
-                </span>
+                <img
+                  src="/c21logo.png"
+                  alt="Consensus21 Logo"
+                  className="h-12 w-auto"
+                />
               </button>
+              <span className="text-gray-900 dark:text-white font-medium hidden sm:block">
+                Consensus21
+              </span>
             </div>
 
-            {/* Desktop Navigation */}
+            {/* Desktop Navigation Links - Center */}
             <div className="hidden md:flex items-center space-x-1">
               <button
                 onClick={() => scrollToSection('news')}
-                className="flex items-center space-x-2 px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-[#F7931A] dark:hover:text-[#F7931A] transition-colors"
+                className="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-[#F7931A] dark:hover:text-[#F7931A] transition-colors font-medium uppercase text-sm"
               >
-                <Newspaper className="w-4 h-4" />
-                <span>C21 News</span>
+                C21 News
               </button>
               <button
                 onClick={() => scrollToSection('whitepaper')}
-                className="flex items-center space-x-2 px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-[#F7931A] dark:hover:text-[#F7931A] transition-colors"
+                className="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-[#F7931A] dark:hover:text-[#F7931A] transition-colors font-medium uppercase text-sm"
               >
-                <FileText className="w-4 h-4" />
-                <span>White Paper</span>
+                White Paper
               </button>
               <button
                 onClick={() => scrollToSection('donate')}
-                className="flex items-center space-x-2 px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-[#F7931A] dark:hover:text-[#F7931A] transition-colors"
+                className="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-[#F7931A] dark:hover:text-[#F7931A] transition-colors font-medium uppercase text-sm"
               >
-                <Bitcoin className="w-4 h-4" />
-                <span>Donate</span>
+                Donate
               </button>
               <button
                 onClick={() => scrollToSection('education')}
-                className="flex items-center space-x-2 px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-[#F7931A] dark:hover:text-[#F7931A] transition-colors"
+                className="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-[#F7931A] dark:hover:text-[#F7931A] transition-colors font-medium uppercase text-sm"
               >
-                <GraduationCap className="w-4 h-4" />
-                <span>~Education</span>
+                ~Education
               </button>
               <button
                 onClick={() => scrollToSection('jobs')}
-                className="flex items-center space-x-2 px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-[#F7931A] dark:hover:text-[#F7931A] transition-colors"
+                className="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-[#F7931A] dark:hover:text-[#F7931A] transition-colors font-medium uppercase text-sm"
               >
-                <Briefcase className="w-4 h-4" />
-                <span>Jobs</span>
+                Jobs
               </button>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - Right */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden p-2 text-gray-700 dark:text-gray-300"
@@ -114,37 +122,32 @@ const Index = () => {
             <div className="md:hidden pb-4 space-y-2">
               <button
                 onClick={() => scrollToSection('news')}
-                className="flex items-center space-x-2 w-full px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+                className="flex items-center space-x-2 w-full px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg font-medium uppercase"
               >
-                <Newspaper className="w-4 h-4" />
                 <span>C21 News</span>
               </button>
               <button
                 onClick={() => scrollToSection('whitepaper')}
-                className="flex items-center space-x-2 w-full px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+                className="flex items-center space-x-2 w-full px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg font-medium uppercase"
               >
-                <FileText className="w-4 h-4" />
                 <span>White Paper</span>
               </button>
               <button
                 onClick={() => scrollToSection('donate')}
-                className="flex items-center space-x-2 w-full px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+                className="flex items-center space-x-2 w-full px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg font-medium uppercase"
               >
-                <Bitcoin className="w-4 h-4" />
                 <span>Donate</span>
               </button>
               <button
                 onClick={() => scrollToSection('education')}
-                className="flex items-center space-x-2 w-full px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+                className="flex items-center space-x-2 w-full px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg font-medium uppercase"
               >
-                <GraduationCap className="w-4 h-4" />
                 <span>~Education</span>
               </button>
               <button
                 onClick={() => scrollToSection('jobs')}
-                className="flex items-center space-x-2 w-full px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+                className="flex items-center space-x-2 w-full px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg font-medium uppercase"
               >
-                <Briefcase className="w-4 h-4" />
                 <span>Jobs</span>
               </button>
             </div>
@@ -155,11 +158,17 @@ const Index = () => {
       {/* Hero Section */}
       <section
         id="hero"
-        className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black"
+        className="relative min-h-screen flex items-center justify-center"
+        style={{
+          backgroundImage: 'url(/og-image.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+        }}
       >
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-black/80"></div>
         <div className="relative container mx-auto px-4 py-20 mt-20">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-left">
             <h2 className="text-2xl md:text-3xl font-bold text-[#F7931A] mb-4 tracking-wide">
               Consensus 21
             </h2>
@@ -180,89 +189,61 @@ const Index = () => {
               self-directed, problem-based learning with guided support, empowering learners with critical thinking,
               entrepreneurship, and problem-solving skills.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center mb-12">
-              <a
-                href="https://consensus21.school/digitalportfolio"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#F7931A] hover:text-[#F7931A]/80 underline font-medium transition-colors"
-              >
-                Digital Portfolio
-              </a>
-              <span className="text-gray-500">|</span>
-              <a
-                href="https://consensus21.school/hackathon"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#F7931A] hover:text-[#F7931A]/80 underline font-medium transition-colors"
-              >
-                Hackathon
-              </a>
-              <span className="text-gray-500">|</span>
-              <a
-                href="https://consensus21.school/donations"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#F7931A] hover:text-[#F7931A]/80 underline font-medium transition-colors"
-              >
-                Donations
-              </a>
-            </div>
+          </div>
 
-            {/* Social Links */}
-            <div className="flex flex-wrap gap-6 justify-center items-center">
-              <a
-                href="https://coinos.io/pay/CONSENSUS21"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative"
-                aria-label="Donate Bitcoin"
-              >
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#F7931A]/10 hover:bg-[#F7931A]/20 transition-all duration-300 group-hover:scale-110">
-                  <Bitcoin className="w-6 h-6 text-[#F7931A]" />
-                </div>
-              </a>
-              <a
-                href="https://github.com/consensus21school/consensus21school.github.io/blob/main/whitepaper.md"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative"
-                aria-label="GitHub"
-              >
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-700/50 hover:bg-gray-700 transition-all duration-300 group-hover:scale-110">
-                  <Github className="w-6 h-6 text-white" />
-                </div>
-              </a>
-              <a
-                href="https://primal.net/p/nprofile1qqstk8yx8gkptsf3k3y5u7sgrjwv24h2h4hzfj6gdrdwx79u99fu87ccjdc2x"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative"
-                aria-label="Nostr"
-              >
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-purple-600/20 hover:bg-purple-600/40 transition-all duration-300 group-hover:scale-110">
-                  <span className="text-purple-400 font-bold text-sm">npub</span>
-                </div>
-              </a>
-              <a
-                href="https://x.com/Consensus21"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative"
-                aria-label="Twitter"
-              >
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500/20 hover:bg-blue-500/40 transition-all duration-300 group-hover:scale-110">
-                  <Twitter className="w-6 h-6 text-blue-400" />
-                </div>
-              </a>
-            </div>
+          {/* Social Links - Bottom Right */}
+          <div className="flex flex-wrap gap-6 justify-end items-center mt-12">
+            <a
+              href="https://coinos.io/CONSENSUS21/receive"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative"
+              aria-label="Donate Bitcoin"
+            >
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-[#F7931A]/10 hover:bg-[#F7931A]/20 transition-all duration-300 group-hover:scale-110">
+                <Bitcoin className="w-6 h-6 text-[#F7931A]" />
+              </div>
+            </a>
+            <a
+              href="https://github.com/consensus21school/consensus21school.github.io/blob/main/whitepaper.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative"
+              aria-label="GitHub"
+            >
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-700/50 hover:bg-gray-700 transition-all duration-300 group-hover:scale-110">
+                <Github className="w-6 h-6 text-white" />
+              </div>
+            </a>
+            <a
+              href="https://primal.net/p/nprofile1qqstk8yx8gkptsf3k3y5u7sgrjwv24h2h4hzfj6gdrdwx79u99fu87ccjdc2x"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative"
+              aria-label="Nostr"
+            >
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-purple-600/20 hover:bg-purple-600/40 transition-all duration-300 group-hover:scale-110">
+                <span className="text-purple-400 font-bold text-sm">npub</span>
+              </div>
+            </a>
+            <a
+              href="https://x.com/Consensus21"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative"
+              aria-label="X"
+            >
+              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-700/50 hover:bg-gray-700 transition-all duration-300 group-hover:scale-110">
+                <XIcon className="w-5 h-5 text-white" />
+              </div>
+            </a>
           </div>
         </div>
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
-            <div className="w-1.5 h-3 bg-white/50 rounded-full"></div>
+          <div className="w-12 h-12 border-2 border-white/50 rounded-full flex items-center justify-center">
+            <ArrowDown className="w-6 h-6 text-white/50" />
           </div>
         </div>
       </section>
@@ -279,9 +260,11 @@ const Index = () => {
                 className="block group"
               >
                 <div className="relative overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-[#F7931A]/20 transition-all duration-300">
-                  <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center">
-                    <Newspaper className="w-24 h-24 text-gray-400 dark:text-gray-600" />
-                  </div>
+                  <img
+                    src="/news.png"
+                    alt="C21 News"
+                    className="w-full h-auto"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                     <span className="text-white font-medium flex items-center gap-2">
                       <ExternalLink className="w-4 h-4" />
@@ -311,16 +294,15 @@ const Index = () => {
               <div className="flex flex-wrap gap-3">
                 <Button
                   asChild
-                  variant="destructive"
                   size="lg"
-                  className="gap-2"
+                  className="gap-2 bg-yellow-500 hover:bg-yellow-600 text-yellow-950"
                 >
                   <a
                     href="https://stacker.news/consensus21/all"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Newspaper className="w-4 h-4" />
+                    <Zap className="w-4 h-4" />
                     Stacker News
                   </a>
                 </Button>
@@ -328,7 +310,7 @@ const Index = () => {
                   asChild
                   variant="secondary"
                   size="lg"
-                  className="gap-2"
+                  className="gap-2 bg-purple-600 hover:bg-purple-700 text-white"
                 >
                   <a
                     href="https://primal.net/p/nprofile1qqstk8yx8gkptsf3k3y5u7sgrjwv24h2h4hzfj6gdrdwx79u99fu87ccjdc2x"
@@ -343,13 +325,14 @@ const Index = () => {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="gap-2"
+                  className="gap-2 border-[#F7931A] text-[#F7931A] hover:bg-[#F7931A] hover:text-white"
                 >
                   <a
                     href="https://stacker.news/~education/rss"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
+                    <Rss className="w-4 h-4" />
                     RSS
                   </a>
                 </Button>
@@ -371,9 +354,11 @@ const Index = () => {
                 className="block group"
               >
                 <div className="relative overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-[#F7931A]/20 transition-all duration-300">
-                  <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center">
-                    <FileText className="w-24 h-24 text-gray-400 dark:text-gray-600" />
-                  </div>
+                  <img
+                    src="/whitepaper.png"
+                    alt="White Paper"
+                    className="w-full h-auto"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                     <span className="text-white font-medium flex items-center gap-2">
                       <ExternalLink className="w-4 h-4" />
@@ -451,9 +436,11 @@ const Index = () => {
                 className="block group"
               >
                 <div className="relative overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-[#F7931A]/20 transition-all duration-300">
-                  <div className="aspect-video bg-gradient-to-br from-[#F7931A]/20 to-[#F7931A]/10 flex items-center justify-center">
-                    <Bitcoin className="w-24 h-24 text-[#F7931A]" />
-                  </div>
+                  <img
+                    src="/donations.png"
+                    alt="Donate"
+                    className="w-full h-auto"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                     <span className="text-white font-medium flex items-center gap-2">
                       <ExternalLink className="w-4 h-4" />
@@ -564,9 +551,11 @@ const Index = () => {
                 className="block group"
               >
                 <div className="relative overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-[#F7931A]/20 transition-all duration-300">
-                  <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center">
-                    <GraduationCap className="w-24 h-24 text-gray-400 dark:text-gray-600" />
-                  </div>
+                  <img
+                    src="/education.png"
+                    alt="~Education"
+                    className="w-full h-auto"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                     <span className="text-white font-medium flex items-center gap-2">
                       <ExternalLink className="w-4 h-4" />
@@ -599,16 +588,15 @@ const Index = () => {
               <div className="flex flex-wrap gap-3">
                 <Button
                   asChild
-                  variant="destructive"
                   size="lg"
-                  className="gap-2"
+                  className="gap-2 bg-yellow-500 hover:bg-yellow-600 text-yellow-950"
                 >
                   <a
                     href="https://stacker.news/~Education"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Newspaper className="w-4 h-4" />
+                    <Zap className="w-4 h-4" />
                     ~Education
                   </a>
                 </Button>
@@ -616,13 +604,14 @@ const Index = () => {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="gap-2"
+                  className="gap-2 border-[#F7931A] text-[#F7931A] hover:bg-[#F7931A] hover:text-white"
                 >
                   <a
                     href="https://stacker.news/~education/rss"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
+                    <Rss className="w-4 h-4" />
                     RSS
                   </a>
                 </Button>
@@ -630,7 +619,7 @@ const Index = () => {
                   asChild
                   variant="default"
                   size="lg"
-                  className="gap-2 bg-[#F7931A] hover:bg-[#F7931A]/90"
+                  className="gap-2 bg-[#F7931A] hover:bg-[#F7931A]/90 text-white"
                 >
                   <a
                     href="https://stacker.news/items/339533#territories"
@@ -658,9 +647,11 @@ const Index = () => {
                 className="block group"
               >
                 <div className="relative overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-[#F7931A]/20 transition-all duration-300">
-                  <div className="aspect-video bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center">
-                    <Briefcase className="w-24 h-24 text-gray-400 dark:text-gray-600" />
-                  </div>
+                  <img
+                    src="/jobs.png"
+                    alt="Jobs"
+                    className="w-full h-auto"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                     <span className="text-white font-medium flex items-center gap-2">
                       <ExternalLink className="w-4 h-4" />
@@ -709,16 +700,15 @@ const Index = () => {
                 </Button>
                 <Button
                   asChild
-                  variant="destructive"
                   size="lg"
-                  className="gap-2"
+                  className="gap-2 bg-yellow-500 hover:bg-yellow-600 text-yellow-950"
                 >
                   <a
                     href="https://stacker.news/~jobs"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Newspaper className="w-4 h-4" />
+                    <Zap className="w-4 h-4" />
                     ~Jobs
                   </a>
                 </Button>
