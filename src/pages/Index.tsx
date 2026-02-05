@@ -336,8 +336,8 @@ const Index = () => {
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
                 All updates and announcements for C21 are regularly shared through Stacker News and Nostr,
-                providing === community with real-time insights and information. For those who prefer an
-                aggregated format, all posts are also available through the ~Education Territory RSS feed,
+                providing community with real-time insights and information. For those who prefer an
+                aggregated format, all posts are also available through ~Education Territory RSS feed,
                 ensuring that you can stay up to date with everything happening in one convenient place.
               </p>
               <div className="flex flex-wrap gap-3">
@@ -529,7 +529,7 @@ const Index = () => {
                 </p>
                 <p>
                   We accept donations in both Australian dollars and Bitcoin. For Bitcoin donations, we record
-                  the AUD equivalent at the time of receipt and can issue a receipt noting the date, amount
+                  AUD equivalent at time of receipt and can issue a receipt noting date, amount
                   received, and wallet address.
                 </p>
                 <p>
@@ -636,308 +636,7 @@ const Index = () => {
                 Consensus21 & DPF Charity have contributed 3M sats using the DPF Learner Fund to permanently
                 support the launch and moderation of the ~Education territory on Stacker News. The Learner Fund
                 exists to back projects that make Bitcoin education accessible, high quality, and community
-                driven. Supporting ~Education helps keep the space moderated and focused on learning, reward
-                contributors who share valuable knowledge, and experiment with new ways to fund education
-                through sats. This is just the beginning, as the Learner Fund is committed to strengthening
-                open, stacker led Bitcoin learning spaces.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <Button
-                  asChild
-                  size="lg"
-                  className="gap-2 bg-yellow-500 hover:bg-yellow-600 text-yellow-950"
-                >
-                  <a
-                    href="https://stacker.news/consensus21/all"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Zap className="w-4 h-4" />
-                    Stacker News
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  variant="secondary"
-                  size="lg"
-                  className="gap-2 bg-purple-800 hover:bg-purple-900 text-white"
-                >
-                  <a
-                    href="https://primal.net/p/nprofile1qqstk8yx8gkptsf3k3y5u7sgrjwv24h2h4hzfj6gdrdwx79u99fu87ccjdc2x"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2"
-                  >
-                    <div className="relative bg-purple-900 p-2 rounded-lg">
-                      <img
-                        src="/nostr.png"
-                        alt="Nostr"
-                        className="w-6 h-6"
-                      />
-                    </div>
-                    Nostr
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="gap-2 border-[#F7931A] text-[#F7931A] hover:bg-[#F7931A] hover:text-white"
-                >
-                  <a
-                    href="https://stacker.news/~education/rss"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Rss className="w-4 h-4" />
-                    RSS
-                  </a>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* White Paper Section */}
-      <section id="whitepaper" className="py-20 md:py-32 bg-gray-50 dark:bg-gray-950">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <a
-                href="/whitepaper.html"
-                target="_self"
-                rel="noopener noreferrer"
-                className="block group"
-              >
-                <div className="relative overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-[#F7931A]/20 transition-all duration-300">
-                  <img
-                    src="/whitepaper.png"
-                    alt="White Paper"
-                    className="w-full h-auto"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                    <span className="text-white font-medium flex items-center gap-2">
-                      <ExternalLink className="w-4 h-4" />
-                      Read White Paper
-                    </span>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-                <a
-                  href="/whitepaper.html"
-                  target="_self"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#F7931A] transition-colors"
-                >
-                  White Paper
-                </a>
-              </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-                The Consensus21 whitepaper introduces an open-source, decentralised education protocol designed
-                to reshape learning by eliminating traditional hierarchies, standardised testing, and tuition
-                debt. This model empowers learners and mentors to engage in self-directed, project-based
-                education, fostering critical thinking, entrepreneurship, and problem-solving skills. At its core,
-                Consensus21 operates through a community-governed, modular infrastructure that supports lifelong
-                learning from ages 5 to 21.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <Button
-                  asChild
-                  variant="default"
-                  size="lg"
-                  className="gap-2 bg-gray-900 hover:bg-gray-800"
-                >
-                  <a
-                    href="/whitepaper.html"
-                    target="_self"
-                    rel="noopener noreferrer"
-                  >
-                    <FileText className="w-4 h-4" />
-                    Read
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="gap-2"
-                >
-                  <a
-                    href="https://github.com/consensus21school/consensus21school.github.io/blob/main/whitepaper.md"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Github className="w-4 h-4" />
-                    GitHub
-                  </a>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Donate Section */}
-      <section id="donate" className="py-20 md:py-32 bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1">
-              <a
-                href="https://coinos.io/CONSENSUS21/receive"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block group"
-              >
-                <div className="relative overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-[#F7931A]/20 transition-all duration-300">
-                  <img
-                    src="/donations.png"
-                    alt="Donate"
-                    className="w-full h-auto"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                    <span className="text-white font-medium flex items-center gap-2">
-                      <ExternalLink className="w-4 h-4" />
-                      Donate Bitcoin
-                    </span>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div className="order-1 md:order-2">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-                <a
-                  href="https://coinos.io/CONSENSUS21/receive"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#F7931A] transition-colors"
-                >
-                  C21 Donate
-                </a>
-              </h2>
-              <div className="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed space-y-4">
-                <p>
-                  <strong className="text-gray-900 dark:text-white">Tax Deductibility</strong>
-                </p>
-                <p>
-                  Consensus21 is a registered business name and auspiced project of Digital Playhouse
-                  Foundation Ltd, a Public Benevolent Institution (PBI) with Deductible Gift Recipient (DGR)
-                  endorsement. Donations of $2 or more to Consensus21 may be tax-deductible under Australian
-                  law.
-                </p>
-                <p>
-                  We accept donations in both Australian dollars and Bitcoin. For Bitcoin donations, we record
-                  the AUD equivalent at the time of receipt and can issue a receipt noting the date, amount
-                  received, and wallet address.
-                </p>
-                <p>
-                  To request a donation receipt or for further information, please contact us{' '}
-                  <a
-                    href="https://digitalplayhouse.org.au/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#F7931A] hover:text-[#F7931A]/80 underline font-medium"
-                  >
-                    here
-                  </a>
-                  .
-                </p>
-                <p>
-                  <strong>View our charity registration:</strong>
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-3">
-                <Button
-                  asChild
-                  variant="default"
-                  size="lg"
-                  className="gap-2 bg-blue-600 hover:bg-blue-700"
-                >
-                  <a
-                    href="https://coinos.io/CONSENSUS21/receive"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Bitcoin className="w-4 h-4" />
-                    Donate
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  variant="default"
-                  size="lg"
-                  className="gap-2 bg-yellow-500 hover:bg-yellow-600 text-yellow-950"
-                >
-                  <a
-                    href="https://www.acnc.gov.au/charity/charities/51dfc341-a5cd-eb11-8235-002248103324/profile"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Heart className="w-4 h-4" />
-                    Charity
-                  </a>
-                </Button>
-              </div>
-              <p className="mt-6 text-sm text-gray-500 dark:text-gray-500">
-                <a
-                  href="https://www.acnc.gov.au/charity/charities/51dfc341-a5cd-eb11-8235-002248103324/profile"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#F7931A] transition-colors"
-                >
-                  ABN 14 650 828 381 – ACNC Register
-                </a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ~Education Section */}
-      <section id="education" className="py-20 md:py-32 bg-gray-50 dark:bg-gray-950">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <a
-                href="https://stacker.news/~Education"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block group"
-              >
-                <div className="relative overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-[#F7931A]/20 transition-all duration-300">
-                  <img
-                    src="/education.png"
-                    alt="~Education"
-                    className="w-full h-auto"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                    <span className="text-white font-medium flex items-center gap-2">
-                      <ExternalLink className="w-4 h-4" />
-                      Visit ~Education
-                    </span>
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-                <a
-                  href="https://stacker.news/~Education"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#F7931A] transition-colors"
-                >
-                  ~Education
-                </a>
-              </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
-                Consensus21 & DPF Charity have contributed 3M sats using the DPF Learner Fund to permanently
-                support the launch and moderation of the ~Education territory on Stacker News. The Learner Fund
-                exists to back projects that make Bitcoin education accessible, high quality, and community
-                driven. Supporting ~Education helps keep the space moderated and focused on learning, reward
+                driven. Supporting ~Education helps keep the space moderated and focused on learning, rewarding
                 contributors who share valuable knowledge, and experiment with new ways to fund education
                 through sats. This is just the beginning, as the Learner Fund is committed to strengthening
                 open, stacker led Bitcoin learning spaces.
@@ -1005,7 +704,7 @@ const Index = () => {
                 tomorrow. All of our roles are openly listed on Stacker News Jobs and Bitcoiner Jobs, making it
                 easy for people to join our mission, while at the same time our students are being upskilled
                 through hands-on, problem-based learning that mirrors these future-focused positions. By engaging
-                with real tools, communities, and industry networks, learners gain the technical skills and
+                with real tools, communities, and industry networks, learners gain technical skills and
                 entrepreneurial mindset needed to thrive in the fast-growing Bitcoin and digital economy,
                 ensuring that Consensus21 is both creating meaningful jobs today and preparing the next generation
                 to step confidently into them tomorrow.
@@ -1086,6 +785,7 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
       {/* Back to Top Button */}
       {showBackToTop && (
         <button
