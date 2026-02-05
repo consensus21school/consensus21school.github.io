@@ -359,7 +359,7 @@ const Index = () => {
                   asChild
                   variant="secondary"
                   size="lg"
-                  className="gap-2 bg-purple-700 hover:bg-purple-800 text-white"
+                  className="gap-2 bg-purple-800 hover:bg-purple-900 text-white"
                 >
                   <a
                     href="https://primal.net/p/nprofile1qqstk8yx8gkptsf3k3y5u7sgrjwv24h2h4hzfj6gdrdwx79u99fu87ccjdc2x"
@@ -367,7 +367,7 @@ const Index = () => {
                     rel="noopener noreferrer"
                     className="flex items-center gap-2"
                   >
-                    <div className="relative bg-purple-700 p-2 rounded-lg">
+                    <div className="relative bg-purple-900 p-2 rounded-lg">
                       <img
                         src="/nostr.png"
                         alt="Nostr"
@@ -686,33 +686,87 @@ const Index = () => {
                     ~Education
                   </a>
                 </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="gap-2 border-[#F7931A] text-[#F7931A] hover:bg-[#F7931A] hover:text-white"
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Jobs Section */}
+      <section id="jobs" className="py-20 md:py-32 bg-white dark:bg-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="order-2 md:order-1">
+              <a
+                href="https://bitcoinerjobs.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group"
+              >
+                <div className="relative overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-[#F7931A]/20 transition-all duration-300">
+                  <img
+                    src="/jobs.png"
+                    alt="Jobs"
+                    className="w-full h-auto"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                    <span className="text-white font-medium flex items-center gap-2">
+                      <ExternalLink className="w-4 h-4" />
+                      View Jobs
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div className="order-1 md:order-2">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+                <a
+                  href="https://bitcoinerjobs.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#F7931A] transition-colors"
                 >
-                  <a
-                    href="https://stacker.news/~education/rss"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Rss className="w-4 h-4" />
-                    RSS
-                  </a>
-                </Button>
+                  Jobs
+                </a>
+              </h2>
+              <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
+                At Consensus21.school, education and employment are directly connected to the opportunities of
+                tomorrow. All of our roles are openly listed on Stacker News Jobs and Bitcoiner Jobs, making it
+                easy for people to join our mission, while at the same time our students are being upskilled
+                through hands-on, problem-based learning that mirrors these future-focused positions. By engaging
+                with real tools, communities, and industry networks, learners gain the technical skills and
+                entrepreneurial mindset needed to thrive in the fast-growing Bitcoin and digital economy,
+                ensuring that Consensus21 is both creating meaningful jobs today and preparing the next generation
+                to step confidently into them tomorrow.
+              </p>
+              <div className="flex flex-wrap gap-3">
                 <Button
                   asChild
                   variant="default"
                   size="lg"
-                  className="gap-2 bg-[#F7931A] hover:bg-[#F7931A]/90 text-white"
+                  className="gap-2 bg-blue-600 hover:bg-blue-700"
                 >
                   <a
-                    href="https://stacker.news/items/339533#territories"
+                    href="https://bitcoinerjobs.com/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    ~Territories
+                    <Briefcase className="w-4 h-4" />
+                    Jobs
+                  </a>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  className="gap-2 bg-yellow-500 hover:bg-yellow-600 text-yellow-950"
+                >
+                  <a
+                    href="https://stacker.news/~jobs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Zap className="w-4 h-4" />
+                    ~Jobs
                   </a>
                 </Button>
               </div>
