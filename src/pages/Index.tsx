@@ -301,7 +301,7 @@ const Index = () => {
       <section id="news" className="py-20 md:py-32 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1">
+            <div>
               <a
                 href="https://stacker.news/consensus21/all"
                 target="_blank"
@@ -323,7 +323,7 @@ const Index = () => {
                 </div>
               </a>
             </div>
-            <div className="order-1 md:order-2">
+            <div>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
                 <a
                   href="https://stacker.news/consensus21"
@@ -336,7 +336,7 @@ const Index = () => {
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
                 All updates and announcements for C21 are regularly shared through Stacker News and Nostr,
-                providing the community with real-time insights and information. For those who prefer an
+                providing === community with real-time insights and information. For those who prefer an
                 aggregated format, all posts are also available through the ~Education Territory RSS feed,
                 ensuring that you can stay up to date with everything happening in one convenient place.
               </p>
@@ -377,52 +377,22 @@ const Index = () => {
                     Nostr
                   </a>
                 </Button>
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="gap-2 border-[#F7931A] text-[#F7931A] hover:bg-[#F7931A] hover:text-white"
+                >
+                  <a
+                    href="https://stacker.news/~education/rss"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Rss className="w-4 h-4" />
+                    RSS
+                  </a>
+                </Button>
               </div>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <Button
-                asChild
-                size="lg"
-                className="gap-2 bg-yellow-500 hover:bg-yellow-600 text-yellow-950"
-              >
-                <a
-                  href="https://stacker.news/~Education"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Zap className="w-4 h-4" />
-                  ~Education
-                </a>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="gap-2 border-[#F7931A] text-[#F7931A] hover:bg-[#F7931A] hover:text-white"
-              >
-                <a
-                  href="https://stacker.news/~education/rss"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Rss className="w-4 h-4" />
-                  RSS
-                </a>
-              </Button>
-              <Button
-                asChild
-                variant="default"
-                size="lg"
-                className="gap-2 bg-[#F7931A] hover:bg-[#F7931A]/90 text-white"
-              >
-                <a
-                  href="https://stacker.news/items/339533#territories"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ~Territories
-                </a>
-              </Button>
             </div>
           </div>
         </div>
