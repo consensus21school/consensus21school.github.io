@@ -199,8 +199,8 @@ const Index = () => {
             </p>
             <div className="flex flex-wrap gap-4 mt-4">
               <a
-                href="https://consensus21.school/digitalportfolio"
-                target="_blank"
+                href="/digitalportfolio.html"
+                target="_self"
                 rel="noopener noreferrer"
                 className="text-[#F7931A] hover:text-[#F7931A]/80 underline font-medium transition-colors"
               >
@@ -208,8 +208,8 @@ const Index = () => {
               </a>
               <span className="text-gray-500">|</span>
               <a
-                href="https://consensus21.school/hackathon"
-                target="_blank"
+                href="/hackathon.html"
+                target="_self"
                 rel="noopener noreferrer"
                 className="text-[#F7931A] hover:text-[#F7931A]/80 underline font-medium transition-colors"
               >
@@ -217,8 +217,8 @@ const Index = () => {
               </a>
               <span className="text-gray-500">|</span>
               <a
-                href="https://consensus21.school/donations"
-                target="_blank"
+                href="/donations.html"
+                target="_self"
                 rel="noopener noreferrer"
                 className="text-[#F7931A] hover:text-[#F7931A]/80 underline font-medium transition-colors"
               >

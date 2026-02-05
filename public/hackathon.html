@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI × Bitcoin × Nostr Hackathon | Consensus21</title>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/consensus21school/consensus21school.github.io/main/assets/images/c21logo.png-198x97.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://raw.githubusercontent.com/consensus21school/consensus21school.github.io/main/assets/images/background-2000x975.png') center/cover;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .logo {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            width: 150px;
+            height: auto;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: #f7931a;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: #ffffff;
+            margin-bottom: 3rem;
+            font-style: italic;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #f7931a;
+            color: #ffffff;
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(247, 147, 26, 0.4);
+        }
+
+        .cta-button:hover {
+            background: #e8850f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(247, 147, 26, 0.6);
+        }
+
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section p {
+            margin-bottom: 1.2rem;
+        }
+
+        .section-dark {
+            background: #f5f5f5;
+            color: #1a1a1a;
+        }
+
+        .section-light {
+            background: #ffffff;
+            color: #1a1a1a;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #f7931a;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.6rem;
+            color: #f7931a;
+            margin: 1.5rem 0 1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: rgba(247, 147, 26, 0.05);
+            border: 2px solid #f7931a;
+            border-radius: 10px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(247, 147, 26, 0.3);
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        .outcomes-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .outcomes-list li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .outcomes-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #f7931a;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .week-overview {
+            background: rgba(247, 147, 26, 0.1);
+            border-left: 4px solid #f7931a;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 5px;
+        }
+
+        .day {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(247, 147, 26, 0.05);
+            border-radius: 8px;
+        }
+
+        .day h4 {
+            color: #f7931a;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .highlight {
+            background: linear-gradient(90deg, rgba(247, 147, 26, 0.2) 0%, transparent 100%);
+            padding: 1.5rem;
+            border-left: 4px solid #f7931a;
+            margin: 2rem 0;
+        }
+
+        .tech-stack {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .tech-item {
+            text-align: center;
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .tech-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .calendar-container {
+            max-width: 100%;
+            margin: 3rem auto;
+            background: rgba(247, 147, 26, 0.05);
+            padding: 0;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #f7931a;
+            position: relative;
+        }
+
+        .calendar-container::before {
+            content: "📅 Full Week Schedule";
+            display: block;
+            background: linear-gradient(135deg, #f7931a 0%, #e8850f 100%);
+            color: white;
+            padding: 1.2rem;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .calendar-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            background: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .calendar-container a:hover img {
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(247, 147, 26, 0.3);
+        }
+
+        .schedule-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .schedule-modal.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .schedule-modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        .schedule-modal iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            display: block;
+        }
+
+        .schedule-modal-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: #f7931a;
+            font-size: 3rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            background: rgba(0, 0, 0, 0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            z-index: 1001;
+        }
+
+        .schedule-modal-close:hover {
+            transform: scale(1.1);
+            color: #ffffff;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: #999;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer a {
+            color: #f7931a;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form-container {
+            max-width: 600px;
+            margin: 3rem auto;
+            background: #f5f5f5;
+            padding: 3rem;
+            border-radius: 10px;
+            border: 2px solid #f7931a;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #f7931a;
+        }
+
+        .form-message {
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 5px;
+            text-align: center;
+            display: none;
+        }
+
+        .form-message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .form-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .logo {
+                width: 100px;
+                top: 1rem;
+                left: 1rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .contact-form-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .calendar-container {
+                padding: 0;
+            }
+
+            .calendar-container::before {
+                font-size: 1.1rem;
+                padding: 1rem;
+            }
+
+            .calendar-container img {
+                width: 100%;
+                height: auto;
+            }
+
+            .schedule-modal-content {
+                max-width: 95%;
+                max-height: 80%;
+            }
+
+            .schedule-modal iframe {
+                height: 500px;
+            }
+        }
+    </style>
+    <script>
+        function openScheduleModal() {
+            document.getElementById('scheduleModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeScheduleModal(event) {
+            // Only close if clicking the background or close button, not the iframe
+            if (event.target.id === 'scheduleModal' || event.target.classList.contains('schedule-modal-close')) {
+                document.getElementById('scheduleModal').classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Handle form submission
+        const form = document.getElementById('contactForm');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(form);
+                const formMessage = document.getElementById('formMessage');
+                
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        formMessage.className = 'form-message success';
+                        formMessage.textContent = 'Thank you for registering! We will contact you soon with more details.';
+                        form.reset();
+                    } else {
+                        response.json().then(data => {
+                            if (Object.hasOwn(data, 'errors')) {
+                                formMessage.className = 'form-message error';
+                                formMessage.textContent = data.errors.map(error => error.message).join(', ');
+                            } else {
+                                formMessage.className = 'form-message error';
+                                formMessage.textContent = 'Oops! There was a problem submitting your form.';
+                            }
+                        });
+                    }
+                }).catch(error => {
+                    formMessage.className = 'form-message error';
+                    formMessage.textContent = 'Oops! There was a problem submitting your form.';
+                });
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="hero">
+        <img src="https://raw.githubusercontent.com/consensus21school/consensus21school.github.io/main/assets/images/c21logo.png-198x97.png" alt="Consensus21" class="logo">
+        <div class="hero-content">
+            <h1>AI × Bitcoin × Nostr Hackathon</h1>
+            <p class="subtitle">5-Day School Holiday Program for Young Builders</p>
+           
+            <p class="tagline">"Own your identity. Publish your work. Get paid peer-to-peer."</p>
+            <a href="#register" class="cta-button">Register Your Interest</a>
+        </div>
+    </div>
+
+    <section class="section section-light">
+        <div class="section-content">
+            <h2>What If School Holidays Built Real Skills for the Future?</h2>
+            <p style="font-size: 1.2rem; text-align: center;">Instead of another holiday camp where you consume apps, play games, or follow instructions… What if you learned how to build with artificial intelligence, understand Bitcoin as real-world money, own your digital identity, publish your work to the open web, and create a real project or business idea?</p>
+            
+            <div class="highlight" style="margin-top: 3rem;">
+                <p style="font-size: 1.3rem; margin: 0;"><strong>This is not a coding camp.</strong> This is a hands-on hackathon where you work independently on real projects. Parents are welcome to participate alongside you, but the focus is on your learning and building. No prior experience required. No exams. No grades. No pressure.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-dark">
+        <h2>Core Stack</h2>
+        <div class="tech-stack">
+            <div class="tech-item">
+                <div class="tech-icon">🤖</div>
+                <h3>AI</h3>
+                <p>Build capability</p>
+            </div>
+            <div class="tech-item">
+                <div class="tech-icon">₿</div>
+                <h3>Bitcoin / Lightning</h3>
+                <p>Value & incentives</p>
+            </div>
+            <div class="tech-item">
+                <div class="tech-icon">🔑</div>
+                <h3>Nostr</h3>
+                <p>Identity, publishing, portfolios</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-light">
+        <div class="section-content">
+            <h2>What You'll Build</h2>
+            <div class="week-overview">
+                <p style="font-size: 1.1rem; margin-bottom: 1rem;">By Friday, you'll have:</p>
+                <ul class="outcomes-list">
+                    <li>A Nostr identity (npub) for your project</li>
+                    <li>A public Nostr-native portfolio feed</li>
+                    <li>A working AI-powered prototype</li>
+                    <li>A Bitcoin-native value model</li>
+                    <li>A pitch published to Nostr (immutable, timestamped)</li>
+                    <li>A permanent learning artefact (not a certificate)</li>
+                </ul>
+            </div>
+            
+            <p style="text-align: center; font-size: 1.2rem; margin-top: 2rem; color: #f7931a; font-weight: bold;">There are no certificates. The portfolio is the evidence.</p>
+        </div>
+    </section>
+
+    <section class="section section-dark">
+        <h2>The Week at a Glance</h2>
+        
+        <div class="day">
+            <h4>Day 1 – Identity & Ideas</h4>
+            <p>What AI, Bitcoin, and Nostr really are. Create your project identity. Choose a problem to solve.</p>
+        </div>
+
+        <div class="day">
+            <h4>Day 2 – AI Build Day</h4>
+            <p>Learn how to work with AI tools. Start building a real prototype. Publish progress publicly.</p>
+        </div>
+
+        <div class="day">
+            <h4>Day 3 – Bitcoin & Value</h4>
+            <p>How money works. How small payments enable new ideas. Design a simple business model.</p>
+        </div>
+
+        <div class="day">
+            <h4>Day 4 – Safety, Governance & Story</h4>
+            <p>Online safety and privacy. How decisions are made. Prepare your demo and story.</p>
+        </div>
+
+        <div class="day">
+            <h4>Day 5 – Demo Day</h4>
+            <p>Final build. Live presentations. Public portfolio published.</p>
+        </div>
+    </section>
+
+    <section class="section section-light">
+        <div class="section-content">
+            <h2>Daily Schedule</h2>
+            
+            <div class="calendar-container">
+                <img src="https://github.com/consensus21school/consensus21school.github.io/blob/main/assets/images/zapathon.png?raw=true" alt="Hackathon Week Schedule" style="width: 100%; height: auto; display: block; cursor: pointer;" onclick="openScheduleModal()">
+            </div>
+        </div>
+    </section>
+
+    <div id="scheduleModal" class="schedule-modal" onclick="closeScheduleModal(event)">
+        <span class="schedule-modal-close" onclick="closeScheduleModal(event)">&times;</span>
+        <div class="schedule-modal-content">
+            <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Australia%2FMelbourne&showPrint=0&mode=AGENDA&src=YTMyOWFjOGU0NmJmODBmNWU1NmI1ZWUxMWU1M2UwYmZjNTZlZmUxODZlYTZjN2Q4NGZiYTE1MDVlNGMxMjU5OUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%238e24aa" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+        </div>
+    </div>
+
+    <section class="section section-dark">
+        <h2>Why This Program Works</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Future-Ready Skills</h3>
+                <p>Learn AI literacy, financial literacy, digital identity, online safety, and ethical technology use through hands-on building.</p>
+            </div>
+            <div class="card">
+                <h3>Real Independence</h3>
+                <p>Work on your own projects with expert guidance. Parents are welcome to join and learn alongside you, but you're in the driver's seat.</p>
+            </div>
+            <div class="card">
+                <h3>Evidence & Outcomes</h3>
+                <p>No real funds required. Strong focus on digital safety. You leave with a public portfolio, real artefacts, and confidence explaining what you built and why.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-light">
+        <div class="section-content">
+            <h2>Why We Use Nostr</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; text-align: center;">Most platforms own your data, control what is seen, and decide what gets removed.</p>
+            <div class="highlight">
+                <p style="font-size: 1.1rem;"><strong>Nostr is different.</strong> It teaches you how to own your digital identity, how publishing really works, how to build without asking permission, and how to leave a permanent record of your learning.</p>
+            </div>
+            <p style="font-size: 1.1rem; margin-top: 2rem; text-align: center;">This is digital literacy at the protocol level, not just "internet safety tips".</p>
+        </div>
+    </section>
+
+    <section class="section section-dark">
+        <div class="section-content">
+            <h2>Who This Is For</h2>
+            <ul class="outcomes-list">
+                <li>Young builders aged roughly 8–16</li>
+                <li>Anyone curious about AI, Bitcoin, and the future</li>
+                <li>People who like building, creating, and asking "why?"</li>
+                <li>No technical background required</li>
+                <li>Parents welcome to participate alongside learners</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section section-light">
+        <div class="section-content">
+            <h2>What You'll Take Home</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>🛠️ Working Project</h3>
+                    <p>A real AI-powered prototype you built yourself</p>
+                </div>
+                <div class="card">
+                    <h3>📝 Digital Portfolio</h3>
+                    <p>Public proof of your learning and skills</p>
+                </div>
+                <div class="card">
+                    <h3>₿ Bitcoin Understanding</h3>
+                    <p>Practical knowledge of how value flows</p>
+                </div>
+                <div class="card">
+                    <h3>🚀 Real Experience</h3>
+                    <p>A project you can continue building after the week</p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 3rem; font-size: 1.2rem;">Many participants continue their projects beyond the week.</p>
+        </div>
+    </section>
+
+    <section class="section section-dark" id="register">
+        <div class="section-content">
+            <h2>Limited Places Available</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem;">This program is intentionally small and high-touch to ensure safety, quality mentoring, and real outcomes.</p>
+            
+            <div class="contact-form-container">
+                <div id="formMessage" class="form-message"></div>
+                <form id="contactForm" action="https://formspree.io/f/xjgkqbgd" method="POST">
+                    <div class="form-group">
+                        <label for="learnerName">Your Name *</label>
+                        <input type="text" id="learnerName" name="learnerName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="age">Your Age *</label>
+                        <input type="number" id="age" name="age" min="5" max="18" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="parentName">Parent/Guardian Name (if applicable)</label>
+                        <input type="text" id="parentName" name="parentName">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="experience">Previous Experience (optional)</label>
+                        <textarea id="experience" name="experience" rows="3" placeholder="Have you worked with AI, Bitcoin, or programming before?"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Questions or Comments</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Tell us why you're interested in this program..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="cta-button" style="width: 100%; margin-top: 1rem;">Register Your Interest</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-light">
+        <div class="section-content">
+            <h2>About Consensus21</h2>
+            <p style="text-align: center; font-size: 1.1rem;">Consensus21 is building new models of education based on problem-based learning, digital sovereignty, Bitcoin-standard thinking, and real-world skills over exams. This hackathon is a living example of how learning can work differently – and better.</p>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://consensus21.school" class="cta-button" style="background: transparent; border: 2px solid #f7931a; color: #f7931a;">Learn More About Consensus21</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p><strong>GNU General Public License v3.0</strong></p>
+        <p><a href="https://www.acnc.gov.au/charity/charities/51dfc341-a5cd-eb11-8235-002248103324/profile" target="_blank">ABN 14 650 828 381 – ACNC Register</a></p>
+        <p><a href="https://primal.net/p/nprofile1qqstk8yx8gkptsf3k3y5u7sgrjwv24h2h4hzfj6gdrdwx79u99fu87ccjdc2x" target="_blank">npub1hvwgvw3vzhqnrdzffeaqs8yuc4tw40twyn95s6x6udutc22nc0asprqh2a</a></p>
+        <p style="margin-top: 1rem;">&copy; 2026 Consensus21. All rights reserved.</p>
+    </footer>
+</body>
+</html>
