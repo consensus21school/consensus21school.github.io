@@ -359,7 +359,7 @@ const Index = () => {
                   asChild
                   variant="secondary"
                   size="lg"
-                  className="gap-2 bg-purple-600 hover:bg-purple-700 text-white"
+                  className="gap-2 bg-purple-700 hover:bg-purple-800 text-white"
                 >
                   <a
                     href="https://primal.net/p/nprofile1qqstk8yx8gkptsf3k3y5u7sgrjwv24h2h4hzfj6gdrdwx79u99fu87ccjdc2x"
@@ -367,30 +367,62 @@ const Index = () => {
                     rel="noopener noreferrer"
                     className="flex items-center gap-2"
                   >
-                    <img
-                      src="/nostr.png"
-                      alt="Nostr"
-                      className="w-6 h-6"
-                    />
+                    <div className="relative bg-purple-700 p-2 rounded-lg">
+                      <img
+                        src="/nostr.png"
+                        alt="Nostr"
+                        className="w-6 h-6"
+                      />
+                    </div>
                     Nostr
                   </a>
                 </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="gap-2 border-[#F7931A] text-[#F7931A] hover:bg-[#F7931A] hover:text-white"
-                >
-                  <a
-                    href="https://stacker.news/~education/rss"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Rss className="w-4 h-4" />
-                    RSS
-                  </a>
-                </Button>
               </div>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Button
+                asChild
+                size="lg"
+                className="gap-2 bg-yellow-500 hover:bg-yellow-600 text-yellow-950"
+              >
+                <a
+                  href="https://stacker.news/~Education"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Zap className="w-4 h-4" />
+                  ~Education
+                </a>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="gap-2 border-[#F7931A] text-[#F7931A] hover:bg-[#F7931A] hover:text-white"
+              >
+                <a
+                  href="https://stacker.news/~education/rss"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Rss className="w-4 h-4" />
+                  RSS
+                </a>
+              </Button>
+              <Button
+                asChild
+                variant="default"
+                size="lg"
+                className="gap-2 bg-[#F7931A] hover:bg-[#F7931A]/90 text-white"
+              >
+                <a
+                  href="https://stacker.news/items/339533#territories"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  ~Territories
+                </a>
+              </Button>
             </div>
           </div>
         </div>
