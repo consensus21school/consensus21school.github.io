@@ -402,8 +402,8 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <a
-                href="https://consensus21.school/whitepaper.html"
-                target="_blank"
+                href="/whitepaper.html"
+                target="_self"
                 rel="noopener noreferrer"
                 className="block group"
               >
@@ -425,8 +425,8 @@ const Index = () => {
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
                 <a
-                  href="https://consensus21.school/whitepaper.html"
-                  target="_blank"
+                  href="/whitepaper.html"
+                  target="_self"
                   rel="noopener noreferrer"
                   className="hover:text-[#F7931A] transition-colors"
                 >
@@ -449,8 +449,8 @@ const Index = () => {
                   className="gap-2 bg-gray-900 hover:bg-gray-800"
                 >
                   <a
-                    href="https://consensus21.school/whitepaper.html"
-                    target="_blank"
+                    href="/whitepaper.html"
+                    target="_self"
                     rel="noopener noreferrer"
                   >
                     <FileText className="w-4 h-4" />
