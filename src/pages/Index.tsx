@@ -24,7 +24,14 @@ const Index = () => {
       {
         rel: 'icon',
         type: 'image/png',
-        href: '/c21logo.png',
+        href: '/favicon-16x16.png',
+        sizes: '16x16',
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        href: '/favicon-32x32.png',
+        sizes: '32x32',
       },
     ],
   });
