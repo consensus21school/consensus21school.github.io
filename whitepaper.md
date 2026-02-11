@@ -1,11 +1,6 @@
 # Consensus21: A Decentralised Learning Protocol  
 [https://consensus21.school](https://consensus21.school)
 
----
-
-![Header Image](https://github.com/consensus21school/consensus21school.github.io/blob/main/assets/images/background-2000x975.png?raw=true)
-
----
 
 ## Table of Contents
 - [Abstract](#abstract)
