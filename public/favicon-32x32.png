@@ -1,5 +1,0 @@
-<!-- 32x32 PNG Favicon -->
-<svg width="32" height="32" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-  <rect x="0" y="0" width="16" height="16" fill="#F7931A" rx="4"/>
-  <text x="8" y="10" font-size="10" fill="white" text-anchor="middle">C</text>
-</svg>
