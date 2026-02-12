@@ -352,7 +352,7 @@ const Index = () => {
                   asChild
                   variant="secondary"
                   size="lg"
-                  className="gap-2 bg-purple-800 hover:bg-purple-900 text-white"
+                  className="gap-2 bg-black hover:bg-gray-900 text-white"
                 >
                   <a
                     href="https://primal.net/p/nprofile1qqstk8yx8gkptsf3k3y5u7sgrjwv24h2h4hzfj6gdrdwx79u99fu87ccjdc2x"
@@ -360,7 +360,7 @@ const Index = () => {
                     rel="noopener noreferrer"
                     className="flex items-center gap-2"
                   >
-                    <div className="relative bg-purple-900 p-2 rounded-lg">
+                    <div className="relative bg-gray-900 p-2 rounded-lg">
                       <img
                         src="/nostr.png"
                         alt="Nostr"
