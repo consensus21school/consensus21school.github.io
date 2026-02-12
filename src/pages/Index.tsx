@@ -217,15 +217,6 @@ const Index = () => {
               >
                 Hackathon
               </a>
-              <span className="text-gray-500">|</span>
-              <a
-                href="/donations.html"
-                target="_self"
-                rel="noopener noreferrer"
-                className="text-[#F7931A] hover:text-[#F7931A]/80 underline font-medium transition-colors"
-              >
-                Donations
-              </a>
             </div>
           </div>
 
