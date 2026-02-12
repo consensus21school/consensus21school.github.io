@@ -152,5 +152,3 @@ By merging **financial independence** with **intellectual autonomy**, Consensus2
 > **Consensus21: forging a new era of learning — one built on autonomy, community, and Bitcoin.**
 
 ---
-
-![Favicon](https://github.com/consensus21school/consensus21school.github.io/raw/main/assets/images/favicon.png)
