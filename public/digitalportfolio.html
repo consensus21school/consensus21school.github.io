@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -161,7 +162,9 @@
         }
 
         /* Inputs */
-        input, textarea, select {
+        input,
+        textarea,
+        select {
             width: 100%;
             padding: 0.5rem 1rem;
             border: 1px solid #d1d5db;
@@ -170,7 +173,9 @@
             transition: all 0.2s;
         }
 
-        input:focus, textarea:focus, select:focus {
+        input:focus,
+        textarea:focus,
+        select:focus {
             outline: none;
             border-color: #f97316;
             box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
@@ -428,28 +433,45 @@
         }
 
         /* Utilities */
-        .mb-6 { margin-bottom: 1.5rem; }
-        .mt-12 { margin-top: 3rem; }
-        .py-8 { padding-top: 2rem; padding-bottom: 2rem; }
-        .text-xs { font-size: 0.75rem; }
-        .hidden { display: none; }
+        .mb-6 {
+            margin-bottom: 1.5rem;
+        }
+
+        .mt-12 {
+            margin-top: 3rem;
+        }
+
+        .py-8 {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .text-xs {
+            font-size: 0.75rem;
+        }
+
+        .hidden {
+            display: none;
+        }
 
         @media (max-width: 640px) {
             .form-row {
                 grid-template-columns: 1fr;
             }
-            
+
             .portfolio-item {
                 flex-direction: column;
             }
-            
+
             .portfolio-actions {
                 justify-content: flex-start;
             }
         }
     </style>
-<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/consensus21school/consensus21school.github.io/refs/heads/main/public/logo-198x213.png">
+    <link rel="icon" type="image/png"
+        href="https://raw.githubusercontent.com/consensus21school/consensus21school.github.io/refs/heads/main/public/logo-198x213.png">
 </head>
+
 <body>
     <div id="app"></div>
 
@@ -514,7 +536,7 @@
             async handleLogin() {
                 console.log('Login clicked');
                 console.log('Window.nostr available:', !!window.nostr);
-                
+
                 if (window.nostr) {
                     try {
                         console.log('Trying to get public key from extension...');
@@ -567,24 +589,24 @@
 
             handleAddItem() {
                 if (!this.formData.title) return;
-                
+
                 const newItem = {
                     id: Date.now().toString(),
                     ...this.formData,
                     createdAt: new Date().toISOString()
                 };
-                
+
                 this.savePortfolio([...this.portfolio, newItem]);
                 this.resetForm();
             }
 
             handleUpdateItem() {
                 if (!this.formData.title) return;
-                
-                const updated = this.portfolio.map(item => 
+
+                const updated = this.portfolio.map(item =>
                     item.id === this.editingId ? { ...item, ...this.formData } : item
                 );
-                
+
                 this.savePortfolio(updated);
                 this.resetForm();
             }
@@ -646,7 +668,7 @@
                         <div class="overlay"></div>
                         
                         <div class="login-card">
-                            <a href="https://consensus21.school/" target="_blank"><img 
+                            <a href="https://consensus21.school/"><img 
                                 src="https://raw.githubusercontent.com/consensus21school/consensus21school.github.io/refs/heads/main/public/logo-198x213.png" 
                                 alt="Consensus21"
                                 class="logo"
@@ -700,7 +722,7 @@
                         <div class="container">
                             <div class="header-content">
                                 <div class="header-left">
-                                    <a href="https://consensus21.school/" target="_blank"><img 
+                                    <a href="https://consensus21.school/"><img 
                                         src="https://raw.githubusercontent.com/consensus21school/consensus21school.github.io/refs/heads/main/public/logo-198x213.png" 
                                         alt="Consensus21"
                                         class="header-logo"
@@ -726,9 +748,8 @@
                             <div class="relay-list">
                                 ${RELAYS.map(relay => `
                                     <div class="relay-item">
-                                        <div class="status-dot ${
-                                            this.relayStatus[relay] === 'connected' ? 'status-connected' : 'status-disconnected'
-                                        }"></div>
+                                        <div class="status-dot ${this.relayStatus[relay] === 'connected' ? 'status-connected' : 'status-disconnected'
+                    }"></div>
                                         <span>${relay.replace('wss://', '')}</span>
                                     </div>
                                 `).join('')}
@@ -881,4 +902,5 @@
         const app = new PortfolioApp();
     </script>
 </body>
+
 </html>
