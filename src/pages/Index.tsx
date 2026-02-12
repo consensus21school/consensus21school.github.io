@@ -27,12 +27,7 @@ const Index = () => {
         href: '/favicon-16x16.png',
         sizes: '16x16',
       },
-      {
-        rel: 'icon',
-        type: 'image/png',
-        href: '/favicon-32x32.png',
-        sizes: '32x32',
-      },
+
     ],
   });
 
@@ -187,7 +182,7 @@ const Index = () => {
             <h2 className="text-2xl md:text-3xl font-bold text-[#F7931A] mb-4 tracking-wide">
               Consensus 21
             </h2>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 leading-tight">
               School Protocol.
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
@@ -331,7 +326,7 @@ const Index = () => {
               </a>
             </div>
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
                 <a
                   href="https://stacker.news/consensus21"
                   target="_blank"
@@ -432,7 +427,7 @@ const Index = () => {
               </a>
             </div>
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
                 <a
                   href="/whitepaper.html"
                   target="_self"
@@ -514,7 +509,7 @@ const Index = () => {
               </a>
             </div>
             <div className="order-1 md:order-2">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
                 <a
                   href="https://coinos.io/CONSENSUS21/receive"
                   target="_blank"
@@ -629,7 +624,7 @@ const Index = () => {
               </a>
             </div>
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
                 <a
                   href="https://stacker.news/~Education"
                   target="_blank"
@@ -696,7 +691,7 @@ const Index = () => {
               </a>
             </div>
             <div className="order-1 md:order-2">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
                 <a
                   href="https://bitcoinerjobs.com/"
                   target="_blank"
