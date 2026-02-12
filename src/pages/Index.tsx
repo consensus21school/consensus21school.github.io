@@ -477,7 +477,7 @@ const Index = () => {
       <section id="donate" className="py-20 md:py-32 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1">
+            <div className="">
               <a
                 href="https://coinos.io/CONSENSUS21/receive"
                 target="_blank"
@@ -499,7 +499,7 @@ const Index = () => {
                 </div>
               </a>
             </div>
-            <div className="order-1 md:order-2">
+            <div className="">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
                 <a
                   href="https://coinos.io/CONSENSUS21/receive"
@@ -659,7 +659,7 @@ const Index = () => {
       <section id="jobs" className="py-20 md:py-32 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="order-2 md:order-1">
+            <div className="">
               <a
                 href="https://bitcoinerjobs.com/"
                 target="_blank"
@@ -681,7 +681,7 @@ const Index = () => {
                 </div>
               </a>
             </div>
-            <div className="order-1 md:order-2">
+            <div className="">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6">
                 <a
                   href="https://bitcoinerjobs.com/"
