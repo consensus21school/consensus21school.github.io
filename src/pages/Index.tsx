@@ -777,13 +777,11 @@ const Index = () => {
               rel="noopener noreferrer"
               className="text-white hover:text-[#F7931A] transition-colors font-medium"
             >
-              npub1hvwgvw3vzhqnrdzffeaqs8yuc4tw40twyn95s6x6udutc22nc0asprqh2a
+              <span className="break-all">npub1hvwgvw3vzhqnrdzffeaqs8yuc4tw40twyn95s6x6udutc22nc0asprqh2a</span>
             </a>
           </p>
           <div className="mt-8 pt-8 border-t border-gray-800">
-            <p className="text-sm text-gray-500">
-              Vibed with <a href="https://shakespeare.diy" target="_blank" rel="noopener noreferrer" className="text-[#F7931A] hover:text-[#F7931A]/80 transition-colors">Shakespeare</a>
-            </p>
+
           </div>
         </div>
       </footer>

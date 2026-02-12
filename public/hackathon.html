@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,8 +20,8 @@
         }
 
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('/og-image.png') center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('/og-image.png') center/cover;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -45,8 +46,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         h1 {
@@ -393,11 +401,11 @@
             h1 {
                 font-size: 2rem;
             }
-            
+
             .subtitle {
                 font-size: 1.2rem;
             }
-            
+
             .tagline {
                 font-size: 1rem;
             }
@@ -457,12 +465,12 @@
         // Handle form submission
         const form = document.getElementById('contactForm');
         if (form) {
-            form.addEventListener('submit', function(e) {
+            form.addEventListener('submit', function (e) {
                 e.preventDefault();
-                
+
                 const formData = new FormData(form);
                 const formMessage = document.getElementById('formMessage');
-                
+
                 fetch(form.action, {
                     method: 'POST',
                     body: formData,
@@ -492,15 +500,19 @@
             });
         }
     </script>
-<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/consensus21school/consensus21school.github.io/main/public/c21logo.png">
+    <link rel="icon" type="image/png"
+        href="https://raw.githubusercontent.com/consensus21school/consensus21school.github.io/refs/heads/main/public/logo-198x213.png">
 </head>
+
 <body>
     <div class="hero">
-        <a href="https://consensus21.school/" target="_blank"><img src="https://raw.githubusercontent.com/consensus21school/consensus21school.github.io/main/assets/images/c21logo.png-198x97.png" alt="Consensus21" class="logo"></a>
+        <a href="https://consensus21.school/" target="_blank"><img
+                src="https://raw.githubusercontent.com/consensus21school/consensus21school.github.io/main/assets/images/c21logo.png-198x97.png"
+                alt="Consensus21" class="logo"></a>
         <div class="hero-content">
             <h1>AI × Bitcoin × Nostr Hackathon</h1>
             <p class="subtitle">5-Day School Holiday Program for Young Builders</p>
-           
+
             <p class="tagline">"Own your identity. Publish your work. Get paid peer-to-peer."</p>
             <a href="#register" class="cta-button">Register Your Interest</a>
         </div>
@@ -509,10 +521,16 @@
     <section class="section section-light">
         <div class="section-content">
             <h2>What If School Holidays Built Real Skills for the Future?</h2>
-            <p style="font-size: 1.2rem; text-align: center;">Instead of another holiday camp where you consume apps, play games, or follow instructions… What if you learned how to build with artificial intelligence, understand Bitcoin as real-world money, own your digital identity, publish your work to the open web, and create a real project or business idea?</p>
-            
+            <p style="font-size: 1.2rem; text-align: center;">Instead of another holiday camp where you consume apps,
+                play games, or follow instructions… What if you learned how to build with artificial intelligence,
+                understand Bitcoin as real-world money, own your digital identity, publish your work to the open web,
+                and create a real project or business idea?</p>
+
             <div class="highlight" style="margin-top: 3rem;">
-                <p style="font-size: 1.3rem; margin: 0;"><strong>This is not a coding camp.</strong> This is a hands-on hackathon where you work independently on real projects. Parents are welcome to participate alongside you, but the focus is on your learning and building. No prior experience required. No exams. No grades. No pressure.</p>
+                <p style="font-size: 1.3rem; margin: 0;"><strong>This is not a coding camp.</strong> This is a hands-on
+                    hackathon where you work independently on real projects. Parents are welcome to participate
+                    alongside you, but the focus is on your learning and building. No prior experience required. No
+                    exams. No grades. No pressure.</p>
             </div>
         </div>
     </section>
@@ -552,14 +570,15 @@
                     <li>A permanent learning artefact (not a certificate)</li>
                 </ul>
             </div>
-            
-            <p style="text-align: center; font-size: 1.2rem; margin-top: 2rem; color: #f7931a; font-weight: bold;">There are no certificates. The portfolio is the evidence.</p>
+
+            <p style="text-align: center; font-size: 1.2rem; margin-top: 2rem; color: #f7931a; font-weight: bold;">There
+                are no certificates. The portfolio is the evidence.</p>
         </div>
     </section>
 
     <section class="section section-dark">
         <h2>The Week at a Glance</h2>
-        
+
         <div class="day">
             <h4>Day 1 – Identity & Ideas</h4>
             <p>What AI, Bitcoin, and Nostr really are. Create your project identity. Choose a problem to solve.</p>
@@ -589,9 +608,10 @@
     <section class="section section-light">
         <div class="section-content">
             <h2>Daily Schedule</h2>
-            
-              <div class="calendar-container">
-                <img src="/zapathon.png" alt="Hackathon Week Schedule" style="width: 100%; height: auto; display: block; cursor: pointer;" onclick="openScheduleModal()">
+
+            <div class="calendar-container">
+                <img src="/zapathon.png" alt="Hackathon Week Schedule"
+                    style="width: 100%; height: auto; display: block; cursor: pointer;" onclick="openScheduleModal()">
             </div>
         </div>
     </section>
@@ -599,7 +619,9 @@
     <div id="scheduleModal" class="schedule-modal" onclick="closeScheduleModal(event)">
         <span class="schedule-modal-close" onclick="closeScheduleModal(event)">&times;</span>
         <div class="schedule-modal-content">
-            <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Australia%2FMelbourne&showPrint=0&mode=AGENDA&src=YTMyOWFjOGU0NmJmODBmNWU1NmI1ZWUxMWU1M2UwYmZjNTZlZmUxODZlYTZjN2Q4NGZiYTE1MDVlNGMxMjU5OUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%238e24aa" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+            <iframe
+                src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Australia%2FMelbourne&showPrint=0&mode=AGENDA&src=YTMyOWFjOGU0NmJmODBmNWU1NmI1ZWUxMWU1M2UwYmZjNTZlZmUxODZlYTZjN2Q4NGZiYTE1MDVlNGMxMjU5OUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%238e24aa"
+                width="100%" height="600" frameborder="0" scrolling="no"></iframe>
         </div>
     </div>
 
@@ -608,15 +630,18 @@
         <div class="grid">
             <div class="card">
                 <h3>Future-Ready Skills</h3>
-                <p>Learn AI literacy, financial literacy, digital identity, online safety, and ethical technology use through hands-on building.</p>
+                <p>Learn AI literacy, financial literacy, digital identity, online safety, and ethical technology use
+                    through hands-on building.</p>
             </div>
             <div class="card">
                 <h3>Real Independence</h3>
-                <p>Work on your own projects with expert guidance. Parents are welcome to join and learn alongside you, but you're in the driver's seat.</p>
+                <p>Work on your own projects with expert guidance. Parents are welcome to join and learn alongside you,
+                    but you're in the driver's seat.</p>
             </div>
             <div class="card">
                 <h3>Evidence & Outcomes</h3>
-                <p>No real funds required. Strong focus on digital safety. You leave with a public portfolio, real artefacts, and confidence explaining what you built and why.</p>
+                <p>No real funds required. Strong focus on digital safety. You leave with a public portfolio, real
+                    artefacts, and confidence explaining what you built and why.</p>
             </div>
         </div>
     </section>
@@ -624,11 +649,15 @@
     <section class="section section-light">
         <div class="section-content">
             <h2>Why We Use Nostr</h2>
-            <p style="font-size: 1.1rem; margin-bottom: 2rem; text-align: center;">Most platforms own your data, control what is seen, and decide what gets removed.</p>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; text-align: center;">Most platforms own your data, control
+                what is seen, and decide what gets removed.</p>
             <div class="highlight">
-                <p style="font-size: 1.1rem;"><strong>Nostr is different.</strong> It teaches you how to own your digital identity, how publishing really works, how to build without asking permission, and how to leave a permanent record of your learning.</p>
+                <p style="font-size: 1.1rem;"><strong>Nostr is different.</strong> It teaches you how to own your
+                    digital identity, how publishing really works, how to build without asking permission, and how to
+                    leave a permanent record of your learning.</p>
             </div>
-            <p style="font-size: 1.1rem; margin-top: 2rem; text-align: center;">This is digital literacy at the protocol level, not just "internet safety tips".</p>
+            <p style="font-size: 1.1rem; margin-top: 2rem; text-align: center;">This is digital literacy at the protocol
+                level, not just "internet safety tips".</p>
         </div>
     </section>
 
@@ -666,15 +695,17 @@
                     <p>A project you can continue building after the week</p>
                 </div>
             </div>
-            <p style="text-align: center; margin-top: 3rem; font-size: 1.2rem;">Many participants continue their projects beyond the week.</p>
+            <p style="text-align: center; margin-top: 3rem; font-size: 1.2rem;">Many participants continue their
+                projects beyond the week.</p>
         </div>
     </section>
 
     <section class="section section-dark" id="register">
         <div class="section-content">
             <h2>Limited Places Available</h2>
-            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem;">This program is intentionally small and high-touch to ensure safety, quality mentoring, and real outcomes.</p>
-            
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem;">This program is intentionally small
+                and high-touch to ensure safety, quality mentoring, and real outcomes.</p>
+
             <div class="contact-form-container">
                 <div id="formMessage" class="form-message"></div>
                 <form id="contactForm" action="https://formspree.io/f/xjgkqbgd" method="POST">
@@ -682,17 +713,17 @@
                         <label for="learnerName">Your Name *</label>
                         <input type="text" id="learnerName" name="learnerName" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="email">Email Address *</label>
                         <input type="email" id="email" name="email" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
                         <input type="tel" id="phone" name="phone">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="age">Your Age *</label>
                         <input type="number" id="age" name="age" min="5" max="18" required>
@@ -702,18 +733,21 @@
                         <label for="parentName">Parent/Guardian Name (if applicable)</label>
                         <input type="text" id="parentName" name="parentName">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="experience">Previous Experience (optional)</label>
-                        <textarea id="experience" name="experience" rows="3" placeholder="Have you worked with AI, Bitcoin, or programming before?"></textarea>
+                        <textarea id="experience" name="experience" rows="3"
+                            placeholder="Have you worked with AI, Bitcoin, or programming before?"></textarea>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="message">Questions or Comments</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Tell us why you're interested in this program..."></textarea>
+                        <textarea id="message" name="message" rows="4"
+                            placeholder="Tell us why you're interested in this program..."></textarea>
                     </div>
-                    
-                    <button type="submit" class="cta-button" style="width: 100%; margin-top: 1rem;">Register Your Interest</button>
+
+                    <button type="submit" class="cta-button" style="width: 100%; margin-top: 1rem;">Register Your
+                        Interest</button>
                 </form>
             </div>
         </div>
@@ -722,18 +756,25 @@
     <section class="section section-light">
         <div class="section-content">
             <h2>About Consensus21</h2>
-            <p style="text-align: center; font-size: 1.1rem;">Consensus21 is building new models of education based on problem-based learning, digital sovereignty, Bitcoin-standard thinking, and real-world skills over exams. This hackathon is a living example of how learning can work differently – and better.</p>
+            <p style="text-align: center; font-size: 1.1rem;">Consensus21 is building new models of education based on
+                problem-based learning, digital sovereignty, Bitcoin-standard thinking, and real-world skills over
+                exams. This hackathon is a living example of how learning can work differently – and better.</p>
             <div style="text-align: center; margin-top: 3rem;">
-                <a href="https://consensus21.school" class="cta-button" style="background: transparent; border: 2px solid #f7931a; color: #f7931a;">Learn More About Consensus21</a>
+                <a href="https://consensus21.school" class="cta-button"
+                    style="background: transparent; border: 2px solid #f7931a; color: #f7931a;">Learn More About
+                    Consensus21</a>
             </div>
         </div>
     </section>
 
     <footer>
         <p><strong>GNU General Public License v3.0</strong></p>
-        <p><a href="https://www.acnc.gov.au/charity/charities/51dfc341-a5cd-eb11-8235-002248103324/profile" target="_blank">ABN 14 650 828 381 – ACNC Register</a></p>
-        <p><a href="https://primal.net/p/nprofile1qqstk8yx8gkptsf3k3y5u7sgrjwv24h2h4hzfj6gdrdwx79u99fu87ccjdc2x" target="_blank">npub1hvwgvw3vzhqnrdzffeaqs8yuc4tw40twyn95s6x6udutc22nc0asprqh2a</a></p>
+        <p><a href="https://www.acnc.gov.au/charity/charities/51dfc341-a5cd-eb11-8235-002248103324/profile"
+                target="_blank">ABN 14 650 828 381 – ACNC Register</a></p>
+        <p><a href="https://primal.net/p/nprofile1qqstk8yx8gkptsf3k3y5u7sgrjwv24h2h4hzfj6gdrdwx79u99fu87ccjdc2x"
+                target="_blank">npub1hvwgvw3vzhqnrdzffeaqs8yuc4tw40twyn95s6x6udutc22nc0asprqh2a</a></p>
         <p style="margin-top: 1rem;">&copy; 2026 Consensus21. All rights reserved.</p>
     </footer>
 </body>
+
 </html>
