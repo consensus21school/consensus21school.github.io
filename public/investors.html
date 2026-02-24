@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investors | Consensus21</title>
+    <link rel="icon" type="image/png"
+        href="https://raw.githubusercontent.com/consensus21school/consensus21school.github.io/refs/heads/main/public/logo-198x213.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        /* ── Hero ── */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('/og-image.png') center/cover;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .logo {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            width: 150px;
+            height: auto;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: #f7931a;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: #ffffff;
+            margin-bottom: 3rem;
+            font-style: italic;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #f7931a;
+            color: #ffffff;
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(247, 147, 26, 0.4);
+        }
+
+        .cta-button:hover {
+            background: #e8850f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(247, 147, 26, 0.6);
+        }
+
+        /* ── Sections ── */
+        .section {
+            padding: 5rem 2rem;
+        }
+
+        .section-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-dark {
+            background: #f5f5f5;
+            color: #1a1a1a;
+        }
+
+        .section-light {
+            background: #ffffff;
+            color: #1a1a1a;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            color: #f7931a;
+            margin-bottom: 0;
+            text-align: left;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: #f7931a;
+            margin: 1.2rem 0 0.8rem;
+        }
+
+        /* ── Collapsible ── */
+        .collapsible-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 2rem 0 1.5rem;
+            border-bottom: 2px solid rgba(247, 147, 26, 0.3);
+            user-select: none;
+            transition: color 0.2s;
+        }
+
+        .collapsible-header:hover h2 {
+            color: #e8850f;
+        }
+
+        .collapsible-icon {
+            font-size: 1.8rem;
+            color: #f7931a;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 1rem;
+            font-style: normal;
+        }
+
+        .collapsible-header.open .collapsible-icon {
+            transform: rotate(45deg);
+        }
+
+        .collapsible-body {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+        }
+
+        .collapsible-body.open {
+            max-height: 2000px;
+        }
+
+        .collapsible-body-inner {
+            padding: 2rem 0 1rem;
+        }
+
+        /* ── Content elements ── */
+        p {
+            margin-bottom: 1.2rem;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 0.6rem 0 0.6rem 2rem;
+            position: relative;
+        }
+
+        ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #f7931a;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .highlight {
+            background: linear-gradient(90deg, rgba(247, 147, 26, 0.15) 0%, transparent 100%);
+            border-left: 4px solid #f7931a;
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+        }
+
+        .highlight strong {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: #1a1a1a;
+        }
+
+        /* ── CTA block ── */
+        .cta-block {
+            text-align: center;
+            padding: 5rem 2rem;
+            background: #f7931a;
+        }
+
+        .cta-block h2 {
+            color: #ffffff;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .cta-block .cta-button {
+            background: #ffffff;
+            color: #f7931a;
+        }
+
+        .cta-block .cta-button:hover {
+            background: #f5f0ec;
+        }
+
+        /* ── Footer ── */
+        footer {
+            background: #1a1a1a;
+            color: #999;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.95rem;
+            line-height: 2;
+        }
+
+        footer a {
+            color: #f7931a;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        footer .nostr-key {
+            font-size: 0.78rem;
+            word-break: break-all;
+            color: #777;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .tagline {
+                font-size: 1rem;
+            }
+
+            .logo {
+                width: 100px;
+                top: 1rem;
+                left: 1rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ── Hero ── -->
+    <div class="hero">
+        <a href="/"><img
+                src="https://raw.githubusercontent.com/consensus21school/consensus21school.github.io/main/assets/images/c21logo.png-198x97.png"
+                alt="Consensus21" class="logo"></a>
+        <div class="hero-content">
+            <h1>Investor Information</h1>
+            <p class="subtitle">The first school built on the C21 Protocol and a Bitcoin Standard</p>
+            <p class="tagline">"Launching in Victoria, Australia — 21 students, one new model for education."</p>
+            <a href="https://primal.net/p/nprofile1qqstk8yx8gkptsf3k3y5u7sgrjwv24h2h4hzfj6gdrdwx79u99fu87ccjdc2x"
+                target="_blank" class="cta-button">Contact Us to Invest</a>
+        </div>
+    </div>
+
+    <!-- ── Collapsible sections ── -->
+
+    <div class="section section-light">
+        <div class="section-content">
+
+            <!-- Section 1 -->
+            <div class="collapsible">
+                <div class="collapsible-header" onclick="toggleSection(this)">
+                    <h2>Launching in Victoria, Australia</h2>
+                    <i class="collapsible-icon">+</i>
+                </div>
+                <div class="collapsible-body">
+                    <div class="collapsible-body-inner">
+                        <p>Consensus21 is opening the world's first school designed for the digital economy.
+                            Our first campus will operate as a 21-student proof of concept and establish a new model
+                            for education.</p>
+                        <p>After Year 1, the school becomes eligible for ongoing Australian Federal funding,
+                            making the model self-sustaining for future cohorts.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="collapsible">
+                <div class="collapsible-header" onclick="toggleSection(this)">
+                    <h2>Funding Requirement</h2>
+                    <i class="collapsible-icon">+</i>
+                </div>
+                <div class="collapsible-body">
+                    <div class="collapsible-body-inner">
+                        <div class="highlight">
+                            <strong>$500,000 AUD — Founding Year</strong>
+                            <ul>
+                                <li>Learning space lease and setup</li>
+                                <li>Principal / Lead Educator</li>
+                                <li>2–3 Learning Guides</li>
+                                <li>Devices and secure infrastructure</li>
+                                <li>Bitcoin custody and student wallets</li>
+                                <li>Administration and compliance</li>
+                            </ul>
+                        </div>
+                        <p>After Year 1, the school becomes eligible for ongoing Australian Federal funding.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="collapsible">
+                <div class="collapsible-header" onclick="toggleSection(this)">
+                    <h2>What Students Learn</h2>
+                    <i class="collapsible-icon">+</i>
+                </div>
+                <div class="collapsible-body">
+                    <div class="collapsible-body-inner">
+                        <ul>
+                            <li>Bitcoin and monetary literacy</li>
+                            <li>Cybersecurity and digital sovereignty</li>
+                            <li>Coding, AI, and network systems</li>
+                            <li>Entrepreneurship and value creation</li>
+                            <li>Systems thinking and governance</li>
+                            <li>Communication and leadership</li>
+                        </ul>
+                        <p style="margin-top:1.2rem;">
+                            Students earn and manage real Bitcoin stored in time-locked wallets until age 18,
+                            graduating with skills, experience, and capital.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4 -->
+            <div class="collapsible">
+                <div class="collapsible-header" onclick="toggleSection(this)">
+                    <h2>Governance</h2>
+                    <i class="collapsible-icon">+</i>
+                </div>
+                <div class="collapsible-body">
+                    <div class="collapsible-body-inner">
+                        <p>Consensus21 operates under the C21 Protocol:</p>
+                        <ul>
+                            <li>Council-based decision making</li>
+                            <li>School Improvement Proposals (SIPs)</li>
+                            <li>3-of-6 multisignature governance</li>
+                            <li>Transparent operations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5 -->
+            <div class="collapsible">
+                <div class="collapsible-header" onclick="toggleSection(this)">
+                    <h2>Partner Opportunity</h2>
+                    <i class="collapsible-icon">+</i>
+                </div>
+                <div class="collapsible-body">
+                    <div class="collapsible-body-inner">
+                        <ul>
+                            <li>Founding Board Seat available</li>
+                            <li>Sponsorship for infrastructure or student programs</li>
+                            <li>Brand visibility and industry collaboration</li>
+                            <li>Mentorship and real-world project involvement</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ── CTA ── -->
+    <div class="cta-block">
+        <h2>Founding Partnerships Now Open</h2>
+        <a class="cta-button"
+            href="https://primal.net/p/nprofile1qqstk8yx8gkptsf3k3y5u7sgrjwv24h2h4hzfj6gdrdwx79u99fu87ccjdc2x"
+            target="_blank">Contact Us</a>
+    </div>
+
+    <!-- ── Footer ── -->
+    <footer>
+        <p><strong style="color:#f7931a;">GNU General Public License v3.0</strong></p>
+        <p>
+            <a href="https://www.acnc.gov.au/charity/charities/51dfc341-a5cd-eb11-8235-002248103324/profile"
+                target="_blank">ABN 14 650 828 381 – ACNC Register</a>
+        </p>
+        <p class="nostr-key">
+            <a href="https://primal.net/p/nprofile1qqstk8yx8gkptsf3k3y5u7sgrjwv24h2h4hzfj6gdrdwx79u99fu87ccjdc2x"
+                target="_blank">npub1hvwgvw3vzhqnrdzffeaqs8yuc4tw40twyn95s6x6udutc22nc0asprqh2a</a>
+        </p>
+    </footer>
+
+    <script>
+        function toggleSection(header) {
+            const body = header.nextElementSibling;
+            const isOpen = header.classList.contains('open');
+
+            header.classList.toggle('open', !isOpen);
+            body.classList.toggle('open', !isOpen);
+        }
+    </script>
+
+</body>
+
+</html>
