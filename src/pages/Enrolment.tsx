@@ -128,7 +128,7 @@ const Enrolment = () => {
         <div className="container mx-auto px-4 max-w-3xl">
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-8 md:p-12">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2 text-center">
-              Get in Touch
+              Enrolment
             </h2>
             <p className="text-gray-600 dark:text-gray-400 text-center mb-8">
               Fill in your details below to register your interest or to get in touch with our team.
@@ -137,57 +137,90 @@ const Enrolment = () => {
             <form action="https://formspree.io/f/xgonrjyl" method="POST" className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label htmlFor="firstName">First Name</Label>
-                  <Input id="firstName" name="firstName" placeholder="First Name" required className="bg-gray-50 dark:bg-gray-900" />
+                  <Label htmlFor="parentFirstName">Parent / Guardian First Name *</Label>
+                  <Input id="parentFirstName" name="parentFirstName" placeholder="Jane" required className="bg-gray-50 dark:bg-gray-900" />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="lastName">Last Name</Label>
-                  <Input id="lastName" name="lastName" placeholder="Last Name" required className="bg-gray-50 dark:bg-gray-900" />
+                  <Label htmlFor="lastName">Last Name *</Label>
+                  <Input id="lastName" name="lastName" placeholder="Smith" required className="bg-gray-50 dark:bg-gray-900" />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="email">Email Address</Label>
-                <Input id="email" name="email" type="email" placeholder="Email Address" required className="bg-gray-50 dark:bg-gray-900" />
+                <Label htmlFor="email">Email Address *</Label>
+                <Input id="email" name="email" type="email" placeholder="jane.smith@email.com" required className="bg-gray-50 dark:bg-gray-900" />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="phone">Phone Number (Optional)</Label>
-                <Input id="phone" name="phone" type="tel" placeholder="Phone Number" className="bg-gray-50 dark:bg-gray-900" />
+                <Label htmlFor="phone">Phone Number</Label>
+                <Input id="phone" name="phone" type="tel" placeholder="04xx xxx xxx" className="bg-gray-50 dark:bg-gray-900" />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="role">I am a...</Label>
+                <Label htmlFor="childName">Child's Name *</Label>
+                <Input id="childName" name="childName" placeholder="Alex" required className="bg-gray-50 dark:bg-gray-900" />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="yearLevel">Current Year Level *</Label>
                 <select 
-                  id="role" 
-                  name="role" 
+                  id="yearLevel" 
+                  name="yearLevel" 
                   required 
                   className="flex h-10 w-full rounded-md border border-input bg-gray-50 dark:bg-gray-900 px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                 >
-                  <option value="">Select your role</option>
-                  <option value="Parent/Guardian">Parent / Guardian</option>
-                  <option value="Student">Student</option>
-                  <option value="Educator">Educator</option>
-                  <option value="Supporter">Supporter</option>
+                  <option value="">Select year...</option>
+                  <option value="Foundation">Foundation</option>
+                  <option value="Year 1">Year 1</option>
+                  <option value="Year 2">Year 2</option>
+                  <option value="Year 3">Year 3</option>
+                  <option value="Year 4">Year 4</option>
+                  <option value="Year 5">Year 5</option>
+                  <option value="Year 6">Year 6</option>
+                  <option value="Year 7">Year 7</option>
+                  <option value="Year 8">Year 8</option>
+                  <option value="Year 9">Year 9</option>
+                  <option value="Year 10">Year 10</option>
+                  <option value="Year 11">Year 11</option>
+                  <option value="Year 12">Year 12</option>
+                </select>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="suburb">Suburb</Label>
+                <Input id="suburb" name="suburb" placeholder="Mount Martha" className="bg-gray-50 dark:bg-gray-900" />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="howDidYouHear">How did you hear about us?</Label>
+                <select 
+                  id="howDidYouHear" 
+                  name="howDidYouHear" 
+                  className="flex h-10 w-full rounded-md border border-input bg-gray-50 dark:bg-gray-900 px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  <option value="">Select...</option>
+                  <option value="Social Media">Social Media</option>
+                  <option value="Word of Mouth">Word of Mouth</option>
+                  <option value="Search Engine">Search Engine</option>
+                  <option value="Event">Event</option>
                   <option value="Other">Other</option>
                 </select>
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="message">Message / Questions</Label>
+                <Label htmlFor="message">Any questions or comments?</Label>
                 <Textarea 
                   id="message" 
                   name="message" 
-                  placeholder="Tell us a little about your interest in Consensus21 or ask any questions you might have." 
+                  placeholder="Feel free to share anything you'd like us to know..." 
                   rows={5} 
-                  required 
                   className="bg-gray-50 dark:bg-gray-900 resize-none"
                 />
               </div>
 
               <Button type="submit" className="w-full bg-[#F7931A] hover:bg-[#F7931A]/90 text-white py-6 text-lg rounded-xl flex items-center justify-center gap-2 transition-all hover:scale-[1.02]">
                 <Send className="w-5 h-5" />
-                Register Interest
+                Submit Registration
               </Button>
             </form>
 
