@@ -1,34 +1,484 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="content-security-policy"
-    content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; frame-src 'self' https:; font-src 'self'; base-uri 'self'; manifest-src 'self'; connect-src 'self' blob: https: wss:; img-src 'self' data: blob: https:; media-src 'self' https:">
-  <link rel="manifest" href="/manifest.webmanifest">
-  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="icon" type="image/png" href="/logo-198x213.png">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consensus21.School | Decentralised Education Built on Bitcoin</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23f7931a'/%3E%3Ctext x='32' y='38' text-anchor='middle' font-family='Arial,sans-serif' font-weight='900' font-size='22' fill='white'%3EC21%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-dark: #0c1220;
+  --bg-section: #111827;
+  --bg-card: #1a2332;
+  --orange: #f7931a;
+  --orange-glow: rgba(247, 147, 26, 0.25);
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border: rgba(148, 163, 184, 0.1);
+  --border-hover: rgba(247, 147, 26, 0.3);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+a { color: var(--orange); text-decoration: none; transition: color var(--transition); }
+a:hover { color: #ffa940; }
+
+/* ---- MAP HERO ---- */
+.map-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  background: #0d1117;
+}
+.map-mover {
+  position: absolute;
+  top: -120px; left: -120px;
+  width: calc(100% + 240px);
+  height: calc(100% + 240px);
+  animation: mapDrift 30s ease-in-out infinite;
+}
+.map-mover iframe {
+  width: 100%; height: 100%;
+  border: none;
+  filter: saturate(0.25) brightness(0.5) contrast(1.15);
+}
+@keyframes mapDrift {
+  0%, 100% { transform: translate(0, 0) scale(1.01); }
+  20% { transform: translate(-40px, -25px) scale(1.03); }
+  40% { transform: translate(15px, -50px) scale(1.02); }
+  60% { transform: translate(-25px, 20px) scale(1.04); }
+  80% { transform: translate(30px, -15px) scale(1.02); }
+}
+.map-vignette {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, transparent 25%, rgba(12,18,32,0.5) 70%, rgba(12,18,32,0.85) 100%);
+}
+.map-bottom-fade {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 180px; z-index: 3; pointer-events: none;
+  background: linear-gradient(to bottom, transparent, var(--bg-dark));
+}
+
+/* ---- MARKER ---- */
+.marker {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  display: flex; flex-direction: column; align-items: center;
+}
+.marker a {
+  display: flex; flex-direction: column; align-items: center;
+  text-decoration: none;
+}
+.marker-ping {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px; height: 64px; border-radius: 50%;
+  border: 2px solid var(--orange);
+  animation: ping 3s ease-out infinite;
+  pointer-events: none;
+}
+.marker-ping:nth-child(2) { animation-delay: 1s; }
+.marker-ping:nth-child(3) { animation-delay: 2s; }
+@keyframes ping {
+  0% { width: 64px; height: 64px; opacity: 0.5; }
+  100% { width: 200px; height: 200px; opacity: 0; }
+}
+.marker-icon {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--orange);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem; font-weight: 900; color: #fff;
+  font-family: 'JetBrains Mono', monospace;
+  box-shadow:
+    0 0 0 8px rgba(247,147,26,0.15),
+    0 0 50px rgba(247,147,26,0.3),
+    0 0 100px rgba(247,147,26,0.1);
+  animation: markerGlow 3s ease-in-out infinite;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative; z-index: 5;
+}
+.marker a:hover .marker-icon {
+  transform: scale(1.1);
+  box-shadow:
+    0 0 0 10px rgba(247,147,26,0.2),
+    0 0 60px rgba(247,147,26,0.45),
+    0 0 120px rgba(247,147,26,0.15);
+}
+@keyframes markerGlow {
+  0%, 100% { box-shadow: 0 0 0 8px rgba(247,147,26,0.15), 0 0 50px rgba(247,147,26,0.3), 0 0 100px rgba(247,147,26,0.1); }
+  50% { box-shadow: 0 0 0 16px rgba(247,147,26,0.06), 0 0 70px rgba(247,147,26,0.4), 0 0 120px rgba(247,147,26,0.15); }
+}
+.marker-label {
+  margin-top: 0.8rem;
+  background: rgba(12,18,32,0.92);
+  border: 1px solid rgba(247,147,26,0.4);
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--orange);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  transition: background var(--transition);
+}
+.marker a:hover .marker-label {
+  background: rgba(247,147,26,0.12);
+}
+.marker-sublabel {
+  margin-top: 0.3rem;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.04em;
+}
+
+/* ---- BRAND STRIP ---- */
+.brand-strip {
+  position: absolute; top: 2rem; left: 50%; transform: translateX(-50%);
+  z-index: 20;
+  display: flex; align-items: center; gap: 0.6rem;
+  background: rgba(12,18,32,0.8);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  padding: 0.6rem 1.6rem;
+  border-radius: 999px;
+}
+.brand-strip .btc-mark {
+  padding: 0 8px; height: 28px; border-radius: 14px;
+  background: var(--orange); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 0.72rem;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.02em;
+}
+.brand-strip span {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600; font-size: 0.92rem;
+  color: var(--text-primary);
+}
+
+/* ---- CONTACT ---- */
+#contact {
+  background: var(--bg-dark);
+  padding: 5rem 2rem;
+}
+.container { max-width: 1100px; margin: 0 auto; }
+.section-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem; color: var(--orange);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 700; letter-spacing: -0.02em;
+  margin-bottom: 1rem; line-height: 1.2;
+}
+.section-subtitle {
+  color: var(--text-secondary); font-size: 1.05rem;
+  max-width: 600px; margin-bottom: 3rem;
+}
+.form-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group { margin-bottom: 1.2rem; }
+.form-group.full { grid-column: 1 / -1; }
+.form-group label {
+  display: block; font-size: 0.82rem; font-weight: 500;
+  color: var(--text-secondary); margin-bottom: 0.4rem;
+  letter-spacing: 0.02em;
+}
+.form-group label .req { color: var(--orange); }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%; padding: 0.75rem 1rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  transition: border-color var(--transition);
+  outline: none;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: var(--orange);
+}
+.form-group textarea { resize: vertical; min-height: 100px; }
+.form-group select {
+  cursor: pointer; appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394a3b8' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 1rem center;
+}
+.form-group select option { background: var(--bg-card); color: var(--text-primary); }
+.submit-btn {
+  width: 100%; padding: 0.9rem;
+  background: var(--orange); color: #fff;
+  border: none; border-radius: var(--radius-sm);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600; font-size: 0.95rem;
+  cursor: pointer; transition: all var(--transition);
+}
+.submit-btn:hover {
+  background: #ffa940;
+  box-shadow: 0 4px 20px var(--orange-glow);
+}
+.form-privacy {
+  text-align: center; margin-top: 1rem;
+  font-size: 0.78rem; color: var(--text-muted);
+}
+.form-success {
+  display: none; text-align: center; padding: 3rem 1rem;
+}
+.form-success .check {
+  width: 60px; height: 60px; border-radius: 50%;
+  background: rgba(247,147,26,0.1);
+  border: 2px solid var(--orange);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.2rem;
+  font-size: 1.5rem; color: var(--orange);
+}
+.form-success h3 { font-size: 1.3rem; margin-bottom: 0.6rem; }
+.form-success p { color: var(--text-secondary); font-size: 0.95rem; }
+
+/* ---- FOOTER ---- */
+footer {
+  background: var(--bg-section);
+  border-top: 1px solid var(--border);
+  padding: 3rem 2rem 2rem;
+}
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-top {
+  display: flex; justify-content: space-between; align-items: start;
+  flex-wrap: wrap; gap: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+.footer-brand .footer-logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700; font-size: 1.1rem;
+  color: var(--text-primary);
+  display: flex; align-items: center; gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.footer-brand .footer-logo .btc-mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 0 7px; height: 26px; border-radius: 13px;
+  background: var(--orange); color: #fff;
+  font-weight: 800; font-size: 0.68rem;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.02em;
+}
+.footer-brand p {
+  color: var(--text-muted); font-size: 0.85rem;
+  line-height: 1.7; max-width: 380px;
+}
+.footer-brand p a { color: var(--text-secondary); }
+.footer-brand p a:hover { color: var(--orange); }
+.footer-right {
+  display: flex; flex-direction: column; align-items: flex-end; gap: 0.8rem;
+}
+.footer-right .cta-btn {
+  display: inline-block; background: var(--orange); color: #fff;
+  padding: 0.6rem 1.5rem; border-radius: 999px;
+  font-weight: 600; font-size: 0.88rem;
+  transition: all var(--transition);
+}
+.footer-right .cta-btn:hover { background: #ffa940; color: #fff; }
+.footer-right a.text-link {
+  color: var(--text-secondary); font-size: 0.85rem;
+}
+.footer-right a.text-link:hover { color: var(--orange); }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 1.5rem; flex-wrap: wrap; gap: 1rem;
+}
+.footer-bottom p {
+  color: var(--text-muted); font-size: 0.8rem;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 700px) {
+  .form-row { grid-template-columns: 1fr; }
+  .form-card { padding: 1.5rem; }
+  .footer-top { flex-direction: column; }
+  .footer-right { align-items: flex-start; }
+  .marker-icon { width: 52px; height: 52px; font-size: 1.1rem; }
+  .brand-strip { padding: 0.5rem 1.2rem; }
+  .brand-strip span { font-size: 0.8rem; }
+}
+</style>
 </head>
-
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
-</body>
 
+<!-- MAP HERO - FULL VIEWPORT -->
+<div class="map-hero">
+  <div class="brand-strip">
+    <div class="btc-mark">C21</div>
+    <span>Consensus21.School</span>
+  </div>
+
+  <div class="map-mover">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d800000!2d145.016!3d-38.2806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sau!4v1700000000000!5m2!1sen!2sau"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Victoria Map">
+    </iframe>
+
+    <div class="marker">
+      <a href="https://peninsula21.com" target="_blank" rel="noopener">
+        <div class="marker-ping"></div>
+        <div class="marker-ping"></div>
+        <div class="marker-ping"></div>
+        <div class="marker-icon">C21</div>
+        <div class="marker-label">CAMPUS 01 &middot; MOUNT MARTHA</div>
+        <div class="marker-sublabel">370 Craigie Road, VIC 3934</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="map-vignette"></div>
+  <div class="map-bottom-fade"></div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-tag">Contact Us</div>
+    <h2 class="section-title">Contact Us</h2>
+    <p class="section-subtitle">Fill in your details below to register your interest or to get in touch with our team.</p>
+
+    <div class="form-card">
+      <div class="form-success" id="formSuccess">
+        <div class="check">&#10003;</div>
+        <h3>Thank you for your interest!</h3>
+        <p>We'll be in touch soon with updates about Consensus21.</p>
+      </div>
+      <form id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Parent / Guardian First Name <span class="req">*</span></label>
+            <input type="text" required>
+          </div>
+          <div class="form-group">
+            <label>Last Name <span class="req">*</span></label>
+            <input type="text" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email Address <span class="req">*</span></label>
+            <input type="email" required>
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Child's Name <span class="req">*</span></label>
+            <input type="text" required>
+          </div>
+          <div class="form-group">
+            <label>Current Year Level <span class="req">*</span></label>
+            <select required>
+              <option value="">Select year...</option>
+              <option>Prep</option>
+              <option>Year 1</option>
+              <option>Year 2</option>
+              <option>Year 3</option>
+              <option>Year 4</option>
+              <option>Year 5</option>
+              <option>Year 6</option>
+              <option>Not yet school age</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Suburb</label>
+            <input type="text">
+          </div>
+          <div class="form-group">
+            <label>How did you hear about us?</label>
+            <select>
+              <option value="">Select...</option>
+              <option>Word of mouth</option>
+              <option>Social media</option>
+              <option>Google search</option>
+              <option>Local newspaper</option>
+              <option>Community noticeboard</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group full">
+          <label>Any questions or comments?</label>
+          <textarea rows="4"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
+        <p class="form-privacy">Your details are kept private and will only be used to contact you about Consensus21.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <span class="btc-mark">C21</span>
+          Consensus21
+        </div>
+        <p>
+          Consensus 21 Education Ltd &middot; ACN: 696 105 441 &middot; <a href="https://abr.business.gov.au/ABN/View?abn=40696105441" target="_blank">ABN: 40 696 105 441</a><br>
+          370 Craigie Road, Mount Martha VIC 3934<br>
+          <em>Subject to VRQA approval</em>
+        </p>
+      </div>
+      <div class="footer-right">
+        <a href="#contact" class="cta-btn">Register Interest</a>
+        <a href="https://peninsula21.com/constitution.html" target="_blank" class="text-link">View Constitution</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Consensus21.School. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  document.getElementById('contactForm').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+}
+</script>
+</body>
 </html>
