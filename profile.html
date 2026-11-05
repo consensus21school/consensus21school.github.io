@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/c21.css?v=2">
+<link rel="stylesheet" href="assets/c21.css?v=3">
 <style>
 .pbar { border-bottom: 1px solid var(--line); background: rgba(8,27,42,.6); }
 .pbar-in { display: flex; gap: 6px; align-items: flex-end; padding-left: calc(300px + 40px); overflow-x: auto; scrollbar-width: none; }
@@ -132,6 +132,33 @@
 .skel { background: linear-gradient(90deg, rgba(255,255,255,.04), rgba(255,255,255,.09), rgba(255,255,255,.04)); background-size: 200% 100%; animation: sk 1.4s infinite; border-radius: 8px; }
 @keyframes sk { to { background-position: -200% 0; } }
 
+
+.directory { padding-top: 56px; padding-bottom: 90px; }
+.directory .h2 { margin-bottom: 10px; }
+.dir-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin-top: 34px; }
+.lcard {
+  display: flex; gap: 18px; align-items: center; padding: 20px; border-radius: 18px; color: var(--text);
+  background: linear-gradient(160deg, color-mix(in srgb, var(--c) 14%, transparent), rgba(15,42,64,.55));
+  border: 1px solid var(--line-2); transition: transform .25s var(--ease), border-color .25s var(--ease);
+}
+.lcard:hover { color: var(--text); transform: translateY(-3px); border-color: var(--c); }
+.lcard img { width: 88px; height: 88px; border-radius: 50%; flex: none; transition: transform .3s var(--ease); }
+.lcard:hover img { transform: rotate(-6deg) scale(1.06); }
+.lcard h3 { font-size: 19px; line-height: 1.2; }
+.lcard .mono { font-size: 12.5px; color: var(--muted); }
+.lcard p { color: var(--text-2); font-size: 14.5px; margin: 6px 0 8px; line-height: 1.45; }
+.lmeta { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; font-size: 12.5px; color: var(--muted); }
+.stage.sm { margin: 0; padding: 2px 9px; font-size: 10.5px; }
+.dir-look { display: flex; gap: 8px; margin-top: 40px; flex-wrap: wrap; align-items: center; color: var(--text-2); font-size: 14px; }
+.dir-look input { padding: 9px 14px; border-radius: 999px; border: 1px solid var(--line-2); background: rgba(255,255,255,.04); color: var(--text); font: 14px var(--mono); outline: none; }
+.dir-look input:focus { border-color: var(--orange); }
+.switch { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; font-size: 13px; }
+.switch a img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid transparent; transition: transform .2s var(--ease); }
+.switch a:hover img { transform: translateY(-2px); }
+.switch a[aria-current] img { border-color: var(--orange); }
+.switch .all { margin-left: 6px; }
+.ava { image-rendering: auto; }
+
 @media (max-width: 900px) {
   .layout { grid-template-columns: 1fr; gap: 0; }
   .pbar-in { padding-left: 24px; }
@@ -169,6 +196,17 @@
     <button class="tab" role="tab" aria-selected="false" data-p="sips"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm4.879-2.773 4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559V5.442a.25.25 0 0 1 .379-.215Z"/></svg>SIPs <span class="cnt" id="cntSips">0</span></button>
   </div>
 </div>
+
+<section class="wrap directory" id="directory" hidden>
+  <div class="eyebrow">Learner profiles</div>
+  <h1 class="h2">Meet some Consensus21 learners</h1>
+  <p class="lede">Every learner's profile is built from their own Git history: projects, reflections, Explorers Days and SIPs. These five are examples of what that looks like at different ages and on very different projects.</p>
+  <div id="dirNote" style="margin-top:20px"></div>
+  <div class="dir-grid" id="dirGrid"></div>
+  <form class="dir-look" id="dirLook"><span>Already set up? Look up a learner's GitHub:</span>
+    <input id="dirU" placeholder="GitHub username" aria-label="GitHub username" autocomplete="off" spellcheck="false">
+    <button class="btn sm" type="submit">View</button></form>
+</section>
 
 <div class="wrap layout">
   <aside class="side" id="side">
@@ -231,7 +269,8 @@
   </div>
 </footer>
 
-<script src="assets/c21.js?v=2"></script>
+<script src="assets/c21.js?v=3"></script>
+<script src="assets/students.js?v=3"></script>
 <script>
 const esc = C21.esc;
 const $ = id => document.getElementById(id);
@@ -253,65 +292,79 @@ const I = {
   pin: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="m12.596 11.596-3.535 3.536a1.5 1.5 0 0 1-2.122 0l-3.535-3.536a6.5 6.5 0 1 1 9.192-9.193 6.5 6.5 0 0 1 0 9.193Zm-1.06-8.132v-.001a5 5 0 1 0-7.072 7.072L8 14.07l3.536-3.534a5 5 0 0 0 0-7.072ZM8 9a2 2 0 1 1-.001-3.999A2 2 0 0 1 8 9Z"/></svg>',
   mentor: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"/></svg>'
 };
-const ICO = c => `url("data:image/svg+xml,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='${c}'><circle cx='8' cy='8' r='4'/></svg>`)}")`;
+const ICO = c => `url(&quot;data:image/svg+xml,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='${c}'><circle cx='8' cy='8' r='4'/></svg>`)}&quot;)`;
 
-// ---------- sample learner (shown when no ?u=) ----------
-function sampleData() {
-  const today = new Date();
-  const d = n => { const x = new Date(today); x.setDate(x.getDate() - n); return x.toISOString().slice(0, 10); };
-  let seed = 21; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+// ---------- example learners (assets/students.js) ----------
+function isoAgo(n) { const x = new Date(); x.setDate(x.getDate() - n); return x.toISOString().slice(0, 10); }
+
+function studentData(st) {
+  // a year of commits: busier on weekdays, Fridays always have a reflection
+  let seed = st.activity.seed;
+  const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
   const contributions = [];
   for (let i = 364; i >= 0; i--) {
-    const day = new Date(today); day.setDate(day.getDate() - i);
+    const day = new Date(); day.setDate(day.getDate() - i);
     const wd = day.getDay(), r = rnd();
+    const holiday = (i > 300 && i < 330) || (i > 120 && i < 134); // school breaks
     let count = 0;
-    if (wd > 0 && wd < 6 && r > 0.3) count = Math.ceil(r * 7);
-    else if (r > 0.88) count = 1;
-    if (wd === 5) count = Math.max(count, 3);
-    contributions.push({ date: day.toISOString().slice(0, 10), count, level: count === 0 ? 0 : count < 3 ? 1 : count < 5 ? 2 : count < 7 ? 3 : 4 });
+    if (wd > 0 && wd < 6 && !holiday && r < st.activity.rate) count = 1 + Math.floor(rnd() * st.activity.peak);
+    else if (r < 0.08) count = 1 + Math.floor(rnd() * 2);
+    if (wd === 5 && !holiday) count = Math.max(count, 2);
+    const p = st.activity.peak;
+    contributions.push({ date: day.toISOString().slice(0, 10), count,
+      level: count === 0 ? 0 : count <= p * 0.25 ? 1 : count <= p * 0.5 ? 2 : count <= p * 0.75 ? 3 : 4 });
   }
+  const repoName = n => st.login + '/' + n;
+  const repos = st.repos.map(r => ({ name: r.name, description: r.description, language: r.language, stargazers_count: r.stars,
+    html_url: '#', pushed_at: isoAgo(Math.floor(rnd() * 6)), created: r.created, w: r.w }));
+  repos.push({ name: st.login, description: 'My profile and portfolio.', language: 'Markdown', stargazers_count: 0, html_url: '#', pushed_at: isoAgo(0), created: 330, w: 2 });
+
+  // spread each month's commits across the repos that existed then
+  const events = [], months = {};
+  contributions.forEach((c, i) => { const k = c.date.slice(0, 7); (months[k] = months[k] || { n: 0, ago: 364 - i }).n += c.count; months[k].ago = 364 - i; });
+  Object.entries(months).forEach(([k, m]) => {
+    const live = repos.filter(r => r.created >= m.ago);
+    const tw = live.reduce((a, r) => a + r.w, 0);
+    let left = m.n;
+    live.sort((a, b) => b.w - a.w).forEach((r, i) => {
+      const n = i === live.length - 1 ? left : Math.round(m.n * r.w / tw);
+      left -= n;
+      if (n > 0) events.push({ type: 'push', repo: repoName(r.name), count: n, date: k + '-15' });
+    });
+  });
+  repos.forEach(r => r.created <= 364 && events.push({ type: 'create', repo: repoName(r.name), date: isoAgo(r.created) }));
+  st.explorers.forEach(e => events.push({ type: 'explorer', title: e.title, date: isoAgo(e.ago) }));
+  st.reflections.forEach(e => events.push({ type: 'reflection', title: e.title, date: isoAgo(e.ago) }));
+  st.sips.forEach(e => events.push({ type: 'sip', title: e.id + ': ' + e.title, status: e.status, date: isoAgo(e.ago) }));
+
+  const withDate = arr => arr.map(e => Object.assign({ date: isoAgo(e.ago) }, e));
   return {
-    sample: true,
-    user: { login: 'ada-c21', name: 'Ada Learner', bio: 'Building a tide app for the Mount Martha jetty. Learning Rust slowly and Bitcoin quickly.', avatar_url: '', followers: 14, following: 22, html_url: '#', blog: '', company: 'Consensus21.School', location: 'Mount Martha, VIC' },
-    repos: [
-      { name: 'tide-tracker', description: 'Live tide and wind for the Mount Martha jetty, built from the BOM feed.', language: 'JavaScript', stargazers_count: 6, html_url: '#', pushed_at: d(1) },
-      { name: 'sip-004-garden', description: 'School Improvement Proposal: learner-run food garden by the lunch tables.', language: 'Markdown', stargazers_count: 11, html_url: '#', pushed_at: d(3) },
-      { name: 'hardware-wallet-notes', description: 'Setting up my first hardware wallet, step by step, with what went wrong.', language: 'Markdown', stargazers_count: 3, html_url: '#', pushed_at: d(9) },
-      { name: 'prompt-lab', description: 'AI Prompt Engineers experiments: what works, what lies, and how I checked.', language: 'Python', stargazers_count: 2, html_url: '#', pushed_at: d(2) },
-      { name: 'boatyard-cad', description: 'A 3D model of a dinghy cradle, from the Explorers Day at the Hastings boatyard.', language: 'Scratch', stargazers_count: 1, html_url: '#', pushed_at: d(20) },
-      { name: 'ada-c21', description: 'My profile and portfolio.', language: 'Markdown', stargazers_count: 0, html_url: '#', pushed_at: d(0) }
-    ],
-    contributions, total: contributions.reduce((a, c) => a + c.count, 0),
-    events: [
-      { type: 'push', repo: 'ada-c21/ada-c21', count: 4, date: d(0) },
-      { type: 'push', repo: 'ada-c21/tide-tracker', count: 9, date: d(1) },
-      { type: 'create', repo: 'ada-c21/prompt-lab', date: d(12) },
-      { type: 'push', repo: 'ada-c21/sip-004-garden', count: 6, date: d(3) },
-      { type: 'pr', repo: 'consensus21school/sips', title: 'SIP-004: Food garden', date: d(4) },
-      { type: 'push', repo: 'ada-c21/hardware-wallet-notes', count: 3, date: d(36) },
-      { type: 'create', repo: 'ada-c21/boatyard-cad', date: d(40) }
-    ],
+    sample: true, student: st,
+    user: { login: st.login, name: st.name, bio: st.bio, avatar_url: 'assets/students/' + st.id + '.svg?v=2',
+      followers: st.followers, following: st.following, html_url: '#', blog: '', location: 'Mount Martha, VIC' },
+    repos, contributions, total: contributions.reduce((a, c) => a + c.count, 0), events,
     c21: {
-      name: 'Ada Learner', stage: 'Explorer', campus: 'Campus 01 · Mount Martha', mentors: ['kdnolan'],
-      pinned: ['tide-tracker', 'sip-004-garden', 'hardware-wallet-notes', 'prompt-lab'],
-      headline: 'Hi, I\'m Ada 👋', about: 'I learn at Consensus21. This profile is my portfolio: every project, reflection and Explorers Day I log ends up here.',
-      programs: { 'Time management': 72, 'Financial literacy & Bitcoin': 45, 'Reflection & portfolio': 88 },
-      explorers: [
-        { date: d(3), title: 'Hastings boatyard', note: 'Met a shipwright with 40 years on the job. Idea: tide app for the jetty.' },
-        { date: d(10), title: 'Mornington Peninsula farmers market', note: 'Ran the group budget: $64 for six of us.' },
-        { date: d(17), title: 'Scienceworks', note: 'Lightning room. Asked about grid storage.' }
-      ],
-      reflections: [
-        { date: d(1), title: 'Week 45: tide-tracker reads the BOM feed', note: 'Lost Tuesday to the wrong API. Showing it at Community Lunch next week.' },
-        { date: d(7), title: 'Week 44: drafting SIP-004', note: 'Counted lunch waste for five days. 3.2kg a day.' },
-        { date: d(14), title: 'Week 43: first hardware wallet', note: 'Wrote the seed words twice. Understand why now.' }
-      ],
-      sips: [
-        { id: 'SIP-004', title: 'Food garden by the lunch tables', status: 'voted', note: 'Three raised beds, learner-run, 0.004 BTC from treasury.' },
-        { id: 'SIP-007', title: 'Explorers Day budget set by learners', status: 'discussion', note: 'Learners plan and present the trip budget the Friday before.' }
-      ]
+      name: st.name, stage: st.stage + ' · age ' + st.age, campus: 'Campus 01 · Mount Martha', mentors: st.mentors,
+      pinned: st.pinned, headline: st.headline, about: st.about, programs: st.programs,
+      explorers: withDate(st.explorers), reflections: withDate(st.reflections), sips: st.sips
     }
   };
+}
+
+function renderDirectory() {
+  document.title = 'Learners · Consensus21.School';
+  document.querySelector('.pbar').hidden = true;
+  document.querySelector('.layout').hidden = true;
+  const dir = $('directory');
+  dir.hidden = false;
+  $('dirLook').onsubmit = e => { e.preventDefault(); const v = $('dirU').value.trim().replace(/^@/, ''); if (v) location.search = '?u=' + encodeURIComponent(v); };
+  $('dirGrid').innerHTML = C21_STUDENTS.map(st => `
+    <a class="lcard" href="profile.html?s=${st.id}" style="--c:${st.color}">
+      <img src="assets/students/${st.id}.svg?v=2" alt="" width="88" height="88">
+      <div><h3>${esc(st.name)}</h3><span class="mono">@${esc(st.login)}</span>
+      <p>${esc(st.focus)}</p>
+      <div class="lmeta"><span class="stage sm">${esc(st.stage)}</span><span>age ${st.age}</span><span>${st.repos.length} projects</span></div></div>
+    </a>`).join('');
 }
 
 // ---------- live data from GitHub ----------
@@ -374,7 +427,12 @@ function render(D, u) {
   document.title = `${name} · Consensus21.School`;
 
   // side
-  const mentors = (c.mentors || []).map(m => `<a href="profile.html?u=${encodeURIComponent(m.replace(/^@/, ''))}">@${esc(m.replace(/^@/, ''))}</a>`).join(', ');
+  const mentors = (c.mentors || []).map(m => {
+    if (typeof m === 'string') return `<a href="profile.html?u=${encodeURIComponent(m.replace(/^@/, ''))}">@${esc(m.replace(/^@/, ''))}</a>`;
+    const peer = m.id && window.C21_STUDENTS && C21_STUDENTS.find(s => s.id === m.id);
+    const label = peer ? `<a href="profile.html?s=${peer.id}">${esc(peer.name)}</a>` : esc(m.name || '');
+    return label + (m.note ? ` <span class="muted">(${esc(m.note)})</span>` : '');
+  }).join(', ');
   const blog = safeUrl(user.blog);
   const nExp = (c.explorers || []).length, nSip = (c.sips || []).length, nRef = (c.reflections || []).length;
   $('side').innerHTML = `
@@ -450,9 +508,9 @@ function render(D, u) {
 
   // notices
   if (D.sample) {
-    $('notice').innerHTML = `<div class="note"><div><b>This is a sample learner.</b> Every Consensus21 learner gets a profile like this, built from their own GitHub. Look someone up:
-      <form id="lk"><input id="lkU" placeholder="GitHub username" aria-label="GitHub username" autocomplete="off" spellcheck="false"><button class="btn sm" type="submit">View</button></form></div></div>`;
-    $('lk').addEventListener('submit', e => { e.preventDefault(); const v = $('lkU').value.trim().replace(/^@/, ''); if (v) location.search = '?u=' + encodeURIComponent(v); });
+    $('notice').innerHTML = `<div class="switch"><span class="muted">Example learners</span>${C21_STUDENTS.map(st =>
+      `<a href="profile.html?s=${st.id}" title="${esc(st.name)}" ${D.student && D.student.id === st.id ? 'aria-current="true"' : ''}><img src="assets/students/${st.id}.svg?v=2" alt="${esc(st.name)}"></a>`).join('')}
+      <a class="muted all" href="profile.html">All learners</a></div>`;
   } else if (!D.c21) {
     $('notice').innerHTML = `<div class="note"><div><b>${esc(user.login)} hasn't added a <span class="mono">c21.json</span> yet.</b> Their GitHub activity is shown below. Add the <a href="start.html">Consensus21 template</a> to the <span class="mono">${esc(user.login)}/${esc(user.login)}</span> repository to unlock programs, Explorers Days, SIPs and a personal week.</div></div>`;
   }
@@ -488,7 +546,7 @@ function renderFeed(D) {
   const groups = {};
   D.events.forEach(e => { const k = e.date.slice(0, 7); (groups[k] = groups[k] || []).push(e); });
   const repoLink = r => `<a href="${D.sample ? '#' : 'https://github.com/' + esc(r)}" ${D.sample ? '' : 'target="_blank" rel="noopener"'}>${esc(r)}</a>`;
-  $('feed').innerHTML = Object.keys(groups).sort().reverse().slice(0, 4).map(k => {
+  $('feed').innerHTML = Object.keys(groups).sort().reverse().slice(0, D.sample ? 6 : 4).map(k => {
     const es = groups[k];
     const d = new Date(k + '-01T00:00:00');
     const pushes = es.filter(e => e.type === 'push');
@@ -499,6 +557,10 @@ function renderFeed(D) {
     if (commits) html += `<div class="feed-item" style="--ico:${ICO('#39d353')}"><div><div class="t">Created ${commits} commit${commits === 1 ? '' : 's'} in ${Object.keys(byRepo).length} repositor${Object.keys(byRepo).length === 1 ? 'y' : 'ies'}</div>
       <div class="s">${Object.entries(byRepo).sort((a, b) => b[1] - a[1]).slice(0, 4).map(([r, n]) => `${repoLink(r)} · ${n}`).join('<br>')}</div></div></div>`;
     es.filter(e => e.type === 'create').forEach(e => { html += `<div class="feed-item" style="--ico:${ICO('#58a6ff')}"><div><div class="t">Created repository ${repoLink(e.repo)}</div><div class="s">${fmtDate(e.date)}</div></div></div>`; });
+    es.filter(e => e.type === 'explorer').forEach(e => { html += `<div class="feed-item" style="--ico:${ICO('#38bdf8')}"><div><div class="t">Logged an Explorers Day: <b>${esc(e.title)}</b></div><div class="s">explorers/ · ${fmtDate(e.date)}</div></div></div>`; });
+    es.filter(e => e.type === 'sip').forEach(e => { html += `<div class="feed-item" style="--ico:${ICO('#fde047')}"><div><div class="t">Proposed <b>${esc(e.title)}</b> <span class="status" style="--c:${SIP_COLORS[e.status] || '#94a3b8'}">${esc(e.status)}</span></div><div class="s">sips/ · ${fmtDate(e.date)}</div></div></div>`; });
+    const refl = es.filter(e => e.type === 'reflection');
+    if (refl.length) html += `<div class="feed-item" style="--ico:${ICO('#c084fc')}"><div><div class="t">Committed ${refl.length} reflection${refl.length === 1 ? '' : 's'}</div><div class="s">${refl.map(e => esc(e.title)).join('<br>')}</div></div></div>`;
     es.filter(e => e.type === 'pr' || e.type === 'issue').forEach(e => { html += `<div class="feed-item" style="--ico:${ICO('#f7931a')}"><div><div class="t">Opened ${e.type === 'pr' ? 'a pull request' : 'an issue'} in ${repoLink(e.repo)}</div><div class="s">${esc(e.title || '')} · ${fmtDate(e.date)}</div></div></div>`; });
     return html;
   }).join('');
@@ -512,14 +574,18 @@ document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () =>
 }));
 if (location.hash) { const t = document.querySelector(`.tab[data-p="${location.hash.slice(1)}"]`); if (t) t.click(); }
 
+const S = params.get('s');
 (async () => {
-  if (!U) return render(sampleData());
+  if (!U) {
+    const st = S && C21_STUDENTS.find(x => x.id === S);
+    return st ? render(studentData(st)) : renderDirectory();
+  }
   try {
     render(await liveData(U), U);
   } catch (e) {
     const msg = e.status === 404 ? `No GitHub user called <b>${esc(U)}</b>.` : e.status === 403 ? `GitHub's rate limit was hit. Try again in a few minutes.` : `Couldn't reach GitHub right now.`;
-    render(sampleData());
-    $('notice').insertAdjacentHTML('afterbegin', `<div class="note"><div>${msg} Showing the sample learner instead.</div></div>`);
+    renderDirectory();
+    $('dirNote').innerHTML = `<div class="note"><div>${msg}</div></div>`;
   }
 })();
 </script>

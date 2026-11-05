@@ -17,7 +17,7 @@
     'Explorers Day Out': 'Off campus for the day: workshops, farms, labs, studios, the beach, local businesses. Learners plan the trip, run the budget and log it in their Git portfolio as an Explorer entry.',
     'Time Management': 'Core program. Learners run their own digital calendar, prioritise tasks, audit where their hours went and share their schedule with mentors and parents.',
     'AI Prompt Engineers': 'Learning to work with AI as a tool: writing good prompts, checking outputs, building small things with it and knowing when not to trust it.',
-    'Financial Literacy': 'Core program. The history of money, setting up a hardware wallet, public and private keys, how a Bitcoin transaction works and how to read the blockchain.',
+    'Financial Literacy': 'Core program. The history of money, public and private keys, holding your own keys safely, how a transaction settles on mainnet and how to read a blockchain.',
     'SIP Discussion': 'School Improvement Proposals. Anyone, including any learner, can propose a change to how the school works. This hour is for drafting, debating and voting on SIPs.',
     'Reflection / Digital Portfolio': 'Core program. Write up the week, commit reflections and project progress to your Git repo. This record replaces report cards.',
     'Problem Based Learning': 'Real problems, real projects. Learners set their own direction with mentors and prove what they know by finishing things, not by sitting exams.',

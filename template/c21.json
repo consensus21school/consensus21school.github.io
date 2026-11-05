@@ -2,7 +2,7 @@
   "name": "Your Name",
   "stage": "Explorer",
   "campus": "Campus 01 · Mount Martha",
-  "mentors": ["kdnolan"],
+  "mentors": [],
   "headline": "Hi, I'm Your Name",
   "about": "I learn at Consensus21. This profile is my portfolio: every project, reflection and Explorers Day I log ends up here.",
 
@@ -10,7 +10,7 @@
 
   "programs": {
     "Time management": 0,
-    "Financial literacy & Bitcoin": 0,
+    "Financial literacy & blockchain": 0,
     "Reflection & portfolio": 0
   },
 

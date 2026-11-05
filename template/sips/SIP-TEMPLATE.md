@@ -13,7 +13,7 @@ What isn't working, and who does it affect? Include evidence if you have it.
 What exactly should change?
 
 ## Cost
-Time, money (in sats or BTC from the treasury), people.
+Time, money (from the community treasury), people.
 
 ## How we'll know it worked
 

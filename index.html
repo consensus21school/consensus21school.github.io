@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/c21.css?v=2">
+<link rel="stylesheet" href="assets/c21.css?v=3">
 <style>
 /* ---- hero ---- */
 .hero { padding: 56px 0 40px; min-height: calc(100vh - 60px); display: flex; align-items: center; }
@@ -59,12 +59,21 @@
 }
 .cube-orbit::after { background: #38bdf8; box-shadow: 0 0 16px #38bdf8; top: auto; bottom: -5px; width: 7px; height: 7px; }
 .cube-tilt { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform .6s cubic-bezier(.2,.7,.3,1); }
-.cube-tilt img {
-  width: 100%; height: 100%; object-fit: contain;
-  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 52%, transparent 70%);
-  mask-image: radial-gradient(circle at 50% 50%, #000 52%, transparent 70%);
+.cube-art {
+  position: absolute; inset: 0;
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 56%, transparent 72%);
+  mask-image: radial-gradient(circle at 50% 50%, #000 56%, transparent 72%);
   animation: float 8s ease-in-out infinite;
 }
+.cube-art img { width: 100%; height: 100%; object-fit: contain; }
+/* each tile is a clipped copy of the full artwork sitting over its socket */
+.tile { position: absolute; inset: 0; pointer-events: none; }
+.tile .tf {
+  position: absolute; inset: 0; pointer-events: auto; cursor: pointer;
+  background: url("assets/cube.webp") center / 100% 100% no-repeat;
+  will-change: transform;
+}
+.tile.lift { z-index: 2; }
 @keyframes float { 50% { transform: translateY(-14px) rotate(1.2deg); } }
 .cube-tag {
   position: absolute; font: 600 11px var(--mono); letter-spacing: .08em; color: var(--text);
@@ -157,26 +166,9 @@
 
 /* ---- portfolio preview ---- */
 .pf { display: grid; grid-template-columns: 1fr 1.25fr; gap: 48px; align-items: center; }
-.pf-card {
   border-radius: 20px; border: 1px solid var(--line-2); background: #0a1e2f; padding: 22px;
   box-shadow: 0 40px 90px -30px rgba(0,0,0,.7); position: relative;
 }
-.pf-card::after { content: "SAMPLE"; position: absolute; top: 16px; right: 18px; font: 700 10px var(--mono); letter-spacing: .14em; color: var(--muted); }
-.pf-who { display: flex; gap: 16px; align-items: center; margin-bottom: 18px; }
-.pf-ava { width: 64px; height: 64px; border-radius: 50%; background: conic-gradient(from 200deg, #f7931a, #fde047, #2dd4bf, #38bdf8, #c084fc, #fb7185, #f7931a); padding: 3px; flex: none; }
-.pf-ava div { width: 100%; height: 100%; border-radius: 50%; background: #0a1e2f; display: grid; place-items: center; font: 700 20px var(--mono); }
-.pf-who h4 { font-size: 20px; line-height: 1.2; }
-.pf-who span { color: var(--muted); font-family: var(--mono); font-size: 13px; }
-.pf-pins { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 18px; }
-.pf-pin { border: 1px solid var(--line-2); border-radius: 10px; padding: 12px 14px; font-size: 13px; }
-.pf-pin b { color: #58a6ff; font-size: 14px; display: block; margin-bottom: 4px; }
-.pf-pin span { color: var(--muted); display: flex; align-items: center; gap: 6px; }
-.pf-pin span i { width: 10px; height: 10px; border-radius: 50%; background: var(--c); }
-.heat { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, 1fr); gap: 3px; }
-.heat i { aspect-ratio: 1; border-radius: 2px; background: #10283c; }
-.heat i[data-l="1"] { background: #0e4429; } .heat i[data-l="2"] { background: #006d32; }
-.heat i[data-l="3"] { background: #26a641; } .heat i[data-l="4"] { background: #39d353; }
-.heat-cap { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-top: 10px; }
 .lookup { display: flex; gap: 8px; margin-top: 26px; max-width: 460px; }
 .lookup input {
   flex: 1; min-width: 0; padding: 12px 16px; border-radius: 999px; border: 1px solid var(--line-2);
@@ -187,6 +179,25 @@
 .pf li { display: flex; gap: 12px; color: var(--text-2); }
 .pf li::before { content: "→"; color: var(--orange); font-family: var(--mono); }
 @media (max-width: 920px) { .pf { grid-template-columns: 1fr; } }
+
+.roster { display: grid; gap: 10px; }
+.lrow {
+  display: grid; grid-template-columns: 64px 1fr auto; gap: 16px; align-items: center; padding: 12px 18px 12px 12px;
+  border-radius: 16px; border: 1px solid var(--line-2); color: var(--text);
+  background: linear-gradient(100deg, color-mix(in srgb, var(--c) 16%, transparent), rgba(15,42,64,.5) 60%);
+  transition: transform .25s var(--ease), border-color .25s var(--ease);
+}
+.lrow:hover { color: var(--text); transform: translateX(6px); border-color: var(--c); }
+.lrow img { width: 64px; height: 64px; border-radius: 50%; transition: transform .3s var(--ease); }
+.lrow:hover img { transform: rotate(-8deg) scale(1.08); }
+.lrow b { font-size: 16.5px; display: block; line-height: 1.25; }
+.lrow small { color: var(--text-2); font-size: 13.5px; display: block; }
+.lrow .tag { font: 600 10.5px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--c); }
+.mini-heat { display: grid; grid-auto-flow: column; grid-template-rows: repeat(4, 6px); gap: 2px; }
+.mini-heat i { width: 6px; border-radius: 1px; background: #10283c; }
+.mini-heat i[data-l="1"] { background: #0e4429; } .mini-heat i[data-l="2"] { background: #006d32; }
+.mini-heat i[data-l="3"] { background: #26a641; } .mini-heat i[data-l="4"] { background: #39d353; }
+@media (max-width: 520px) { .mini-heat { display: none; } .lrow { grid-template-columns: 56px 1fr; } .lrow img { width: 56px; height: 56px; } }
 
 /* ---- protocol flow ---- */
 .flow {
@@ -320,19 +331,21 @@
         <div><b>5–21</b><span>learner ages</span></div>
         <div><b>0</b><span>exams</span></div>
         <div><b>10%</b><span>of fees locked for you</span></div>
-        <div><b>3 of 6</b><span>Council multisig</span></div>
+        <div><b>3 of 6</b><span>keys to move funds</span></div>
       </div>
     </div>
     <div class="cube-stage" id="cubeStage">
       <div class="cube-glow"></div>
       <div class="cube-orbit"></div>
       <div class="cube-tilt" id="cubeTilt">
+        <div class="cube-art" id="cubeArt">
         <picture>
-          <source srcset="assets/cube.webp" type="image/webp">
-          <img src="assets/cube.jpg" alt="An illustrated Rubik's cube whose tiles show learners exploring, building, surfing, coding and holding a Bitcoin block" width="1000" height="1000">
+          <source srcset="assets/cube-base.webp" type="image/webp">
+          <img src="assets/cube-base.jpg" alt="An illustrated Rubik's cube whose tiles show learners exploring, building, surfing and coding" width="1000" height="1000">
         </picture>
+        </div>
       </div>
-      <div class="cube-tag a"><i></i>Bitcoin treasury</div>
+      <div class="cube-tag a"><i></i>Community treasury</div>
       <div class="cube-tag b"><i></i>School Improvement Proposals</div>
       <div class="cube-tag c"><i></i>Explorers Day Out</div>
       <div class="cube-tag d"><i></i>Git portfolio</div>
@@ -345,7 +358,7 @@
   <div class="wrap">
     <div class="eyebrow reveal">Why Consensus21</div>
     <h2 class="h2 reveal">Less like a school.<br>More like a protocol.</h2>
-    <p class="lede reveal">Like Bitcoin itself: no central authority, rules anyone can read, and changes made by consensus of the people who use it.</p>
+    <p class="lede reveal">Like a public blockchain: no central authority, rules anyone can read, and changes made by consensus of the people who use it.</p>
     <div class="pillars">
       <article class="pillar reveal" style="--c:#fde047">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
@@ -355,7 +368,7 @@
       <article class="pillar reveal" style="--c:#f7931a">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
         <h3>Capital, not debt</h3>
-        <p>Tuition is paid in Bitcoin to a community multisig wallet. 10% of every fee is locked for that learner and unlocks at 18, alongside a verifiable portfolio of finished projects.</p>
+        <p>Tuition goes into a community treasury on a public blockchain, secured by shared keys. 10% of every fee is locked for that learner and unlocks at 18, alongside a verifiable portfolio of finished projects.</p>
       </article>
       <article class="pillar reveal" style="--c:#2dd4bf">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75M21 21v-2a4 4 0 0 0-3-3.85"/></svg></div>
@@ -386,7 +399,7 @@
 
     <div class="cores">
       <div class="core reveal"><div class="when">Core · Tuesday</div><h3>Time management</h3><p>Run your own digital calendar, prioritise, audit your time and share your schedule with mentors and parents. Step one: import this week.</p></div>
-      <div class="core reveal"><div class="when">Core · Wednesday</div><h3>Financial literacy &amp; Bitcoin</h3><p>The history of money, setting up a hardware wallet, public and private keys, how transactions work and reading the blockchain.</p></div>
+      <div class="core reveal"><div class="when">Core · Wednesday</div><h3>Financial literacy &amp; blockchain</h3><p>The history of money, public and private keys, holding your own keys safely, how a transaction settles on mainnet and how to read a blockchain.</p></div>
       <div class="core reveal"><div class="when">Core · Friday</div><h3>Reflection &amp; portfolio</h3><p>A Git repository of projects and reflections: a permanent, verifiable record that replaces report cards.</p></div>
     </div>
   </div>
@@ -432,20 +445,9 @@
         <input id="lookupU" placeholder="GitHub username" autocomplete="off" spellcheck="false" aria-label="GitHub username">
         <button class="btn" type="submit">View profile</button>
       </form>
-      <p class="muted reveal" style="font-size:13px;margin-top:10px">Try <a href="profile.html?u=kdnolan">kdnolan</a> or open the <a href="profile.html">sample learner</a>.</p>
+      <p class="muted reveal" style="font-size:13px;margin-top:10px">Or browse the <a href="profile.html">example learners</a>.</p>
     </div>
-    <a class="pf-card reveal" href="profile.html" style="color:inherit">
-      <div class="pf-who">
-        <div class="pf-ava"><div>AL</div></div>
-        <div><h4>Ada Learner</h4><span>@ada-c21 · Explorer, age 12</span></div>
-      </div>
-      <div class="pf-pins">
-        <div class="pf-pin" style="--c:#f1e05a"><b>tide-tracker</b><span><i></i>JavaScript</span></div>
-        <div class="pf-pin" style="--c:#f7931a"><b>sip-004-garden</b><span><i></i>Proposal · voted</span></div>
-      </div>
-      <div class="heat" id="heatPreview" aria-hidden="true"></div>
-      <div class="heat-cap"><span id="heatTotal"></span><span>Less ▪▪▪▪ More</span></div>
-    </a>
+    <div class="roster reveal" id="roster" aria-label="Example learners"></div>
   </div>
 </section>
 
@@ -455,18 +457,18 @@
     <div class="center">
       <div class="eyebrow reveal">How it works</div>
       <h2 class="h2 reveal">Learners leave with capital and a community, not debt</h2>
-      <p class="lede reveal">Parents fund the treasury in Bitcoin. An elected Council holds the keys. Learners elect the Council and keep their own messages and records.</p>
+      <p class="lede reveal">Parents fund a community treasury on the blockchain. An elected Council holds the keys. Learners elect the Council and keep their own messages and records.</p>
     </div>
     <div class="flow reveal">
-      <div class="node" style="grid-area:par;--c:#94a3b8"><b>Parents</b><span>pay tuition directly in Bitcoin</span></div>
+      <div class="node" style="grid-area:par;--c:#94a3b8"><b>Parents</b><span>pay tuition straight into the treasury</span></div>
       <div class="arrow" style="grid-area:a1"><em>tuition</em></div>
-      <div class="node hot" style="grid-area:tre;--c:#f7931a"><b>Community treasury</b><span>Bitcoin multisig wallet · every transaction on-chain</span></div>
+      <div class="node hot" style="grid-area:tre;--c:#f7931a"><b>Community treasury</b><span>shared-key wallet on mainnet · every transaction public</span></div>
       <div class="arrow" style="grid-area:a2"><em>10%</em></div>
       <div class="node hot" style="grid-area:fund;--c:#f7931a"><b>Learner's locked fund</b><span>10% of each fee, unlocks at 18 to start a business</span></div>
       <div class="vline up" style="grid-area:v1"><em>holds the keys</em></div>
       <div class="node" style="grid-area:cou;--c:#fde047"><b>Council of mentors</b><span>elected, fixed terms · 3 of 6 keys to move funds</span></div>
       <div class="vline up" style="grid-area:v2"><em>elect the Council, vote on SIPs</em></div>
-      <div class="node" style="grid-area:nos;--c:#2dd4bf"><b>Nostr messaging</b><span>encrypted, everyone holds their own keys</span></div>
+      <div class="node" style="grid-area:nos;--c:#2dd4bf"><b>Encrypted messaging</b><span>open protocol, everyone holds their own keys</span></div>
       <div class="arrow l" style="grid-area:a3"><em>talk</em></div>
       <div class="node" style="grid-area:lrn;--c:#38bdf8"><b>Learners &amp; mentors</b><span>ages 5 to 21, roles are fluid · projects, not exams</span></div>
       <div class="arrow r2" style="grid-area:a4"><em>record</em></div>
@@ -577,7 +579,9 @@
   </div>
 </footer>
 
-<script src="assets/c21.js?v=2"></script>
+<script src="assets/c21.js?v=3"></script>
+<script src="assets/students.js?v=3"></script>
+<script src="assets/cube-tiles.js?v=1"></script>
 <script>
 function handleSubmit(e) {
   e.preventDefault();
@@ -601,16 +605,84 @@ C21.reveal();
   });
 })();
 
+// the cube's tiles pop, flip and wobble out of their sockets
+(function () {
+  const art = document.getElementById('cubeArt');
+  if (!art || !window.C21_TILES) return;
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const MID = [48, 47];
+  const tiles = C21_TILES.map(t => {
+    const wrap = document.createElement('div');
+    wrap.className = 'tile';
+    const tf = document.createElement('div');
+    tf.className = 'tf';
+    tf.style.clipPath = 'polygon(' + t.p.map(([x, y]) => x + '% ' + y + '%').join(',') + ')';
+    tf.style.transformOrigin = t.c[0] + '% ' + t.c[1] + '%';
+    wrap.appendChild(tf);
+    art.appendChild(wrap);
+    const dx = t.c[0] - MID[0], dy = t.c[1] - MID[1], len = Math.hypot(dx, dy) || 1;
+    const tile = { wrap, tf, ox: dx / len, oy: dy / len, angle: Math.atan2(dy, dx), busy: false };
+    tf.addEventListener('pointerenter', () => play(tile, 'pop'));
+    return tile;
+  });
+
+  const MOVES = {
+    pop: t => [
+      { transform: 'translate(0,0) scale(1)', filter: 'brightness(1)' },
+      { transform: `translate(${t.ox * 14}px, ${t.oy * 14}px) scale(1.14)`, filter: 'brightness(1.25) drop-shadow(0 10px 18px rgba(0,0,0,.6))', offset: .35 },
+      { transform: `translate(${t.ox * 10}px, ${t.oy * 10}px) scale(1.1)`, filter: 'brightness(1.15) drop-shadow(0 8px 14px rgba(0,0,0,.5))', offset: .6 },
+      { transform: 'translate(0,0) scale(1)', filter: 'brightness(1)' }],
+    flip: t => [
+      { transform: 'perspective(600px) translate(0,0) rotateY(0deg) scale(1)' },
+      { transform: `perspective(600px) translate(${t.ox * 18}px, ${t.oy * 18}px) rotateY(180deg) scale(1.12)`, offset: .5 },
+      { transform: 'perspective(600px) translate(0,0) rotateY(360deg) scale(1)' }],
+    roll: t => [
+      { transform: 'perspective(600px) rotateX(0deg)' },
+      { transform: `perspective(600px) translate(${t.ox * 12}px, ${t.oy * 12}px) rotateX(-180deg) scale(1.1)`, offset: .5 },
+      { transform: 'perspective(600px) rotateX(-360deg)' }],
+    wobble: t => [
+      { transform: 'rotate(0) scale(1)' }, { transform: 'rotate(-9deg) scale(1.08)' },
+      { transform: 'rotate(7deg) scale(1.08)' }, { transform: 'rotate(-4deg) scale(1.04)' }, { transform: 'rotate(0) scale(1)' }]
+  };
+  const TIME = { pop: 900, flip: 1100, roll: 1100, wobble: 800 };
+
+  function play(t, kind) {
+    if (t.busy || still) return;
+    t.busy = true;
+    t.wrap.classList.add('lift');
+    const a = t.tf.animate(MOVES[kind](t), { duration: TIME[kind], easing: 'cubic-bezier(.3,.7,.3,1)' });
+    a.onfinish = a.oncancel = () => { t.busy = false; t.wrap.classList.remove('lift'); };
+  }
+  if (still) return;
+
+  const pick = () => tiles[Math.floor(Math.random() * tiles.length)];
+  const kinds = ['pop', 'flip', 'roll', 'wobble', 'pop'];
+  let n = 0;
+  setInterval(() => {
+    if (document.hidden) return;
+    n++;
+    if (n % 9 === 0) {
+      // a wave sweeping round the cube, like a layer being turned
+      const start = Math.random() * Math.PI * 2;
+      [...tiles].sort((a, b) => ((a.angle - start + 7 * Math.PI) % (2 * Math.PI)) - ((b.angle - start + 7 * Math.PI) % (2 * Math.PI)))
+        .forEach((t, i) => setTimeout(() => play(t, 'pop'), i * 70));
+    } else {
+      play(pick(), kinds[Math.floor(Math.random() * kinds.length)]);
+      if (Math.random() < .4) setTimeout(() => play(pick(), 'pop'), 300);
+    }
+  }, 750);
+})();
+
 // journey steps drive the terminal
 (function () {
   const SCRIPTS = [
-    ['~', [['p', '$ '], ['', 'gh repo create ada-c21 --public --add-readme\n'], ['g', '✓ Created repository ada-c21/ada-c21 on GitHub\n'], ['c', '# same name as your username = your profile README\n'], ['p', '$ '], ['', 'gh repo clone ada-c21/ada-c21 && cd ada-c21\n']]],
-    ['~/ada-c21', [['p', '$ '], ['', 'npx degit consensus21school/consensus21school.github.io/template . --force\n'], ['g', '  + c21.json\n  + README.md\n  + projects/  reflections/  explorers/  sips/\n'], ['p', '$ '], ['', 'git add . && git commit -m "Join Consensus21"\n'], ['y', '[main 1a2b3c4] Join Consensus21\n']]],
-    ['~/ada-c21', [['c', '# c21.json\n'], ['', '{\n  '], ['k', '"name"'], ['', ': "Ada Learner",\n  '], ['k', '"stage"'], ['', ': "Explorer",\n  '], ['k', '"week"'], ['', ': {\n    '], ['k', '"blocks"'], ['', ': [ '], ['y', '{ "day": 0, "start": 9, "end": 15,\n      "title": "Explorers Day Out" }'], ['', ', … ]\n  }\n}\n']]],
-    ['~/ada-c21/explorers', [['p', '$ '], ['', 'cp TEMPLATE.md 2026-11-02-boatyard.md\n'], ['c', '# Where: Hastings boatyard\n# Met: a shipwright, 40 years on the job\n# Cost: $12 train + $8 lunch\n# Idea: a tide app for the jetty\n'], ['p', '$ '], ['', 'git commit -am "Explorer: boatyard"\n'], ['y', '[main 5d6e7f8] Explorer: boatyard\n']]],
-    ['~/ada-c21/reflections', [['p', '$ '], ['', 'nano 2026-W45.md\n'], ['c', '## What I finished\n- tide-tracker v0.2 reads the BOM feed\n## What got in the way\n- spent Tue on the wrong API\n## Next week\n- show it at Community Lunch\n'], ['p', '$ '], ['', 'git commit -am "Reflection W45" && git push\n'], ['g', '✓ 1 commit in 1 repository\n']]],
-    ['~/ada-c21/sips', [['p', '$ '], ['', 'cp SIP-TEMPLATE.md sip-004-garden.md\n'], ['c', '# SIP-004: Food garden by the lunch tables\n# Problem: lunch waste, no shade\n# Proposal: 3 raised beds, learner-run\n# Cost: 0.004 BTC from treasury\n'], ['p', '$ '], ['', 'git add . && git commit -m "SIP-004 draft" && git push\n'], ['g', '✓ Pushed. Bring it to Thursday SIP Discussion\n']]],
-    ['~/ada-c21', [['p', '$ '], ['', 'git log --oneline | wc -l\n'], ['y', '2847\n'], ['c', '# six years of projects, reflections and SIPs\n# a record nobody else wrote for you\n'], ['g', '# at 18: your locked fund opens\n# and the community is ready to build\n']]]
+    ['~', [['p', '$ '], ['', 'gh repo create your-name --public --add-readme\n'], ['g', '✓ Created repository your-name/your-name on GitHub\n'], ['c', '# same name as your username = your profile README\n'], ['p', '$ '], ['', 'gh repo clone your-name/your-name && cd your-name\n']]],
+    ['~/your-name', [['p', '$ '], ['', 'npx degit consensus21school/consensus21school.github.io/template . --force\n'], ['g', '  + c21.json\n  + README.md\n  + projects/  reflections/  explorers/  sips/\n'], ['p', '$ '], ['', 'git add . && git commit -m "Join Consensus21"\n'], ['y', '[main 1a2b3c4] Join Consensus21\n']]],
+    ['~/your-name', [['c', '# c21.json\n'], ['', '{\n  '], ['k', '"name"'], ['', ': "Your Name",\n  '], ['k', '"stage"'], ['', ': "Explorer",\n  '], ['k', '"week"'], ['', ': {\n    '], ['k', '"blocks"'], ['', ': [ '], ['y', '{ "day": 0, "start": 9, "end": 15,\n      "title": "Explorers Day Out" }'], ['', ', … ]\n  }\n}\n']]],
+    ['~/your-name/explorers', [['p', '$ '], ['', 'cp TEMPLATE.md 2026-11-02-boatyard.md\n'], ['c', '# Where: Hastings boatyard\n# Met: a shipwright, 40 years on the job\n# Cost: $12 train + $8 lunch\n# Idea: a tide app for the jetty\n'], ['p', '$ '], ['', 'git commit -am "Explorer: boatyard"\n'], ['y', '[main 5d6e7f8] Explorer: boatyard\n']]],
+    ['~/your-name/reflections', [['p', '$ '], ['', 'nano 2026-W45.md\n'], ['c', '## What I finished\n- tide-tracker v0.2 reads the BOM feed\n## What got in the way\n- spent Tue on the wrong API\n## Next week\n- show it at Community Lunch\n'], ['p', '$ '], ['', 'git commit -am "Reflection W45" && git push\n'], ['g', '✓ 1 commit in 1 repository\n']]],
+    ['~/your-name/sips', [['p', '$ '], ['', 'cp SIP-TEMPLATE.md sip-004-garden.md\n'], ['c', '# SIP-004: Food garden by the lunch tables\n# Problem: lunch waste, no shade\n# Proposal: 3 raised beds, learner-run\n# Cost: $180 from the community treasury\n'], ['p', '$ '], ['', 'git add . && git commit -m "SIP-004 draft" && git push\n'], ['g', '✓ Pushed. Bring it to Thursday SIP Discussion\n']]],
+    ['~/your-name', [['p', '$ '], ['', 'git log --oneline | wc -l\n'], ['y', '2847\n'], ['c', '# six years of projects, reflections and SIPs\n# a record nobody else wrote for you\n'], ['g', '# at 18: your locked fund opens\n# and the community is ready to build\n']]]
   ];
   const term = document.getElementById('term'), title = document.getElementById('termTitle');
   const steps = [...document.querySelectorAll('.step')];
@@ -658,22 +730,20 @@ C21.reveal();
   io.observe(document.getElementById('journey'));
 })();
 
-// sample heatmap (deterministic, clearly labelled as a sample)
+// example learners
 (function () {
-  const el = document.getElementById('heatPreview');
-  let seed = 21, total = 0, html = '';
-  const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
-  for (let w = 0; w < 30; w++) for (let d = 0; d < 7; d++) {
-    const weekday = d > 0 && d < 6, r = rnd();
-    let l = 0;
-    if (weekday && r > 0.25) l = r > 0.9 ? 4 : r > 0.72 ? 3 : r > 0.5 ? 2 : 1;
-    else if (!weekday && r > 0.85) l = 1;
-    if (d === 5 && l < 2) l = 2; // reflection Fridays
-    total += l ? l * 2 - 1 : 0;
-    html += `<i data-l="${l}"></i>`;
-  }
-  el.innerHTML = html;
-  document.getElementById('heatTotal').textContent = total + ' commits in the last 30 weeks';
+  document.getElementById('roster').innerHTML = C21_STUDENTS.map(st => {
+    let seed = st.activity.seed, cells = '';
+    const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+    for (let i = 0; i < 64; i++) {
+      const r = rnd(), l = r < st.activity.rate ? 1 + Math.floor(rnd() * 4) : 0;
+      cells += `<i data-l="${l}"></i>`;
+    }
+    return `<a class="lrow" href="profile.html?s=${st.id}" style="--c:${st.color}">
+      <img src="assets/students/${st.id}.svg?v=2" alt="" width="64" height="64">
+      <div><span class="tag">${C21.esc(st.stage)} · age ${st.age}</span><b>${C21.esc(st.name)}</b><small>${C21.esc(st.focus)}</small></div>
+      <div class="mini-heat" aria-hidden="true">${cells}</div></a>`;
+  }).join('');
 })();
 
 document.getElementById('lookup').addEventListener('submit', e => {

@@ -17,9 +17,9 @@
   --paper-2:#F0E8D6;
   --line-ink:#2B3542;
   --line-paper:#DCD2BC;
-  --btc:#F7931A;
-  --btc-soft:#FFB65C;
-  --btc-deep:#B45309;
+  --accent:#F7931A;
+  --accent-soft:#FFB65C;
+  --accent-deep:#B45309;
   --mist:#98A3B3;
   --cloud:#E8EDF4;
   --slate:#5C5442;
@@ -30,7 +30,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'IBM Plex Sans',system-ui,sans-serif;background:var(--ink);color:var(--cloud);line-height:1.65;font-size:17px}
-::selection{background:var(--btc);color:var(--coal)}
+::selection{background:var(--accent);color:var(--coal)}
 h1,h2,h3{font-family:'Archivo',sans-serif;line-height:1.05;letter-spacing:-0.02em}
 .mono{font-family:'IBM Plex Mono',monospace}
 a{color:inherit}
@@ -40,34 +40,34 @@ a{color:inherit}
 nav{position:sticky;top:0;z-index:50;background:rgba(18,22,28,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-ink)}
 .nav-in{max-width:1080px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:24px}
 .brand{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:15px;text-decoration:none;letter-spacing:.04em;display:flex;align-items:center;gap:10px}
-.brand .blk{width:14px;height:14px;background:var(--btc);border-radius:3px;display:inline-block}
-.brand span.n{color:var(--btc)}
+.brand .blk{width:14px;height:14px;background:var(--accent);border-radius:3px;display:inline-block}
+.brand span.n{color:var(--accent)}
 .nav-links{margin-left:auto;display:flex;gap:22px;font-size:14px}
 .nav-links a{text-decoration:none;color:var(--mist);font-family:'IBM Plex Mono',monospace}
-.nav-links a:hover,.nav-links a:focus-visible{color:var(--btc)}
+.nav-links a:hover,.nav-links a:focus-visible{color:var(--accent)}
 @media(max-width:760px){.nav-links{display:none}}
 
 /* ---------- hero ---------- */
 .hero{padding:96px 0 72px;position:relative;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;background:
   radial-gradient(600px 320px at 85% 0%,rgba(247,147,26,.10),transparent 70%);pointer-events:none}
-.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--btc);display:flex;align-items:center;gap:10px}
-.eyebrow::before{content:"";width:26px;height:2px;background:var(--btc)}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--accent)}
 .hero h1{font-size:clamp(44px,7.5vw,84px);font-weight:900;margin:22px 0 22px;max-width:15ch}
-.hero h1 em{font-style:normal;color:var(--btc)}
+.hero h1 em{font-style:normal;color:var(--accent)}
 .hero p.lead{max-width:58ch;color:var(--mist);font-size:19px}
 .cta-row{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
 .btn{font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;text-decoration:none;padding:13px 22px;border-radius:10px;letter-spacing:.02em}
-.btn-fill{background:var(--btc);color:var(--coal)}
-.btn-fill:hover{background:var(--btc-soft)}
+.btn-fill{background:var(--accent);color:var(--coal)}
+.btn-fill:hover{background:var(--accent-soft)}
 .btn-ghost{border:1px solid var(--line-ink);color:var(--cloud)}
-.btn-ghost:hover{border-color:var(--btc);color:var(--btc)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
 
 /* pathway strip */
 .pathway{margin-top:64px;display:grid;grid-template-columns:1fr 1fr 1fr;border:1px solid var(--line-ink);border-radius:var(--radius);overflow:hidden}
 .pathway>div{padding:22px 24px;background:var(--ink-2)}
 .pathway>div+div{border-left:1px solid var(--line-ink)}
-.pathway .k{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--btc)}
+.pathway .k{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
 .pathway h3{font-size:20px;margin:6px 0 4px}
 .pathway p{font-size:14px;color:var(--mist)}
 @media(max-width:760px){.pathway{grid-template-columns:1fr}.pathway>div+div{border-left:none;border-top:1px solid var(--line-ink)}}
@@ -80,10 +80,10 @@ section h2{font-size:clamp(30px,4.5vw,46px);font-weight:900;max-width:22ch}
 .sec-sub{max-width:66ch;margin-top:14px;font-size:18px}
 
 .night{background:var(--ink)}
-.night .sec-num{color:var(--btc)}
+.night .sec-num{color:var(--accent)}
 .night .sec-sub{color:var(--mist)}
 .day{background:var(--paper);color:var(--coal)}
-.day .sec-num{color:var(--btc-deep)}
+.day .sec-num{color:var(--accent-deep)}
 .day .sec-sub{color:var(--slate)}
 .day+.night, .night+.day{border-top:1px solid transparent}
 
@@ -91,7 +91,7 @@ section h2{font-size:clamp(30px,4.5vw,46px);font-weight:900;max-width:22ch}
 .simply{margin:30px 0 8px;border-radius:var(--radius);padding:20px 22px;display:flex;gap:16px;align-items:flex-start}
 .night .simply{background:rgba(247,147,26,.08);border:1px solid rgba(247,147,26,.35)}
 .day .simply{background:#FFF9EE;border:1px solid #EDCB93}
-.simply .tag{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:var(--btc);color:var(--coal);padding:4px 8px;border-radius:5px;white-space:nowrap;margin-top:3px}
+.simply .tag{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:var(--accent);color:var(--coal);padding:4px 8px;border-radius:5px;white-space:nowrap;margin-top:3px}
 .simply p{font-size:17px;font-weight:500}
 .night .simply p{color:var(--cloud)}
 
@@ -100,8 +100,8 @@ section h2{font-size:clamp(30px,4.5vw,46px);font-weight:900;max-width:22ch}
 .card{border-radius:var(--radius);padding:26px 24px}
 .night .card{background:var(--ink-2);border:1px solid var(--line-ink)}
 .day .card{background:#fff;border:1px solid var(--line-paper)}
-.card .k{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--btc)}
-.day .card .k{color:var(--btc-deep)}
+.card .k{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.day .card .k{color:var(--accent-deep)}
 .card h3{font-size:21px;margin:10px 0 8px}
 .card p{font-size:15px}
 .night .card p{color:var(--mist)}
@@ -110,20 +110,20 @@ section h2{font-size:clamp(30px,4.5vw,46px);font-weight:900;max-width:22ch}
 
 /* ---------- journey timeline ---------- */
 .timeline{margin-top:44px;position:relative;display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
-.timeline::before{content:"";position:absolute;top:11px;left:2%;right:2%;height:2px;background:linear-gradient(90deg,var(--line-ink) 0%,var(--line-ink) 58%,var(--btc) 58%,var(--btc) 100%)}
+.timeline::before{content:"";position:absolute;top:11px;left:2%;right:2%;height:2px;background:linear-gradient(90deg,var(--line-ink) 0%,var(--line-ink) 58%,var(--accent) 58%,var(--accent) 100%)}
 .t-stop{position:relative;padding-top:34px}
 .t-stop::before{content:"";position:absolute;top:4px;left:0;width:16px;height:16px;border-radius:50%;background:var(--ink);border:3px solid var(--line-ink)}
-.t-stop.hot::before{border-color:var(--btc);background:var(--btc)}
-.t-stop .age{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--btc);letter-spacing:.08em}
+.t-stop.hot::before{border-color:var(--accent);background:var(--accent)}
+.t-stop .age{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--accent);letter-spacing:.08em}
 .t-stop h3{font-size:18px;margin:6px 0 6px}
 .t-stop p{font-size:14px;color:var(--mist)}
-@media(max-width:900px){.timeline{grid-template-columns:1fr;gap:26px}.timeline::before{left:7px;right:auto;top:2%;bottom:2%;width:2px;height:auto;background:linear-gradient(180deg,var(--line-ink) 0%,var(--line-ink) 58%,var(--btc) 58%,var(--btc) 100%)}.t-stop{padding-top:0;padding-left:36px}}
+@media(max-width:900px){.timeline{grid-template-columns:1fr;gap:26px}.timeline::before{left:7px;right:auto;top:2%;bottom:2%;width:2px;height:auto;background:linear-gradient(180deg,var(--line-ink) 0%,var(--line-ink) 58%,var(--accent) 58%,var(--accent) 100%)}.t-stop{padding-top:0;padding-left:36px}}
 
 /* ---------- timelock visual ---------- */
 .lockbar{margin-top:44px;background:#fff;border:1px solid var(--line-paper);border-radius:var(--radius);padding:30px 28px}
 .lockbar .row{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .blockcell{flex:1;min-width:26px;height:38px;border-radius:6px;background:var(--paper-2);border:1px solid var(--line-paper);position:relative}
-.blockcell.filled{background:var(--btc);border-color:var(--btc-deep)}
+.blockcell.filled{background:var(--accent);border-color:var(--accent-deep)}
 .blockcell .yr{position:absolute;top:44px;left:50%;transform:translateX(-50%);font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--slate)}
 .lock-end{display:flex;flex-direction:column;align-items:center;gap:4px;padding-left:10px}
 .lock-end svg{width:34px;height:34px}
@@ -137,7 +137,7 @@ section h2{font-size:clamp(30px,4.5vw,46px);font-weight:900;max-width:22ch}
 .cmp th,.cmp td{padding:16px 18px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line-ink)}
 .cmp tr:last-child td{border-bottom:none}
 .cmp thead th{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;text-transform:uppercase;background:var(--ink-2)}
-.cmp thead th.c21{color:var(--btc)}
+.cmp thead th.c21{color:var(--accent)}
 .cmp td:first-child{font-weight:600;color:var(--cloud);width:20%}
 .cmp td{color:var(--mist)}
 .cmp td.c21{color:var(--cloud);background:rgba(247,147,26,.05);border-left:1px solid rgba(247,147,26,.25)}
@@ -146,16 +146,16 @@ section h2{font-size:clamp(30px,4.5vw,46px);font-weight:900;max-width:22ch}
 /* ---------- SIP pipeline ---------- */
 .pipe{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px}
 .pipe .step{background:#fff;border:1px solid var(--line-paper);border-radius:var(--radius);padding:22px 20px;position:relative}
-.pipe .step .n{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--btc-deep);letter-spacing:.1em}
+.pipe .step .n{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--accent-deep);letter-spacing:.1em}
 .pipe .step h3{font-size:18px;margin:8px 0 6px}
 .pipe .step p{font-size:14px;color:var(--slate)}
-.pipe .step::after{content:"→";position:absolute;right:-16px;top:50%;transform:translateY(-50%);color:var(--btc-deep);font-size:18px;z-index:2}
+.pipe .step::after{content:"→";position:absolute;right:-16px;top:50%;transform:translateY(-50%);color:var(--accent-deep);font-size:18px;z-index:2}
 .pipe .step:last-child::after{content:""}
 @media(max-width:900px){.pipe{grid-template-columns:1fr}.pipe .step::after{content:"↓";right:auto;left:24px;top:auto;bottom:-22px;transform:none}}
 .keys{display:flex;gap:10px;margin-top:10px}
 .keys svg{width:22px;height:22px}
-.sip-example{margin-top:26px;background:#fff;border:1px dashed var(--btc-deep);border-radius:var(--radius);padding:20px 22px;font-size:15px;color:var(--slate)}
-.sip-example .mono{color:var(--btc-deep);font-weight:600}
+.sip-example{margin-top:26px;background:#fff;border:1px dashed var(--accent-deep);border-radius:var(--radius);padding:20px 22px;font-size:15px;color:var(--slate)}
+.sip-example .mono{color:var(--accent-deep);font-weight:600}
 
 /* ---------- OLP band ---------- */
 .olp{background:var(--ink-2);border-top:1px solid var(--line-ink);border-bottom:1px solid var(--line-ink)}
@@ -168,10 +168,10 @@ section h2{font-size:clamp(30px,4.5vw,46px);font-weight:900;max-width:22ch}
 .map-shell{margin-top:44px;background:var(--ink-2);border:1px solid var(--line-ink);border-radius:var(--radius);padding:18px}
 .map-shell svg{width:100%;height:auto;display:block}
 .map-dots circle{fill:var(--map-dot)}
-.node-pt{fill:var(--btc)}
-.node-ring{fill:none;stroke:var(--btc);stroke-width:1.5;opacity:.8;transform-origin:center;animation:ping 2.6s ease-out infinite}
+.node-pt{fill:var(--accent)}
+.node-ring{fill:none;stroke:var(--accent);stroke-width:1.5;opacity:.8;transform-origin:center;animation:ping 2.6s ease-out infinite}
 @keyframes ping{0%{transform:scale(.4);opacity:.9}80%{transform:scale(2.6);opacity:0}100%{opacity:0}}
-.arc{fill:none;stroke:var(--btc);stroke-width:1.1;stroke-dasharray:3 5;opacity:.55;animation:flow 2.4s linear infinite}
+.arc{fill:none;stroke:var(--accent);stroke-width:1.1;stroke-dasharray:3 5;opacity:.55;animation:flow 2.4s linear infinite}
 @keyframes flow{to{stroke-dashoffset:-16}}
 .map-label{font-family:'IBM Plex Mono',monospace;font-size:11.5px;fill:var(--cloud)}
 .map-label.dim{fill:var(--mist)}
@@ -180,7 +180,7 @@ section h2{font-size:clamp(30px,4.5vw,46px);font-weight:900;max-width:22ch}
 .node-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
 .node-card{background:var(--ink-2);border:1px solid var(--line-ink);border-radius:12px;padding:16px 16px}
 .node-card .st{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:5px;display:inline-block}
-.st.genesis{background:var(--btc);color:var(--coal)}
+.st.genesis{background:var(--accent);color:var(--coal)}
 .st.prospect{border:1px solid var(--line-ink);color:var(--mist)}
 .node-card h3{font-size:16px;margin:9px 0 4px}
 .node-card p{font-size:13px;color:var(--mist)}
@@ -191,9 +191,9 @@ section h2{font-size:clamp(30px,4.5vw,46px);font-weight:900;max-width:22ch}
 footer{border-top:1px solid var(--line-ink);padding:44px 0 56px;background:var(--ink)}
 footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:14px;color:var(--mist)}
 footer a{color:var(--mist)}
-footer a:hover{color:var(--btc)}
+footer a:hover{color:var(--accent)}
 .foot-links{display:flex;flex-direction:column;gap:8px}
-.btn:focus-visible,a:focus-visible{outline:2px solid var(--btc);outline-offset:3px;border-radius:4px}
+.btn:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
 </style>
 </head>
 <body>
@@ -246,7 +246,7 @@ footer a:hover{color:var(--btc)}
 <section class="day" id="what">
   <div class="wrap">
     <div class="sec-head"><span class="sec-num mono">01</span><h2>What is Consensus 21?</h2></div>
-    <p class="sec-sub">Consensus 21 works the way Bitcoin works — but for school. No single company owns it. Instead, every campus (a <strong>node</strong>) runs the same open playbook, and the playbook only changes when the community agrees. A great idea at one node can spread to every node on Earth.</p>
+    <p class="sec-sub">Consensus 21 works the way a public blockchain works — but for school. No single company owns it. Instead, every campus (a <strong>node</strong>) runs the same open playbook, and the playbook only changes when the community agrees. A great idea at one node can spread to every node on Earth.</p>
 
     <div class="simply">
       <span class="tag">Simply put</span>
@@ -288,7 +288,7 @@ footer a:hover{color:var(--btc)}
       <div class="t-stop">
         <div class="age">Ages 5–9</div>
         <h3>Explore</h3>
-        <p>Reading, numbers, making and play. First savings, first sats, first ideas. Curiosity is the curriculum.</p>
+        <p>Reading, numbers, making and play. First savings, first keys, first ideas. Curiosity is the curriculum.</p>
       </div>
       <div class="t-stop">
         <div class="age">Ages 10–13</div>
@@ -318,11 +318,11 @@ footer a:hover{color:var(--btc)}
 <section class="day" id="timelock">
   <div class="wrap">
     <div class="sec-head"><span class="sec-num mono">03</span><h2>The timelock: a piggy bank with a clock instead of a key</h2></div>
-    <p class="sec-sub">From the day a learner enrols, contributions are set aside into their personal fund. The fund is secured with a Bitcoin timelock — a rule written into the money itself that says <em>"this cannot be spent before graduation."</em> Not by the school. Not by parents. Not by a bank. Nobody.</p>
+    <p class="sec-sub">From the day a learner enrols, contributions are set aside into their personal fund. The fund is secured with a timelock on the blockchain — a rule written into the money itself that says <em>"this cannot be spent before graduation."</em> Not by the school. Not by parents. Not by a bank. Nobody.</p>
 
     <div class="simply">
       <span class="tag">Simply put</span>
-      <p>Money is saved for you every year you're at school, and the maths of Bitcoin keeps it locked until the day you graduate — then it's yours, to start something real.</p>
+      <p>Money is saved for you every year you're at school, and the maths of the blockchain keeps it locked until the day you graduate — then it's yours, to start something real.</p>
     </div>
 
     <div class="lockbar" aria-label="Timelock diagram: funds accumulate each year from age 5 and unlock at age 16">
@@ -368,8 +368,8 @@ footer a:hover{color:var(--btc)}
 <!-- 04 COMPARE -->
 <section class="night" id="compare">
   <div class="wrap">
-    <div class="sec-head"><span class="sec-num mono">04</span><h2>Like Alpha School — for Bitcoiners</h2></div>
-    <p class="sec-sub">Alpha School proved that mastery academics can be compressed into a couple of focused hours a day, freeing afternoons for real-world skills. Consensus 21 shares that DNA — then adds three things Alpha doesn't: financial literacy and Bitcoin as a core pillar, a timelocked graduation fund, and an open protocol nobody owns.</p>
+    <div class="sec-head"><span class="sec-num mono">04</span><h2>Like Alpha School — built on open protocols</h2></div>
+    <p class="sec-sub">Alpha School proved that mastery academics can be compressed into a couple of focused hours a day, freeing afternoons for real-world skills. Consensus 21 shares that DNA — then adds three things Alpha doesn't: financial literacy and blockchain as a core pillar, a timelocked graduation fund, and an open protocol nobody owns.</p>
 
     <div class="simply">
       <span class="tag">Simply put</span>
@@ -395,7 +395,7 @@ footer a:hover{color:var(--btc)}
           <tr>
             <td>Money</td>
             <td>Entrepreneurship features in workshops</td>
-            <td class="c21">Financial literacy is a core pillar from age 5 — saving, earning, verifying, and understanding Bitcoin as open money</td>
+            <td class="c21">Financial literacy is a core pillar from age 5 — saving, earning, verifying, and understanding open money on a public blockchain</td>
           </tr>
           <tr>
             <td>Graduation</td>
@@ -410,7 +410,7 @@ footer a:hover{color:var(--btc)}
           <tr>
             <td>Governance</td>
             <td>Private company decides the model</td>
-            <td class="c21">Community decides via SIPs: TED-style pitches, open review, 3-of-6 multisig sign-off</td>
+            <td class="c21">Community decides via SIPs: TED-style pitches, open review, 3-of-6 key sign-off</td>
           </tr>
           <tr>
             <td>Openness</td>
@@ -427,7 +427,7 @@ footer a:hover{color:var(--btc)}
 <section class="day" id="sips">
   <div class="wrap">
     <div class="sec-head"><span class="sec-num mono">05</span><h2>SIPs: how the school upgrades itself</h2></div>
-    <p class="sec-sub">Bitcoin improves through BIPs — Bitcoin Improvement Proposals. Consensus 21 improves through <strong>SIPs — School Improvement Proposals.</strong> Anyone can raise one: a seven-year-old obsessed with beekeeping, a parent who's a paramedic, a local welder, a visiting founder. If the community backs it, it becomes part of the living curriculum at that node — and any node in the network can adopt it.</p>
+    <p class="sec-sub">Open protocols improve through public improvement proposals. Consensus 21 improves through <strong>SIPs — School Improvement Proposals.</strong> Anyone can raise one: a seven-year-old obsessed with beekeeping, a parent who's a paramedic, a local welder, a visiting founder. If the community backs it, it becomes part of the living curriculum at that node — and any node in the network can adopt it.</p>
 
     <div class="simply">
       <span class="tag">Simply put</span>
@@ -447,7 +447,7 @@ footer a:hover{color:var(--btc)}
       </div>
       <div class="step">
         <div class="n">SIP-03 · SIGN</div>
-        <h3>3-of-6 multisig</h3>
+        <h3>3-of-6 keys</h3>
         <p>Six key-holders drawn from the school community hold signing keys. Any three signatures approve the proposal — no single person can force or block a change alone.</p>
         <div class="keys" aria-label="Six keys, three required">
           <svg viewBox="0 0 24 24" fill="none" stroke="#B45309" stroke-width="2.4" aria-hidden="true"><circle cx="8" cy="14" r="4"/><path d="M11 11 20 2m-4 2 3 3"/></svg>
@@ -491,7 +491,7 @@ footer a:hover{color:var(--btc)}
 
     <div class="simply">
       <span class="tag">Simply put</span>
-      <p>Seven places, one school. Move between them and everything still counts — like your Bitcoin working in any wallet.</p>
+      <p>Seven places, one school. Move between them and everything still counts — like your keys working in any wallet.</p>
     </div>
 
     <div class="map-shell">
@@ -549,7 +549,7 @@ footer a:hover{color:var(--btc)}
       <div class="node-card">
         <span class="st prospect">Prospective</span>
         <h3>Texas, USA</h3>
-        <p>The heart of American Bitcoin culture — and Alpha School's home turf — makes a natural node.</p>
+        <p>A hub of open-source and blockchain builders — and Alpha School's home turf — makes a natural node.</p>
       </div>
       <div class="node-card">
         <span class="st prospect">Prospective</span>
@@ -559,7 +559,7 @@ footer a:hover{color:var(--btc)}
       <div class="node-card">
         <span class="st prospect">Prospective</span>
         <h3>El Salvador</h3>
-        <p>The first nation to make Bitcoin legal tender — a node where the curriculum matches the currency.</p>
+        <p>A nation already running public money on mainnet — a node where the curriculum matches the currency.</p>
       </div>
       <div class="node-card">
         <span class="st prospect">Prospective</span>
