@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start your journey · Consensus21.School</title>
+<meta name="description" content="Set up your Consensus21 learner profile and portfolio on GitHub in a few minutes.">
+<meta name="theme-color" content="#081b2a">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/c21.css?v=2">
+<style>
+.head { padding: 72px 0 40px; display: grid; grid-template-columns: 1fr 260px; gap: 40px; align-items: center; }
+.head h1 { font-size: clamp(36px, 5.4vw, 60px); line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 16px; }
+.head img { width: 100%; border-radius: 40px; animation: float 8s ease-in-out infinite; }
+@keyframes float { 50% { transform: translateY(-10px) rotate(1.5deg); } }
+.guide { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; padding-bottom: 40px; }
+.card { min-width: 0; border: 1px solid var(--line-2); border-radius: 18px; padding: 24px 26px; background: rgba(15,42,64,.55); }
+.card.wide { grid-column: 1 / -1; }
+.card .n { font: 700 12px var(--mono); color: var(--c, var(--orange)); letter-spacing: .14em; }
+.card h2 { font-size: 21px; margin: 6px 0 10px; }
+.card p, .card li { color: var(--text-2); font-size: 15px; }
+.card ol, .card ul { padding-left: 20px; display: grid; gap: 6px; margin-top: 8px; }
+code { font-family: var(--mono); font-size: .9em; color: var(--orange-2); background: rgba(247,147,26,.08); padding: 1px 6px; border-radius: 5px; }
+.code { position: relative; margin-top: 14px; }
+.code pre { background: #06131f; border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; overflow-x: auto; font: 13px/1.7 var(--mono); color: #cfe0f0; }
+.code button { position: absolute; top: 8px; right: 8px; font: 600 11px var(--mono); padding: 5px 10px; border-radius: 7px; border: 1px solid var(--line-2); background: #0b2032; color: var(--text-2); cursor: pointer; }
+.code button:hover { color: var(--orange); border-color: var(--orange); }
+.tree { font: 13.5px/1.9 var(--mono); color: var(--text-2); }
+.tree b { color: var(--text); font-weight: 600; }
+.tree span { color: var(--muted); }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 14px; }
+th, td { text-align: left; padding: 9px 10px; border-top: 1px solid var(--line); vertical-align: top; }
+th { color: var(--muted); font: 600 11px var(--mono); letter-spacing: .1em; text-transform: uppercase; border-top: 0; }
+td:first-child { white-space: nowrap; }
+td { color: var(--text-2); }
+.ctas { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+@media (max-width: 820px) { .head { grid-template-columns: 1fr; } .head img { width: 160px; order: -1; } .guide { grid-template-columns: minmax(0, 1fr); } }
+</style>
+</head>
+<body>
+<div class="stars" aria-hidden="true"></div>
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html"><img src="assets/icon-192.png" alt=""><span>Consensus21<b>.School</b></span></a>
+    <div class="nav-links">
+      <a href="index.html#week">The week</a>
+      <a href="profile.html">Sample profile</a>
+      <a class="btn sm" href="index.html#contact">Register interest</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+  <header class="head">
+    <div>
+      <div class="eyebrow">Learner template</div>
+      <h1>Start your learning journey</h1>
+      <p class="lede">Your portfolio lives in Git, in a repository you own. Set it up once and everything you commit (projects, reflections, Explorers Days, SIPs) shows up on your Consensus21 profile.</p>
+      <div class="ctas">
+        <a class="btn" href="https://github.com/signup" target="_blank" rel="noopener">Create a GitHub account</a>
+        <a class="btn ghost" href="profile.html">See a sample profile</a>
+      </div>
+    </div>
+    <img src="assets/icon-512.png" alt="">
+  </header>
+
+  <div class="guide">
+    <section class="card" style="--c:#f7931a">
+      <div class="n">STEP 01</div>
+      <h2>Make your profile repository</h2>
+      <p>On GitHub, create a new <b>public</b> repository with <b>exactly the same name as your username</b>. GitHub treats it as special: its README becomes the front page of your profile.</p>
+      <div class="code"><pre>gh repo create YOUR-USERNAME --public --clone
+cd YOUR-USERNAME</pre><button type="button">Copy</button></div>
+    </section>
+
+    <section class="card" style="--c:#fde047">
+      <div class="n">STEP 02</div>
+      <h2>Copy in the template</h2>
+      <p>This pulls the starter files from the Consensus21 site into your repo. Prefer clicking? Download them from the <a href="https://github.com/consensus21school/consensus21school.github.io/tree/main/template" target="_blank" rel="noopener">template folder</a> instead.</p>
+      <div class="code"><pre>npx degit consensus21school/consensus21school.github.io/template . --force
+git add . && git commit -m "Join Consensus21" && git push</pre><button type="button">Copy</button></div>
+    </section>
+
+    <section class="card" style="--c:#2dd4bf">
+      <div class="n">STEP 03</div>
+      <h2>Fill in <code>c21.json</code></h2>
+      <p>Your name, stage, mentors and a sentence about you. Then open your profile:</p>
+      <div class="code"><pre>https://consensus21.school/profile.html?u=YOUR-USERNAME</pre><button type="button">Copy</button></div>
+    </section>
+
+    <section class="card" style="--c:#38bdf8">
+      <div class="n">STEP 04</div>
+      <h2>Plan your week</h2>
+      <p>Import the default week into your own calendar app. That's the first job in the Time Management program. As your week changes, put your version in the <code>week</code> block of <code>c21.json</code>.</p>
+      <div class="ctas"><button class="btn ghost sm" id="icsBtn" type="button">Download the default week (.ics)</button></div>
+    </section>
+
+    <section class="card wide" style="--c:#c084fc">
+      <div class="n">WHAT'S IN THE TEMPLATE</div>
+      <h2>Your repository</h2>
+      <div class="tree">
+<b>YOUR-USERNAME/</b><br>
+├── <b>README.md</b> <span>· your GitHub profile front page</span><br>
+├── <b>c21.json</b> <span>· feeds your Consensus21 profile</span><br>
+├── <b>projects/</b> <span>· a note on each thing you're building (the code lives in its own repos)</span><br>
+├── <b>reflections/</b> <span>· one file a week, written on Fridays · TEMPLATE.md</span><br>
+├── <b>explorers/</b> <span>· one file per Explorers Day Out · TEMPLATE.md</span><br>
+└── <b>sips/</b> <span>· School Improvement Proposals you write · SIP-TEMPLATE.md</span>
+      </div>
+    </section>
+
+    <section class="card wide" style="--c:#a3e635">
+      <div class="n">REFERENCE</div>
+      <h2><code>c21.json</code> fields</h2>
+      <table>
+        <tr><th>Field</th><th>What it does</th></tr>
+        <tr><td><code>name</code>, <code>headline</code>, <code>about</code></td><td>Shown at the top of your profile.</td></tr>
+        <tr><td><code>stage</code></td><td>Where you're up to, for example Explorer, Builder, Mentor.</td></tr>
+        <tr><td><code>mentors</code></td><td>GitHub usernames of your mentors. Each links to their profile.</td></tr>
+        <tr><td><code>pinned</code></td><td>Repository names to show first. Leave empty to show your most-starred.</td></tr>
+        <tr><td><code>programs</code></td><td>Progress (0–100) in each core program. Agree the numbers with your mentor.</td></tr>
+        <tr><td><code>explorers</code>, <code>reflections</code></td><td>A list of <code>{ date, title, path, note }</code>. <code>path</code> points at the markdown file in your repo.</td></tr>
+        <tr><td><code>sips</code></td><td>A list of <code>{ id, title, status, note, path }</code>. Status: draft, discussion, voting, accepted, rejected or withdrawn.</td></tr>
+        <tr><td><code>week</code></td><td><code>null</code> for the default week, or your own: <code>{ "days": [...], "start": 8, "end": 17, "blocks": [{ "day": 0, "start": 9, "end": 15, "title": "Explorers Day Out", "type": "explore", "note": "optional" }] }</code>. Types: fit, explore, core, ai, sip, pbl, community, unschool.</td></tr>
+      </table>
+    </section>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-bottom" style="padding-top:0">
+      <p>&copy; 2026 Consensus21.School</p>
+      <p><a href="index.html">Home</a> · <a href="profile.html">Profiles</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/c21.js?v=2"></script>
+<script>
+document.getElementById('icsBtn').addEventListener('click', () => C21.downloadICS());
+document.querySelectorAll('.code button').forEach(b => b.addEventListener('click', () => {
+  navigator.clipboard.writeText(b.previousElementSibling.textContent).then(() => {
+    b.textContent = 'Copied'; setTimeout(() => b.textContent = 'Copy', 1500);
+  });
+}));
+</script>
+</body>
+</html>

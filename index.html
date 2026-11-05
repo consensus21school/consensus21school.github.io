@@ -3,59 +3,236 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Consensus21.School</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23f7931a'/%3E%3Ctext x='32' y='38' text-anchor='middle' font-family='Arial,sans-serif' font-weight='900' font-size='22' fill='white'%3EC21%3C/text%3E%3C/svg%3E">
+<title>Consensus21.School · An open learning protocol, ages 5–21</title>
+<meta name="description" content="Consensus21 is an open-source protocol for running a school: student voice, capital instead of debt, mentors instead of teachers, and a Git portfolio instead of report cards. Campus 01, Mount Martha VIC.">
+<meta name="theme-color" content="#081b2a">
+<meta property="og:title" content="Consensus21.School">
+<meta property="og:description" content="A decentralised learning protocol for the future of education. Ages 5–21.">
+<meta property="og:image" content="https://consensus21.school/assets/og.jpg">
+<meta property="og:url" content="https://consensus21.school/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/c21.css?v=2">
 <style>
-:root {
-  --bg-dark: #0c1220;
-  --bg-section: #111827;
-  --bg-card: #1a2332;
-  --orange: #f7931a;
-  --orange-glow: rgba(247, 147, 26, 0.25);
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-  --border: rgba(148, 163, 184, 0.1);
-  --border-hover: rgba(247, 147, 26, 0.3);
-  --radius: 12px;
-  --radius-sm: 8px;
-  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* ---- hero ---- */
+.hero { padding: 56px 0 40px; min-height: calc(100vh - 60px); display: flex; align-items: center; }
+.hero-in { display: grid; grid-template-columns: 1.05fr 1fr; gap: 40px; align-items: center; }
+.hero h1 {
+  font-size: clamp(42px, 6.6vw, 82px); line-height: 1.0; letter-spacing: -0.035em; font-weight: 800;
+  margin: 6px 0 22px;
 }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Outfit', sans-serif;
-  background: var(--bg-dark);
-  color: var(--text-primary);
-  line-height: 1.7;
-  overflow-x: hidden;
+.hero h1 .grad {
+  background: linear-gradient(100deg, #f7931a 0%, #fde047 30%, #2dd4bf 60%, #38bdf8 80%, #c084fc 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  background-size: 200% 100%; animation: shimmer 10s ease-in-out infinite alternate;
 }
-a { color: var(--orange); text-decoration: none; transition: color var(--transition); }
-a:hover { color: #ffa940; }
+@keyframes shimmer { to { background-position: 100% 0; } }
+.hero p.lede { font-size: 19px; margin-bottom: 30px; }
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+.hero-facts { display: grid; grid-template-columns: repeat(4, auto); gap: 8px 28px; justify-content: start; }
+.hero-facts div { border-left: 2px solid var(--line-2); padding-left: 12px; }
+.hero-facts b { display: block; font-family: var(--mono); font-size: 20px; color: var(--text); font-weight: 600; }
+.hero-facts span { font-size: 13px; color: var(--muted); }
 
-/* ---- MAP HERO ---- */
-.map-hero {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  min-height: 600px;
-  overflow: hidden;
-  background: #0d1117;
+.cube-stage { position: relative; aspect-ratio: 1; perspective: 1200px; }
+.cube-glow {
+  position: absolute; inset: 12%; border-radius: 50%;
+  background: radial-gradient(circle, rgba(247,147,26,.28), rgba(192,132,252,.12) 45%, transparent 70%);
+  filter: blur(30px); animation: breathe 7s ease-in-out infinite;
 }
-.map-mover {
-  position: absolute;
-  top: -120px; left: -120px;
-  width: calc(100% + 240px);
-  height: calc(100% + 240px);
-  animation: mapDrift 30s ease-in-out infinite;
+@keyframes breathe { 50% { transform: scale(1.08); opacity: .75; } }
+.cube-orbit {
+  position: absolute; inset: 4%; border-radius: 50%;
+  border: 1px dashed rgba(247,147,26,.25);
+  animation: spin 60s linear infinite;
 }
-.map-mover iframe {
-  width: 100%; height: 100%;
-  border: none;
-  filter: saturate(0.25) brightness(0.5) contrast(1.15);
+.cube-orbit::before, .cube-orbit::after {
+  content: ""; position: absolute; width: 10px; height: 10px; border-radius: 50%;
+  background: var(--orange); box-shadow: 0 0 16px var(--orange); top: -5px; left: 50%;
 }
+.cube-orbit::after { background: #38bdf8; box-shadow: 0 0 16px #38bdf8; top: auto; bottom: -5px; width: 7px; height: 7px; }
+.cube-tilt { position: absolute; inset: 0; transform-style: preserve-3d; transition: transform .6s cubic-bezier(.2,.7,.3,1); }
+.cube-tilt img {
+  width: 100%; height: 100%; object-fit: contain;
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 52%, transparent 70%);
+  mask-image: radial-gradient(circle at 50% 50%, #000 52%, transparent 70%);
+  animation: float 8s ease-in-out infinite;
+}
+@keyframes float { 50% { transform: translateY(-14px) rotate(1.2deg); } }
+.cube-tag {
+  position: absolute; font: 600 11px var(--mono); letter-spacing: .08em; color: var(--text);
+  background: rgba(8,27,42,.82); border: 1px solid var(--line-2); padding: 6px 11px; border-radius: 999px;
+  backdrop-filter: blur(8px); white-space: nowrap; animation: float 9s ease-in-out infinite;
+}
+.cube-tag i { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 7px; background: var(--c); box-shadow: 0 0 10px var(--c); }
+.cube-tag.a { top: 14%; left: -2%; --c: #f7931a; }
+.cube-tag.b { top: 30%; right: -4%; --c: #fde047; animation-delay: -3s; }
+.cube-tag.c { bottom: 18%; left: 2%; --c: #38bdf8; animation-delay: -5s; }
+.cube-tag.d { bottom: 8%; right: 6%; --c: #fb7185; animation-delay: -2s; }
+
+@media (max-width: 920px) {
+  .hero { min-height: 0; padding-top: 28px; }
+  .hero-in { grid-template-columns: 1fr; }
+  .cube-stage { max-width: 460px; width: 100%; margin: 0 auto; order: -1; }
+  .hero-facts { grid-template-columns: repeat(2, auto); }
+  .cube-tag { font-size: 9.5px; padding: 5px 9px; }
+  .cube-tag.a { left: 0; } .cube-tag.b { right: 0; top: 34%; }
+}
+
+/* ---- pillars ---- */
+.band { padding: 110px 0; }
+.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 48px; }
+.pillar {
+  position: relative; padding: 30px 28px 32px; border-radius: 20px;
+  background: linear-gradient(180deg, var(--card), rgba(15,42,64,.4));
+  border: 1px solid var(--line); overflow: hidden;
+  transition: transform .3s var(--ease), border-color .3s var(--ease);
+}
+.pillar:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--c) 55%, transparent); }
+.pillar::before {
+  content: ""; position: absolute; top: -60px; right: -60px; width: 180px; height: 180px; border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--c) 30%, transparent), transparent 70%);
+}
+.pillar .ico { width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; margin-bottom: 20px;
+  background: color-mix(in srgb, var(--c) 16%, transparent); color: var(--c); border: 1px solid color-mix(in srgb, var(--c) 40%, transparent); }
+.pillar .ico svg { width: 22px; height: 22px; }
+.pillar h3 { font-size: 22px; margin-bottom: 10px; letter-spacing: -0.01em; }
+.pillar p { color: var(--text-2); font-size: 15.5px; }
+@media (max-width: 860px) { .pillars { grid-template-columns: 1fr; } }
+
+/* ---- week ---- */
+.week-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-bottom: 36px; }
+.week-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* ---- core programs ---- */
+.cores { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; }
+.core { padding: 26px; border-radius: 18px; background: rgba(15,42,64,.55); border: 1px solid var(--line); }
+.core .when { font: 600 11px var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--orange); }
+.core h3 { font-size: 20px; margin: 8px 0 8px; }
+.core p { color: var(--text-2); font-size: 15px; }
+@media (max-width: 860px) { .cores { grid-template-columns: 1fr; } }
+
+/* ---- journey ---- */
+.journey { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; margin-top: 48px; }
+.steps { list-style: none; position: relative; }
+.steps::before { content: ""; position: absolute; left: 21px; top: 12px; bottom: 12px; width: 2px;
+  background: linear-gradient(var(--orange), #fde047, #2dd4bf, #38bdf8, #c084fc, #fb7185); opacity: .5; }
+.step { position: relative; padding: 0 0 26px 64px; cursor: pointer; }
+.step .n {
+  position: absolute; left: 0; top: 0; width: 44px; height: 44px; border-radius: 12px;
+  display: grid; place-items: center; font: 700 14px var(--mono);
+  background: var(--bg-2); border: 1px solid var(--line-2); color: var(--text-2);
+  transition: all .3s var(--ease);
+}
+.step h3 { font-size: 18px; margin: 9px 0 4px; transition: color .3s var(--ease); }
+.step p { color: var(--muted); font-size: 15px; max-height: 0; overflow: hidden; transition: max-height .4s var(--ease), color .3s; }
+.step.on .n { background: var(--c); color: #111; border-color: var(--c); box-shadow: 0 0 24px color-mix(in srgb, var(--c) 50%, transparent); }
+.step.on p { max-height: 160px; color: var(--text-2); }
+.step:hover h3 { color: var(--c); }
+
+.term {
+  position: sticky; top: 90px;
+  border-radius: 16px; overflow: hidden; border: 1px solid var(--line-2);
+  background: #06131f; box-shadow: 0 40px 90px -30px rgba(0,0,0,.8);
+}
+.term-bar { display: flex; align-items: center; gap: 7px; padding: 12px 14px; background: #0b2032; border-bottom: 1px solid var(--line); }
+.term-bar i { width: 11px; height: 11px; border-radius: 50%; background: #ef4444; }
+.term-bar i:nth-child(2) { background: #f59e0b; } .term-bar i:nth-child(3) { background: #22c55e; }
+.term-bar span { margin-left: 10px; font: 500 12px var(--mono); color: var(--muted); }
+.term pre {
+  margin: 0; padding: 20px 20px 24px; min-height: 340px; font: 13.5px/1.75 var(--mono); color: #cfe0f0;
+  white-space: pre-wrap; word-break: break-word;
+}
+.term .p { color: var(--orange); } .term .c { color: var(--muted); } .term .g { color: #4ade80; } .term .k { color: #38bdf8; } .term .y { color: #fde047; }
+.caret { display: inline-block; width: 8px; height: 16px; background: var(--orange); vertical-align: -3px; animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+@media (max-width: 920px) { .journey { grid-template-columns: 1fr; } .term { position: relative; top: 0; } }
+
+/* ---- portfolio preview ---- */
+.pf { display: grid; grid-template-columns: 1fr 1.25fr; gap: 48px; align-items: center; }
+.pf-card {
+  border-radius: 20px; border: 1px solid var(--line-2); background: #0a1e2f; padding: 22px;
+  box-shadow: 0 40px 90px -30px rgba(0,0,0,.7); position: relative;
+}
+.pf-card::after { content: "SAMPLE"; position: absolute; top: 16px; right: 18px; font: 700 10px var(--mono); letter-spacing: .14em; color: var(--muted); }
+.pf-who { display: flex; gap: 16px; align-items: center; margin-bottom: 18px; }
+.pf-ava { width: 64px; height: 64px; border-radius: 50%; background: conic-gradient(from 200deg, #f7931a, #fde047, #2dd4bf, #38bdf8, #c084fc, #fb7185, #f7931a); padding: 3px; flex: none; }
+.pf-ava div { width: 100%; height: 100%; border-radius: 50%; background: #0a1e2f; display: grid; place-items: center; font: 700 20px var(--mono); }
+.pf-who h4 { font-size: 20px; line-height: 1.2; }
+.pf-who span { color: var(--muted); font-family: var(--mono); font-size: 13px; }
+.pf-pins { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 18px; }
+.pf-pin { border: 1px solid var(--line-2); border-radius: 10px; padding: 12px 14px; font-size: 13px; }
+.pf-pin b { color: #58a6ff; font-size: 14px; display: block; margin-bottom: 4px; }
+.pf-pin span { color: var(--muted); display: flex; align-items: center; gap: 6px; }
+.pf-pin span i { width: 10px; height: 10px; border-radius: 50%; background: var(--c); }
+.heat { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, 1fr); gap: 3px; }
+.heat i { aspect-ratio: 1; border-radius: 2px; background: #10283c; }
+.heat i[data-l="1"] { background: #0e4429; } .heat i[data-l="2"] { background: #006d32; }
+.heat i[data-l="3"] { background: #26a641; } .heat i[data-l="4"] { background: #39d353; }
+.heat-cap { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-top: 10px; }
+.lookup { display: flex; gap: 8px; margin-top: 26px; max-width: 460px; }
+.lookup input {
+  flex: 1; min-width: 0; padding: 12px 16px; border-radius: 999px; border: 1px solid var(--line-2);
+  background: rgba(255,255,255,.04); color: var(--text); font: 15px var(--mono); outline: none;
+}
+.lookup input:focus { border-color: var(--orange); }
+.pf ul { list-style: none; margin-top: 20px; display: grid; gap: 10px; }
+.pf li { display: flex; gap: 12px; color: var(--text-2); }
+.pf li::before { content: "→"; color: var(--orange); font-family: var(--mono); }
+@media (max-width: 920px) { .pf { grid-template-columns: 1fr; } }
+
+/* ---- protocol flow ---- */
+.flow {
+  margin-top: 48px; display: grid; gap: 0;
+  grid-template-columns: 1fr 120px 1.1fr 120px 1fr;
+  grid-template-areas:
+    "par  a1   tre  a2   fund"
+    ".    .    v1   .    ."
+    ".    .    cou  .    ."
+    ".    .    v2   .    ."
+    "nos  a3   lrn  a4   git";
+  align-items: center;
+}
+.node {
+  padding: 18px 20px; border-radius: 16px; text-align: center;
+  background: var(--card); border: 1px solid color-mix(in srgb, var(--c, #94a3b8) 45%, transparent);
+  box-shadow: 0 0 40px -18px var(--c, transparent);
+}
+.node b { display: block; font-size: 17px; margin-bottom: 2px; }
+.node span { color: var(--text-2); font-size: 13.5px; line-height: 1.45; display: block; }
+.node.hot { background: linear-gradient(160deg, rgba(247,147,26,.2), var(--card)); }
+.arrow { position: relative; height: 2px; background: linear-gradient(90deg, var(--line-2), var(--orange)); margin: 0 8px; }
+.arrow::after { content: ""; position: absolute; right: -1px; top: -5px; border: 6px solid transparent; border-left: 8px solid var(--orange); border-right: 0; }
+.arrow.l { background: linear-gradient(270deg, var(--line-2), #2dd4bf); }
+.arrow.l::after { right: auto; left: -1px; border-left: 0; border-right: 8px solid #2dd4bf; }
+.arrow.r2 { background: linear-gradient(90deg, var(--line-2), #a3e635); } .arrow.r2::after { border-left-color: #a3e635; }
+.arrow em { position: absolute; left: 50%; bottom: 8px; transform: translateX(-50%); font: 600 11px var(--mono); color: var(--text-2); font-style: normal; white-space: nowrap; letter-spacing: .06em; }
+.arrow::before { content: ""; position: absolute; top: -2px; width: 6px; height: 6px; border-radius: 50%; background: #fff; box-shadow: 0 0 8px #fff; animation: travel 2.6s linear infinite; }
+.arrow.l::before { animation-direction: reverse; }
+@keyframes travel { from { left: 0; } to { left: calc(100% - 6px); } }
+.vline { justify-self: center; position: relative; width: 2px; height: 56px; background: linear-gradient(var(--line-2), #fde047); }
+.vline.up { background: linear-gradient(#fde047, var(--line-2)); }
+.vline em { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font: 600 11px var(--mono); color: var(--text-2); font-style: normal; white-space: nowrap; letter-spacing: .06em; }
+.flow-cap { text-align: center; color: var(--muted); margin-top: 26px; font-size: 14px; }
+@media (max-width: 920px) {
+  .flow { grid-template-columns: 1fr; grid-template-areas: "par" "a1" "tre" "a2" "fund" "v1" "cou" "v2" "lrn" "a3" "nos" "a4" "git"; gap: 0; }
+  .arrow, .arrow.l, .arrow.r2 { width: 2px; height: 46px; justify-self: center; margin: 0; background: linear-gradient(var(--line-2), var(--orange)); }
+  .arrow::after, .arrow::before { display: none; }
+  .arrow em, .vline em { left: 14px; bottom: auto; top: 50%; transform: translateY(-50%); white-space: normal; width: 150px; line-height: 1.3; }
+  .vline.up { background: linear-gradient(var(--line-2), #fde047); }
+}
+
+/* ---- campus map (from the original site) ---- */
+.map-hero { position: relative; width: 100%; height: 78vh; min-height: 520px; overflow: hidden; background: #0d1117; }
+.map-mover { position: absolute; top: -120px; left: -120px; width: calc(100% + 240px); height: calc(100% + 240px); animation: mapDrift 30s ease-in-out infinite; }
+.map-mover iframe { width: 100%; height: 100%; border: none; filter: saturate(0.25) brightness(0.5) contrast(1.15); }
 @keyframes mapDrift {
   0%, 100% { transform: translate(0, 0) scale(1.01); }
   20% { transform: translate(-40px, -25px) scale(1.03); }
@@ -63,314 +240,272 @@ a:hover { color: #ffa940; }
   60% { transform: translate(-25px, 20px) scale(1.04); }
   80% { transform: translate(30px, -15px) scale(1.02); }
 }
-.map-vignette {
-  position: absolute; inset: 0; z-index: 2; pointer-events: none;
-  background:
-    radial-gradient(ellipse at center, transparent 25%, rgba(12,18,32,0.5) 70%, rgba(12,18,32,0.85) 100%);
-}
-.map-bottom-fade {
-  position: absolute; bottom: 0; left: 0; right: 0; height: 180px; z-index: 3; pointer-events: none;
-  background: linear-gradient(to bottom, transparent, var(--bg-dark));
-}
-
-/* ---- MARKER ---- */
-.marker {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  display: flex; flex-direction: column; align-items: center;
-}
-.marker a {
-  display: flex; flex-direction: column; align-items: center;
-  text-decoration: none;
-}
-.marker-ping {
-  position: absolute; top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 64px; height: 64px; border-radius: 50%;
-  border: 2px solid var(--orange);
-  animation: ping 3s ease-out infinite;
-  pointer-events: none;
-}
-.marker-ping:nth-child(2) { animation-delay: 1s; }
-.marker-ping:nth-child(3) { animation-delay: 2s; }
-@keyframes ping {
-  0% { width: 64px; height: 64px; opacity: 0.5; }
-  100% { width: 200px; height: 200px; opacity: 0; }
-}
+.map-vignette { position: absolute; inset: 0; z-index: 2; pointer-events: none; background: radial-gradient(ellipse at center, transparent 25%, rgba(8,27,42,0.5) 70%, rgba(8,27,42,0.9) 100%); }
+.map-fade-top, .map-fade-bot { position: absolute; left: 0; right: 0; height: 160px; z-index: 3; pointer-events: none; }
+.map-fade-top { top: 0; background: linear-gradient(to top, transparent, var(--bg)); }
+.map-fade-bot { bottom: 0; background: linear-gradient(to bottom, transparent, var(--bg)); }
+.map-head { position: absolute; top: 56px; left: 0; right: 0; z-index: 20; text-align: center; pointer-events: none; }
+.marker { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; display: flex; flex-direction: column; align-items: center; }
+.marker a { display: flex; flex-direction: column; align-items: center; text-decoration: none; }
+.marker-ping { position: absolute; top: 32px; left: 50%; transform: translate(-50%, -50%); width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--orange); animation: ping 3s ease-out infinite; pointer-events: none; }
+.marker-ping:nth-child(2) { animation-delay: 1s; } .marker-ping:nth-child(3) { animation-delay: 2s; }
+@keyframes ping { 0% { width: 64px; height: 64px; opacity: 0.5; } 100% { width: 200px; height: 200px; opacity: 0; } }
 .marker-icon {
-  width: 64px; height: 64px; border-radius: 50%;
-  background: var(--orange);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.3rem; font-weight: 900; color: #fff;
-  font-family: 'JetBrains Mono', monospace;
-  box-shadow:
-    0 0 0 8px rgba(247,147,26,0.15),
-    0 0 50px rgba(247,147,26,0.3),
-    0 0 100px rgba(247,147,26,0.1);
-  animation: markerGlow 3s ease-in-out infinite;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  position: relative; z-index: 5;
+  width: 64px; height: 64px; border-radius: 16px; overflow: hidden; position: relative; z-index: 5;
+  box-shadow: 0 0 0 4px rgba(247,147,26,0.5), 0 0 50px rgba(247,147,26,0.35), 0 0 100px rgba(247,147,26,0.12);
+  transition: transform 0.2s ease;
 }
-.marker a:hover .marker-icon {
-  transform: scale(1.1);
-  box-shadow:
-    0 0 0 10px rgba(247,147,26,0.2),
-    0 0 60px rgba(247,147,26,0.45),
-    0 0 120px rgba(247,147,26,0.15);
-}
-@keyframes markerGlow {
-  0%, 100% { box-shadow: 0 0 0 8px rgba(247,147,26,0.15), 0 0 50px rgba(247,147,26,0.3), 0 0 100px rgba(247,147,26,0.1); }
-  50% { box-shadow: 0 0 0 16px rgba(247,147,26,0.06), 0 0 70px rgba(247,147,26,0.4), 0 0 120px rgba(247,147,26,0.15); }
-}
-.marker-label {
-  margin-top: 0.8rem;
-  background: rgba(12,18,32,0.92);
-  border: 1px solid rgba(247,147,26,0.4);
-  padding: 0.4rem 1rem;
-  border-radius: 6px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.72rem;
-  color: var(--orange);
-  letter-spacing: 0.06em;
-  white-space: nowrap;
-  backdrop-filter: blur(8px);
-  transition: background var(--transition);
-}
-.marker a:hover .marker-label {
-  background: rgba(247,147,26,0.12);
-}
-.marker-sublabel {
-  margin-top: 0.3rem;
-  font-size: 0.65rem;
-  color: var(--text-muted);
-  font-family: 'JetBrains Mono', monospace;
-  letter-spacing: 0.04em;
-}
+.marker-icon img { width: 100%; height: 100%; }
+.marker a:hover .marker-icon { transform: scale(1.1); }
+.marker-label { margin-top: 0.8rem; background: rgba(8,27,42,0.92); border: 1px solid rgba(247,147,26,0.4); padding: 0.4rem 1rem; border-radius: 6px; font: 0.72rem var(--mono); color: var(--orange); letter-spacing: 0.06em; white-space: nowrap; backdrop-filter: blur(8px); }
+.marker a:hover .marker-label { background: rgba(247,147,26,0.12); }
+.marker-sublabel { margin-top: 0.3rem; font: 0.65rem var(--mono); color: var(--text-2); letter-spacing: 0.04em; }
 
-/* ---- BRAND STRIP ---- */
-.brand-strip {
-  position: absolute; top: 2rem; left: 50%; transform: translateX(-50%);
-  z-index: 20;
-  display: flex; align-items: center; gap: 0.6rem;
-  background: rgba(12,18,32,0.8);
-  backdrop-filter: blur(16px);
-  border: 1px solid var(--border);
-  padding: 0.6rem 1.6rem;
-  border-radius: 999px;
-}
-.brand-strip .btc-mark {
-  padding: 0 8px; height: 28px; border-radius: 14px;
-  background: var(--orange); color: #fff;
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 800; font-size: 0.72rem;
-  font-family: 'JetBrains Mono', monospace;
-  letter-spacing: 0.02em;
-}
-.brand-strip span {
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 600; font-size: 0.92rem;
-  color: var(--text-primary);
-}
-
-/* ---- CONTACT ---- */
-#contact {
-  background: var(--bg-dark);
-  padding: 5rem 2rem;
-}
-.container { max-width: 1100px; margin: 0 auto; }
-.section-tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem; color: var(--orange);
-  letter-spacing: 0.1em; text-transform: uppercase;
-  margin-bottom: 0.6rem;
-}
-.section-title {
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
-  font-weight: 700; letter-spacing: -0.02em;
-  margin-bottom: 1rem; line-height: 1.2;
-}
-.section-subtitle {
-  color: var(--text-secondary); font-size: 1.05rem;
-  max-width: 600px; margin-bottom: 3rem;
-}
-.form-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 2.5rem;
-  max-width: 720px;
-  margin: 0 auto;
-}
+/* ---- contact (from the original site) ---- */
+#contact { padding: 80px 0 110px; }
+.form-card { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 2.5rem; max-width: 760px; margin: 36px auto 0; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .form-group { margin-bottom: 1.2rem; }
-.form-group.full { grid-column: 1 / -1; }
-.form-group label {
-  display: block; font-size: 0.82rem; font-weight: 500;
-  color: var(--text-secondary); margin-bottom: 0.4rem;
-  letter-spacing: 0.02em;
-}
+.form-group label { display: block; font-size: 0.82rem; font-weight: 500; color: var(--text-2); margin-bottom: 0.4rem; letter-spacing: 0.02em; }
 .form-group label .req { color: var(--orange); }
 .form-group input, .form-group select, .form-group textarea {
-  width: 100%; padding: 0.75rem 1rem;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  color: var(--text-primary);
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.9rem;
-  transition: border-color var(--transition);
-  outline: none;
+  width: 100%; padding: 0.75rem 1rem; background: rgba(255,255,255,0.03); border: 1px solid var(--line-2);
+  border-radius: var(--radius-sm); color: var(--text); font-family: var(--sans); font-size: 0.95rem; outline: none; transition: border-color .2s var(--ease);
 }
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-  border-color: var(--orange);
-}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--orange); }
 .form-group textarea { resize: vertical; min-height: 100px; }
-.form-group select {
-  cursor: pointer; appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2394a3b8' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");
-  background-repeat: no-repeat; background-position: right 1rem center;
-}
-.form-group select option { background: var(--bg-card); color: var(--text-primary); }
-.submit-btn {
-  width: 100%; padding: 0.9rem;
-  background: var(--orange); color: #fff;
-  border: none; border-radius: var(--radius-sm);
-  font-family: 'Outfit', sans-serif;
-  font-weight: 600; font-size: 0.95rem;
-  cursor: pointer; transition: all var(--transition);
-}
-.submit-btn:hover {
-  background: #ffa940;
-  box-shadow: 0 4px 20px var(--orange-glow);
-}
-.form-privacy {
-  text-align: center; margin-top: 1rem;
-  font-size: 0.78rem; color: var(--text-muted);
-}
-.form-success {
-  display: none; text-align: center; padding: 3rem 1rem;
-}
-.form-success .check {
-  width: 60px; height: 60px; border-radius: 50%;
-  background: rgba(247,147,26,0.1);
-  border: 2px solid var(--orange);
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 1.2rem;
-  font-size: 1.5rem; color: var(--orange);
-}
+.form-group select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23a7b8ca' fill='none' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; }
+.form-group select option { background: var(--card); color: var(--text); }
+.submit-btn { width: 100%; justify-content: center; padding: 0.95rem; border-radius: var(--radius-sm); }
+.form-privacy { text-align: center; margin-top: 1rem; font-size: 0.8rem; color: var(--muted); }
+.form-success { display: none; text-align: center; padding: 3rem 1rem; }
+.form-success .check { width: 60px; height: 60px; border-radius: 50%; background: rgba(247,147,26,0.1); border: 2px solid var(--orange); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; font-size: 1.5rem; color: var(--orange); }
 .form-success h3 { font-size: 1.3rem; margin-bottom: 0.6rem; }
-.form-success p { color: var(--text-secondary); font-size: 0.95rem; }
-
-/* ---- FOOTER ---- */
-footer {
-  background: var(--bg-section);
-  border-top: 1px solid var(--border);
-  padding: 3rem 2rem 2rem;
-}
-.footer-inner { max-width: 1100px; margin: 0 auto; }
-.footer-top {
-  display: flex; justify-content: space-between; align-items: start;
-  flex-wrap: wrap; gap: 2rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--border);
-}
-.footer-brand .footer-logo {
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 700; font-size: 1.1rem;
-  color: var(--text-primary);
-  display: flex; align-items: center; gap: 0.5rem;
-  margin-bottom: 1rem;
-}
-.footer-brand .footer-logo .btc-mark {
-  display: inline-flex; align-items: center; justify-content: center;
-  padding: 0 7px; height: 26px; border-radius: 13px;
-  background: var(--orange); color: #fff;
-  font-weight: 800; font-size: 0.68rem;
-  font-family: 'JetBrains Mono', monospace;
-  letter-spacing: 0.02em;
-}
-.footer-brand p {
-  color: var(--text-muted); font-size: 0.85rem;
-  line-height: 1.7; max-width: 380px;
-}
-.footer-brand p a { color: var(--text-secondary); }
-.footer-brand p a:hover { color: var(--orange); }
-.footer-right {
-  display: flex; flex-direction: column; align-items: flex-end; gap: 0.8rem;
-}
-.footer-right .cta-btn {
-  display: inline-block; background: var(--orange); color: #fff;
-  padding: 0.6rem 1.5rem; border-radius: 999px;
-  font-weight: 600; font-size: 0.88rem;
-  transition: all var(--transition);
-}
-.footer-right .cta-btn:hover { background: #ffa940; color: #fff; }
-.footer-right a.text-link {
-  color: var(--text-secondary); font-size: 0.85rem;
-}
-.footer-right a.text-link:hover { color: var(--orange); }
-.footer-bottom {
-  display: flex; justify-content: space-between; align-items: center;
-  padding-top: 1.5rem; flex-wrap: wrap; gap: 1rem;
-}
-.footer-bottom p {
-  color: var(--text-muted); font-size: 0.8rem;
-}
-
-/* ---- RESPONSIVE ---- */
-@media (max-width: 700px) {
-  .form-row { grid-template-columns: 1fr; }
-  .form-card { padding: 1.5rem; }
-  .footer-top { flex-direction: column; }
-  .footer-right { align-items: flex-start; }
-  .marker-icon { width: 52px; height: 52px; font-size: 1.1rem; }
-  .brand-strip { padding: 0.5rem 1.2rem; }
-  .brand-strip span { font-size: 0.8rem; }
-}
+.form-success p { color: var(--text-2); }
+@media (max-width: 700px) { .form-row { grid-template-columns: 1fr; } .form-card { padding: 1.5rem; } }
+.center { text-align: center; }
+.center .lede { margin: 0 auto; }
 </style>
 </head>
 <body>
+<div class="stars" aria-hidden="true"></div>
 
-<!-- MAP HERO - FULL VIEWPORT -->
-<div class="map-hero">
-  <div class="brand-strip">
-    <div class="btc-mark">C21</div>
-    <span>Consensus21.School</span>
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top"><img src="assets/icon-192.png" alt=""><span>Consensus21<b>.School</b></span></a>
+    <div class="nav-links">
+      <a href="#week">The week</a>
+      <a href="#journey">Journey</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#protocol">Protocol</a>
+      <a href="#campus">Campus</a>
+      <a class="btn sm" href="#contact">Register interest</a>
+    </div>
   </div>
+</nav>
 
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap hero-in">
+    <div>
+      <div class="eyebrow">Open learning protocol · Ages 5–21</div>
+      <h1>School, <span class="grad">rewritten as open source.</span></h1>
+      <p class="lede">Consensus21 is an open set of rules for running a school where learners have a real vote, graduate with capital instead of debt, and leave with a community ready to help build their ideas. No exams. Mentors, not teachers. Every rule open to change.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#journey">Start your learning journey
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn ghost" href="#week">See the week</a>
+      </div>
+      <div class="hero-facts">
+        <div><b>5–21</b><span>learner ages</span></div>
+        <div><b>0</b><span>exams</span></div>
+        <div><b>10%</b><span>of fees locked for you</span></div>
+        <div><b>3 of 6</b><span>Council multisig</span></div>
+      </div>
+    </div>
+    <div class="cube-stage" id="cubeStage">
+      <div class="cube-glow"></div>
+      <div class="cube-orbit"></div>
+      <div class="cube-tilt" id="cubeTilt">
+        <picture>
+          <source srcset="assets/cube.webp" type="image/webp">
+          <img src="assets/cube.jpg" alt="An illustrated Rubik's cube whose tiles show learners exploring, building, surfing, coding and holding a Bitcoin block" width="1000" height="1000">
+        </picture>
+      </div>
+      <div class="cube-tag a"><i></i>Bitcoin treasury</div>
+      <div class="cube-tag b"><i></i>School Improvement Proposals</div>
+      <div class="cube-tag c"><i></i>Explorers Day Out</div>
+      <div class="cube-tag d"><i></i>Git portfolio</div>
+    </div>
+  </div>
+</header>
+
+<!-- PILLARS -->
+<section class="band" id="why" style="padding-top:60px">
+  <div class="wrap">
+    <div class="eyebrow reveal">Why Consensus21</div>
+    <h2 class="h2 reveal">Less like a school.<br>More like a protocol.</h2>
+    <p class="lede reveal">Like Bitcoin itself: no central authority, rules anyone can read, and changes made by consensus of the people who use it.</p>
+    <div class="pillars">
+      <article class="pillar reveal" style="--c:#fde047">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3>Student voice</h3>
+        <p>No principal, no head office. Learners are members with a real vote: they help elect the Council of mentors, and anyone can propose a change through a School Improvement Proposal (SIP).</p>
+      </article>
+      <article class="pillar reveal" style="--c:#f7931a">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h3>Capital, not debt</h3>
+        <p>Tuition is paid in Bitcoin to a community multisig wallet. 10% of every fee is locked for that learner and unlocks at 18, alongside a verifiable portfolio of finished projects.</p>
+      </article>
+      <article class="pillar reveal" style="--c:#2dd4bf">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/><path d="M16 3.13a4 4 0 0 1 0 7.75M21 21v-2a4 4 0 0 0-3-3.85"/></svg></div>
+        <h3>A community that builds ideas out</h3>
+        <p>Everyone is both a learner and a mentor. By the time a learner's fund opens, their project has had years of input from older learners, mentors and parents. The first customers are already in the room.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- WEEK -->
+<section class="band" id="week" style="padding-top:40px">
+  <div class="wrap">
+    <div class="week-head">
+      <div>
+        <div class="eyebrow reveal">The default week · Campus 01</div>
+        <h2 class="h2 reveal">A week at Consensus21</h2>
+        <p class="lede reveal">Mondays are for getting out into the world. Tuesday to Friday start with movement, run through the core programs and real projects, and finish with open, self-directed time. Tap any block to see what happens in it.</p>
+      </div>
+      <div class="week-actions reveal">
+        <button class="btn ghost" id="icsBtn" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          Add to my calendar</button>
+        <a class="btn ghost" href="start.html">Make it yours</a>
+      </div>
+    </div>
+    <div id="timetable" class="reveal"></div>
+
+    <div class="cores">
+      <div class="core reveal"><div class="when">Core · Tuesday</div><h3>Time management</h3><p>Run your own digital calendar, prioritise, audit your time and share your schedule with mentors and parents. Step one: import this week.</p></div>
+      <div class="core reveal"><div class="when">Core · Wednesday</div><h3>Financial literacy &amp; Bitcoin</h3><p>The history of money, setting up a hardware wallet, public and private keys, how transactions work and reading the blockchain.</p></div>
+      <div class="core reveal"><div class="when">Core · Friday</div><h3>Reflection &amp; portfolio</h3><p>A Git repository of projects and reflections: a permanent, verifiable record that replaces report cards.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="band" id="journey">
+  <div class="wrap">
+    <div class="eyebrow reveal">Your learning journey</div>
+    <h2 class="h2 reveal">It starts with <span class="mono" style="color:var(--orange)">git init</span></h2>
+    <p class="lede reveal">Every learner's documentation and self-reporting lives in Git. Copy the template, make it yours, and your portfolio grows one commit at a time.</p>
+    <div class="journey">
+      <ol class="steps" id="steps">
+        <li class="step on" style="--c:#f7931a" data-i="0"><span class="n">01</span><h3>Claim your profile</h3><p>Create a GitHub account and a repository with exactly the same name as your username. Its README becomes the front page of your profile.</p></li>
+        <li class="step" style="--c:#fde047" data-i="1"><span class="n">02</span><h3>Copy the C21 template</h3><p>Drop in the starter files: <span class="mono">c21.json</span>, a profile README, and folders for projects, reflections, explorer logs and SIPs.</p></li>
+        <li class="step" style="--c:#2dd4bf" data-i="2"><span class="n">03</span><h3>Plan your week</h3><p>Import the default week into your calendar, then edit the <span class="mono">week</span> block in <span class="mono">c21.json</span> as your timetable becomes your own.</p></li>
+        <li class="step" style="--c:#38bdf8" data-i="3"><span class="n">04</span><h3>Log every Explorers Day Out</h3><p>Where you went, who you met, what it cost and what you'd do with it. One markdown file per trip in <span class="mono">explorers/</span>.</p></li>
+        <li class="step" style="--c:#c084fc" data-i="4"><span class="n">05</span><h3>Reflect on Fridays</h3><p>Commit a reflection each week. Over years this becomes the verifiable record that replaces a report card.</p></li>
+        <li class="step" style="--c:#a3e635" data-i="5"><span class="n">06</span><h3>Propose a SIP</h3><p>Think something about the school should change? Write a School Improvement Proposal in <span class="mono">sips/</span> and bring it to Thursday's SIP Discussion.</p></li>
+        <li class="step" style="--c:#fb7185" data-i="6"><span class="n">07</span><h3>Ship it at 18</h3><p>Your locked fund opens alongside years of finished projects, and a community ready to help you build your idea into a business.</p></li>
+      </ol>
+      <div class="term reveal" aria-label="Example terminal session">
+        <div class="term-bar"><i></i><i></i><i></i><span id="termTitle">~/my-c21</span></div>
+        <pre id="term"></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="band" id="portfolio">
+  <div class="wrap pf">
+    <div>
+      <div class="eyebrow reveal">Learner profiles</div>
+      <h2 class="h2 reveal">Your profile is your report card</h2>
+      <p class="lede reveal">Every learner gets a public profile built from their own Git history: pinned projects, a contribution graph, core program progress, explorer logs and SIPs. Nothing to fill in twice. Just commit.</p>
+      <ul class="reveal">
+        <li>Pinned projects straight from your repositories</li>
+        <li>A year of commits as a learning heatmap</li>
+        <li>Your week, your SIPs, your Explorers Days</li>
+      </ul>
+      <form class="lookup reveal" id="lookup">
+        <input id="lookupU" placeholder="GitHub username" autocomplete="off" spellcheck="false" aria-label="GitHub username">
+        <button class="btn" type="submit">View profile</button>
+      </form>
+      <p class="muted reveal" style="font-size:13px;margin-top:10px">Try <a href="profile.html?u=kdnolan">kdnolan</a> or open the <a href="profile.html">sample learner</a>.</p>
+    </div>
+    <a class="pf-card reveal" href="profile.html" style="color:inherit">
+      <div class="pf-who">
+        <div class="pf-ava"><div>AL</div></div>
+        <div><h4>Ada Learner</h4><span>@ada-c21 · Explorer, age 12</span></div>
+      </div>
+      <div class="pf-pins">
+        <div class="pf-pin" style="--c:#f1e05a"><b>tide-tracker</b><span><i></i>JavaScript</span></div>
+        <div class="pf-pin" style="--c:#f7931a"><b>sip-004-garden</b><span><i></i>Proposal · voted</span></div>
+      </div>
+      <div class="heat" id="heatPreview" aria-hidden="true"></div>
+      <div class="heat-cap"><span id="heatTotal"></span><span>Less ▪▪▪▪ More</span></div>
+    </a>
+  </div>
+</section>
+
+<!-- PROTOCOL -->
+<section class="band" id="protocol">
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow reveal">How it works</div>
+      <h2 class="h2 reveal">Learners leave with capital and a community, not debt</h2>
+      <p class="lede reveal">Parents fund the treasury in Bitcoin. An elected Council holds the keys. Learners elect the Council and keep their own messages and records.</p>
+    </div>
+    <div class="flow reveal">
+      <div class="node" style="grid-area:par;--c:#94a3b8"><b>Parents</b><span>pay tuition directly in Bitcoin</span></div>
+      <div class="arrow" style="grid-area:a1"><em>tuition</em></div>
+      <div class="node hot" style="grid-area:tre;--c:#f7931a"><b>Community treasury</b><span>Bitcoin multisig wallet · every transaction on-chain</span></div>
+      <div class="arrow" style="grid-area:a2"><em>10%</em></div>
+      <div class="node hot" style="grid-area:fund;--c:#f7931a"><b>Learner's locked fund</b><span>10% of each fee, unlocks at 18 to start a business</span></div>
+      <div class="vline up" style="grid-area:v1"><em>holds the keys</em></div>
+      <div class="node" style="grid-area:cou;--c:#fde047"><b>Council of mentors</b><span>elected, fixed terms · 3 of 6 keys to move funds</span></div>
+      <div class="vline up" style="grid-area:v2"><em>elect the Council, vote on SIPs</em></div>
+      <div class="node" style="grid-area:nos;--c:#2dd4bf"><b>Nostr messaging</b><span>encrypted, everyone holds their own keys</span></div>
+      <div class="arrow l" style="grid-area:a3"><em>talk</em></div>
+      <div class="node" style="grid-area:lrn;--c:#38bdf8"><b>Learners &amp; mentors</b><span>ages 5 to 21, roles are fluid · projects, not exams</span></div>
+      <div class="arrow r2" style="grid-area:a4"><em>record</em></div>
+      <div class="node" style="grid-area:git;--c:#a3e635"><b>Git portfolio</b><span>projects and reflections replace report cards</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CAMPUS MAP -->
+<section id="campus" class="map-hero" aria-label="Campus location">
   <div class="map-mover">
     <iframe
       src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d800000!2d145.016!3d-38.2806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sau!4v1700000000000!5m2!1sen!2sau"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      title="Victoria Map">
-    </iframe>
-
+      loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Victoria Map"></iframe>
     <div class="marker">
       <a href="https://peninsula21.com" target="_blank" rel="noopener">
         <div class="marker-ping"></div>
         <div class="marker-ping"></div>
         <div class="marker-ping"></div>
-        <div class="marker-icon">C21</div>
+        <div class="marker-icon"><img src="assets/icon-192.png" alt="Consensus21"></div>
         <div class="marker-label">CAMPUS 01 &middot; MOUNT MARTHA</div>
         <div class="marker-sublabel">370 Craigie Road, VIC 3934</div>
       </a>
     </div>
   </div>
-
   <div class="map-vignette"></div>
-  <div class="map-bottom-fade"></div>
-</div>
+  <div class="map-fade-top"></div>
+  <div class="map-fade-bot"></div>
+  <div class="map-head"><div class="eyebrow">Campus 01</div></div>
+</section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="container">
-    <div class="section-tag">Contact Us</div>
-    <h2 class="section-title">Contact Us</h2>
-    <p class="section-subtitle">Fill in your details below to register your interest or to get in touch with our team.</p>
-
+  <div class="wrap">
+    <div class="center">
+      <div class="eyebrow">Contact us</div>
+      <h2 class="h2">Register your interest</h2>
+      <p class="lede">Fill in your details below to register your interest or to get in touch with our team.</p>
+    </div>
     <div class="form-card">
       <div class="form-success" id="formSuccess">
         <div class="check">&#10003;</div>
@@ -379,106 +514,173 @@ footer {
       </div>
       <form id="contactForm" onsubmit="handleSubmit(event)">
         <div class="form-row">
-          <div class="form-group">
-            <label>Parent / Guardian First Name <span class="req">*</span></label>
-            <input type="text" required>
-          </div>
-          <div class="form-group">
-            <label>Last Name <span class="req">*</span></label>
-            <input type="text" required>
-          </div>
+          <div class="form-group"><label>Parent / Guardian First Name <span class="req">*</span></label><input type="text" required></div>
+          <div class="form-group"><label>Last Name <span class="req">*</span></label><input type="text" required></div>
         </div>
         <div class="form-row">
-          <div class="form-group">
-            <label>Email Address <span class="req">*</span></label>
-            <input type="email" required>
-          </div>
-          <div class="form-group">
-            <label>Phone Number</label>
-            <input type="tel">
-          </div>
+          <div class="form-group"><label>Email Address <span class="req">*</span></label><input type="email" required></div>
+          <div class="form-group"><label>Phone Number</label><input type="tel"></div>
         </div>
         <div class="form-row">
-          <div class="form-group">
-            <label>Child's Name <span class="req">*</span></label>
-            <input type="text" required>
-          </div>
+          <div class="form-group"><label>Child's Name <span class="req">*</span></label><input type="text" required></div>
           <div class="form-group">
             <label>Current Year Level <span class="req">*</span></label>
             <select required>
               <option value="">Select year...</option>
-              <option>Prep</option>
-              <option>Year 1</option>
-              <option>Year 2</option>
-              <option>Year 3</option>
-              <option>Year 4</option>
-              <option>Year 5</option>
-              <option>Year 6</option>
-              <option>Not yet school age</option>
+              <option>Prep</option><option>Year 1</option><option>Year 2</option><option>Year 3</option>
+              <option>Year 4</option><option>Year 5</option><option>Year 6</option><option>Not yet school age</option>
             </select>
           </div>
         </div>
         <div class="form-row">
-          <div class="form-group">
-            <label>Suburb</label>
-            <input type="text">
-          </div>
+          <div class="form-group"><label>Suburb</label><input type="text"></div>
           <div class="form-group">
             <label>How did you hear about us?</label>
             <select>
               <option value="">Select...</option>
-              <option>Word of mouth</option>
-              <option>Social media</option>
-              <option>Google search</option>
-              <option>Local newspaper</option>
-              <option>Community noticeboard</option>
-              <option>Other</option>
+              <option>Word of mouth</option><option>Social media</option><option>Google search</option>
+              <option>Local newspaper</option><option>Community noticeboard</option><option>Other</option>
             </select>
           </div>
         </div>
-        <div class="form-group full">
-          <label>Any questions or comments?</label>
-          <textarea rows="4"></textarea>
-        </div>
-        <button type="submit" class="submit-btn">Submit</button>
+        <div class="form-group"><label>Any questions or comments?</label><textarea rows="4"></textarea></div>
+        <button type="submit" class="btn submit-btn">Submit</button>
         <p class="form-privacy">Your details are kept private and will only be used to contact you about Consensus21.</p>
       </form>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="footer-logo">
-          <span class="btc-mark">C21</span>
-          Consensus21
-        </div>
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="brand" href="#top"><img src="assets/icon-192.png" alt=""><span>Consensus21<b>.School</b></span></a>
         <p>
-          Consensus 21 Education Ltd &middot; ACN: 696 105 441 &middot; <a href="https://abr.business.gov.au/ABN/View?abn=40696105441" target="_blank">ABN: 40 696 105 441</a><br>
-          370 Craigie Road, Mount Martha VIC 3934<br>
+          Consensus 21 Education Ltd &middot; ACN 696 105 441 &middot; <a href="https://abr.business.gov.au/ABN/View?abn=40696105441" target="_blank" rel="noopener">ABN 40 696 105 441</a><br>
+          Campus 01: 370 Craigie Road, Mount Martha VIC 3934<br>
           <em>Subject to VRQA approval</em>
         </p>
       </div>
-      <div class="footer-right">
-        <a href="#contact" class="cta-btn">Register Interest</a>
-        <a href="https://peninsula21.com/constitution.html" target="_blank" class="text-link">View Constitution</a>
+      <div class="foot-links">
+        <a href="#contact" class="btn sm">Register interest</a>
+        <a href="start.html">Learner template</a>
+        <a href="profile.html">Learner profiles</a>
+        <a href="https://peninsula21.com/constitution.html" target="_blank" rel="noopener">View Constitution</a>
+        <a href="elevator.html">The full pitch</a>
       </div>
     </div>
-    <div class="footer-bottom">
+    <div class="foot-bottom">
       <p>&copy; 2026 Consensus21.School. All rights reserved.</p>
+      <p class="mono">Full whitepaper available on request</p>
     </div>
   </div>
 </footer>
 
+<script src="assets/c21.js?v=2"></script>
 <script>
 function handleSubmit(e) {
   e.preventDefault();
   document.getElementById('contactForm').style.display = 'none';
   document.getElementById('formSuccess').style.display = 'block';
 }
+
+C21.renderWeek(document.getElementById('timetable'));
+document.getElementById('icsBtn').addEventListener('click', () => C21.downloadICS());
+C21.reveal();
+
+// cube follows the pointer a little
+(function () {
+  const stage = document.getElementById('cubeStage'), tilt = document.getElementById('cubeTilt');
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  window.addEventListener('pointermove', e => {
+    const r = stage.getBoundingClientRect();
+    const x = (e.clientX - (r.left + r.width / 2)) / window.innerWidth;
+    const y = (e.clientY - (r.top + r.height / 2)) / window.innerHeight;
+    tilt.style.transform = `rotateY(${x * 18}deg) rotateX(${-y * 14}deg)`;
+  });
+})();
+
+// journey steps drive the terminal
+(function () {
+  const SCRIPTS = [
+    ['~', [['p', '$ '], ['', 'gh repo create ada-c21 --public --add-readme\n'], ['g', '✓ Created repository ada-c21/ada-c21 on GitHub\n'], ['c', '# same name as your username = your profile README\n'], ['p', '$ '], ['', 'gh repo clone ada-c21/ada-c21 && cd ada-c21\n']]],
+    ['~/ada-c21', [['p', '$ '], ['', 'npx degit consensus21school/consensus21school.github.io/template . --force\n'], ['g', '  + c21.json\n  + README.md\n  + projects/  reflections/  explorers/  sips/\n'], ['p', '$ '], ['', 'git add . && git commit -m "Join Consensus21"\n'], ['y', '[main 1a2b3c4] Join Consensus21\n']]],
+    ['~/ada-c21', [['c', '# c21.json\n'], ['', '{\n  '], ['k', '"name"'], ['', ': "Ada Learner",\n  '], ['k', '"stage"'], ['', ': "Explorer",\n  '], ['k', '"week"'], ['', ': {\n    '], ['k', '"blocks"'], ['', ': [ '], ['y', '{ "day": 0, "start": 9, "end": 15,\n      "title": "Explorers Day Out" }'], ['', ', … ]\n  }\n}\n']]],
+    ['~/ada-c21/explorers', [['p', '$ '], ['', 'cp TEMPLATE.md 2026-11-02-boatyard.md\n'], ['c', '# Where: Hastings boatyard\n# Met: a shipwright, 40 years on the job\n# Cost: $12 train + $8 lunch\n# Idea: a tide app for the jetty\n'], ['p', '$ '], ['', 'git commit -am "Explorer: boatyard"\n'], ['y', '[main 5d6e7f8] Explorer: boatyard\n']]],
+    ['~/ada-c21/reflections', [['p', '$ '], ['', 'nano 2026-W45.md\n'], ['c', '## What I finished\n- tide-tracker v0.2 reads the BOM feed\n## What got in the way\n- spent Tue on the wrong API\n## Next week\n- show it at Community Lunch\n'], ['p', '$ '], ['', 'git commit -am "Reflection W45" && git push\n'], ['g', '✓ 1 commit in 1 repository\n']]],
+    ['~/ada-c21/sips', [['p', '$ '], ['', 'cp SIP-TEMPLATE.md sip-004-garden.md\n'], ['c', '# SIP-004: Food garden by the lunch tables\n# Problem: lunch waste, no shade\n# Proposal: 3 raised beds, learner-run\n# Cost: 0.004 BTC from treasury\n'], ['p', '$ '], ['', 'git add . && git commit -m "SIP-004 draft" && git push\n'], ['g', '✓ Pushed. Bring it to Thursday SIP Discussion\n']]],
+    ['~/ada-c21', [['p', '$ '], ['', 'git log --oneline | wc -l\n'], ['y', '2847\n'], ['c', '# six years of projects, reflections and SIPs\n# a record nobody else wrote for you\n'], ['g', '# at 18: your locked fund opens\n# and the community is ready to build\n']]]
+  ];
+  const term = document.getElementById('term'), title = document.getElementById('termTitle');
+  const steps = [...document.querySelectorAll('.step')];
+  let run = 0, auto = null, idx = 0;
+
+  function esc(s) { return C21.esc(s); }
+  function play(i) {
+    const id = ++run;
+    title.textContent = SCRIPTS[i][0];
+    const parts = SCRIPTS[i][1];
+    let html = '', p = 0, c = 0;
+    (function type() {
+      if (id !== run) return;
+      if (p >= parts.length) { term.innerHTML = html + '<span class="caret"></span>'; return; }
+      const [cls, txt] = parts[p];
+      const typed = cls === '' && p > 0 && parts[p - 1][0] === 'p';
+      if (!typed) {
+        html += cls ? `<span class="${cls}">${esc(txt)}</span>` : esc(txt);
+        p++; c = 0;
+        term.innerHTML = html + '<span class="caret"></span>';
+        setTimeout(type, 160);
+        return;
+      }
+      c++;
+      term.innerHTML = html + esc(txt.slice(0, c)) + '<span class="caret"></span>';
+      if (c >= txt.length) { html += esc(txt); p++; c = 0; setTimeout(type, 260); }
+      else setTimeout(type, 22);
+    })();
+  }
+  function select(i, user) {
+    idx = i;
+    steps.forEach((s, j) => s.classList.toggle('on', j === i));
+    play(i);
+    if (user) { clearInterval(auto); auto = null; }
+  }
+  steps.forEach((s, i) => s.addEventListener('click', () => select(i, true)));
+
+  // start cycling once visible
+  const io = new IntersectionObserver(es => {
+    if (es[0].isIntersecting && !auto && run === 0) {
+      select(0);
+      auto = setInterval(() => select((idx + 1) % steps.length), 7000);
+    }
+  }, { threshold: 0.3 });
+  io.observe(document.getElementById('journey'));
+})();
+
+// sample heatmap (deterministic, clearly labelled as a sample)
+(function () {
+  const el = document.getElementById('heatPreview');
+  let seed = 21, total = 0, html = '';
+  const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  for (let w = 0; w < 30; w++) for (let d = 0; d < 7; d++) {
+    const weekday = d > 0 && d < 6, r = rnd();
+    let l = 0;
+    if (weekday && r > 0.25) l = r > 0.9 ? 4 : r > 0.72 ? 3 : r > 0.5 ? 2 : 1;
+    else if (!weekday && r > 0.85) l = 1;
+    if (d === 5 && l < 2) l = 2; // reflection Fridays
+    total += l ? l * 2 - 1 : 0;
+    html += `<i data-l="${l}"></i>`;
+  }
+  el.innerHTML = html;
+  document.getElementById('heatTotal').textContent = total + ' commits in the last 30 weeks';
+})();
+
+document.getElementById('lookup').addEventListener('submit', e => {
+  e.preventDefault();
+  const u = document.getElementById('lookupU').value.trim().replace(/^@/, '');
+  if (u) location.href = 'profile.html?u=' + encodeURIComponent(u);
+});
 </script>
 </body>
 </html>

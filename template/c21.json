@@ -1,0 +1,28 @@
+{
+  "name": "Your Name",
+  "stage": "Explorer",
+  "campus": "Campus 01 · Mount Martha",
+  "mentors": ["kdnolan"],
+  "headline": "Hi, I'm Your Name",
+  "about": "I learn at Consensus21. This profile is my portfolio: every project, reflection and Explorers Day I log ends up here.",
+
+  "pinned": [],
+
+  "programs": {
+    "Time management": 0,
+    "Financial literacy & Bitcoin": 0,
+    "Reflection & portfolio": 0
+  },
+
+  "explorers": [
+    { "date": "2026-11-02", "title": "My first Explorers Day", "path": "explorers/2026-11-02-first-day.md", "note": "Where I went and one thing I learned." }
+  ],
+
+  "reflections": [
+    { "date": "2026-11-06", "title": "Week 45: getting set up", "path": "reflections/2026-W45.md", "note": "Set up my profile and imported my week." }
+  ],
+
+  "sips": [],
+
+  "week": null
+}

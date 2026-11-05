@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learner profile · Consensus21.School</title>
+<meta name="description" content="A Consensus21 learner profile, built from their own Git history: projects, reflections, Explorers Days and School Improvement Proposals.">
+<meta name="theme-color" content="#081b2a">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/c21.css?v=2">
+<style>
+.pbar { border-bottom: 1px solid var(--line); background: rgba(8,27,42,.6); }
+.pbar-in { display: flex; gap: 6px; align-items: flex-end; padding-left: calc(300px + 40px); overflow-x: auto; scrollbar-width: none; }
+.pbar-in::-webkit-scrollbar { display: none; }
+.tab {
+  display: inline-flex; align-items: center; gap: 8px; padding: 14px 14px 13px; background: none; border: 0;
+  border-bottom: 2px solid transparent; color: var(--text-2); font: 500 14.5px var(--sans); cursor: pointer; white-space: nowrap;
+}
+.tab svg { width: 16px; height: 16px; opacity: .8; }
+.tab .cnt { font: 600 12px var(--mono); padding: 1px 8px; border-radius: 999px; background: rgba(255,255,255,.08); color: var(--text-2); }
+.tab:hover { color: var(--text); }
+.tab[aria-selected="true"] { color: var(--text); font-weight: 600; border-bottom-color: var(--orange); }
+
+.layout { display: grid; grid-template-columns: 300px 1fr; gap: 40px; padding-top: 0; padding-bottom: 80px; }
+.side { margin-top: -38px; position: relative; z-index: 2; }
+.ava-ring {
+  width: 100%; aspect-ratio: 1; border-radius: 50%; padding: 5px;
+  background: conic-gradient(from 210deg, #f7931a, #fde047, #2dd4bf, #38bdf8, #c084fc, #fb7185, #f7931a);
+  box-shadow: 0 0 60px -10px rgba(247,147,26,.4);
+}
+.ava { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: #0a1e2f; border: 4px solid var(--bg); display: grid; place-items: center; font: 700 64px var(--mono); color: var(--text); }
+.side h1 { font-size: 26px; line-height: 1.2; margin-top: 18px; letter-spacing: -0.01em; }
+.side .login { font: 400 19px var(--sans); color: var(--muted); }
+.side .bio { color: var(--text-2); margin: 14px 0; font-size: 15px; }
+.side .btn { width: 100%; justify-content: center; margin: 4px 0 16px; }
+.meta { list-style: none; display: grid; gap: 8px; font-size: 14px; color: var(--text-2); }
+.meta li { display: flex; gap: 10px; align-items: flex-start; word-break: break-word; }
+.meta svg { width: 16px; height: 16px; flex: none; margin-top: 3px; color: var(--muted); }
+.meta b { color: var(--text); }
+.stage {
+  display: inline-flex; align-items: center; gap: 8px; margin: 2px 0 14px; padding: 5px 12px; border-radius: 999px;
+  font: 600 12px var(--mono); letter-spacing: .06em; color: #111; background: var(--orange);
+}
+.badges { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 20px; }
+.badge { border: 1px solid var(--line-2); border-radius: 12px; padding: 10px 8px; text-align: center; background: rgba(255,255,255,.02); }
+.badge b { display: block; font: 700 20px var(--mono); color: var(--c); }
+.badge span { font-size: 11.5px; color: var(--muted); line-height: 1.2; display: block; }
+
+.main { padding-top: 26px; min-width: 0; }
+.panel[hidden] { display: none; }
+.h3 { font-size: 16px; font-weight: 500; margin: 0 0 12px; color: var(--text); display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.h3 small { font-size: 13px; color: var(--muted); font-weight: 400; }
+.block { margin-bottom: 34px; }
+
+.readme { border: 1px solid var(--line-2); border-radius: 12px; padding: 22px 24px; background: rgba(255,255,255,.015); }
+.readme .file { font: 500 12px var(--mono); color: var(--muted); margin-bottom: 10px; }
+.readme h2 { font-size: 22px; margin-bottom: 6px; }
+.readme p { color: var(--text-2); }
+
+.pins { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.pin { border: 1px solid var(--line-2); border-radius: 12px; padding: 16px 18px; display: flex; flex-direction: column; gap: 8px; background: rgba(255,255,255,.015); transition: border-color .2s var(--ease), transform .2s var(--ease); min-height: 112px; }
+.pin:hover { border-color: var(--orange); transform: translateY(-2px); }
+.pin-top { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.pin-top svg { width: 16px; height: 16px; color: var(--muted); flex: none; }
+.pin-top a { min-width: 0; color: #58a6ff; font-weight: 600; font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pill { font: 500 11.5px var(--sans); color: var(--muted); border: 1px solid var(--line-2); padding: 0 8px; border-radius: 999px; }
+.pin p { color: var(--text-2); font-size: 13.5px; flex: 1; }
+.pin-foot { display: flex; gap: 16px; font-size: 12.5px; color: var(--muted); align-items: center; }
+.pin-foot i { display: inline-block; width: 11px; height: 11px; border-radius: 50%; background: var(--c); margin-right: 5px; vertical-align: -1px; }
+.pin-foot svg { width: 14px; height: 14px; vertical-align: -2px; margin-right: 3px; }
+
+.programs { display: grid; gap: 14px; border: 1px solid var(--line-2); border-radius: 12px; padding: 18px 20px; }
+.prog-row { display: grid; grid-template-columns: 220px 1fr 44px; gap: 14px; align-items: center; font-size: 14px; }
+.prog-row span:first-child { color: var(--text-2); }
+.prog-bar { height: 9px; border-radius: 999px; background: rgba(255,255,255,.06); overflow: hidden; }
+.prog-bar i { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, var(--c), color-mix(in srgb, var(--c) 60%, white)); transition: width 1.2s var(--ease); }
+.prog-row b { font: 600 13px var(--mono); text-align: right; color: var(--text); }
+
+.cal { border: 1px solid var(--line-2); border-radius: 12px; padding: 18px 20px 14px; overflow-x: auto; }
+.cal-grid { display: grid; grid-template-columns: 30px 1fr; gap: 4px; min-width: 700px; }
+.cal-months { grid-column: 2; display: grid; grid-template-columns: repeat(53, 1fr); gap: 3px; font-size: 12px; color: var(--text-2); height: 18px; }
+.cal-days { display: grid; grid-template-rows: repeat(7, 1fr); gap: 3px; font-size: 11px; color: var(--text-2); }
+.cal-days span { line-height: 1; display: flex; align-items: center; }
+.cal-cells { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, 1fr); grid-template-columns: repeat(53, 1fr); gap: 3px; }
+.cal-cells i { aspect-ratio: 1; border-radius: 2px; background: #10283c; outline: 1px solid rgba(255,255,255,.03); outline-offset: -1px; }
+.cal-cells i[data-l="1"] { background: #0e4429; } .cal-cells i[data-l="2"] { background: #006d32; }
+.cal-cells i[data-l="3"] { background: #26a641; } .cal-cells i[data-l="4"] { background: #39d353; }
+.cal-cells i.x { visibility: hidden; }
+.cal-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; font-size: 12px; color: var(--muted); }
+.cal-key { display: flex; gap: 3px; align-items: center; }
+.cal-key i { width: 11px; height: 11px; border-radius: 2px; display: inline-block; }
+.year-tabs { display: flex; flex-direction: column; gap: 6px; }
+
+.feed { position: relative; padding-left: 4px; }
+.feed-month { display: flex; align-items: center; gap: 14px; font-size: 13px; font-weight: 600; margin: 18px 0 8px; }
+.feed-month span { color: var(--muted); font-weight: 400; }
+.feed-month::after { content: ""; flex: 1; height: 1px; background: var(--line-2); }
+.feed-item { display: flex; gap: 14px; padding: 10px 0 10px 4px; border-left: 2px solid var(--line-2); margin-left: 14px; padding-left: 22px; position: relative; }
+.feed-item::before {
+  content: ""; position: absolute; left: -15px; top: 10px; width: 28px; height: 28px; border-radius: 50%;
+  background: var(--bg-2) var(--ico) center/14px no-repeat; border: 1px solid var(--line-2);
+}
+.feed-item .t { font-size: 15px; }
+.feed-item .t a { color: var(--text); font-weight: 600; }
+.feed-item .t a:hover { color: #58a6ff; }
+.feed-item .s { font-size: 13px; color: var(--muted); }
+
+.list { border: 1px solid var(--line-2); border-radius: 12px; overflow: hidden; }
+.row { display: flex; gap: 14px; align-items: center; padding: 14px 18px; border-top: 1px solid var(--line); }
+.row:first-child { border-top: 0; }
+.row .d { font: 500 12.5px var(--mono); color: var(--muted); width: 98px; flex: none; }
+.row .tt2 { flex: 1; min-width: 0; }
+.row .tt2 a { color: var(--text); font-weight: 600; }
+.row .tt2 a:hover { color: #58a6ff; }
+.row .tt2 p { color: var(--muted); font-size: 13.5px; }
+.status { font: 600 11px var(--mono); padding: 3px 9px; border-radius: 999px; text-transform: uppercase; letter-spacing: .06em; border: 1px solid var(--c); color: var(--c); }
+.empty { color: var(--muted); font-size: 14px; padding: 18px; border: 1px dashed var(--line-2); border-radius: 12px; }
+.empty code, .readme code { font-family: var(--mono); color: var(--orange); font-size: .92em; }
+
+.note { display: flex; gap: 12px; align-items: flex-start; border: 1px solid rgba(247,147,26,.35); background: rgba(247,147,26,.07); border-radius: 12px; padding: 14px 16px; font-size: 14px; color: var(--text-2); margin-bottom: 24px; }
+.note b { color: var(--text); }
+.note form { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+.note input { padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line-2); background: rgba(255,255,255,.04); color: var(--text); font: 14px var(--mono); outline: none; min-width: 0; flex: 1; max-width: 260px; }
+.note input:focus { border-color: var(--orange); }
+
+.skel { background: linear-gradient(90deg, rgba(255,255,255,.04), rgba(255,255,255,.09), rgba(255,255,255,.04)); background-size: 200% 100%; animation: sk 1.4s infinite; border-radius: 8px; }
+@keyframes sk { to { background-position: -200% 0; } }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; gap: 0; }
+  .pbar-in { padding-left: 24px; }
+  .side { margin-top: 24px; display: grid; grid-template-columns: 96px 1fr; gap: 0 18px; align-items: center; }
+  .side > *:not(.ava-ring):not(.who) { grid-column: 1 / -1; }
+  .side h1 { margin-top: 0; }
+  .ava { font-size: 30px; border-width: 3px; }
+  .pins { grid-template-columns: minmax(0, 1fr); }
+  .prog-row { grid-template-columns: 1fr 44px; }
+  .prog-row .prog-bar { grid-column: 1 / -1; grid-row: 2; }
+}
+</style>
+</head>
+<body>
+<div class="stars" aria-hidden="true"></div>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="index.html"><img src="assets/icon-192.png" alt=""><span>Consensus21<b>.School</b></span></a>
+    <div class="nav-links">
+      <a href="index.html#week">The week</a>
+      <a href="index.html#journey">Journey</a>
+      <a href="start.html">Template</a>
+      <a class="btn sm" href="index.html#contact">Register interest</a>
+    </div>
+  </div>
+</nav>
+
+<div class="pbar">
+  <div class="wrap pbar-in" role="tablist" id="tabs">
+    <button class="tab" role="tab" aria-selected="true" data-p="overview"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M0 1.75A.75.75 0 0 1 .75 1h4.253c1.227 0 2.317.59 3 1.501A3.743 3.743 0 0 1 11.006 1h4.245a.75.75 0 0 1 .75.75v10.5a.75.75 0 0 1-.75.75h-4.507a2.25 2.25 0 0 0-1.591.659l-.622.621a.75.75 0 0 1-1.06 0l-.622-.621A2.25 2.25 0 0 0 5.258 13H.75a.75.75 0 0 1-.75-.75Zm7.251 10.324.004-5.073-.002-2.253A2.25 2.25 0 0 0 5.003 2.5H1.5v9h3.757a3.75 3.75 0 0 1 1.994.574ZM8.755 4.75l-.004 7.322a3.752 3.752 0 0 1 1.992-.572H14.5v-9h-3.495a2.25 2.25 0 0 0-2.25 2.25Z"/></svg>Overview</button>
+    <button class="tab" role="tab" aria-selected="false" data-p="projects"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8ZM5 12.25a.25.25 0 0 1 .25-.25h3.5a.25.25 0 0 1 .25.25v3.25a.25.25 0 0 1-.4.2l-1.45-1.087a.249.249 0 0 0-.3 0L5.4 15.7a.25.25 0 0 1-.4-.2Z"/></svg>Projects <span class="cnt" id="cntProjects">0</span></button>
+    <button class="tab" role="tab" aria-selected="false" data-p="week"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4.75 0a.75.75 0 0 1 .75.75V2h5V.75a.75.75 0 0 1 1.5 0V2h1.25c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25V3.75C1 2.784 1.784 2 2.75 2H4V.75A.75.75 0 0 1 4.75 0ZM2.5 7.5v6.75c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V7.5Zm10.75-4H2.75a.25.25 0 0 0-.25.25V6h11V3.75a.25.25 0 0 0-.25-.25Z"/></svg>My week</button>
+    <button class="tab" role="tab" aria-selected="false" data-p="journal"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25ZM3.5 6.25a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75Zm.75 2.25h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5Z"/></svg>Journal <span class="cnt" id="cntJournal">0</span></button>
+    <button class="tab" role="tab" aria-selected="false" data-p="sips"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm4.879-2.773 4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559V5.442a.25.25 0 0 1 .379-.215Z"/></svg>SIPs <span class="cnt" id="cntSips">0</span></button>
+  </div>
+</div>
+
+<div class="wrap layout">
+  <aside class="side" id="side">
+    <div class="ava-ring"><div class="ava skel"></div></div>
+    <div class="who"><h1 class="skel" style="height:28px;width:70%"></h1></div>
+  </aside>
+
+  <main class="main">
+    <div id="notice"></div>
+
+    <section class="panel" id="p-overview">
+      <div class="block" id="readme"></div>
+      <div class="block">
+        <h3 class="h3">Pinned</h3>
+        <div class="pins" id="pins"></div>
+      </div>
+      <div class="block">
+        <h3 class="h3">Core programs</h3>
+        <div class="programs" id="programs"></div>
+      </div>
+      <div class="block">
+        <h3 class="h3"><span id="calTitle">Contributions in the last year</span></h3>
+        <div class="cal" id="cal"></div>
+      </div>
+      <div class="block">
+        <h3 class="h3">Contribution activity</h3>
+        <div class="feed" id="feed"></div>
+      </div>
+    </section>
+
+    <section class="panel" id="p-projects" hidden>
+      <div class="list" id="repoList"></div>
+    </section>
+
+    <section class="panel" id="p-week" hidden>
+      <div class="block" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center">
+        <p class="muted" id="weekSrc" style="font-size:14px"></p>
+        <button class="btn ghost sm" id="icsBtn" type="button">Add to my calendar</button>
+      </div>
+      <div id="timetable"></div>
+    </section>
+
+    <section class="panel" id="p-journal" hidden>
+      <div class="block"><h3 class="h3">Explorers Days <small>explorers/</small></h3><div id="explorers"></div></div>
+      <div class="block"><h3 class="h3">Reflections <small>reflections/</small></h3><div id="reflections"></div></div>
+    </section>
+
+    <section class="panel" id="p-sips" hidden>
+      <div class="block"><h3 class="h3">School Improvement Proposals <small>sips/</small></h3><div id="sipList"></div></div>
+    </section>
+  </main>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-bottom" style="padding-top:0">
+      <p>Profiles are built from each learner's own public Git history and <span class="mono">c21.json</span>.</p>
+      <p><a href="start.html">Start yours</a> · <a href="index.html">Consensus21.School</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/c21.js?v=2"></script>
+<script>
+const esc = C21.esc;
+const $ = id => document.getElementById(id);
+const params = new URLSearchParams(location.search);
+const U = (params.get('u') || '').replace(/[^A-Za-z0-9-]/g, '').slice(0, 39);
+
+const LANG = { JavaScript: '#f1e05a', TypeScript: '#3178c6', Python: '#3572A5', HTML: '#e34c26', CSS: '#563d7c', Java: '#b07219',
+  'C++': '#f34b7d', C: '#555555', Go: '#00ADD8', Rust: '#dea584', Ruby: '#701516', Shell: '#89e051', Swift: '#F05138', Kotlin: '#A97BFF',
+  Lua: '#000080', 'Jupyter Notebook': '#DA5B0B', Markdown: '#083fa1', Scratch: '#f9a825', Arduino: '#00979D' };
+const PROG_COLORS = ['#f7931a', '#fde047', '#2dd4bf', '#38bdf8', '#c084fc', '#fb7185'];
+const SIP_COLORS = { draft: '#94a3b8', discussion: '#38bdf8', voting: '#fde047', voted: '#4ade80', accepted: '#4ade80', rejected: '#fb7185', withdrawn: '#6f8499' };
+
+const I = {
+  repo: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 0 1 4.5 0h8.75a.75.75 0 0 1 .75.75v12.5a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1 0-1.5h1.75v-2h-8a1 1 0 0 0-.714 1.7.75.75 0 1 1-1.072 1.05A2.495 2.495 0 0 1 2 11.5Zm10.5-1h-8a1 1 0 0 0-1 1v6.708A2.486 2.486 0 0 1 4.5 9h8Z"/></svg>',
+  star: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg>',
+  people: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 5.5a3.5 3.5 0 1 1 5.898 2.549 5.508 5.508 0 0 1 3.034 4.084.75.75 0 1 1-1.482.235 4 4 0 0 0-7.9 0 .75.75 0 0 1-1.482-.236A5.507 5.507 0 0 1 3.102 8.05 3.493 3.493 0 0 1 2 5.5ZM11 4a3.001 3.001 0 0 1 2.22 5.018 5.01 5.01 0 0 1 2.56 3.012.749.749 0 0 1-.885.954.752.752 0 0 1-.549-.514 3.507 3.507 0 0 0-2.522-2.372.75.75 0 0 1-.574-.73v-.352a.75.75 0 0 1 .416-.672A1.5 1.5 0 0 0 11 5.5.75.75 0 0 1 11 4Zm-5.5-.5a2 2 0 1 0-.001 3.999A2 2 0 0 0 5.5 3.5Z"/></svg>',
+  org: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M1.75 16A1.75 1.75 0 0 1 0 14.25V1.75C0 .784.784 0 1.75 0h8.5C11.216 0 12 .784 12 1.75v12.5c0 .085-.006.168-.018.25h2.268a.25.25 0 0 0 .25-.25V8.285a.25.25 0 0 0-.111-.208l-1.055-.703a.749.749 0 1 1 .832-1.248l1.055.703c.487.325.779.871.779 1.456v5.965A1.75 1.75 0 0 1 14.25 16h-3.5a.766.766 0 0 1-.197-.026c-.099.017-.2.026-.303.026h-3a.75.75 0 0 1-.75-.75V14h-1v1.25a.75.75 0 0 1-.75.75Zm-.25-1.75c0 .138.112.25.25.25H4v-1.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 .75.75v1.25h2.25a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25ZM3.75 6h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM3 3.75A.75.75 0 0 1 3.75 3h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 3.75Zm4 3A.75.75 0 0 1 7.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 7 6.75ZM7.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM3 9.75A.75.75 0 0 1 3.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 3 9.75ZM7.75 9h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5Z"/></svg>',
+  link: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"/></svg>',
+  pin: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="m12.596 11.596-3.535 3.536a1.5 1.5 0 0 1-2.122 0l-3.535-3.536a6.5 6.5 0 1 1 9.192-9.193 6.5 6.5 0 0 1 0 9.193Zm-1.06-8.132v-.001a5 5 0 1 0-7.072 7.072L8 14.07l3.536-3.534a5 5 0 0 0 0-7.072ZM8 9a2 2 0 1 1-.001-3.999A2 2 0 0 1 8 9Z"/></svg>',
+  mentor: '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"/></svg>'
+};
+const ICO = c => `url("data:image/svg+xml,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='${c}'><circle cx='8' cy='8' r='4'/></svg>`)}")`;
+
+// ---------- sample learner (shown when no ?u=) ----------
+function sampleData() {
+  const today = new Date();
+  const d = n => { const x = new Date(today); x.setDate(x.getDate() - n); return x.toISOString().slice(0, 10); };
+  let seed = 21; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const contributions = [];
+  for (let i = 364; i >= 0; i--) {
+    const day = new Date(today); day.setDate(day.getDate() - i);
+    const wd = day.getDay(), r = rnd();
+    let count = 0;
+    if (wd > 0 && wd < 6 && r > 0.3) count = Math.ceil(r * 7);
+    else if (r > 0.88) count = 1;
+    if (wd === 5) count = Math.max(count, 3);
+    contributions.push({ date: day.toISOString().slice(0, 10), count, level: count === 0 ? 0 : count < 3 ? 1 : count < 5 ? 2 : count < 7 ? 3 : 4 });
+  }
+  return {
+    sample: true,
+    user: { login: 'ada-c21', name: 'Ada Learner', bio: 'Building a tide app for the Mount Martha jetty. Learning Rust slowly and Bitcoin quickly.', avatar_url: '', followers: 14, following: 22, html_url: '#', blog: '', company: 'Consensus21.School', location: 'Mount Martha, VIC' },
+    repos: [
+      { name: 'tide-tracker', description: 'Live tide and wind for the Mount Martha jetty, built from the BOM feed.', language: 'JavaScript', stargazers_count: 6, html_url: '#', pushed_at: d(1) },
+      { name: 'sip-004-garden', description: 'School Improvement Proposal: learner-run food garden by the lunch tables.', language: 'Markdown', stargazers_count: 11, html_url: '#', pushed_at: d(3) },
+      { name: 'hardware-wallet-notes', description: 'Setting up my first hardware wallet, step by step, with what went wrong.', language: 'Markdown', stargazers_count: 3, html_url: '#', pushed_at: d(9) },
+      { name: 'prompt-lab', description: 'AI Prompt Engineers experiments: what works, what lies, and how I checked.', language: 'Python', stargazers_count: 2, html_url: '#', pushed_at: d(2) },
+      { name: 'boatyard-cad', description: 'A 3D model of a dinghy cradle, from the Explorers Day at the Hastings boatyard.', language: 'Scratch', stargazers_count: 1, html_url: '#', pushed_at: d(20) },
+      { name: 'ada-c21', description: 'My profile and portfolio.', language: 'Markdown', stargazers_count: 0, html_url: '#', pushed_at: d(0) }
+    ],
+    contributions, total: contributions.reduce((a, c) => a + c.count, 0),
+    events: [
+      { type: 'push', repo: 'ada-c21/ada-c21', count: 4, date: d(0) },
+      { type: 'push', repo: 'ada-c21/tide-tracker', count: 9, date: d(1) },
+      { type: 'create', repo: 'ada-c21/prompt-lab', date: d(12) },
+      { type: 'push', repo: 'ada-c21/sip-004-garden', count: 6, date: d(3) },
+      { type: 'pr', repo: 'consensus21school/sips', title: 'SIP-004: Food garden', date: d(4) },
+      { type: 'push', repo: 'ada-c21/hardware-wallet-notes', count: 3, date: d(36) },
+      { type: 'create', repo: 'ada-c21/boatyard-cad', date: d(40) }
+    ],
+    c21: {
+      name: 'Ada Learner', stage: 'Explorer', campus: 'Campus 01 · Mount Martha', mentors: ['kdnolan'],
+      pinned: ['tide-tracker', 'sip-004-garden', 'hardware-wallet-notes', 'prompt-lab'],
+      headline: 'Hi, I\'m Ada 👋', about: 'I learn at Consensus21. This profile is my portfolio: every project, reflection and Explorers Day I log ends up here.',
+      programs: { 'Time management': 72, 'Financial literacy & Bitcoin': 45, 'Reflection & portfolio': 88 },
+      explorers: [
+        { date: d(3), title: 'Hastings boatyard', note: 'Met a shipwright with 40 years on the job. Idea: tide app for the jetty.' },
+        { date: d(10), title: 'Mornington Peninsula farmers market', note: 'Ran the group budget: $64 for six of us.' },
+        { date: d(17), title: 'Scienceworks', note: 'Lightning room. Asked about grid storage.' }
+      ],
+      reflections: [
+        { date: d(1), title: 'Week 45: tide-tracker reads the BOM feed', note: 'Lost Tuesday to the wrong API. Showing it at Community Lunch next week.' },
+        { date: d(7), title: 'Week 44: drafting SIP-004', note: 'Counted lunch waste for five days. 3.2kg a day.' },
+        { date: d(14), title: 'Week 43: first hardware wallet', note: 'Wrote the seed words twice. Understand why now.' }
+      ],
+      sips: [
+        { id: 'SIP-004', title: 'Food garden by the lunch tables', status: 'voted', note: 'Three raised beds, learner-run, 0.004 BTC from treasury.' },
+        { id: 'SIP-007', title: 'Explorers Day budget set by learners', status: 'discussion', note: 'Learners plan and present the trip budget the Friday before.' }
+      ]
+    }
+  };
+}
+
+// ---------- live data from GitHub ----------
+async function getJSON(url) {
+  const r = await fetch(url, { headers: { Accept: 'application/vnd.github+json' } });
+  if (!r.ok) { const e = new Error(r.status); e.status = r.status; throw e; }
+  return r.json();
+}
+async function liveData(u) {
+  const api = 'https://api.github.com/users/' + u;
+  const user = await getJSON(api);
+  const [repos, events, contrib, c21] = await Promise.all([
+    getJSON(api + '/repos?per_page=100&sort=pushed').catch(() => []),
+    getJSON(api + '/events/public?per_page=100').catch(() => []),
+    fetch('https://github-contributions-api.jogruber.de/v4/' + u + '?y=last').then(r => r.ok ? r.json() : null).catch(() => null),
+    loadC21(u)
+  ]);
+  const ev = [];
+  events.forEach(e => {
+    const base = { repo: e.repo.name, date: e.created_at.slice(0, 10) };
+    if (e.type === 'PushEvent') ev.push({ ...base, type: 'push', count: (e.payload && (e.payload.size || (e.payload.commits || []).length)) || 1 });
+    else if (e.type === 'CreateEvent' && e.payload.ref_type === 'repository') ev.push({ ...base, type: 'create' });
+    else if (e.type === 'PullRequestEvent' && e.payload.action === 'opened') ev.push({ ...base, type: 'pr', title: e.payload.pull_request && e.payload.pull_request.title });
+    else if (e.type === 'IssuesEvent' && e.payload.action === 'opened') ev.push({ ...base, type: 'issue', title: e.payload.issue && e.payload.issue.title });
+  });
+  let contributions = contrib && contrib.contributions, total = contrib && contrib.total && contrib.total.lastYear;
+  if (!contributions) { // fall back to recent public events only
+    const byDay = {};
+    ev.forEach(e => { byDay[e.date] = (byDay[e.date] || 0) + (e.count || 1); });
+    contributions = [];
+    const today = new Date();
+    for (let i = 364; i >= 0; i--) {
+      const day = new Date(today); day.setDate(day.getDate() - i);
+      const k = day.toISOString().slice(0, 10), c = byDay[k] || 0;
+      contributions.push({ date: k, count: c, level: c === 0 ? 0 : c < 3 ? 1 : c < 6 ? 2 : c < 10 ? 3 : 4 });
+    }
+    total = contributions.reduce((a, c) => a + c.count, 0);
+  }
+  return { user, repos: repos.filter(r => !r.fork), events: ev, contributions, total, c21 };
+}
+async function loadC21(u) {
+  for (const repo of [u, 'c21-portfolio']) {
+    try {
+      const r = await fetch(`https://raw.githubusercontent.com/${u}/${repo}/HEAD/c21.json`);
+      if (r.ok) { const j = await r.json(); j._repo = repo; return j; }
+    } catch (e) { /* not set up yet */ }
+  }
+  return null;
+}
+
+// ---------- render ----------
+function safeUrl(s) { return /^https?:\/\//i.test(s || '') ? s : (s ? 'https://' + s : ''); }
+function fmtDate(s) { const d = new Date(s + 'T00:00:00'); return isNaN(d) ? esc(s) : d.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' }); }
+function initials(n) { return (n || '?').split(/\s+/).map(w => w[0]).join('').slice(0, 2).toUpperCase(); }
+
+function render(D, u) {
+  const user = D.user, c = D.c21 || {};
+  const name = c.name || user.name || user.login;
+  const repoBase = D.sample ? null : `https://github.com/${user.login}/${(c._repo || user.login)}/blob/HEAD/`;
+  document.title = `${name} · Consensus21.School`;
+
+  // side
+  const mentors = (c.mentors || []).map(m => `<a href="profile.html?u=${encodeURIComponent(m.replace(/^@/, ''))}">@${esc(m.replace(/^@/, ''))}</a>`).join(', ');
+  const blog = safeUrl(user.blog);
+  const nExp = (c.explorers || []).length, nSip = (c.sips || []).length, nRef = (c.reflections || []).length;
+  $('side').innerHTML = `
+    <div class="ava-ring">${user.avatar_url ? `<img class="ava" src="${esc(user.avatar_url)}" alt="">` : `<div class="ava">${esc(initials(name))}</div>`}</div>
+    <div class="who"><h1>${esc(name)}</h1><div class="login">${esc(user.login)}</div></div>
+    ${c.stage ? `<div><span class="stage">${esc(c.stage)}</span></div>` : ''}
+    ${user.bio ? `<p class="bio">${esc(user.bio)}</p>` : ''}
+    <a class="btn ghost" href="${D.sample ? 'start.html' : esc(user.html_url)}" ${D.sample ? '' : 'target="_blank" rel="noopener"'}>${D.sample ? 'Make your own' : 'View on GitHub'}</a>
+    <ul class="meta">
+      <li>${I.people}<span><b>${user.followers}</b> followers · <b>${user.following}</b> following</span></li>
+      <li>${I.org}<span>${esc(c.campus || user.company || 'Consensus21.School')}</span></li>
+      ${user.location ? `<li>${I.pin}<span>${esc(user.location)}</span></li>` : ''}
+      ${mentors ? `<li>${I.mentor}<span>Mentors: ${mentors}</span></li>` : ''}
+      ${blog ? `<li>${I.link}<a href="${esc(blog)}" target="_blank" rel="noopener">${esc(user.blog)}</a></li>` : ''}
+    </ul>
+    <div class="badges">
+      <div class="badge" style="--c:#38bdf8"><b>${nExp}</b><span>Explorers Days</span></div>
+      <div class="badge" style="--c:#c084fc"><b>${nRef}</b><span>Reflections</span></div>
+      <div class="badge" style="--c:#fde047"><b>${nSip}</b><span>SIPs</span></div>
+    </div>`;
+
+  // readme
+  $('readme').innerHTML = c.about || c.headline
+    ? `<div class="readme"><div class="file">${esc(user.login)} / README.md</div><h2>${esc(c.headline || 'Hi, I\'m ' + name)}</h2><p>${esc(c.about || '')}</p></div>`
+    : '';
+
+  // pins
+  const own = D.repos.filter(r => r.name !== user.login);
+  let pins = (c.pinned || []).map(n => D.repos.find(r => r.name === n)).filter(Boolean);
+  if (!pins.length) pins = [...own].sort((a, b) => (b.stargazers_count - a.stargazers_count) || (new Date(b.pushed_at) - new Date(a.pushed_at)));
+  pins = pins.slice(0, 6);
+  const pinHTML = r => `
+    <div class="pin">
+      <div class="pin-top">${I.repo}<a href="${esc(r.html_url)}" ${D.sample ? '' : 'target="_blank" rel="noopener"'}>${esc(r.name)}</a><span class="pill">Public</span></div>
+      <p>${esc(r.description || '')}</p>
+      <div class="pin-foot">${r.language ? `<span><i style="--c:${LANG[r.language] || '#8b949e'}"></i>${esc(r.language)}</span>` : ''}${r.stargazers_count ? `<span>${I.star}${r.stargazers_count}</span>` : ''}</div>
+    </div>`;
+  $('pins').innerHTML = pins.length ? pins.map(pinHTML).join('') : `<div class="empty">No public projects yet. Your first repository will show up here.</div>`;
+  $('cntProjects').textContent = own.length;
+
+  // programs
+  const progs = c.programs || null;
+  $('programs').innerHTML = progs
+    ? Object.entries(progs).map(([k, v], i) => `<div class="prog-row"><span>${esc(k)}</span><div class="prog-bar"><i style="--c:${PROG_COLORS[i % PROG_COLORS.length]}" data-w="${Math.max(0, Math.min(100, +v || 0))}"></i></div><b>${Math.round(+v || 0)}%</b></div>`).join('')
+    : `<div class="empty" style="border:0;padding:0">Add a <code>programs</code> block to your <code>c21.json</code> to track Time management, Financial literacy and Reflection.</div>`;
+  requestAnimationFrame(() => setTimeout(() => document.querySelectorAll('.prog-bar i').forEach(b => b.style.width = b.dataset.w + '%'), 80));
+
+  renderCal(D);
+  renderFeed(D);
+
+  // projects tab
+  $('repoList').innerHTML = own.length ? own.map(r => `
+    <div class="row"><div class="tt2"><a href="${esc(r.html_url)}" ${D.sample ? '' : 'target="_blank" rel="noopener"'}>${esc(r.name)}</a><p>${esc(r.description || '')}</p></div>
+    <div class="pin-foot">${r.language ? `<span><i style="--c:${LANG[r.language] || '#8b949e'}"></i>${esc(r.language)}</span>` : ''}<span>${fmtDate(String(r.pushed_at).slice(0, 10))}</span></div></div>`).join('')
+    : `<div class="empty" style="border:0">No public projects yet.</div>`;
+
+  // journal + sips
+  const link = (it, folder) => it.path && repoBase ? `<a href="${esc(repoBase + it.path)}" target="_blank" rel="noopener">${esc(it.title)}</a>` : `<a>${esc(it.title)}</a>`;
+  const rows = (arr, folder, extra) => arr && arr.length
+    ? `<div class="list">${arr.map(it => `<div class="row"><span class="d">${it.date ? fmtDate(it.date) : esc(it.id || '')}</span><div class="tt2">${link(it, folder)}${it.note ? `<p>${esc(it.note)}</p>` : ''}</div>${extra ? extra(it) : ''}</div>`).join('')}</div>`
+    : `<div class="empty">Nothing logged yet. Add a markdown file to <code>${folder}/</code> and list it in <code>c21.json</code>.</div>`;
+  $('explorers').innerHTML = rows(c.explorers, 'explorers');
+  $('reflections').innerHTML = rows(c.reflections, 'reflections');
+  $('sipList').innerHTML = rows(c.sips, 'sips', it => it.status ? `<span class="status" style="--c:${SIP_COLORS[String(it.status).toLowerCase()] || '#94a3b8'}">${esc(it.status)}</span>` : '');
+  $('cntJournal').textContent = nExp + nRef;
+  $('cntSips').textContent = nSip;
+
+  // week
+  const week = c.week && Array.isArray(c.week.blocks) ? Object.assign({}, C21.DEFAULT_WEEK, c.week) : C21.DEFAULT_WEEK;
+  $('weekSrc').innerHTML = c.week ? `${esc(name)}'s own week, from <span class="mono">c21.json</span>.` : `Using the Consensus21 default week. Add a <span class="mono">week</span> block to <span class="mono">c21.json</span> to make it your own.`;
+  C21.renderWeek($('timetable'), week);
+  $('icsBtn').onclick = () => C21.downloadICS(week, (user.login || 'c21') + '-week.ics');
+
+  // notices
+  if (D.sample) {
+    $('notice').innerHTML = `<div class="note"><div><b>This is a sample learner.</b> Every Consensus21 learner gets a profile like this, built from their own GitHub. Look someone up:
+      <form id="lk"><input id="lkU" placeholder="GitHub username" aria-label="GitHub username" autocomplete="off" spellcheck="false"><button class="btn sm" type="submit">View</button></form></div></div>`;
+    $('lk').addEventListener('submit', e => { e.preventDefault(); const v = $('lkU').value.trim().replace(/^@/, ''); if (v) location.search = '?u=' + encodeURIComponent(v); });
+  } else if (!D.c21) {
+    $('notice').innerHTML = `<div class="note"><div><b>${esc(user.login)} hasn't added a <span class="mono">c21.json</span> yet.</b> Their GitHub activity is shown below. Add the <a href="start.html">Consensus21 template</a> to the <span class="mono">${esc(user.login)}/${esc(user.login)}</span> repository to unlock programs, Explorers Days, SIPs and a personal week.</div></div>`;
+  }
+}
+
+function renderCal(D) {
+  const cs = D.contributions;
+  $('calTitle').textContent = `${(D.total || 0).toLocaleString()} contributions in the last year`;
+  const first = new Date(cs[0].date + 'T00:00:00');
+  const pad = first.getDay();
+  const cells = Array(pad).fill('<i class="x"></i>').concat(cs.map(c => `<i data-l="${c.level}" title="${c.count} contribution${c.count === 1 ? '' : 's'} on ${esc(c.date)}"></i>`));
+  const weeks = Math.ceil(cells.length / 7);
+  // month labels at the first week each month starts
+  const months = Array(weeks).fill('');
+  let last = -1;
+  cs.forEach((c, i) => {
+    const d = new Date(c.date + 'T00:00:00'), w = Math.floor((i + pad) / 7);
+    if (d.getMonth() !== last && d.getDate() <= 7) { months[w] = d.toLocaleDateString('en-AU', { month: 'short' }); last = d.getMonth(); }
+  });
+  $('cal').innerHTML = `
+    <div class="cal-grid">
+      <div></div>
+      <div class="cal-months" style="grid-template-columns:repeat(${weeks},1fr)">${months.map(m => `<span>${m}</span>`).join('')}</div>
+      <div class="cal-days"><span></span><span>Mon</span><span></span><span>Wed</span><span></span><span>Fri</span><span></span></div>
+      <div class="cal-cells" style="grid-template-columns:repeat(${weeks},1fr)">${cells.join('')}</div>
+    </div>
+    <div class="cal-foot"><span>Every commit counts: projects, reflections, explorer logs, SIPs.</span>
+      <span class="cal-key">Less <i style="background:#10283c"></i><i style="background:#0e4429"></i><i style="background:#006d32"></i><i style="background:#26a641"></i><i style="background:#39d353"></i> More</span></div>`;
+}
+
+function renderFeed(D) {
+  if (!D.events.length) { $('feed').innerHTML = `<div class="empty">No recent public activity.</div>`; return; }
+  const groups = {};
+  D.events.forEach(e => { const k = e.date.slice(0, 7); (groups[k] = groups[k] || []).push(e); });
+  const repoLink = r => `<a href="${D.sample ? '#' : 'https://github.com/' + esc(r)}" ${D.sample ? '' : 'target="_blank" rel="noopener"'}>${esc(r)}</a>`;
+  $('feed').innerHTML = Object.keys(groups).sort().reverse().slice(0, 4).map(k => {
+    const es = groups[k];
+    const d = new Date(k + '-01T00:00:00');
+    const pushes = es.filter(e => e.type === 'push');
+    const byRepo = {};
+    pushes.forEach(e => byRepo[e.repo] = (byRepo[e.repo] || 0) + e.count);
+    const commits = pushes.reduce((a, e) => a + e.count, 0);
+    let html = `<div class="feed-month">${d.toLocaleDateString('en-AU', { month: 'long' })} <span>${d.getFullYear()}</span></div>`;
+    if (commits) html += `<div class="feed-item" style="--ico:${ICO('#39d353')}"><div><div class="t">Created ${commits} commit${commits === 1 ? '' : 's'} in ${Object.keys(byRepo).length} repositor${Object.keys(byRepo).length === 1 ? 'y' : 'ies'}</div>
+      <div class="s">${Object.entries(byRepo).sort((a, b) => b[1] - a[1]).slice(0, 4).map(([r, n]) => `${repoLink(r)} · ${n}`).join('<br>')}</div></div></div>`;
+    es.filter(e => e.type === 'create').forEach(e => { html += `<div class="feed-item" style="--ico:${ICO('#58a6ff')}"><div><div class="t">Created repository ${repoLink(e.repo)}</div><div class="s">${fmtDate(e.date)}</div></div></div>`; });
+    es.filter(e => e.type === 'pr' || e.type === 'issue').forEach(e => { html += `<div class="feed-item" style="--ico:${ICO('#f7931a')}"><div><div class="t">Opened ${e.type === 'pr' ? 'a pull request' : 'an issue'} in ${repoLink(e.repo)}</div><div class="s">${esc(e.title || '')} · ${fmtDate(e.date)}</div></div></div>`; });
+    return html;
+  }).join('');
+}
+
+// tabs
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+  document.querySelectorAll('.tab').forEach(x => x.setAttribute('aria-selected', String(x === t)));
+  document.querySelectorAll('.panel').forEach(p => p.hidden = p.id !== 'p-' + t.dataset.p);
+  history.replaceState(null, '', location.search + '#' + t.dataset.p);
+}));
+if (location.hash) { const t = document.querySelector(`.tab[data-p="${location.hash.slice(1)}"]`); if (t) t.click(); }
+
+(async () => {
+  if (!U) return render(sampleData());
+  try {
+    render(await liveData(U), U);
+  } catch (e) {
+    const msg = e.status === 404 ? `No GitHub user called <b>${esc(U)}</b>.` : e.status === 403 ? `GitHub's rate limit was hit. Try again in a few minutes.` : `Couldn't reach GitHub right now.`;
+    render(sampleData());
+    $('notice').insertAdjacentHTML('afterbegin', `<div class="note"><div>${msg} Showing the sample learner instead.</div></div>`);
+  }
+})();
+</script>
+</body>
+</html>
